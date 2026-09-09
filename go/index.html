@@ -37,8 +37,12 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 </style>
 </head>
 <body><div class="app" id="app"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
+const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
 const SAMPLE_WORDS=[
 ["afleiden","分散注意力","zorgen dat iemands aandacht ergens anders heen gaat","Het lawaai kon hem niet afleiden tijdens de wedstrijd.","噪音没能让他在比赛中分心。"],
 ["beoefenen","实践/从事","je ergens mee bezighouden","Al jaren beoefent hij verschillende sporten naast voetbal.","除了踢足球，他多年来还坚持从事各种运动。"],
@@ -75,6 +79,17 @@ function load(){
 }
 let DATA=load();
 function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(DATA))}
+function cloudList(row){return {id:row.id,name:row.name,kid:localizeKid(row.kid),createdAt:Date.parse(row.created_at),words:(row.words||[]).map(normalizeWord)}}
+async function loadCloudLists(){
+ const {data,error}=await db.from("word_lists").select("id,name,kid,words,created_at").order("created_at",{ascending:false});
+ if(error){console.error(error);alert("De gedeelde woordenlijsten konden niet worden geladen. Probeer het later opnieuw.");return}
+ DATA={lists:(data||[]).map(cloudList)};save();render();
+}
+async function createCloudList(list){
+ const {data,error}=await db.from("word_lists").insert({name:list.name,kid:list.kid,words:list.words}).select("id,name,kid,words,created_at").single();
+ if(error){console.error(error);alert("Opslaan mislukt. Probeer het opnieuw.");return null}
+ return cloudList(data);
+}
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
 function render(){document.getElementById("app").innerHTML=state.view==="home"?home():state.view==="detail"?detail():study(); if(state.modal)modal(); handlers()}
@@ -88,8 +103,8 @@ function home(){
 }
 function detail(){
  let l=getList(); if(!l){state.view="home";return home()}
- let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div><button class="row-del" data-del="${w.id}">Verwijderen</button></div></div>`).join("");
- return `<button class="back" id="back">‹ Terug naar alle woordenlijsten</button><div class="detail-header"><div><h2>${esc(l.name)}</h2><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden · vijf velden</div></div><div class="detail-actions"><button class="icon-btn" id="editWords">✎ Toevoegen/bewerken</button><button class="icon-btn" id="deleteList">🗑 Lijst verwijderen</button></div></div>
+ let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div></div></div>`).join("");
+ return `<button class="back" id="back">‹ Terug naar alle woordenlijsten</button><div class="detail-header"><div><h2>${esc(l.name)}</h2><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden · vijf velden</div></div></div>
  <div class="mode-grid">
  ${modeCard("🔄","Flashcards","Betekenis + Nederlandse uitleg + tweetalige voorbeelden","flashcard")}${modeCard("✅","Leren","Kies de juiste betekenis","mc")}
  </div>
@@ -116,10 +131,12 @@ function modal(){
  if(!isEdit){let pickButtons=overlay.querySelectorAll("[data-pick]");pickButtons[0].textContent="🦉 Felix · Groep 6";pickButtons[1].textContent="🐓 Max · Groep 4"}
  let picked="Oudste";overlay.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>{picked=b.dataset.pick;overlay.querySelectorAll("[data-pick]").forEach(x=>x.classList.remove("sel"));b.classList.add("sel")});
  document.getElementById("cancel").onclick=()=>{state.modal=null;render()};
- document.getElementById("saveModal").onclick=()=>{
+ document.getElementById("saveModal").onclick=async()=>{
   let text=document.getElementById("words").value,parsed=parse(text);if(!parsed.length){alert("Geen geldige woorden gevonden.");return}
-  if(isEdit)l.words.push(...parsed.map(w=>normalizeWord(w)));else{let nl={id:uid(),name:document.getElementById("listName").value.trim()||"Naamloze woordenlijst",kid:picked,createdAt:Date.now(),words:parsed.map(w=>normalizeWord(w))};DATA.lists.push(nl);state.listId=nl.id;state.view="detail"}
-  save();state.modal=null;render()
+  if(isEdit){alert("Gedeelde woordenlijsten kunnen nog niet worden bewerkt.");return}
+  let nl={name:document.getElementById("listName").value.trim()||"Naamloze woordenlijst",kid:picked,words:parsed.map(w=>normalizeWord(w))};
+  let saved=await createCloudList(nl);if(!saved)return;
+  DATA.lists.unshift(saved);save();state.listId=saved.id;state.view="detail";state.modal=null;render()
  }
 }
 function parse(text){
@@ -158,8 +175,8 @@ function handlers(){
  if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
  if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok)s.correct++;else s.review.push(s.queue[0]);render()});document.getElementById("next")?.addEventListener("click",()=>{s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()})}
 }
-function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.lists)throw 0;DATA.lists.push(...d.lists.map(l=>({...l,id:uid(),words:(l.words||[]).map(normalizeWord)})));save();render()}catch(err){alert("Importeren mislukt: onjuiste JSON-indeling.")}};r.readAsText(f)}
-render();
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=async()=>{try{let d=JSON.parse(r.result);if(!d.lists)throw 0;for(let l of d.lists||[]){let saved=await createCloudList({name:l.name||"Naamloze woordenlijst",kid:localizeKid(l.kid)||"Oudste",words:(l.words||[]).map(normalizeWord)});if(!saved)return}await loadCloudLists()}catch(err){alert("Importeren mislukt: onjuiste JSON-indeling.")}};r.readAsText(f)}
+render();loadCloudLists();
 </script>
 </body>
 </html>
