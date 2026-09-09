@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Woordleerhoek V2</title>
+<title>🐦 Kievit Go</title>
 <style>
 :root{
   --paper:#EEF2F6;--white:#fff;--ink:#24313F;--soft:#5B6B7A;--line:#D8E0E7;
@@ -18,6 +18,7 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 .version-tag{position:fixed;left:12px;bottom:10px;color:#7D8790;font-size:11px;z-index:10;pointer-events:none}
 .topbar,.detail-header,.session-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:baseline;gap:10px}.brand h1{margin:0;font-size:26px}.sub,.meta,.hint{color:var(--soft);font-size:13px}
+.game-panel{margin:18px 0 20px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 3px 12px #24313f12}.game-panel-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#F7FAFC}.game-panel-title{font-size:14px;font-weight:800}.game-panel-help{color:var(--soft);font-size:12px}.kievit-game{display:block;width:100%;height:190px;border:0;background:#fff}
 .actions,.detail-actions,.tabs,.kid-choice,.modal-actions,.fc-buttons,.summary-actions{display:flex;gap:8px}
 .btn,.icon-btn,.kid-tab,.mode-card,.mc-option{border:1px solid var(--line);background:var(--white);border-radius:var(--radius)}
 .btn{padding:10px 18px;font-weight:600}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.btn.ghost{background:transparent}
@@ -34,14 +35,14 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 .flashcard{min-height:300px;background:#fff;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 4px 0 var(--line);font-size:28px;font-weight:700;margin-bottom:18px}.flashcard.flipped{background:var(--accent-soft);font-size:19px;line-height:1.7}.fc-buttons{width:100%}.fc-buttons .btn{flex:1;padding:14px}.word-image{display:block;width:min(100%,420px);height:190px;object-fit:cover;border-radius:14px;margin:18px auto 0;box-shadow:0 3px 12px #24313f22}.mc .word-image{height:170px;margin-top:-10px;margin-bottom:20px}
 .spell,.mc{text-align:center;max-width:470px;margin:auto}.prompt{color:var(--soft);margin-bottom:8px}.big-word{font-size:30px;font-weight:800;margin:10px 0 24px}.spell-input{width:100%;padding:14px;text-align:center;font-size:19px;border:2px solid var(--line);border-radius:13px;margin-bottom:12px}.feedback{min-height:25px;font-weight:700}.correct{color:var(--good)}.wrong{color:var(--bad)}.mc-options{display:flex;flex-direction:column;gap:10px}.mc-option{padding:14px;text-align:left}.mc-option.correct{border-color:var(--good);background:var(--good-soft)}.mc-option.wrong{border-color:var(--bad);background:var(--bad-soft)}
 .summary{text-align:center;max-width:500px;margin:50px auto}.big-num{font-size:52px;font-weight:800;color:var(--accent)}.review{margin:20px 0;background:#fff;border:1px solid var(--line);border-radius:14px;text-align:left;padding:6px 15px}.review div{padding:9px 0;border-bottom:1px solid var(--line)}.review div:last-child{border:0}
-@media(max-width:650px){.app{padding:20px 12px 85px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
+@media(max-width:650px){.app{padding:20px 12px 85px}.game-panel{margin:14px 0 16px}.kievit-game{height:160px}.game-panel-help{font-size:11px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
 </style>
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.013";
+const APP_VERSION="V1.015";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -130,7 +131,8 @@ function render(){document.getElementById("app").innerHTML=(state.view==="home"?
 function home(){
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>cs[l.kid]=(cs[l.kid]||0)+1);
  let ls=DATA.lists.filter(l=>state.filter==="Alle"||l.kid===state.filter);
- return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div><div class="actions"><button class="icon-btn" id="export">⬇ Back-up</button><button class="icon-btn" id="importBtn">⬆ Importeren</button><input id="importFile" type="file" accept=".json" hidden></div></div>
+ return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div></div>
+ <section class="game-panel" aria-label="Kievit Go spel"><div class="game-panel-head"><span class="game-panel-title">🐦 Kievit Go</span><span class="game-panel-help">Klik of tik om te springen</span></div><iframe class="kievit-game" src="assets/trex-runner/index.html" title="Kievit Go spel" loading="lazy"></iframe></section>
  <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
  ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
  <button class="fab" id="newList">＋ Nieuwe woordenlijst</button>`
@@ -200,9 +202,6 @@ function handlers(){
  document.getElementById("deleteList")?.addEventListener("click",()=>{if(confirm("Weet je zeker dat je deze woordenlijst wilt verwijderen?")){DATA.lists=DATA.lists.filter(x=>x.id!==state.listId);save();state.view="home";render()}});
  document.querySelectorAll("[data-mode]").forEach(x=>x.onclick=()=>start(x.dataset.mode));
  document.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>{let l=getList();l.words=l.words.filter(w=>w.id!==x.dataset.del);save();render()});
- document.getElementById("export")?.addEventListener("click",()=>{let a=document.createElement("a"),u=URL.createObjectURL(new Blob([JSON.stringify(DATA,null,2)],{type:"application/json"}));a.href=u;a.download=`woordleerhoek_v2_back-up_${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(u)});
- document.getElementById("importBtn")?.addEventListener("click",()=>document.getElementById("importFile").click());
- document.getElementById("importFile")?.addEventListener("change",importData);
  document.getElementById("exit")?.addEventListener("click",()=>{state.view="detail";state.session=null;render()});
  document.getElementById("restart")?.addEventListener("click",()=>start(state.mode));
  if(state.view!=="study")return;
@@ -210,7 +209,6 @@ function handlers(){
  if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
  if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok)s.correct++;else s.review.push(s.queue[0]);render()});document.getElementById("next")?.addEventListener("click",()=>{s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()})}
 }
-function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=async()=>{try{let d=JSON.parse(r.result);if(!d.lists)throw 0;for(let l of d.lists||[]){let saved=await createCloudList({name:l.name||"Naamloze woordenlijst",kid:localizeKid(l.kid)||"Oudste",words:(l.words||[]).map(normalizeWord)});if(!saved)return}await loadCloudLists()}catch(err){alert("Importeren mislukt: onjuiste JSON-indeling.")}};r.readAsText(f)}
 render();loadCloudLists();
 </script>
 </body>
