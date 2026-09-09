@@ -15,6 +15,7 @@
 body{margin:0;background:linear-gradient(#eef2f6ce,#eef2f6ce),url("assets/kievit-background.png") center/cover fixed no-repeat;color:var(--ink);font-family:Arial,"Segoe UI",sans-serif}
 button,input,textarea{font:inherit}button{cursor:pointer}
 .app{max-width:980px;margin:auto;padding:26px 20px 90px}
+.version-tag{position:fixed;left:12px;bottom:10px;color:#7D8790;font-size:11px;z-index:10;pointer-events:none}
 .topbar,.detail-header,.session-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:baseline;gap:10px}.brand h1{margin:0;font-size:26px}.sub,.meta,.hint{color:var(--soft);font-size:13px}
 .actions,.detail-actions,.tabs,.kid-choice,.modal-actions,.fc-buttons,.summary-actions{display:flex;gap:8px}
@@ -40,6 +41,7 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
+const APP_VERSION="V1.012";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -124,7 +126,7 @@ async function changeImage(wordId){
 }
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
-function render(){document.getElementById("app").innerHTML=state.view==="home"?home():state.view==="detail"?detail():study(); if(state.modal)modal(); handlers()}
+function render(){document.getElementById("app").innerHTML=(state.view==="home"?home():state.view==="detail"?detail():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
 function home(){
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>cs[l.kid]=(cs[l.kid]||0)+1);
  let ls=DATA.lists.filter(l=>state.filter==="Alle"||l.kid===state.filter);
