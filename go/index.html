@@ -26,10 +26,10 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 .fab{position:fixed;right:25px;bottom:25px;border:0;border-radius:999px;padding:14px 20px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 6px 18px #2c7a7b55}
 .back{border:0;background:none;color:var(--soft);padding:4px 0;margin-bottom:13px}.detail-header{align-items:flex-start;margin-bottom:20px}.detail-header h2{margin:0 0 5px}
 .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 26px}.mode-card{padding:18px;text-align:left}.mode-card:hover{border-color:var(--accent);transform:translateY(-1px)}.mode-card .emoji{font-size:22px}.mode-card .title{font-weight:700;margin-top:8px}.mode-card .desc{font-size:12.5px;color:var(--soft);margin-top:4px}
-.word-table{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.word-row{display:grid;grid-template-columns:1.05fr .9fr 1.25fr 1.5fr 1.5fr 48px;gap:10px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:start;font-size:13px}.word-row:last-child{border-bottom:0}.word-head{background:var(--paper);font-size:12px;color:var(--soft);font-weight:700}.cell-label{display:none}.row-del{border:0;background:none;color:var(--bad);padding:3px}
+.word-table{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.word-row{display:grid;grid-template-columns:1.05fr .9fr 1.25fr 1.5fr 1.5fr 100px 86px;gap:10px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:start;font-size:13px}.word-row:last-child{border-bottom:0}.word-head{background:var(--paper);font-size:12px;color:var(--soft);font-weight:700}.cell-label{display:none}.word-thumbnail{display:block;width:88px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--paper)}.change-image{padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--soft);font-size:12px;font-weight:700}.change-image:hover{border-color:var(--accent);color:var(--accent)}.row-del{border:0;background:none;color:var(--bad);padding:3px}
 .modal-overlay{position:fixed;inset:0;background:#24313f77;display:flex;align-items:center;justify-content:center;padding:18px;z-index:20}.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:24px}.field{margin:14px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper)}.field textarea{min-height:230px;line-height:1.55}.field input:focus,.field textarea:focus{outline:2px solid var(--accent)}
 .kid-choice button{flex:1;padding:10px;border:1.5px solid var(--line);background:var(--paper);border-radius:10px}.kid-choice button.sel[data-k="Oudste"]{border-color:var(--ge);background:var(--ge-soft)}.kid-choice button.sel[data-k="Jongste"]{border-color:var(--di);background:var(--di-soft)}
-.session{max-width:650px;margin:auto}.session-top{margin-bottom:20px}.progress{height:8px;background:var(--line);border-radius:8px;flex:1;overflow:hidden}.progress>div{height:100%;background:var(--accent)}
+.session{max-width:650px;margin:auto}.session-list-title{text-align:center;font-size:18px;font-weight:800;margin:0 0 14px}.session-top{margin-bottom:20px}.progress{height:8px;background:var(--line);border-radius:8px;flex:1;overflow:hidden}.progress>div{height:100%;background:var(--accent)}
 .flashcard{min-height:300px;background:#fff;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 4px 0 var(--line);font-size:28px;font-weight:700;margin-bottom:18px}.flashcard.flipped{background:var(--accent-soft);font-size:19px;line-height:1.7}.fc-buttons{width:100%}.fc-buttons .btn{flex:1;padding:14px}.word-image{display:block;width:min(100%,420px);height:190px;object-fit:cover;border-radius:14px;margin:18px auto 0;box-shadow:0 3px 12px #24313f22}.mc .word-image{height:170px;margin-top:-10px;margin-bottom:20px}
 .spell,.mc{text-align:center;max-width:470px;margin:auto}.prompt{color:var(--soft);margin-bottom:8px}.big-word{font-size:30px;font-weight:800;margin:10px 0 24px}.spell-input{width:100%;padding:14px;text-align:center;font-size:19px;border:2px solid var(--line);border-radius:13px;margin-bottom:12px}.feedback{min-height:25px;font-weight:700}.correct{color:var(--good)}.wrong{color:var(--bad)}.mc-options{display:flex;flex-direction:column;gap:10px}.mc-option{padding:14px;text-align:left}.mc-option.correct{border-color:var(--good);background:var(--good-soft)}.mc-option.wrong{border-color:var(--bad);background:var(--bad-soft)}
 .summary{text-align:center;max-width:500px;margin:50px auto}.big-num{font-size:52px;font-weight:800;color:var(--accent)}.review{margin:20px 0;background:#fff;border:1px solid var(--line);border-radius:14px;text-align:left;padding:6px 15px}.review div{padding:9px 0;border-bottom:1px solid var(--line)}.review div:last-child{border:0}
@@ -61,8 +61,13 @@ const IMAGE_QUERIES={
  "sindsdien":"sports,recovery", "de tactiek":"football,coach", "de tegenslag":"sports,injury",
  "toegankelijk":"stadium,entrance"
 };
+let IMAGE_URLS={};
 function imageSeed(text){return [...text].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,7)%100000}
-function wordImage(w){let term=w.term.toLowerCase(),query=IMAGE_QUERIES[term]||term.replace(/^de |^het /,"").replace(/\s+/g,",");let url=`https://loremflickr.com/900/450/${encodeURIComponent(query)}?lock=${imageSeed(term)}`;return `<img class="word-image" src="${url}" alt="Afbeelding bij ${esc(w.term)}" loading="lazy" onerror="this.style.display='none'">`}
+function generatedImageUrl(w,lock){let term=w.term.toLowerCase(),query=IMAGE_QUERIES[term]||term.replace(/^de |^het /,"").replace(/\s+/g,",");return `https://loremflickr.com/900/450/${encodeURIComponent(query)}?lock=${lock}`}
+function imageKey(w){return `${state.listId}:${w.id}`}
+function imageUrl(w){return IMAGE_URLS[imageKey(w)]||generatedImageUrl(w,imageSeed(w.term))}
+function wordImage(w){return `<img class="word-image" src="${imageUrl(w)}" alt="Afbeelding bij ${esc(w.term)}" loading="lazy" onerror="this.style.display='none'">`}
+function wordThumbnail(w){return `<img class="word-thumbnail" src="${imageUrl(w)}" alt="Voorbeeldafbeelding bij ${esc(w.term)}" loading="lazy" onerror="this.style.display='none'">`}
 function uid(){return Math.random().toString(36).slice(2)+Date.now().toString(36)}
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function localizeKid(k){return k==="哥哥"?"Oudste":k==="弟弟"?"Jongste":k}
@@ -83,12 +88,24 @@ function cloudList(row){return {id:row.id,name:row.name,kid:localizeKid(row.kid)
 async function loadCloudLists(){
  const {data,error}=await db.from("word_lists").select("id,name,kid,words,created_at").order("created_at",{ascending:false});
  if(error){console.error(error);alert("De gedeelde woordenlijsten konden niet worden geladen. Probeer het later opnieuw.");return}
- DATA={lists:(data||[]).map(cloudList)};save();render();
+ DATA={lists:(data||[]).map(cloudList)};await loadCloudImages();save();render();
+}
+async function loadCloudImages(){
+ const {data,error}=await db.from("word_images").select("word_list_id,word_id,image_url");
+ if(error){console.info("Afbeeldingen zijn nog niet ingesteld.");return}
+ IMAGE_URLS=Object.fromEntries((data||[]).map(x=>[`${x.word_list_id}:${x.word_id}`,x.image_url]));
 }
 async function createCloudList(list){
  const {data,error}=await db.from("word_lists").insert({name:list.name,kid:list.kid,words:list.words}).select("id,name,kid,words,created_at").single();
  if(error){console.error(error);alert("Opslaan mislukt. Probeer het opnieuw.");return null}
  return cloudList(data);
+}
+async function changeImage(wordId){
+ let l=getList(),w=l?.words.find(x=>x.id===wordId);if(!l||!w)return;
+ let url=generatedImageUrl(w,Math.floor(Math.random()*900000000)+100000000);
+ const {error}=await db.from("word_images").upsert({word_list_id:l.id,word_id:wordId,image_url:url},{onConflict:"word_list_id,word_id"});
+ if(error){console.error(error);alert("De nieuwe afbeelding kon nog niet worden opgeslagen. Maak eerst de tabel word_images in Supabase aan.");return}
+ IMAGE_URLS[`${l.id}:${wordId}`]=url;render();
 }
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
@@ -103,20 +120,20 @@ function home(){
 }
 function detail(){
  let l=getList(); if(!l){state.view="home";return home()}
- let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div></div></div>`).join("");
+ let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div><span class="cell-label">Afbeelding</span>${wordThumbnail(w)}</div><div><button class="change-image" data-change-image="${esc(w.id)}">↻ Nieuwe afbeelding</button></div></div>`).join("");
  return `<button class="back" id="back">‹ Terug naar alle woordenlijsten</button><div class="detail-header"><div><h2>${esc(l.name)}</h2><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden · vijf velden</div></div></div>
  <div class="mode-grid">
  ${modeCard("🔄","Flashcards","Betekenis + Nederlandse uitleg + tweetalige voorbeelden","flashcard")}${modeCard("✅","Leren","Kies de juiste betekenis","mc")}
  </div>
- <div class="word-table"><div class="word-row word-head"><div>Nederlandse uitleg</div><div>Nederlands woord</div><div>Nederlands voorbeeld</div><div>Chinese betekenis</div><div>Chinees voorbeeld</div><div></div></div>${rows||`<div class="empty">Deze woordenlijst bevat nog geen woorden.</div>`}</div>`
+ <div class="word-table"><div class="word-row word-head"><div>Nederlandse uitleg</div><div>Nederlands woord</div><div>Nederlands voorbeeld</div><div>Chinese betekenis</div><div>Chinees voorbeeld</div><div>Afbeelding</div><div>Wijzigen</div></div>${rows||`<div class="empty">Deze woordenlijst bevat nog geen woorden.</div>`}</div>`
 }
 function modeCard(e,t,d,m){return `<button class="mode-card" data-mode="${m}"><span class="emoji">${e}</span><div class="title">${t}</div><div class="desc">${d}</div></button>`}
 function study(){
  let s=state.session,l=getList();if(s.finished)return summary(l);
  let cur=s.queue[0],done=s.total-s.queue.length;
- let top=`<div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
+ let top=`<div class="session-list-title">${esc(l.name)}</div><div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
  if(state.mode==="flashcard")return `<div class="session">${top}<div class="flashcard ${s.flip?"flipped":""}" id="fc">${s.flip?`<div><div>${esc(cur.definition)}</div>${wordImage(cur)}<hr><div>${esc(cur.explanationNl)||"Nog geen Nederlandse uitleg"}</div><p>${esc(cur.exampleNl)||""}</p><p>${esc(cur.exampleZh)||""}</p></div>`:`<div>${esc(cur.term)}${wordImage(cur)}</div>`}</div><div class="fc-buttons"><button class="btn" id="unknown">🔁 Nog oefenen</button><button class="btn" id="known">✅ Beheerst</button></div><p class="hint" style="text-align:center">Klik op de kaart om hem om te draaien</p></div>`;
- if(state.mode==="mc")return `<div class="session"><div class="mc">${top}<div class="prompt">Wat betekent dit woord?</div><div class="big-word">${esc(cur.term)}</div>${wordImage(cur)}<div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":i===s.selected?"wrong":""):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?`<button class="btn primary" id="next" style="margin-top:15px">Volgende vraag →</button>`:""}</div></div>`;
+ if(state.mode==="mc")return `<div class="session"><div class="mc">${top}<div class="prompt">Wat is de Nederlandse uitleg van dit woord?</div><div class="big-word">${esc(cur.term)}</div>${wordImage(cur)}<div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":i===s.selected?"wrong":""):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?`<button class="btn primary" id="next" style="margin-top:15px">Volgende vraag →</button>`:""}</div></div>`;
 }
 function summary(l){
  let s=state.session,review=s.review||[];let big=state.mode==="flashcard"?s.known:`${s.correct}/${s.total}`,label=state.mode==="flashcard"?`woorden beheerst · ${s.total} in totaal`:`goed · ${Math.round(s.correct/s.total*100)}% correct`;
@@ -154,11 +171,12 @@ function start(m){
  render()
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
-function mc(w,all){return shuffle([{text:w.definition,ok:true},...shuffle(all.filter(x=>x.id!==w.id)).slice(0,3).map(x=>({text:x.definition,ok:false}))])}
+function mc(w,all){return shuffle([{text:w.explanationNl,ok:true},...shuffle(all.filter(x=>x.id!==w.id)).slice(0,3).map(x=>({text:x.explanationNl,ok:false}))])}
 function finishIf(s){if(!s.queue.length)s.finished=true}
 function handlers(){
  document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;render()});
  document.querySelectorAll("[data-open]").forEach(x=>x.onclick=()=>{state.listId=x.dataset.open;state.view="detail";render()});
+ document.querySelectorAll("[data-change-image]").forEach(x=>x.onclick=async()=>{x.disabled=true;await changeImage(x.dataset.changeImage);x.disabled=false});
  document.getElementById("newList")?.addEventListener("click",()=>{state.modal="new";render()});
  document.getElementById("back")?.addEventListener("click",()=>{state.view="home";render()});
  document.getElementById("editWords")?.addEventListener("click",()=>{state.modal="edit";render()});
