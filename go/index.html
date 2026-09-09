@@ -41,7 +41,7 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.012";
+const APP_VERSION="V1.013";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -69,7 +69,12 @@ const IMAGE_QUERIES={
  "de prullaria":"trinkets", "het souvenir":"souvenir",
  "stuiten op":"forest", "tastbaar":"fabric",
  "terugdenken aan":"photograph", "de vondst":"treasure",
- "waardevol":"jewelry"
+ "waardevol":"jewelry",
+ "felbegeerd":"trophy", "geestelijk":"meditation",
+ "gelden (voor)":"rules", "incasseren":"scoreboard",
+ "intensief":"workout", "lichamelijk":"athlete",
+ "de mentaliteit":"team", "misgrijpen":"baseball",
+ "de motivatie":"goal", "passief":"sitting"
 };
 let IMAGE_URLS={};
 function imageSeed(text){return [...text].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,7)%100000}
@@ -113,13 +118,8 @@ async function createCloudList(list){
 }
 async function changeImage(wordId){
  let l=getList(),w=l?.words.find(x=>x.id===wordId);if(!l||!w)return;
- let oldUrl=imageUrl(w),url="";
- for(let attempt=0;attempt<4&&!url;attempt++){
-  let random=Math.floor(Math.random()*900000000)+100000000;
-  let requestUrl=imageServiceUrl(w,`random=${random}&v=${random}`);
-  try{let response=await fetch(requestUrl,{cache:"no-store"});if(response.ok&&response.url&&response.url!==oldUrl)url=response.url}catch(e){}
- }
- if(!url){alert("Er kon geen andere afbeelding worden gevonden. Probeer het straks opnieuw.");return false}
+ let random=Math.floor(Math.random()*900000000)+100000000;
+ let url=generatedImageUrl(w,random);
  const {error}=await db.from("word_images").upsert({word_list_id:l.id,word_id:wordId,image_url:url},{onConflict:"word_list_id,word_id"});
  if(error){console.error(error);alert("De nieuwe afbeelding kon niet worden opgeslagen. Probeer het opnieuw.");return false}
  IMAGE_URLS[`${l.id}:${wordId}`]=url;render();return true
