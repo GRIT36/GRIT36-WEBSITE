@@ -59,11 +59,20 @@ const IMAGE_QUERIES={
  "afleiden":"athlete,focus", "beoefenen":"sports,training", "de calorie":"calorie,healthy-food",
  "de competitie":"football,match", "fanatiek":"football,fan", "het reactievermogen":"goalkeeper,soccer",
  "sindsdien":"sports,recovery", "de tactiek":"football,coach", "de tegenslag":"sports,injury",
- "toegankelijk":"stadium,entrance"
+ "toegankelijk":"stadium,entrance",
+ "het aandenken":"souvenir", "dierbaar":"toy",
+ "de herinnering":"photograph", "hoorbaar":"bell",
+ "de omgeving":"neighborhood", "ontbreken":"puzzle",
+ "opduikelen":"book", "opsnuiven":"beach",
+ "de prullaria":"trinkets", "het souvenir":"souvenir",
+ "stuiten op":"forest", "tastbaar":"fabric",
+ "terugdenken aan":"photograph", "de vondst":"treasure",
+ "waardevol":"jewelry"
 };
 let IMAGE_URLS={};
 function imageSeed(text){return [...text].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,7)%100000}
-function generatedImageUrl(w,lock){let term=w.term.toLowerCase(),query=IMAGE_QUERIES[term]||term.replace(/^de |^het /,"").replace(/\s+/g,",");return `https://loremflickr.com/900/450/${encodeURIComponent(query)}?lock=${lock}`}
+function imageServiceUrl(w,queryString){let term=w.term.toLowerCase(),query=IMAGE_QUERIES[term]||term.replace(/^de |^het /,"").replace(/\s+/g,",");return `https://loremflickr.com/900/450/${encodeURIComponent(query)}?${queryString}`}
+function generatedImageUrl(w,lock){return imageServiceUrl(w,`lock=${lock}&v=${lock}`)}
 function imageKey(w){return `${state.listId}:${w.id}`}
 function imageUrl(w){return IMAGE_URLS[imageKey(w)]||generatedImageUrl(w,imageSeed(w.term))}
 function wordImage(w){return `<img class="word-image" src="${imageUrl(w)}" alt="Afbeelding bij ${esc(w.term)}" loading="lazy" onerror="this.style.display='none'">`}
@@ -102,10 +111,16 @@ async function createCloudList(list){
 }
 async function changeImage(wordId){
  let l=getList(),w=l?.words.find(x=>x.id===wordId);if(!l||!w)return;
- let url=generatedImageUrl(w,Math.floor(Math.random()*900000000)+100000000);
+ let oldUrl=imageUrl(w),url="";
+ for(let attempt=0;attempt<4&&!url;attempt++){
+  let random=Math.floor(Math.random()*900000000)+100000000;
+  let requestUrl=imageServiceUrl(w,`random=${random}&v=${random}`);
+  try{let response=await fetch(requestUrl,{cache:"no-store"});if(response.ok&&response.url&&response.url!==oldUrl)url=response.url}catch(e){}
+ }
+ if(!url){alert("Er kon geen andere afbeelding worden gevonden. Probeer het straks opnieuw.");return false}
  const {error}=await db.from("word_images").upsert({word_list_id:l.id,word_id:wordId,image_url:url},{onConflict:"word_list_id,word_id"});
- if(error){console.error(error);alert("De nieuwe afbeelding kon nog niet worden opgeslagen. Maak eerst de tabel word_images in Supabase aan.");return}
- IMAGE_URLS[`${l.id}:${wordId}`]=url;render();
+ if(error){console.error(error);alert("De nieuwe afbeelding kon niet worden opgeslagen. Probeer het opnieuw.");return false}
+ IMAGE_URLS[`${l.id}:${wordId}`]=url;render();return true
 }
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
@@ -176,7 +191,7 @@ function finishIf(s){if(!s.queue.length)s.finished=true}
 function handlers(){
  document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;render()});
  document.querySelectorAll("[data-open]").forEach(x=>x.onclick=()=>{state.listId=x.dataset.open;state.view="detail";render()});
- document.querySelectorAll("[data-change-image]").forEach(x=>x.onclick=async()=>{x.disabled=true;await changeImage(x.dataset.changeImage);x.disabled=false});
+ document.querySelectorAll("[data-change-image]").forEach(x=>x.onclick=async()=>{if(x.disabled)return;x.disabled=true;x.textContent="Bezig...";let changed=await changeImage(x.dataset.changeImage);if(!changed){x.disabled=false;x.textContent="↻ Nieuwe afbeelding"}});
  document.getElementById("newList")?.addEventListener("click",()=>{state.modal="new";render()});
  document.getElementById("back")?.addEventListener("click",()=>{state.view="home";render()});
  document.getElementById("editWords")?.addEventListener("click",()=>{state.modal="edit";render()});
