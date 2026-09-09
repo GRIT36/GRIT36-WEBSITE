@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woordleerhoek V2</title>
+<style>
+:root{
+  --paper:#EEF2F6;--white:#fff;--ink:#24313F;--soft:#5B6B7A;--line:#D8E0E7;
+  --ge:#4C63B6;--ge-soft:#E7EAF8;--di:#D98E3F;--di-soft:#FBEEDD;
+  --good:#2F9E5F;--good-soft:#E3F5EA;--bad:#D65B5B;--bad-soft:#FBEAEA;
+  --accent:#2C7A7B;--accent-soft:#E1F1F1;--radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"Segoe UI",sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer}
+.app{max-width:980px;margin:auto;padding:26px 20px 90px}
+.topbar,.detail-header,.session-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:baseline;gap:10px}.brand h1{margin:0;font-size:26px}.sub,.meta,.hint{color:var(--soft);font-size:13px}
+.actions,.detail-actions,.tabs,.kid-choice,.modal-actions,.fc-buttons,.summary-actions{display:flex;gap:8px}
+.btn,.icon-btn,.kid-tab,.mode-card,.mc-option{border:1px solid var(--line);background:var(--white);border-radius:var(--radius)}
+.btn{padding:10px 18px;font-weight:600}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.btn.ghost{background:transparent}
+.icon-btn{padding:8px 13px;color:var(--soft);font-size:13px}
+.tabs{margin:22px 0}.kid-tab{flex:1;padding:13px 16px;text-align:left;border-width:2px}.kid-tab.active[data-kid="Oudste"]{border-color:var(--ge);background:var(--ge-soft)}.kid-tab.active[data-kid="Jongste"]{border-color:var(--di);background:var(--di-soft)}.kid-tab.active[data-kid="Alle"]{border-color:var(--accent);background:var(--accent-soft)}
+.list-row{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin:9px 0;cursor:pointer}.list-row:hover{border-color:var(--accent)}.dot{width:10px;height:10px;border-radius:50%}.ge{background:var(--ge)}.di{background:var(--di)}.info{flex:1}.name{font-weight:700}.empty{text-align:center;padding:55px;color:var(--soft)}
+.fab{position:fixed;right:25px;bottom:25px;border:0;border-radius:999px;padding:14px 20px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 6px 18px #2c7a7b55}
+.back{border:0;background:none;color:var(--soft);padding:4px 0;margin-bottom:13px}.detail-header{align-items:flex-start;margin-bottom:20px}.detail-header h2{margin:0 0 5px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 26px}.mode-card{padding:18px;text-align:left}.mode-card:hover{border-color:var(--accent);transform:translateY(-1px)}.mode-card .emoji{font-size:22px}.mode-card .title{font-weight:700;margin-top:8px}.mode-card .desc{font-size:12.5px;color:var(--soft);margin-top:4px}
+.word-table{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.word-row{display:grid;grid-template-columns:1.05fr .9fr 1.25fr 1.5fr 1.5fr 48px;gap:10px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:start;font-size:13px}.word-row:last-child{border-bottom:0}.word-head{background:var(--paper);font-size:12px;color:var(--soft);font-weight:700}.cell-label{display:none}.row-del{border:0;background:none;color:var(--bad);padding:3px}
+.modal-overlay{position:fixed;inset:0;background:#24313f77;display:flex;align-items:center;justify-content:center;padding:18px;z-index:20}.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:24px}.field{margin:14px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper)}.field textarea{min-height:230px;line-height:1.55}.field input:focus,.field textarea:focus{outline:2px solid var(--accent)}
+.kid-choice button{flex:1;padding:10px;border:1.5px solid var(--line);background:var(--paper);border-radius:10px}.kid-choice button.sel[data-k="Oudste"]{border-color:var(--ge);background:var(--ge-soft)}.kid-choice button.sel[data-k="Jongste"]{border-color:var(--di);background:var(--di-soft)}
+.session{max-width:650px;margin:auto}.session-top{margin-bottom:20px}.progress{height:8px;background:var(--line);border-radius:8px;flex:1;overflow:hidden}.progress>div{height:100%;background:var(--accent)}
+.flashcard{min-height:300px;background:#fff;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 4px 0 var(--line);font-size:28px;font-weight:700;margin-bottom:18px}.flashcard.flipped{background:var(--accent-soft);font-size:19px;line-height:1.7}.fc-buttons{width:100%}.fc-buttons .btn{flex:1;padding:14px}.word-image{display:block;width:min(100%,420px);height:190px;object-fit:cover;border-radius:14px;margin:18px auto 0;box-shadow:0 3px 12px #24313f22}.mc .word-image{height:170px;margin-top:-10px;margin-bottom:20px}
+.spell,.mc{text-align:center;max-width:470px;margin:auto}.prompt{color:var(--soft);margin-bottom:8px}.big-word{font-size:30px;font-weight:800;margin:10px 0 24px}.spell-input{width:100%;padding:14px;text-align:center;font-size:19px;border:2px solid var(--line);border-radius:13px;margin-bottom:12px}.feedback{min-height:25px;font-weight:700}.correct{color:var(--good)}.wrong{color:var(--bad)}.mc-options{display:flex;flex-direction:column;gap:10px}.mc-option{padding:14px;text-align:left}.mc-option.correct{border-color:var(--good);background:var(--good-soft)}.mc-option.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.summary{text-align:center;max-width:500px;margin:50px auto}.big-num{font-size:52px;font-weight:800;color:var(--accent)}.review{margin:20px 0;background:#fff;border:1px solid var(--line);border-radius:14px;text-align:left;padding:6px 15px}.review div{padding:9px 0;border-bottom:1px solid var(--line)}.review div:last-child{border:0}
+@media(max-width:650px){.app{padding:20px 12px 85px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
+</style>
+</head>
+<body><div class="app" id="app"></div>
+<script>
+const STORAGE_KEY="wordCornerData_v2";
+const SAMPLE_WORDS=[
+["afleiden","分散注意力","zorgen dat iemands aandacht ergens anders heen gaat","Het lawaai kon hem niet afleiden tijdens de wedstrijd.","噪音没能让他在比赛中分心。"],
+["beoefenen","实践/从事","je ergens mee bezighouden","Al jaren beoefent hij verschillende sporten naast voetbal.","除了踢足球，他多年来还坚持从事各种运动。"],
+["de calorie","卡路里","de maat voor energie in voedsel, die je verbruikt bij het sporten","Na het sporten heb je veel calorieën verbrand.","运动之后，你消耗了很多卡路里。"],
+["de competitie","比赛","een serie wedstrijden die bepaalt wie wint","Onze school doet mee aan een competitie tegen andere scholen.","我们学校参加了和其他学校之间的比赛。"],
+["fanatiek","狂热的","gedreven, iets heel erg enthousiast doen","Hij is een fanatieke supporter van zijn favoriete club.","他是自己最喜欢的俱乐部的狂热球迷。"],
+["het reactievermogen","反应速度","de snelheid waarmee je kunt reageren","Een goede keeper heeft een snel reactievermogen nodig.","一个好守门员需要很快的反应速度。"],
+["sindsdien","从那以后","vanaf die tijd","Hij brak zijn been en sport sindsdien voorzichtiger.","他摔断过腿，从那以后运动时更加小心了。"],
+["de tactiek","战术","de aanpak die je kiest om je doel te bereiken","De coach legde voor de wedstrijd de tactiek nog een keer uit.","教练在比赛前又讲解了一遍战术。"],
+["de tegenslag","挫折","een gebeurtenis waardoor je plannen mislukken","Een blessure was een grote tegenslag voor het team.","受伤对这支队伍来说是个不小的挫折。"],
+["toegankelijk","容易到达的","open, makkelijk te bereiken","Het nieuwe sportpark is goed toegankelijk voor iedereen.","这个新运动公园对每个人来说都很容易到达。"]
+];
+const IMAGE_QUERIES={
+ "afleiden":"athlete,focus", "beoefenen":"sports,training", "de calorie":"calorie,healthy-food",
+ "de competitie":"football,match", "fanatiek":"football,fan", "het reactievermogen":"goalkeeper,soccer",
+ "sindsdien":"sports,recovery", "de tactiek":"football,coach", "de tegenslag":"sports,injury",
+ "toegankelijk":"stadium,entrance"
+};
+function imageSeed(text){return [...text].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,7)%100000}
+function wordImage(w){let term=w.term.toLowerCase(),query=IMAGE_QUERIES[term]||term.replace(/^de |^het /,"").replace(/\s+/g,",");let url=`https://loremflickr.com/900/450/${encodeURIComponent(query)}?lock=${imageSeed(term)}`;return `<img class="word-image" src="${url}" alt="Afbeelding bij ${esc(w.term)}" loading="lazy" onerror="this.style.display='none'">`}
+function uid(){return Math.random().toString(36).slice(2)+Date.now().toString(36)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function localizeKid(k){return k==="哥哥"?"Oudste":k==="弟弟"?"Jongste":k}
+function kidLabel(k){return k==="Oudste"?"Felix · Groep 6":k==="Jongste"?"Max · Groep 4":k}
+function normalizeWord(w){return {id:w.id||uid(),term:w.term||"",definition:w.definition||"",explanationNl:w.explanationNl||w.nlExplanation||"",exampleNl:w.exampleNl||w.nlExample||"",exampleZh:w.exampleZh||w.zhExample||"",stats:w.stats||{correct:0,wrong:0,last:0}}}
+function load(){
+ try{
+  let raw=localStorage.getItem(STORAGE_KEY);
+  if(raw){let d=JSON.parse(raw);d.lists=(d.lists||[]).map(l=>({...l,kid:localizeKid(l.kid)}));localStorage.setItem(STORAGE_KEY,JSON.stringify(d));return d}
+  let old=localStorage.getItem("wordCornerData_v1");
+  if(old){let d=JSON.parse(old);d.lists=(d.lists||[]).map(l=>({...l,kid:localizeKid(l.kid),words:(l.words||[]).map(normalizeWord)}));localStorage.setItem(STORAGE_KEY,JSON.stringify(d));return d}
+ }catch(e){}
+ return {lists:[]}
+}
+let DATA=load();
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(DATA))}
+function getList(){return DATA.lists.find(x=>x.id===state.listId)}
+let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
+function render(){document.getElementById("app").innerHTML=state.view==="home"?home():state.view==="detail"?detail():study(); if(state.modal)modal(); handlers()}
+function home(){
+ let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>cs[l.kid]=(cs[l.kid]||0)+1);
+ let ls=DATA.lists.filter(l=>state.filter==="Alle"||l.kid===state.filter);
+ return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div><div class="actions"><button class="icon-btn" id="export">⬇ Back-up</button><button class="icon-btn" id="importBtn">⬆ Importeren</button><input id="importFile" type="file" accept=".json" hidden></div></div>
+ <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
+ ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
+ <button class="fab" id="newList">＋ Nieuwe woordenlijst</button>`
+}
+function detail(){
+ let l=getList(); if(!l){state.view="home";return home()}
+ let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div><button class="row-del" data-del="${w.id}">Verwijderen</button></div></div>`).join("");
+ return `<button class="back" id="back">‹ Terug naar alle woordenlijsten</button><div class="detail-header"><div><h2>${esc(l.name)}</h2><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden · vijf velden</div></div><div class="detail-actions"><button class="icon-btn" id="editWords">✎ Toevoegen/bewerken</button><button class="icon-btn" id="deleteList">🗑 Lijst verwijderen</button></div></div>
+ <div class="mode-grid">
+ ${modeCard("🔄","Flashcards","Betekenis + Nederlandse uitleg + tweetalige voorbeelden","flashcard")}${modeCard("✅","Leren","Kies de juiste betekenis","mc")}
+ </div>
+ <div class="word-table"><div class="word-row word-head"><div>Nederlandse uitleg</div><div>Nederlands woord</div><div>Nederlands voorbeeld</div><div>Chinese betekenis</div><div>Chinees voorbeeld</div><div></div></div>${rows||`<div class="empty">Deze woordenlijst bevat nog geen woorden.</div>`}</div>`
+}
+function modeCard(e,t,d,m){return `<button class="mode-card" data-mode="${m}"><span class="emoji">${e}</span><div class="title">${t}</div><div class="desc">${d}</div></button>`}
+function study(){
+ let s=state.session,l=getList();if(s.finished)return summary(l);
+ let cur=s.queue[0],done=s.total-s.queue.length;
+ let top=`<div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
+ if(state.mode==="flashcard")return `<div class="session">${top}<div class="flashcard ${s.flip?"flipped":""}" id="fc">${s.flip?`<div><div>${esc(cur.definition)}</div>${wordImage(cur)}<hr><div>${esc(cur.explanationNl)||"Nog geen Nederlandse uitleg"}</div><p>${esc(cur.exampleNl)||""}</p><p>${esc(cur.exampleZh)||""}</p></div>`:`<div>${esc(cur.term)}${wordImage(cur)}</div>`}</div><div class="fc-buttons"><button class="btn" id="unknown">🔁 Nog oefenen</button><button class="btn" id="known">✅ Beheerst</button></div><p class="hint" style="text-align:center">Klik op de kaart om hem om te draaien</p></div>`;
+ if(state.mode==="mc")return `<div class="session"><div class="mc">${top}<div class="prompt">Wat betekent dit woord?</div><div class="big-word">${esc(cur.term)}</div>${wordImage(cur)}<div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":i===s.selected?"wrong":""):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?`<button class="btn primary" id="next" style="margin-top:15px">Volgende vraag →</button>`:""}</div></div>`;
+}
+function summary(l){
+ let s=state.session,review=s.review||[];let big=state.mode==="flashcard"?s.known:`${s.correct}/${s.total}`,label=state.mode==="flashcard"?`woorden beheerst · ${s.total} in totaal`:`goed · ${Math.round(s.correct/s.total*100)}% correct`;
+ return `<div class="summary"><h2>🎉 Klaar!</h2><div class="big-num">${big}</div><div class="meta">${label}</div>${review.length?`<div class="review">${review.map(w=>`<div><b>${esc(w.term)}</b>　<span class="meta">${esc(w.definition)}</span></div>`).join("")}</div>`:""}<div class="summary-actions"><button class="btn" id="exit">Terug naar woordenlijst</button><button class="btn primary" id="restart">Nog een ronde</button></div></div>`
+}
+function modal(){
+ let isEdit=state.modal==="edit",l=getList();
+ let overlay=document.createElement("div");overlay.className="modal-overlay";overlay.id="overlay";
+ // The Dutch modal markup is set immediately below.
+ document.getElementById("app").appendChild(overlay);
+ overlay.innerHTML=`<div class="modal"><h2>${isEdit?"Woorden toevoegen/bewerken":"Nieuwe woordenlijst"}</h2><p class="hint">Gebruik per regel 5 velden, gescheiden door een tab: Nederlandse uitleg → Nederlands woord → Nederlands voorbeeld → Chinese betekenis → Chinees voorbeeld.</p>${!isEdit?`<div class="field"><label>Naam van de woordenlijst</label><input id="listName" placeholder="Bijvoorbeeld: Week 1 · Sport"></div><div class="field"><label>Voor</label><div class="kid-choice"><button data-pick="Oudste" class="sel" data-k="Oudste">👦 Oudste</button><button data-pick="Jongste" data-k="Jongste">👧 Jongste</button></div></div>`:""}<div class="field"><label>${isEdit?"Nieuwe woorden":"Woordenlijst"}</label><textarea id="words" placeholder="afleiden\tbetekenis\tNederlandse uitleg\tNederlands voorbeeld\tChinees voorbeeld"></textarea></div><div class="hint">Scheiding met “ — ” wordt ook ondersteund, maar een tab is aanbevolen omdat Nederlandse voorbeelden leestekens kunnen bevatten.</div><div class="modal-actions"><button class="btn" id="cancel">Annuleren</button><button class="btn primary" id="saveModal">${isEdit?"Toevoegen":"Maken"}</button></div></div>`;
+ if(!isEdit){let pickButtons=overlay.querySelectorAll("[data-pick]");pickButtons[0].textContent="🦉 Felix · Groep 6";pickButtons[1].textContent="🐓 Max · Groep 4"}
+ let picked="Oudste";overlay.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>{picked=b.dataset.pick;overlay.querySelectorAll("[data-pick]").forEach(x=>x.classList.remove("sel"));b.classList.add("sel")});
+ document.getElementById("cancel").onclick=()=>{state.modal=null;render()};
+ document.getElementById("saveModal").onclick=()=>{
+  let text=document.getElementById("words").value,parsed=parse(text);if(!parsed.length){alert("Geen geldige woorden gevonden.");return}
+  if(isEdit)l.words.push(...parsed.map(w=>normalizeWord(w)));else{let nl={id:uid(),name:document.getElementById("listName").value.trim()||"Naamloze woordenlijst",kid:picked,createdAt:Date.now(),words:parsed.map(w=>normalizeWord(w))};DATA.lists.push(nl);state.listId=nl.id;state.view="detail"}
+  save();state.modal=null;render()
+ }
+}
+function parse(text){
+ return text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).map(line=>{
+  let p=line.includes("\t")?line.split("\t"):line.split(" — ");
+  if(p.length<2)p=line.split(/\s+-\s+/);
+  return {term:(p[0]||"").trim(),definition:(p[1]||"").trim(),explanationNl:(p[2]||"").trim(),exampleNl:(p[3]||"").trim(),exampleZh:(p[4]||"").trim()}
+ }).filter(x=>x.term)
+}
+function start(m){
+ let l=getList();if(!l||!l.words.length){alert("Voeg eerst woorden toe.");return}
+ state.mode=m;state.view="study";let q=shuffle(l.words);
+ if(m==="flashcard")state.session={queue:q,total:q.length,flip:false,known:0,review:[],finished:false};
+ else if(m==="mc")state.session={queue:q,total:q.length,answered:false,selected:null,options:mc(q[0],l.words),correct:0,review:[],finished:false};
+ render()
+}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function mc(w,all){return shuffle([{text:w.definition,ok:true},...shuffle(all.filter(x=>x.id!==w.id)).slice(0,3).map(x=>({text:x.definition,ok:false}))])}
+function finishIf(s){if(!s.queue.length)s.finished=true}
+function handlers(){
+ document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;render()});
+ document.querySelectorAll("[data-open]").forEach(x=>x.onclick=()=>{state.listId=x.dataset.open;state.view="detail";render()});
+ document.getElementById("newList")?.addEventListener("click",()=>{state.modal="new";render()});
+ document.getElementById("back")?.addEventListener("click",()=>{state.view="home";render()});
+ document.getElementById("editWords")?.addEventListener("click",()=>{state.modal="edit";render()});
+ document.getElementById("deleteList")?.addEventListener("click",()=>{if(confirm("Weet je zeker dat je deze woordenlijst wilt verwijderen?")){DATA.lists=DATA.lists.filter(x=>x.id!==state.listId);save();state.view="home";render()}});
+ document.querySelectorAll("[data-mode]").forEach(x=>x.onclick=()=>start(x.dataset.mode));
+ document.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>{let l=getList();l.words=l.words.filter(w=>w.id!==x.dataset.del);save();render()});
+ document.getElementById("export")?.addEventListener("click",()=>{let a=document.createElement("a"),u=URL.createObjectURL(new Blob([JSON.stringify(DATA,null,2)],{type:"application/json"}));a.href=u;a.download=`woordleerhoek_v2_back-up_${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(u)});
+ document.getElementById("importBtn")?.addEventListener("click",()=>document.getElementById("importFile").click());
+ document.getElementById("importFile")?.addEventListener("change",importData);
+ document.getElementById("exit")?.addEventListener("click",()=>{state.view="detail";state.session=null;render()});
+ document.getElementById("restart")?.addEventListener("click",()=>start(state.mode));
+ if(state.view!=="study")return;
+ let s=state.session;
+ if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
+ if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok)s.correct++;else s.review.push(s.queue[0]);render()});document.getElementById("next")?.addEventListener("click",()=>{s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()})}
+}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.lists)throw 0;DATA.lists.push(...d.lists.map(l=>({...l,id:uid(),words:(l.words||[]).map(normalizeWord)})));save();render()}catch(err){alert("Importeren mislukt: onjuiste JSON-indeling.")}};r.readAsText(f)}
+render();
+</script>
+</body>
+</html>
