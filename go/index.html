@@ -103,12 +103,12 @@ function home(){
 }
 function detail(){
  let l=getList(); if(!l){state.view="home";return home()}
- let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Chinese vertaling</span>${esc(w.definition)}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div></div></div>`).join("");
+ let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div></div></div>`).join("");
  return `<button class="back" id="back">‹ Terug naar alle woordenlijsten</button><div class="detail-header"><div><h2>${esc(l.name)}</h2><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden · vijf velden</div></div></div>
  <div class="mode-grid">
  ${modeCard("🔄","Flashcards","Betekenis + Nederlandse uitleg + tweetalige voorbeelden","flashcard")}${modeCard("✅","Leren","Kies de juiste betekenis","mc")}
  </div>
- <div class="word-table"><div class="word-row word-head"><div>Nederlands voorbeeld</div><div>Nederlandse uitleg</div><div>Chinese vertaling</div><div>Nederlands woord</div><div>Chinees voorbeeld</div><div></div></div>${rows||`<div class="empty">Deze woordenlijst bevat nog geen woorden.</div>`}</div>`
+ <div class="word-table"><div class="word-row word-head"><div>Nederlandse uitleg</div><div>Nederlands woord</div><div>Nederlands voorbeeld</div><div>Chinese betekenis</div><div>Chinees voorbeeld</div><div></div></div>${rows||`<div class="empty">Deze woordenlijst bevat nog geen woorden.</div>`}</div>`
 }
 function modeCard(e,t,d,m){return `<button class="mode-card" data-mode="${m}"><span class="emoji">${e}</span><div class="title">${t}</div><div class="desc">${d}</div></button>`}
 function study(){
@@ -127,7 +127,7 @@ function modal(){
  let overlay=document.createElement("div");overlay.className="modal-overlay";overlay.id="overlay";
  // The Dutch modal markup is set immediately below.
  document.getElementById("app").appendChild(overlay);
- overlay.innerHTML=`<div class="modal"><h2>${isEdit?"Woorden toevoegen/bewerken":"Nieuwe woordenlijst"}</h2><p class="hint">Gebruik per regel 5 velden, gescheiden door een tab: Nederlands voorbeeld → Nederlandse uitleg → Chinese vertaling → Nederlands woord → Chinees voorbeeld.</p>${!isEdit?`<div class="field"><label>Naam van de woordenlijst</label><input id="listName" placeholder="Bijvoorbeeld: Week 1 · Sport"></div><div class="field"><label>Voor</label><div class="kid-choice"><button data-pick="Oudste" class="sel" data-k="Oudste">👦 Oudste</button><button data-pick="Jongste" data-k="Jongste">👧 Jongste</button></div></div>`:""}<div class="field"><label>${isEdit?"Nieuwe woorden":"Woordenlijst"}</label><textarea id="words" placeholder="Het lawaai...\tzorgen dat...\tafleiding\tafleiden\t噪音..."></textarea></div><div class="hint">Scheiding met “ — ” wordt ook ondersteund, maar een tab is aanbevolen omdat Nederlandse voorbeelden leestekens kunnen bevatten.</div><div class="modal-actions"><button class="btn" id="cancel">Annuleren</button><button class="btn primary" id="saveModal">${isEdit?"Toevoegen":"Maken"}</button></div></div>`;
+ overlay.innerHTML=`<div class="modal"><h2>${isEdit?"Woorden toevoegen/bewerken":"Nieuwe woordenlijst"}</h2><p class="hint">Gebruik per regel 5 velden, gescheiden door een tab: Nederlandse uitleg → Nederlands woord → Nederlands voorbeeld → Chinese betekenis → Chinees voorbeeld.</p>${!isEdit?`<div class="field"><label>Naam van de woordenlijst</label><input id="listName" placeholder="Bijvoorbeeld: Week 1 · Sport"></div><div class="field"><label>Voor</label><div class="kid-choice"><button data-pick="Oudste" class="sel" data-k="Oudste">👦 Oudste</button><button data-pick="Jongste" data-k="Jongste">👧 Jongste</button></div></div>`:""}<div class="field"><label>${isEdit?"Nieuwe woorden":"Woordenlijst"}</label><textarea id="words" placeholder="afleiden\tafleiding\tzorgen dat...\tHet lawaai...\t噪音..."></textarea></div><div class="hint">Scheiding met “ — ” wordt ook ondersteund, maar een tab is aanbevolen omdat Nederlandse voorbeelden leestekens kunnen bevatten.</div><div class="modal-actions"><button class="btn" id="cancel">Annuleren</button><button class="btn primary" id="saveModal">${isEdit?"Toevoegen":"Maken"}</button></div></div>`;
  if(!isEdit){let pickButtons=overlay.querySelectorAll("[data-pick]");pickButtons[0].textContent="🦉 Felix · Groep 6";pickButtons[1].textContent="🐓 Max · Groep 4"}
  let picked="Oudste";overlay.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>{picked=b.dataset.pick;overlay.querySelectorAll("[data-pick]").forEach(x=>x.classList.remove("sel"));b.classList.add("sel")});
  document.getElementById("cancel").onclick=()=>{state.modal=null;render()};
@@ -143,7 +143,7 @@ function parse(text){
  return text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).map(line=>{
   let p=line.includes("\t")?line.split("\t"):line.split(" — ");
   if(p.length<2)p=line.split(/\s+-\s+/);
-  return {exampleNl:(p[0]||"").trim(),explanationNl:(p[1]||"").trim(),definition:(p[2]||"").trim(),term:(p[3]||"").trim(),exampleZh:(p[4]||"").trim()}
+  return {term:(p[0]||"").trim(),definition:(p[1]||"").trim(),explanationNl:(p[2]||"").trim(),exampleNl:(p[3]||"").trim(),exampleZh:(p[4]||"").trim()}
  }).filter(x=>x.term)
 }
 function start(m){
