@@ -6,46 +6,52 @@
 <title>🐦 Kievit Go</title>
 <style>
 :root{
-  --paper:#EEF2F6;--white:#fff;--ink:#24313F;--soft:#5B6B7A;--line:#D8E0E7;
-  --ge:#4C63B6;--ge-soft:#E7EAF8;--di:#D98E3F;--di-soft:#FBEEDD;
-  --good:#2F9E5F;--good-soft:#E3F5EA;--bad:#D65B5B;--bad-soft:#FBEAEA;
-  --accent:#2C7A7B;--accent-soft:#E1F1F1;--radius:14px;
+  --paper:#0A1120;--white:#13213A;--ink:#F2F7FF;--soft:#B7C7DE;--line:#314564;
+  --ge:#8CA7FF;--ge-soft:#202B55;--di:#FFB15D;--di-soft:#4A3021;
+  --good:#63DB9C;--good-soft:#143C35;--bad:#FF9096;--bad-soft:#4B2934;
+  --accent:#4ECBC7;--accent-soft:#163F4B;--radius:14px;
 }
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(#eef2f6ce,#eef2f6ce),url("assets/kievit-background.png") center/cover fixed no-repeat;color:var(--ink);font-family:Arial,"Segoe UI",sans-serif}
+body{margin:0;background:linear-gradient(#06101be8,#06101be8),url("assets/kievit-background-night-fireworks.png") center/cover fixed no-repeat;color:var(--ink);font-family:Arial,"Segoe UI",sans-serif}
 button,input,textarea{font:inherit}button{cursor:pointer}
 .app{max-width:980px;margin:auto;padding:26px 20px 90px}
 .version-tag{position:fixed;left:12px;bottom:10px;color:#7D8790;font-size:11px;z-index:10;pointer-events:none}
 .topbar,.detail-header,.session-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:baseline;gap:10px}.brand h1{margin:0;font-size:26px}.sub,.meta,.hint{color:var(--soft);font-size:13px}
-.game-panel{margin:18px 0 20px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 3px 12px #24313f12}.game-panel-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#F7FAFC}.game-panel-title{font-size:14px;font-weight:800}.game-panel-help{color:var(--soft);font-size:12px}.kievit-game{display:block;width:100%;height:190px;border:0;background:#fff}
+.game-panel{margin:18px 0 20px;background:#0C1628;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 28px #0008}.game-panel-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#101D34}.game-panel-title{font-size:14px;font-weight:800}.game-panel-help{color:var(--soft);font-size:12px}.kievit-game{display:block;width:100%;height:190px;border:0;background:#fff}
 .actions,.detail-actions,.tabs,.kid-choice,.modal-actions,.fc-buttons,.summary-actions{display:flex;gap:8px}
 .btn,.icon-btn,.kid-tab,.mode-card,.mc-option{border:1px solid var(--line);background:var(--white);border-radius:var(--radius)}
 .btn{padding:10px 18px;font-weight:600}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.btn.ghost{background:transparent}
 .icon-btn{padding:8px 13px;color:var(--soft);font-size:13px}
 .tabs{margin:22px 0}.kid-tab{flex:1;padding:13px 16px;text-align:left;border-width:2px}.kid-tab.active[data-kid="Oudste"]{border-color:var(--ge);background:var(--ge-soft)}.kid-tab.active[data-kid="Jongste"]{border-color:var(--di);background:var(--di-soft)}.kid-tab.active[data-kid="Alle"]{border-color:var(--accent);background:var(--accent-soft)}
-.list-row{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin:9px 0;cursor:pointer}.list-row:hover{border-color:var(--accent)}.dot{width:10px;height:10px;border-radius:50%}.ge{background:var(--ge)}.di{background:var(--di)}.info{flex:1}.name{font-weight:700}.empty{text-align:center;padding:55px;color:var(--soft)}
+.list-row{display:flex;align-items:center;gap:13px;background:#13213Aeb;border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin:9px 0;cursor:pointer;box-shadow:0 4px 14px #0003}.list-row:hover{border-color:var(--accent);background:#172943}.dot{width:10px;height:10px;border-radius:50%}.ge{background:var(--ge)}.di{background:var(--di)}.info{flex:1}.name{font-weight:700}.empty{text-align:center;padding:55px;color:var(--soft)}
 .fab{position:fixed;right:25px;bottom:25px;border:0;border-radius:999px;padding:14px 20px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 6px 18px #2c7a7b55}
 .back{border:0;background:none;color:var(--soft);padding:4px 0;margin-bottom:13px}.detail-header{align-items:flex-start;margin-bottom:20px}.detail-header h2{margin:0 0 5px}
 .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 26px}.mode-card{padding:18px;text-align:left}.mode-card:hover{border-color:var(--accent);transform:translateY(-1px)}.mode-card .emoji{font-size:22px}.mode-card .title{font-weight:700;margin-top:8px}.mode-card .desc{font-size:12.5px;color:var(--soft);margin-top:4px}
-.word-table{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.word-row{display:grid;grid-template-columns:1.05fr .9fr 1.25fr 1.5fr 1.5fr 100px 86px;gap:10px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:start;font-size:13px}.word-row:last-child{border-bottom:0}.word-head{background:var(--paper);font-size:12px;color:var(--soft);font-weight:700}.cell-label{display:none}.word-thumbnail{display:block;width:88px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--paper)}.change-image{padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--soft);font-size:12px;font-weight:700}.change-image:hover{border-color:var(--accent);color:var(--accent)}.row-del{border:0;background:none;color:var(--bad);padding:3px}
-.modal-overlay{position:fixed;inset:0;background:#24313f77;display:flex;align-items:center;justify-content:center;padding:18px;z-index:20}.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:18px;padding:24px}.field{margin:14px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper)}.field textarea{min-height:230px;line-height:1.55}.field input:focus,.field textarea:focus{outline:2px solid var(--accent)}
+.word-table{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.word-row{display:grid;grid-template-columns:1.05fr .9fr 1.25fr 1.5fr 1.5fr 100px 86px;gap:10px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:start;font-size:13px}.word-row:last-child{border-bottom:0}.word-head{background:var(--paper);font-size:12px;color:var(--soft);font-weight:700}.cell-label{display:none}.word-thumbnail{display:block;width:88px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--paper)}.change-image{padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--soft);font-size:12px;font-weight:700}.change-image:hover{border-color:var(--accent);color:var(--accent)}.row-del{border:0;background:none;color:var(--bad);padding:3px}
+.modal-overlay{position:fixed;inset:0;background:#000a;display:flex;align-items:center;justify-content:center;padding:18px;z-index:20}.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px}.field{margin:14px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input,.field textarea{color:var(--ink);width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper)}.field textarea{min-height:230px;line-height:1.55}.field input:focus,.field textarea:focus{outline:2px solid var(--accent)}
 .kid-choice button{flex:1;padding:10px;border:1.5px solid var(--line);background:var(--paper);border-radius:10px}.kid-choice button.sel[data-k="Oudste"]{border-color:var(--ge);background:var(--ge-soft)}.kid-choice button.sel[data-k="Jongste"]{border-color:var(--di);background:var(--di-soft)}
 .session{max-width:650px;margin:auto}.session-list-title{text-align:center;font-size:18px;font-weight:800;margin:0 0 14px}.session-top{margin-bottom:20px}.progress{height:8px;background:var(--line);border-radius:8px;flex:1;overflow:hidden}.progress>div{height:100%;background:var(--accent)}
-.flashcard{min-height:300px;background:#fff;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 4px 0 var(--line);font-size:28px;font-weight:700;margin-bottom:18px}.flashcard.flipped{background:var(--accent-soft);font-size:19px;line-height:1.7}.fc-buttons{width:100%}.fc-buttons .btn{flex:1;padding:14px}.word-image{display:block;width:min(100%,420px);height:190px;object-fit:cover;border-radius:14px;margin:18px auto 0;box-shadow:0 3px 12px #24313f22}.mc .word-image{height:170px;margin-top:-10px;margin-bottom:20px}
-.spell,.mc{text-align:center;max-width:470px;margin:auto}.prompt{color:var(--soft);margin-bottom:8px}.big-word{font-size:30px;font-weight:800;margin:10px 0 24px}.spell-input{width:100%;padding:14px;text-align:center;font-size:19px;border:2px solid var(--line);border-radius:13px;margin-bottom:12px}.feedback{min-height:25px;font-weight:700}.correct{color:var(--good)}.wrong{color:var(--bad)}.mc-options{display:flex;flex-direction:column;gap:10px}.mc-option{padding:14px;text-align:left}.mc-option.correct{border-color:var(--good);background:var(--good-soft)}.mc-option.wrong{border-color:var(--bad);background:var(--bad-soft)}
-.summary{text-align:center;max-width:500px;margin:50px auto}.big-num{font-size:52px;font-weight:800;color:var(--accent)}.review{margin:20px 0;background:#fff;border:1px solid var(--line);border-radius:14px;text-align:left;padding:6px 15px}.review div{padding:9px 0;border-bottom:1px solid var(--line)}.review div:last-child{border:0}
-@media(max-width:650px){.app{padding:20px 12px 85px}.game-panel{margin:14px 0 16px}.kievit-game{height:160px}.game-panel-help{font-size:11px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
+.flashcard{min-height:300px;background:#13213Af2;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 8px 30px #0007;font-size:28px;font-weight:700;margin-bottom:18px}.flashcard.flipped{background:#163F4Bf0;font-size:19px;line-height:1.7}.fc-buttons{width:100%}.fc-buttons .btn{flex:1;padding:14px}.word-image{display:block;width:min(100%,420px);height:190px;object-fit:cover;border-radius:14px;margin:18px auto 0;box-shadow:0 3px 12px #0008}.mc .word-image{height:170px;margin-top:-10px;margin-bottom:20px}
+.spell,.mc{text-align:center;max-width:470px;margin:auto}.prompt{color:var(--soft);margin-bottom:8px}.big-word{font-size:30px;font-weight:800;margin:10px 0 24px}.spell-input{width:100%;padding:14px;text-align:center;font-size:19px;border:2px solid var(--line);border-radius:13px;margin-bottom:12px}.feedback{min-height:25px;font-weight:700}.correct{color:var(--good)}.wrong{color:var(--bad)}.mc-options{display:flex;flex-direction:column;gap:10px}.mc-option{padding:14px;text-align:left}.mc-option.correct{border-color:var(--good);background:var(--good-soft)}.mc-option.wrong{border-color:var(--bad);background:var(--bad-soft)}.celebration{position:fixed;inset:0;z-index:30;pointer-events:none;overflow:hidden}.firework{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px currentColor;animation:burst 1.8s ease-out forwards}.firework::before,.firework::after{content:"";position:absolute;inset:-2px;border-radius:50%;box-shadow:0 -56px 0 0 currentColor,40px -40px 0 -1px currentColor,56px 0 0 0 currentColor,40px 40px 0 -1px currentColor,0 56px 0 0 currentColor,-40px 40px 0 -1px currentColor,-56px 0 0 0 currentColor,-40px -40px 0 -1px currentColor}.firework::after{transform:rotate(22deg);opacity:.78}.firework.one{left:22%;top:23%;color:#FFE377}.firework.two{left:73%;top:28%;color:#79D8FF;animation-delay:.15s}.firework.three{left:50%;top:16%;color:#FF8CC8;animation-delay:.28s}@keyframes burst{0%{transform:scale(.08);opacity:0}15%{opacity:1}100%{transform:scale(1.35);opacity:0}}
+.summary{text-align:center;max-width:500px;margin:50px auto}.big-num{font-size:52px;font-weight:800;color:var(--accent)}.review{margin:20px 0;background:var(--white);border:1px solid var(--line);border-radius:14px;text-align:left;padding:6px 15px}.review div{padding:9px 0;border-bottom:1px solid var(--line)}.review div:last-child{border:0}
+@media(max-width:650px){.app{padding:20px 12px 85px}.game-panel{margin:14px 0 16px}.kievit-game{height:160px}.game-panel-help{font-size:11px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:var(--white);border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
 </style>
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.015";
+const APP_VERSION="V1.016";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+const AUDIO={review:"assets/audio/flashcard-review.ogg",remembered:"assets/audio/flashcard-remembered.ogg",correct:"assets/audio/answer-correct.ogg",wrong:"assets/audio/answer-wrong.ogg",music:"assets/audio/study-background.ogg"};
+let studyMusic=null,celebrationTimer=null;
+function playSound(name,volume=.55){let audio=new Audio(AUDIO[name]);audio.volume=volume;audio.play().catch(()=>{});}
+function startStudyMusic(){if(!studyMusic){studyMusic=new Audio(AUDIO.music);studyMusic.loop=true;studyMusic.volume=.16}studyMusic.play().catch(()=>{});}
+function stopStudyMusic(){if(studyMusic){studyMusic.pause();studyMusic.currentTime=0}}
+function clearCelebration(){if(celebrationTimer){clearTimeout(celebrationTimer);celebrationTimer=null}}
 const SAMPLE_WORDS=[
 ["afleiden","分散注意力","zorgen dat iemands aandacht ergens anders heen gaat","Het lawaai kon hem niet afleiden tijdens de wedstrijd.","噪音没能让他在比赛中分心。"],
 ["beoefenen","实践/从事","je ergens mee bezighouden","Al jaren beoefent hij verschillende sporten naast voetbal.","除了踢足球，他多年来还坚持从事各种运动。"],
@@ -142,7 +148,7 @@ function detail(){
  let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div><span class="cell-label">Afbeelding</span>${wordThumbnail(w)}</div><div><button class="change-image" data-change-image="${esc(w.id)}">↻ Nieuwe afbeelding</button></div></div>`).join("");
  return `<button class="back" id="back">‹ Terug naar alle woordenlijsten</button><div class="detail-header"><div><h2>${esc(l.name)}</h2><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden · vijf velden</div></div></div>
  <div class="mode-grid">
- ${modeCard("🔄","Flashcards","Betekenis + Nederlandse uitleg + tweetalige voorbeelden","flashcard")}${modeCard("✅","Leren","Kies de juiste betekenis","mc")}
+ ${modeCard("🧠","Flashcards","Betekenis + Nederlandse uitleg + tweetalige voorbeelden","flashcard")}${modeCard("✅","Leren","Kies de juiste betekenis","mc")}
  </div>
  <div class="word-table"><div class="word-row word-head"><div>Nederlandse uitleg</div><div>Nederlands woord</div><div>Nederlands voorbeeld</div><div>Chinese betekenis</div><div>Chinees voorbeeld</div><div>Afbeelding</div><div>Wijzigen</div></div>${rows||`<div class="empty">Deze woordenlijst bevat nog geen woorden.</div>`}</div>`
 }
@@ -152,7 +158,7 @@ function study(){
  let cur=s.queue[0],done=s.total-s.queue.length;
  let top=`<div class="session-list-title">${esc(l.name)}</div><div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
  if(state.mode==="flashcard")return `<div class="session">${top}<div class="flashcard ${s.flip?"flipped":""}" id="fc">${s.flip?`<div><div>${esc(cur.definition)}</div>${wordImage(cur)}<hr><div>${esc(cur.explanationNl)||"Nog geen Nederlandse uitleg"}</div><p>${esc(cur.exampleNl)||""}</p><p>${esc(cur.exampleZh)||""}</p></div>`:`<div>${esc(cur.term)}${wordImage(cur)}</div>`}</div><div class="fc-buttons"><button class="btn" id="unknown">🔁 Nog oefenen</button><button class="btn" id="known">✅ Beheerst</button></div><p class="hint" style="text-align:center">Klik op de kaart om hem om te draaien</p></div>`;
- if(state.mode==="mc")return `<div class="session"><div class="mc">${top}<div class="prompt">Wat is de Nederlandse uitleg van dit woord?</div><div class="big-word">${esc(cur.term)}</div>${wordImage(cur)}<div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":i===s.selected?"wrong":""):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?`<button class="btn primary" id="next" style="margin-top:15px">Volgende vraag →</button>`:""}</div></div>`;
+ if(state.mode==="mc")return `<div class="session"><div class="mc">${top}<div class="prompt">Wat is de Nederlandse uitleg van dit woord?</div><div class="big-word">${esc(cur.term)}</div>${wordImage(cur)}<div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":i===s.selected?"wrong":""):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?(s.celebrate?`<p class="correct" style="font-weight:800">Goed gedaan! Volgende vraag komt eraan…</p>`:`<button class="btn primary" id="next" style="margin-top:15px">Volgende vraag →</button>`):""}</div>${s.celebrate?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`;
 }
 function summary(l){
  let s=state.session,review=s.review||[];let big=state.mode==="flashcard"?s.known:`${s.correct}/${s.total}`,label=state.mode==="flashcard"?`woorden beheerst · ${s.total} in totaal`:`goed · ${Math.round(s.correct/s.total*100)}% correct`;
@@ -187,11 +193,14 @@ function start(m){
  state.mode=m;state.view="study";let q=shuffle(l.words);
  if(m==="flashcard")state.session={queue:q,total:q.length,flip:false,known:0,review:[],finished:false};
  else if(m==="mc")state.session={queue:q,total:q.length,answered:false,selected:null,options:mc(q[0],l.words),correct:0,review:[],finished:false};
- render()
+ startStudyMusic();render()
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 function mc(w,all){return shuffle([{text:w.explanationNl,ok:true},...shuffle(all.filter(x=>x.id!==w.id)).slice(0,3).map(x=>({text:x.explanationNl,ok:false}))])}
-function finishIf(s){if(!s.queue.length)s.finished=true}
+function finishIf(s){if(!s.queue.length){s.finished=true;stopStudyMusic()}}
+function nextMcQuestion(){
+ let s=state.session;clearCelebration();s.celebrate=false;s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()
+}
 function handlers(){
  document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;render()});
  document.querySelectorAll("[data-open]").forEach(x=>x.onclick=()=>{state.listId=x.dataset.open;state.view="detail";render()});
@@ -202,12 +211,12 @@ function handlers(){
  document.getElementById("deleteList")?.addEventListener("click",()=>{if(confirm("Weet je zeker dat je deze woordenlijst wilt verwijderen?")){DATA.lists=DATA.lists.filter(x=>x.id!==state.listId);save();state.view="home";render()}});
  document.querySelectorAll("[data-mode]").forEach(x=>x.onclick=()=>start(x.dataset.mode));
  document.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>{let l=getList();l.words=l.words.filter(w=>w.id!==x.dataset.del);save();render()});
- document.getElementById("exit")?.addEventListener("click",()=>{state.view="detail";state.session=null;render()});
+ document.getElementById("exit")?.addEventListener("click",()=>{clearCelebration();stopStudyMusic();state.view="detail";state.session=null;render()});
  document.getElementById("restart")?.addEventListener("click",()=>start(state.mode));
  if(state.view!=="study")return;
  let s=state.session;
- if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
- if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok)s.correct++;else s.review.push(s.queue[0]);render()});document.getElementById("next")?.addEventListener("click",()=>{s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()})}
+ if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{playSound("remembered");s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{playSound("review");s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
+ if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok){s.correct++;s.celebrate=true;playSound("correct",.7);render();clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,2000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render()}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
 }
 render();loadCloudLists();
 </script>
