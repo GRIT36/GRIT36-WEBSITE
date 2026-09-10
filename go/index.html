@@ -18,9 +18,10 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 .version-tag{position:fixed;left:12px;bottom:10px;color:#7D8790;font-size:11px;z-index:10;pointer-events:none}
 .topbar,.detail-header,.session-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:baseline;gap:10px}.brand h1{margin:0;font-size:26px}.sub,.meta,.hint{color:var(--soft);font-size:13px}
+.audio-controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.audio-toggle{min-width:126px;display:flex;align-items:center;justify-content:space-between;gap:9px;padding:7px 9px 7px 11px;border:1px solid var(--line);border-radius:999px;background:var(--white);color:var(--ink);font-size:12px;font-weight:700}.audio-switch{position:relative;width:34px;height:19px;border-radius:999px;background:#596A84;transition:background .2s}.audio-switch::after{content:"";position:absolute;width:15px;height:15px;top:2px;left:2px;border-radius:50%;background:#F2F7FF;transition:transform .2s}.audio-toggle.on .audio-switch{background:var(--accent)}.audio-toggle.on .audio-switch::after{transform:translateX(15px)}
 .game-panel{margin:18px 0 20px;background:#0C1628;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 28px #0008}.game-panel-head{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:#101D34}.game-panel-title{font-size:14px;font-weight:800}.game-panel-help{color:var(--soft);font-size:12px}.kievit-game{display:block;width:100%;height:190px;border:0;background:#fff}
 .actions,.detail-actions,.tabs,.kid-choice,.modal-actions,.fc-buttons,.summary-actions{display:flex;gap:8px}
-.btn,.icon-btn,.kid-tab,.mode-card,.mc-option{border:1px solid var(--line);background:var(--white);border-radius:var(--radius)}
+.btn,.icon-btn,.kid-tab,.mode-card,.mc-option{border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:var(--radius)}
 .btn{padding:10px 18px;font-weight:600}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.btn.ghost{background:transparent}
 .icon-btn{padding:8px 13px;color:var(--soft);font-size:13px}
 .tabs{margin:22px 0}.kid-tab{flex:1;padding:13px 16px;text-align:left;border-width:2px}.kid-tab.active[data-kid="Oudste"]{border-color:var(--ge);background:var(--ge-soft)}.kid-tab.active[data-kid="Jongste"]{border-color:var(--di);background:var(--di-soft)}.kid-tab.active[data-kid="Alle"]{border-color:var(--accent);background:var(--accent-soft)}
@@ -28,29 +29,35 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 .fab{position:fixed;right:25px;bottom:25px;border:0;border-radius:999px;padding:14px 20px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 6px 18px #2c7a7b55}
 .back{border:0;background:none;color:var(--soft);padding:4px 0;margin-bottom:13px}.detail-header{align-items:flex-start;margin-bottom:20px}.detail-header h2{margin:0 0 5px}
 .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 26px}.mode-card{padding:18px;text-align:left}.mode-card:hover{border-color:var(--accent);transform:translateY(-1px)}.mode-card .emoji{font-size:22px}.mode-card .title{font-weight:700;margin-top:8px}.mode-card .desc{font-size:12.5px;color:var(--soft);margin-top:4px}
-.word-table{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.word-row{display:grid;grid-template-columns:1.05fr .9fr 1.25fr 1.5fr 1.5fr 100px 86px;gap:10px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:start;font-size:13px}.word-row:last-child{border-bottom:0}.word-head{background:var(--paper);font-size:12px;color:var(--soft);font-weight:700}.cell-label{display:none}.word-thumbnail{display:block;width:88px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--paper)}.change-image{padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--soft);font-size:12px;font-weight:700}.change-image:hover{border-color:var(--accent);color:var(--accent)}.row-del{border:0;background:none;color:var(--bad);padding:3px}
+.word-table{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}.word-row{display:grid;grid-template-columns:1.05fr .9fr 1.25fr 1.5fr 1.5fr 96px 178px;gap:10px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:start;font-size:13px}.word-row:last-child{border-bottom:0}.word-head{background:var(--paper);font-size:12px;color:var(--soft);font-weight:700}.cell-label{display:none}.word-thumbnail{display:block;width:88px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--paper)}.image-actions{display:flex;gap:5px;align-items:flex-start}.change-image,.upload-image{padding:7px 7px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--soft);font-size:11px;font-weight:700;white-space:nowrap}.change-image:hover,.upload-image:hover{border-color:var(--accent);color:var(--accent)}.upload-image{color:#BCE8FF}.row-del{border:0;background:none;color:var(--bad);padding:3px}
 .modal-overlay{position:fixed;inset:0;background:#000a;display:flex;align-items:center;justify-content:center;padding:18px;z-index:20}.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px}.field{margin:14px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input,.field textarea{color:var(--ink);width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper)}.field textarea{min-height:230px;line-height:1.55}.field input:focus,.field textarea:focus{outline:2px solid var(--accent)}
 .kid-choice button{flex:1;padding:10px;border:1.5px solid var(--line);background:var(--paper);border-radius:10px}.kid-choice button.sel[data-k="Oudste"]{border-color:var(--ge);background:var(--ge-soft)}.kid-choice button.sel[data-k="Jongste"]{border-color:var(--di);background:var(--di-soft)}
 .session{max-width:650px;margin:auto}.session-list-title{text-align:center;font-size:18px;font-weight:800;margin:0 0 14px}.session-top{margin-bottom:20px}.progress{height:8px;background:var(--line);border-radius:8px;flex:1;overflow:hidden}.progress>div{height:100%;background:var(--accent)}
 .flashcard{min-height:300px;background:#13213Af2;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 8px 30px #0007;font-size:28px;font-weight:700;margin-bottom:18px}.flashcard.flipped{background:#163F4Bf0;font-size:19px;line-height:1.7}.fc-buttons{width:100%}.fc-buttons .btn{flex:1;padding:14px}.word-image{display:block;width:min(100%,420px);height:190px;object-fit:cover;border-radius:14px;margin:18px auto 0;box-shadow:0 3px 12px #0008}.mc .word-image{height:170px;margin-top:-10px;margin-bottom:20px}
-.spell,.mc{text-align:center;max-width:470px;margin:auto}.prompt{color:var(--soft);margin-bottom:8px}.big-word{font-size:30px;font-weight:800;margin:10px 0 24px}.spell-input{width:100%;padding:14px;text-align:center;font-size:19px;border:2px solid var(--line);border-radius:13px;margin-bottom:12px}.feedback{min-height:25px;font-weight:700}.correct{color:var(--good)}.wrong{color:var(--bad)}.mc-options{display:flex;flex-direction:column;gap:10px}.mc-option{padding:14px;text-align:left}.mc-option.correct{border-color:var(--good);background:var(--good-soft)}.mc-option.wrong{border-color:var(--bad);background:var(--bad-soft)}.celebration{position:fixed;inset:0;z-index:30;pointer-events:none;overflow:hidden}.firework{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px currentColor;animation:burst 1.8s ease-out forwards}.firework::before,.firework::after{content:"";position:absolute;inset:-2px;border-radius:50%;box-shadow:0 -56px 0 0 currentColor,40px -40px 0 -1px currentColor,56px 0 0 0 currentColor,40px 40px 0 -1px currentColor,0 56px 0 0 currentColor,-40px 40px 0 -1px currentColor,-56px 0 0 0 currentColor,-40px -40px 0 -1px currentColor}.firework::after{transform:rotate(22deg);opacity:.78}.firework.one{left:22%;top:23%;color:#FFE377}.firework.two{left:73%;top:28%;color:#79D8FF;animation-delay:.15s}.firework.three{left:50%;top:16%;color:#FF8CC8;animation-delay:.28s}@keyframes burst{0%{transform:scale(.08);opacity:0}15%{opacity:1}100%{transform:scale(1.35);opacity:0}}
+.spell,.mc{text-align:center;max-width:470px;margin:auto}.prompt{color:var(--soft);margin-bottom:8px}.big-word{font-size:30px;font-weight:800;margin:10px 0 24px}.spell-input{width:100%;padding:14px;text-align:center;font-size:19px;border:2px solid var(--line);border-radius:13px;margin-bottom:12px}.feedback{min-height:25px;font-weight:700}.correct{color:var(--good)}.wrong{color:var(--bad)}.mc-options{display:flex;flex-direction:column;gap:10px}.mc-option{padding:14px;text-align:left}.mc-option.correct{border-color:var(--good);background:var(--good-soft);color:#fff}.mc-option.wrong{border-color:var(--bad);background:var(--bad-soft);color:#fff}.celebration{position:fixed;inset:0;z-index:30;pointer-events:none;overflow:hidden}.firework{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px currentColor;animation:burst 1.8s ease-out forwards}.firework::before,.firework::after{content:"";position:absolute;inset:-2px;border-radius:50%;box-shadow:0 -56px 0 0 currentColor,40px -40px 0 -1px currentColor,56px 0 0 0 currentColor,40px 40px 0 -1px currentColor,0 56px 0 0 currentColor,-40px 40px 0 -1px currentColor,-56px 0 0 0 currentColor,-40px -40px 0 -1px currentColor}.firework::after{transform:rotate(22deg);opacity:.78}.firework.one{left:22%;top:23%;color:#FFE377}.firework.two{left:73%;top:28%;color:#79D8FF;animation-delay:.15s}.firework.three{left:50%;top:16%;color:#FF8CC8;animation-delay:.28s}@keyframes burst{0%{transform:scale(.08);opacity:0}15%{opacity:1}100%{transform:scale(1.35);opacity:0}}
 .summary{text-align:center;max-width:500px;margin:50px auto}.big-num{font-size:52px;font-weight:800;color:var(--accent)}.review{margin:20px 0;background:var(--white);border:1px solid var(--line);border-radius:14px;text-align:left;padding:6px 15px}.review div{padding:9px 0;border-bottom:1px solid var(--line)}.review div:last-child{border:0}
-@media(max-width:650px){.app{padding:20px 12px 85px}.game-panel{margin:14px 0 16px}.kievit-game{height:160px}.game-panel-help{font-size:11px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:var(--white);border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
+@media(max-width:650px){.app{padding:20px 12px 85px}.topbar{align-items:flex-start}.audio-controls{gap:5px}.audio-toggle{min-width:108px;padding-left:8px;font-size:11px}.game-panel{margin:14px 0 16px}.kievit-game{height:160px}.game-panel-help{font-size:11px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:var(--white);border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
 </style>
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.016";
+const APP_VERSION="V1.019";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
 const AUDIO={review:"assets/audio/flashcard-review.ogg",remembered:"assets/audio/flashcard-remembered.ogg",correct:"assets/audio/answer-correct.ogg",wrong:"assets/audio/answer-wrong.ogg",music:"assets/audio/study-background.ogg"};
+const IMAGE_BUCKET="word-images";
+const AUDIO_SETTINGS_KEY="kievitGoAudioSettings_v1";
+let audioSettings={music:true,sound:true};
+try{audioSettings={...audioSettings,...JSON.parse(localStorage.getItem(AUDIO_SETTINGS_KEY)||"{}")} }catch(e){}
 let studyMusic=null,celebrationTimer=null;
-function playSound(name,volume=.55){let audio=new Audio(AUDIO[name]);audio.volume=volume;audio.play().catch(()=>{});}
-function startStudyMusic(){if(!studyMusic){studyMusic=new Audio(AUDIO.music);studyMusic.loop=true;studyMusic.volume=.16}studyMusic.play().catch(()=>{});}
+function saveAudioSettings(){localStorage.setItem(AUDIO_SETTINGS_KEY,JSON.stringify(audioSettings))}
+function playSound(name,volume=.55){if(!audioSettings.sound)return;let audio=new Audio(AUDIO[name]);audio.volume=volume;audio.play().catch(()=>{});}
+function startStudyMusic(){if(!audioSettings.music)return;if(!studyMusic){studyMusic=new Audio(AUDIO.music);studyMusic.loop=true;studyMusic.volume=.16}studyMusic.play().catch(()=>{});}
 function stopStudyMusic(){if(studyMusic){studyMusic.pause();studyMusic.currentTime=0}}
+function toggleAudioSetting(name){audioSettings[name]=!audioSettings[name];saveAudioSettings();if(name==="music"){if(audioSettings.music&&state.view==="study")startStudyMusic();else stopStudyMusic()}render()}
 function clearCelebration(){if(celebrationTimer){clearTimeout(celebrationTimer);celebrationTimer=null}}
 const SAMPLE_WORDS=[
 ["afleiden","分散注意力","zorgen dat iemands aandacht ergens anders heen gaat","Het lawaai kon hem niet afleiden tijdens de wedstrijd.","噪音没能让他在比赛中分心。"],
@@ -131,13 +138,35 @@ async function changeImage(wordId){
  if(error){console.error(error);alert("De nieuwe afbeelding kon niet worden opgeslagen. Probeer het opnieuw.");return false}
  IMAGE_URLS[`${l.id}:${wordId}`]=url;render();return true
 }
+function loadImageFile(file){return new Promise((resolve,reject)=>{let url=URL.createObjectURL(file),img=new Image();img.onload=()=>{URL.revokeObjectURL(url);resolve(img)};img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error("image"))};img.src=url})}
+async function compressImage(file){
+ if(!["image/jpeg","image/png","image/webp"].includes(file.type))throw new Error("type");
+ if(file.size>15*1024*1024)throw new Error("large");
+ let image=await loadImageFile(file),sourceWidth=image.naturalWidth||image.width,sourceHeight=image.naturalHeight||image.height;
+ for(let [max,quality] of [[1600,.82],[1400,.75],[1200,.68]]){
+  let scale=Math.min(1,max/Math.max(sourceWidth,sourceHeight)),canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(sourceWidth*scale));canvas.height=Math.max(1,Math.round(sourceHeight*scale));canvas.getContext("2d").drawImage(image,0,0,canvas.width,canvas.height);
+  let blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/jpeg",quality));if(blob&&blob.size<=1900000)return blob;
+ }
+ throw new Error("compressed-large")
+}
+async function uploadCustomImage(wordId,file){
+ let l=getList(),w=l?.words.find(x=>x.id===wordId);if(!l||!w||!file)return false;
+ let image;try{image=await compressImage(file)}catch(error){let message=error.message==="type"?"Kies een JPG-, PNG- of WebP-afbeelding.":error.message==="large"?"Deze foto is te groot. Kies een bestand kleiner dan 15 MB.":"Deze afbeelding kan niet klein genoeg worden gemaakt. Kies een andere foto.";alert(message);return false}
+ let path=`${l.id}/${w.id}-${Date.now()}.jpg`;
+ const {error:uploadError}=await db.storage.from(IMAGE_BUCKET).upload(path,image,{contentType:"image/jpeg",cacheControl:"31536000",upsert:false});
+ if(uploadError){console.error(uploadError);alert("Uploaden mislukt. Controleer eerst of de opslag voor afbeeldingen is ingesteld.");return false}
+ let {data:urlData}=db.storage.from(IMAGE_BUCKET).getPublicUrl(path),url=urlData.publicUrl;
+ const {error:saveError}=await db.from("word_images").upsert({word_list_id:l.id,word_id:wordId,image_url:url},{onConflict:"word_list_id,word_id"});
+ if(saveError){console.error(saveError);alert("De afbeelding is geüpload, maar kon niet aan dit woord worden gekoppeld.");return false}
+ IMAGE_URLS[`${l.id}:${wordId}`]=url;render();return true
+}
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
 function render(){document.getElementById("app").innerHTML=(state.view==="home"?home():state.view==="detail"?detail():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
 function home(){
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>cs[l.kid]=(cs[l.kid]||0)+1);
  let ls=DATA.lists.filter(l=>state.filter==="Alle"||l.kid===state.filter);
- return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div></div>
+ return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div>
  <section class="game-panel" aria-label="Kievit Go spel"><div class="game-panel-head"><span class="game-panel-title">🐦 Kievit Go</span><span class="game-panel-help">Klik of tik om te springen</span></div><iframe class="kievit-game" src="assets/trex-runner/index.html" title="Kievit Go spel" loading="lazy"></iframe></section>
  <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
  ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
@@ -145,12 +174,12 @@ function home(){
 }
 function detail(){
  let l=getList(); if(!l){state.view="home";return home()}
- let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div><span class="cell-label">Afbeelding</span>${wordThumbnail(w)}</div><div><button class="change-image" data-change-image="${esc(w.id)}">↻ Nieuwe afbeelding</button></div></div>`).join("");
+ let rows=l.words.map(w=>`<div class="word-row"><div><span class="cell-label">Nederlandse uitleg</span>${esc(w.explanationNl)||"—"}</div><div><span class="cell-label">Nederlands woord</span><b>${esc(w.term)}</b></div><div><span class="cell-label">Nederlands voorbeeld</span>${esc(w.exampleNl)||"—"}</div><div><span class="cell-label">Chinese betekenis</span>${esc(w.definition)}</div><div><span class="cell-label">Chinees voorbeeld</span>${esc(w.exampleZh)||"—"}</div><div><span class="cell-label">Afbeelding</span>${wordThumbnail(w)}</div><div class="image-actions"><button class="change-image" data-change-image="${esc(w.id)}">↻ Nieuwe afbeelding</button><button class="upload-image" data-upload-image="${esc(w.id)}">📤 Uploaden</button></div></div>`).join("");
  return `<button class="back" id="back">‹ Terug naar alle woordenlijsten</button><div class="detail-header"><div><h2>${esc(l.name)}</h2><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden · vijf velden</div></div></div>
  <div class="mode-grid">
  ${modeCard("🧠","Flashcards","Betekenis + Nederlandse uitleg + tweetalige voorbeelden","flashcard")}${modeCard("✅","Leren","Kies de juiste betekenis","mc")}
  </div>
- <div class="word-table"><div class="word-row word-head"><div>Nederlandse uitleg</div><div>Nederlands woord</div><div>Nederlands voorbeeld</div><div>Chinese betekenis</div><div>Chinees voorbeeld</div><div>Afbeelding</div><div>Wijzigen</div></div>${rows||`<div class="empty">Deze woordenlijst bevat nog geen woorden.</div>`}</div>`
+ <div class="word-table"><div class="word-row word-head"><div>Nederlandse uitleg</div><div>Nederlands woord</div><div>Nederlands voorbeeld</div><div>Chinese betekenis</div><div>Chinees voorbeeld</div><div>Afbeelding</div><div>Wijzigen</div></div>${rows||`<div class="empty">Deze woordenlijst bevat nog geen woorden.</div>`}</div><input id="customImageFile" type="file" accept="image/jpeg,image/png,image/webp" hidden>`
 }
 function modeCard(e,t,d,m){return `<button class="mode-card" data-mode="${m}"><span class="emoji">${e}</span><div class="title">${t}</div><div class="desc">${d}</div></button>`}
 function study(){
@@ -202,9 +231,13 @@ function nextMcQuestion(){
  let s=state.session;clearCelebration();s.celebrate=false;s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()
 }
 function handlers(){
+ document.querySelectorAll("[data-audio-setting]").forEach(x=>x.onclick=()=>toggleAudioSetting(x.dataset.audioSetting));
  document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;render()});
  document.querySelectorAll("[data-open]").forEach(x=>x.onclick=()=>{state.listId=x.dataset.open;state.view="detail";render()});
  document.querySelectorAll("[data-change-image]").forEach(x=>x.onclick=async()=>{if(x.disabled)return;x.disabled=true;x.textContent="Bezig...";let changed=await changeImage(x.dataset.changeImage);if(!changed){x.disabled=false;x.textContent="↻ Nieuwe afbeelding"}});
+ let customImageFile=document.getElementById("customImageFile"),uploadWordId=null;
+ document.querySelectorAll("[data-upload-image]").forEach(x=>x.onclick=()=>{uploadWordId=x.dataset.uploadImage;customImageFile?.click()});
+ customImageFile?.addEventListener("change",async()=>{let file=customImageFile.files?.[0];if(!file||!uploadWordId)return;let button=document.querySelector(`[data-upload-image="${uploadWordId}"]`);if(button){button.disabled=true;button.textContent="Bezig..."}await uploadCustomImage(uploadWordId,file);uploadWordId=null;customImageFile.value=""});
  document.getElementById("newList")?.addEventListener("click",()=>{state.modal="new";render()});
  document.getElementById("back")?.addEventListener("click",()=>{state.view="home";render()});
  document.getElementById("editWords")?.addEventListener("click",()=>{state.modal="edit";render()});
