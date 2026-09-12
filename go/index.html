@@ -86,7 +86,7 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.044";
+const APP_VERSION="V1.046";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -324,7 +324,8 @@ function shownSession(){return historyIndex===null?state.session:questionHistory
 function rememberQuestion(){questionHistory.push(JSON.parse(JSON.stringify(state.session)))}
 function historyControls(){
  let position=historyIndex===null?questionHistory.length:historyIndex;
- return `<div class="question-navigation"><button class="btn" id="previousQuestion" aria-label="Vorige vraag" ${position===0?"disabled":""}>⬅️</button>${historyIndex!==null?`<button class="btn" id="forwardQuestion" aria-label="Volgende bekeken vraag">➡️</button>`:""}</div>`
+ let canAdvance=state.mode==="mc"&&state.session?.answered&&state.session?.celebrate&&!state.session?.finished;
+ return `<div class="question-navigation"><button class="btn" id="previousQuestion" aria-label="Vorige vraag" ${position===0?"disabled":""}>⬅️</button>${historyIndex!==null||canAdvance?`<button class="btn" id="forwardQuestion" aria-label="Volgende vraag">➡️</button>`:""}</div>`
 }
 function navigateQuestion(direction){
  const position=historyIndex===null?questionHistory.length:historyIndex;
@@ -336,7 +337,7 @@ function navigateQuestion(direction){
 function finishIf(s){
  if(!s.queue.length&&!s.finished){
   s.finished=true;if(state.mode==="flashcard")startStudyMusic();else stopStudyMusic();
-  if(state.mode==="mc")playSoundSequence(s.correct/s.total<.5?["emotional"]:["correct","brainrot"],.7)
+  if(state.mode==="mc")playSoundSequence(s.correct/s.total<.5?["emotional"]:["brainrot"],.7)
  }
 }
 function nextMcQuestion(){
@@ -376,7 +377,7 @@ function handlers(){
  document.getElementById("restart")?.addEventListener("click",()=>start(state.mode));
  if(state.view!=="study")return;
  document.getElementById("previousQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();navigateQuestion(-1);});
- document.getElementById("forwardQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();navigateQuestion(1);});
+ document.getElementById("forwardQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();if(historyIndex!==null)navigateQuestion(1);else if(state.mode==="mc"&&state.session?.answered&&state.session?.celebrate)nextMcQuestion();});
  if(historyIndex!==null){
   document.querySelectorAll("#known,#unknown,#next,.feedback-overlay,.celebration").forEach(x=>x.remove());
   document.querySelectorAll("[data-opt]").forEach(x=>x.disabled=true);
