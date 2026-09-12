@@ -86,7 +86,7 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.043";
+const APP_VERSION="V1.044";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -255,7 +255,7 @@ function home(){
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>cs[l.kid]=(cs[l.kid]||0)+1);
  let ls=DATA.lists.filter(l=>state.filter==="Alle"||l.kid===state.filter);
  return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div></div>
- <section class="game-panel" aria-label="Kievit Go spel"><div class="game-panel-head"><span class="game-panel-title">🐦 Kievit Go</span><span class="game-panel-help">Klik of tik om te springen</span></div><iframe class="kievit-game" src="assets/trex-runner/index.html" title="Kievit Go spel" loading="lazy"></iframe></section>
+ <section class="game-panel" aria-label="Kievit Go spel"><div class="game-panel-head"><span class="game-panel-title">Pauze 🦖 T-Rex Run</span><span class="game-panel-help">Klik of tik om te springen</span></div><iframe class="kievit-game" src="assets/trex-runner/index.html" title="Kievit Go spel" loading="lazy"></iframe></section>
  <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
  ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
  <button class="fab" id="newList">＋ Nieuwe woordenlijst</button>`
