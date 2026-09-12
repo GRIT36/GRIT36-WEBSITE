@@ -38,13 +38,16 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 .question-image-wrap{position:relative;width:min(100%,420px);margin:-10px auto 20px}.question-image-wrap .word-image{width:100%;height:170px;margin:0}.feedback-overlay{position:absolute;inset:0;display:grid;place-items:center;background:#06101b88;border-radius:14px;animation:feedback-pop .22s ease-out}.feedback-gif{display:block;width:min(58vw,190px);max-height:142px;object-fit:contain;border-radius:14px;box-shadow:0 5px 18px #0009}@keyframes feedback-pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 .summary{text-align:center;max-width:500px;margin:50px auto}.big-num{font-size:52px;font-weight:800;color:var(--accent)}.review{margin:20px 0;background:var(--white);border:1px solid var(--line);border-radius:14px;text-align:left;padding:6px 15px}.review div{padding:9px 0;border-bottom:1px solid var(--line)}.review div:last-child{border:0}
 @media(max-width:650px){.app{padding:20px 12px 85px}.topbar{align-items:flex-start}.audio-controls{gap:5px}.audio-toggle{min-width:108px;padding-left:8px;font-size:11px}.game-panel{margin:14px 0 16px}.kievit-game{height:160px}.game-panel-help{font-size:11px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:var(--white);border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
+.mc-option{display:flex;align-items:center;gap:12px;font-size:16px;line-height:1.4;color:#172238;background:var(--option-bg);border-color:var(--option-border);opacity:1}.option-red{--option-bg:#FADADD;--option-border:#ECA9AF}.option-green{--option-bg:#D7F1DF;--option-border:#96CBA8}.option-orange{--option-bg:#FFE0BE;--option-border:#E5B27D}.option-yellow{--option-bg:#FFF1B8;--option-border:#DBC768}.option-blue{--option-bg:#D8EAFE;--option-border:#9CBFE4}.option-shape{flex:0 0 28px;text-align:center;font-size:23px}.mc-option.correct{background:#216943;border-color:#63DB9C;color:#fff}.mc-option.wrong{background:#96333E;border-color:#FF9096;color:#fff}.mc-option:disabled{opacity:1;-webkit-text-fill-color:currentColor}.mc-option:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.study-audio-bar{display:flex;justify-content:flex-end;margin-bottom:14px}
+.celebration .firework{animation:burst 1.8s ease-out infinite both}.celebration .firework.two{animation-delay:.6s}.celebration .firework.three{animation-delay:1.2s}
 </style>
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.024";
+const APP_VERSION="V1.031";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -97,8 +100,30 @@ function imageServiceUrl(w,queryString){let term=w.term.toLowerCase(),query=IMAG
 function generatedImageUrl(w,lock){return imageServiceUrl(w,`lock=${lock}&v=${lock}`)}
 function imageKey(w){return `${state.listId}:${w.id}`}
 function imageUrl(w){return IMAGE_URLS[imageKey(w)]||generatedImageUrl(w,imageSeed(w.term))}
-function wordImage(w){return `<img class="word-image" src="${imageUrl(w)}" alt="Afbeelding bij ${esc(w.term)}" loading="lazy" onerror="this.style.display='none'">`}
-function wordThumbnail(w){return `<img class="word-thumbnail" src="${imageUrl(w)}" alt="Voorbeeldafbeelding bij ${esc(w.term)}" loading="lazy" onerror="this.style.display='none'">`}
+const FALLBACK_IMAGES=Array.from({length:6},(_,i)=>`assets/fallback-car-${i+1}.png`);
+const fallbackChoices=new Map(),resolvedImages=new Map();
+function fallbackImage(key){if(!fallbackChoices.has(key))fallbackChoices.set(key,FALLBACK_IMAGES[Math.floor(Math.random()*6)]);return fallbackChoices.get(key)}
+function isSearchImage(url){try{return /(^|\.)loremflickr\.com$/.test(new URL(url,location.href).hostname)}catch(e){return false}}
+async function resolveSearchImage(url,key){
+ if(!resolvedImages.has(url))resolvedImages.set(url,(async()=>{
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
+  try{
+   const response=await fetch(url,{signal:controller.signal});
+   const path=new URL(response.url).pathname;
+   // Only accept identifiable Flickr photo filenames, never a provider placeholder.
+   if(!response.ok||!response.headers.get("content-type")?.startsWith("image/")||!/\d{6,}_[a-f0-9]{8,}/i.test(path)||/tomboli|default|placeholder/i.test(path))return null;
+   return URL.createObjectURL(await response.blob())
+  }catch(e){return null}finally{clearTimeout(timer)}
+ })());
+ return await resolvedImages.get(url)||fallbackImage(key)
+}
+function useFallbackImage(img){img.onerror=null;img.src=img.dataset.fallback;img.style.objectFit="contain";img.style.background="#fff"}
+function wordPicture(w,className){
+ let key=imageKey(w),url=imageUrl(w),fallback=fallbackImage(key),search=isSearchImage(url);
+ return `<img class="${className}" src="${esc(search?fallback:url)}" data-fallback="${esc(fallback)}" ${search?`data-search-image="${esc(url)}" data-image-key="${esc(key)}" style="object-fit:contain;background:#fff"`:""} alt="Afbeelding bij ${esc(w.term)}" loading="lazy" onerror="useFallbackImage(this)">`
+}
+function wordImage(w){return wordPicture(w,"word-image")}
+function wordThumbnail(w){return wordPicture(w,"word-thumbnail")}
 function uid(){return Math.random().toString(36).slice(2)+Date.now().toString(36)}
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function localizeKid(k){return k==="哥哥"?"Oudste":k==="弟弟"?"Jongste":k}
@@ -134,7 +159,10 @@ async function createCloudList(list){
 async function changeImage(wordId){
  let l=getList(),w=l?.words.find(x=>x.id===wordId);if(!l||!w)return;
  let random=Math.floor(Math.random()*900000000)+100000000;
- let url=generatedImageUrl(w,random);
+ let key=imageKey(w),previous=fallbackImage(key),choices=FALLBACK_IMAGES.filter(x=>x!==previous);
+ fallbackChoices.set(key,choices[Math.floor(Math.random()*choices.length)]);
+ let candidate=generatedImageUrl(w,random),resolved=await resolveSearchImage(candidate,key);
+ let url=resolved.startsWith("assets/")?resolved:candidate;
  const {error}=await db.from("word_images").upsert({word_list_id:l.id,word_id:wordId,image_url:url},{onConflict:"word_list_id,word_id"});
  if(error){console.error(error);alert("De nieuwe afbeelding kon niet worden opgeslagen. Probeer het opnieuw.");return false}
  IMAGE_URLS[`${l.id}:${wordId}`]=url;render();return true
@@ -167,7 +195,7 @@ function render(){document.getElementById("app").innerHTML=(state.view==="home"?
 function home(){
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>cs[l.kid]=(cs[l.kid]||0)+1);
  let ls=DATA.lists.filter(l=>state.filter==="Alle"||l.kid===state.filter);
- return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div>
+ return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div></div>
  <section class="game-panel" aria-label="Kievit Go spel"><div class="game-panel-head"><span class="game-panel-title">🐦 Kievit Go</span><span class="game-panel-help">Klik of tik om te springen</span></div><iframe class="kievit-game" src="assets/trex-runner/index.html" title="Kievit Go spel" loading="lazy"></iframe></section>
  <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
  ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
@@ -184,11 +212,12 @@ function detail(){
 }
 function modeCard(e,t,d,m){return `<button class="mode-card" data-mode="${m}"><span class="emoji">${e}</span><div class="title">${t}</div><div class="desc">${d}</div></button>`}
 function study(){
- let s=state.session,l=getList();if(s.finished)return summary(l);
+ let s=shownSession(),l=getList();if(s.finished)return historyControls()+summary(l);
  let cur=s.queue[0],done=s.total-s.queue.length;
- let top=`<div class="session-list-title">${esc(l.name)}</div><div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
+ let top=`<div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div><div class="session-list-title">${esc(l.name)}</div><div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
+ top+=historyControls();
  if(state.mode==="flashcard")return `<div class="session">${top}<div class="flashcard ${s.flip?"flipped":""}" id="fc">${s.flip?`<div><div>${esc(cur.definition)}</div>${wordImage(cur)}<hr><div>${esc(cur.explanationNl)||"Nog geen Nederlandse uitleg"}</div><p>${esc(cur.exampleNl)||""}</p><p>${esc(cur.exampleZh)||""}</p></div>`:`<div>${esc(cur.term)}${wordImage(cur)}</div>`}</div><div class="fc-buttons"><button class="btn" id="unknown">🔁 Nog oefenen</button><button class="btn" id="known">✅ Beheerst</button></div><p class="hint" style="text-align:center">Klik op de kaart om hem om te draaien</p></div>`;
- if(state.mode==="mc"){let answeredGif=s.answered?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${s.celebrate?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${s.celebrate?"Goed gedaan":"Probeer het opnieuw"}"></div>`:"";return `<div class="session"><div class="mc">${top}<div class="prompt">Wat is de Nederlandse uitleg van dit woord?</div><div class="big-word">${esc(cur.term)}</div><div class="question-image-wrap">${wordImage(cur)}${answeredGif}</div><div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":i===s.selected?"wrong":""):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?(s.celebrate?`<p class="correct" style="font-weight:800">Goed gedaan! Volgende vraag komt eraan…</p>`:`<p class="wrong" style="font-weight:800">Nog eens proberen!</p><button class="btn primary" id="next" style="margin-top:8px">Volgende vraag →</button>`):""}</div>${s.celebrate?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`}
+ if(state.mode==="mc"){let answeredGif=s.answered?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${s.celebrate?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${s.celebrate?"Goed gedaan":"Probeer het opnieuw"}"></div>`:"";return `<div class="session"><div class="mc">${top}<div class="prompt">Wat is de Nederlandse uitleg van dit woord?</div><div class="big-word">${esc(cur.term)}</div><div class="question-image-wrap">${wordImage(cur)}${answeredGif}</div><div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":"wrong"):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?(s.celebrate?`<p class="correct" style="font-weight:800">Goed gedaan! Volgende vraag komt eraan…</p>`:`<p class="wrong" style="font-weight:800">Nog eens proberen!</p><button class="btn primary" id="next" style="margin-top:8px">Volgende vraag →</button>`):""}</div>${s.celebrate?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`}
 }
 function summary(l){
  let s=state.session,review=s.review||[];let big=state.mode==="flashcard"?s.known:`${s.correct}/${s.total}`,label=state.mode==="flashcard"?`woorden beheerst · ${s.total} in totaal`:`goed · ${Math.round(s.correct/s.total*100)}% correct`;
@@ -219,6 +248,7 @@ function parse(text){
  }).filter(x=>x.term)
 }
 function start(m){
+ clearCelebration();questionHistory=[];historyIndex=null;
  let l=getList();if(!l||!l.words.length){alert("Voeg eerst woorden toe.");return}
  state.mode=m;state.view="study";let q=shuffle(l.words);
  if(m==="flashcard")state.session={queue:q,total:q.length,flip:false,known:0,review:[],finished:false};
@@ -226,12 +256,44 @@ function start(m){
  startStudyMusic();render()
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
-function mc(w,all){return shuffle([{text:w.explanationNl,ok:true},...shuffle(all.filter(x=>x.id!==w.id)).slice(0,3).map(x=>({text:x.explanationNl,ok:false}))])}
+function mc(w,all){
+ let colors=shuffle(["red","green","orange","yellow","blue"]),shapes=shuffle(["🦆","🐓","🦃","🦅","🕊️","🦢","🦜","🐦‍⬛","🪿","🐦‍🔥","🦩","🦚","🦉","🦤","🐦","🐧","🐥"]);
+ return shuffle([{text:w.explanationNl,ok:true},...shuffle(all.filter(x=>x.id!==w.id)).slice(0,3).map(x=>({text:x.explanationNl,ok:false}))]).map((o,i)=>({...o,color:colors[i],shape:shapes[i]}))
+}
+let questionHistory=[],historyIndex=null;
+function shownSession(){return historyIndex===null?state.session:questionHistory[historyIndex]}
+function rememberQuestion(){questionHistory.push(JSON.parse(JSON.stringify(state.session)))}
+function historyControls(){
+ let position=historyIndex===null?questionHistory.length:historyIndex;
+ return `<div class="question-navigation" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><button class="btn" id="previousQuestion" aria-label="Vorige vraag" ${position===0?"disabled":""}>←</button>${historyIndex!==null?`<span class="meta">Terugkijken</span><button class="btn" id="forwardQuestion" aria-label="Volgende bekeken vraag">→</button>`:""}</div>`
+}
+function navigateQuestion(direction){
+ const position=historyIndex===null?questionHistory.length:historyIndex;
+ const target=position+direction;
+ if(target<0||target>questionHistory.length)return;
+ clearCelebration();historyIndex=target===questionHistory.length?null:target;render();
+ if(historyIndex===null&&state.mode==="mc"&&state.session.celebrate&&!state.session.finished)celebrationTimer=setTimeout(nextMcQuestion,6000)
+}
 function finishIf(s){if(!s.queue.length){s.finished=true;stopStudyMusic()}}
 function nextMcQuestion(){
+ if(historyIndex!==null||!state.session||state.session.finished||!state.session.answered)return;
+ rememberQuestion();
  let s=state.session;clearCelebration();s.celebrate=false;s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()
 }
 function handlers(){
+ document.querySelectorAll("[data-search-image]").forEach(img=>{
+  resolveSearchImage(img.dataset.searchImage,img.dataset.imageKey).then(url=>{
+   if(!img.isConnected)return;img.src=url;
+   img.style.objectFit=url.startsWith("assets/")?"contain":"cover";
+  })
+ });
+ if(state.view==="study"&&state.mode==="mc")document.querySelectorAll("[data-opt]").forEach(button=>{
+  let option=shownSession().options[Number(button.dataset.opt)];
+  button.classList.add("option-"+option.color);
+  let label=document.createElement("span");label.textContent=option.text;
+  let shape=document.createElement("span");shape.className="option-shape";shape.setAttribute("aria-hidden","true");shape.textContent=option.shape;
+  button.replaceChildren(shape,label)
+ });
  document.querySelectorAll("[data-audio-setting]").forEach(x=>x.onclick=()=>toggleAudioSetting(x.dataset.audioSetting));
  document.querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;render()});
  document.querySelectorAll("[data-open]").forEach(x=>x.onclick=()=>{state.listId=x.dataset.open;state.view="detail";render()});
@@ -248,8 +310,17 @@ function handlers(){
  document.getElementById("exit")?.addEventListener("click",()=>{clearCelebration();stopStudyMusic();state.view="detail";state.session=null;render()});
  document.getElementById("restart")?.addEventListener("click",()=>start(state.mode));
  if(state.view!=="study")return;
+ document.getElementById("previousQuestion")?.addEventListener("click",()=>navigateQuestion(-1));
+ document.getElementById("forwardQuestion")?.addEventListener("click",()=>navigateQuestion(1));
+ if(historyIndex!==null){
+  document.querySelectorAll("#known,#unknown,#next,.feedback-overlay,.celebration").forEach(x=>x.remove());
+  document.querySelectorAll("[data-opt]").forEach(x=>x.disabled=true);
+  document.querySelectorAll(".mc > p").forEach(x=>x.remove());
+  document.getElementById("fc")?.addEventListener("click",()=>{let s=shownSession();s.flip=!s.flip;render()});
+  return
+ }
  let s=state.session;
- if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{playSound("remembered");s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{playSound("review");s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
+ if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{rememberQuestion();playSound("remembered");s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{rememberQuestion();playSound("review");s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
  if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok){s.correct++;s.celebrate=true;playSound("correct",.7);render();clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,6000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render()}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
 }
 render();loadCloudLists();
