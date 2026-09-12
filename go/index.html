@@ -6,10 +6,11 @@
 <title>🐦 Kievit Go</title>
 <style>
 :root{
-  --paper:#0A1120;--white:#13213A;--ink:#F2F7FF;--soft:#B7C7DE;--line:#314564;
-  --ge:#8CA7FF;--ge-soft:#202B55;--di:#FFB15D;--di-soft:#4A3021;
+  --paper:#25153D;--white:#382451;--ink:#F2F7FF;--soft:#B7C7DE;--line:#78569B;
+  --ge:#8CA7FF;--ge-soft:#493066;--di:#FFB15D;--di-soft:#51316A;
   --good:#63DB9C;--good-soft:#143C35;--bad:#FF9096;--bad-soft:#4B2934;
-  --accent:#4ECBC7;--accent-soft:#163F4B;--radius:14px;
+  --accent:#4ECBC7;--accent-soft:#4C2D70;--radius:14px;
+  --purple-edge:#AD83DE;--purple-surface:linear-gradient(135deg,#45305F,#302044);--purple-action:linear-gradient(125deg,#8753BE,#6540A0);
 }
 *{box-sizing:border-box}
 body{margin:0;background:linear-gradient(#06101be8,#06101be8),url("assets/kievit-background-night-fireworks.png") center/cover fixed no-repeat;color:var(--ink);font-family:Arial,"Segoe UI",sans-serif}
@@ -41,27 +42,85 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 .mc-option{display:flex;align-items:center;gap:12px;font-size:16px;line-height:1.4;color:#172238;background:var(--option-bg);border-color:var(--option-border);opacity:1}.option-red{--option-bg:#FADADD;--option-border:#ECA9AF}.option-green{--option-bg:#D7F1DF;--option-border:#96CBA8}.option-orange{--option-bg:#FFE0BE;--option-border:#E5B27D}.option-yellow{--option-bg:#FFF1B8;--option-border:#DBC768}.option-blue{--option-bg:#D8EAFE;--option-border:#9CBFE4}.option-shape{flex:0 0 28px;text-align:center;font-size:23px}.mc-option.correct{background:#216943;border-color:#63DB9C;color:#fff}.mc-option.wrong{background:#96333E;border-color:#FF9096;color:#fff}.mc-option:disabled{opacity:1;-webkit-text-fill-color:currentColor}.mc-option:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .study-audio-bar{display:flex;justify-content:flex-end;margin-bottom:14px}
 .celebration .firework{animation:burst 1.8s ease-out infinite both}.celebration .firework.two{animation-delay:.6s}.celebration .firework.three{animation-delay:1.2s}
+/* Purple surfaces; existing text colors and answer feedback colors are preserved. */
+body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%,#AD77E442,transparent 58%),linear-gradient(145deg,#40215DDC,#281B48EB 60%,#492663DE),url("assets/kievit-background-night-fireworks.png");background-position:center;background-size:cover;background-attachment:fixed}
+.btn,.icon-btn,.kid-tab,.mode-card,.audio-toggle,.change-image,.upload-image{background:var(--purple-surface);border-color:var(--line)}
+.btn.primary,.fab{background:var(--purple-action);border-color:var(--purple-edge);box-shadow:0 6px 22px #A15ADF35}
+.btn.ghost{background:transparent}
+.kid-tab.active[data-kid]{background:linear-gradient(125deg,#64408B,#463064);border-color:var(--purple-edge)}
+.kid-choice button{background:var(--purple-surface)}
+.kid-choice button.sel[data-k]{background:linear-gradient(125deg,#64408B,#463064);border-color:var(--purple-edge)}
+.list-row,.modal,.review{background:linear-gradient(135deg,#402957F5,#302045F5);border-color:var(--line)}
+.list-row:hover{background:linear-gradient(135deg,#50346E,#3E2957);border-color:var(--purple-edge)}
+.mode-card:hover,.change-image:hover,.upload-image:hover{border-color:var(--purple-edge)}
+.game-panel{background:#2D1C44;border-color:var(--line);box-shadow:0 8px 28px #1F103B66}
+.game-panel-head{background:linear-gradient(110deg,#50346C,#312147)}
+.word-table{background:var(--purple-surface)}.word-head{background:linear-gradient(110deg,#49315F,#322046)}
+.flashcard{background:linear-gradient(140deg,#503268F5,#322248F5);border-color:var(--purple-edge);box-shadow:0 8px 30px #210E4566}
+.flashcard.flipped{background:linear-gradient(140deg,#613C7DF5,#40295EF5)}
+.field input,.field textarea{background:linear-gradient(125deg,#2B1C40,#362249)}
+.field input:focus,.field textarea:focus{outline-color:var(--purple-edge)}
+.progress{background:#51396C}.progress>div{background:linear-gradient(90deg,#8855C4,#C397ED)}
+.audio-switch{background:#65517D}.audio-toggle.on .audio-switch{background:linear-gradient(90deg,#9262CC,#B384E1)}
+.modal-overlay{background:#1B0E32B8}.feedback-overlay{background:#2C154C88}
+@media(max-width:650px){.word-table{background:transparent}.word-row{background:var(--purple-surface)}}
+.question-image-wrap{min-height:170px}.flashcard-image-wrap{position:relative;margin:18px auto 0;width:min(100%,420px);min-height:190px}.flashcard-image-wrap .word-image{margin:0;width:100%}.question-navigation{position:absolute;inset:0;z-index:35;pointer-events:none}.question-navigation .btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;padding:0;border-radius:50%;background:#382451E8;border:1px solid #AD83DE;box-shadow:0 2px 10px #0005;pointer-events:auto;font-size:24px;line-height:1}.question-navigation #previousQuestion{left:8px}.question-navigation #forwardQuestion{right:8px}.question-navigation .btn:disabled{opacity:.35;pointer-events:none}.summary-navigation{position:relative;height:44px;max-width:500px;margin:auto}
+.summary-radiance{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at center,#77449A,#392052 70%,#291A43)}
+.summary-radiance::before{content:"";position:absolute;left:50%;top:50%;width:150vmax;height:150vmax;background:repeating-conic-gradient(from 0deg,#CB97EE24 0deg 10deg,transparent 10deg 23deg,#A565D419 23deg 30deg,transparent 30deg 45deg);animation:summary-rays 70s linear infinite;transform:translate(-50%,-50%);will-change:transform}
+.summary-radiance::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,#E2B3FF18,transparent 45%,#21123766)}
+@keyframes summary-rays{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.summary{position:relative;z-index:1;margin:12px auto 40px}
+.summary-navigation{z-index:2}
+.summary-finale{position:relative;height:166px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:24px}
+.summary-finale h2{position:relative;z-index:1;margin:0;font-size:36px;text-shadow:0 3px 18px #D299E960}
+.summary-fireworks{position:absolute;inset:0;pointer-events:none}
+.summary-fireworks .firework{animation:burst 2.4s ease-out infinite both}
+.summary-fireworks .finale-left{left:12%;top:62%;color:#FFE377;animation-delay:0s}
+.summary-fireworks .finale-top{left:50%;top:24%;color:#FFADEB;animation-delay:.8s}
+.summary-fireworks .finale-right{left:88%;top:62%;color:#A9DCFF;animation-delay:1.6s}
+.summary .summary-actions{justify-content:center;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.031";
+const APP_VERSION="V1.043";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-const AUDIO={review:"assets/audio/flashcard-review.ogg",remembered:"assets/audio/flashcard-remembered.ogg",correct:"assets/audio/answer-correct.ogg",wrong:"assets/audio/answer-wrong.ogg",music:"assets/audio/study-background.ogg"};
+const AUDIO={review:"assets/audio/flashcard-review-bruh.mp3",remembered:"assets/audio/flashcard-remembered-dog.mp3",correct:"assets/audio/answer-correct-apple-pay.mp3",wrong:"assets/audio/answer-wrong-bark-fart.mp3",rick:"assets/audio/rick-roll.mp3",emotional:"assets/audio/emotional.mp3",brainrot:"assets/audio/brainrot-rap.mp3",flashcardMusic:"assets/audio/flashcards-homer.mp3",music:"assets/audio/study-background-max1.m4a"};
 const IMAGE_BUCKET="word-images";
 const AUDIO_SETTINGS_KEY="kievitGoAudioSettings_v1";
 let audioSettings={music:true,sound:true};
 try{audioSettings={...audioSettings,...JSON.parse(localStorage.getItem(AUDIO_SETTINGS_KEY)||"{}")} }catch(e){}
 let studyMusic=null,celebrationTimer=null;
 function saveAudioSettings(){localStorage.setItem(AUDIO_SETTINGS_KEY,JSON.stringify(audioSettings))}
-function playSound(name,volume=.55){if(!audioSettings.sound)return;let audio=new Audio(AUDIO[name]);audio.volume=volume;audio.play().catch(()=>{});}
-function startStudyMusic(){if(!audioSettings.music)return;if(!studyMusic){studyMusic=new Audio(AUDIO.music);studyMusic.loop=true;studyMusic.volume=.16}studyMusic.play().catch(()=>{});}
+let effectAudio=null,effectGeneration=0;
+function stopSound(){effectGeneration++;if(effectAudio){effectAudio.onended=null;effectAudio.onerror=null;effectAudio.pause();effectAudio=null}}
+function playSoundSequence(names,volume=.55){
+ stopSound();if(!audioSettings.sound)return;
+ const generation=effectGeneration;
+ function next(){
+  if(generation!==effectGeneration||!audioSettings.sound)return;
+  const name=names.shift();if(!name){effectAudio=null;return}
+  const audio=new Audio(AUDIO[name]);effectAudio=audio;audio.volume=volume;
+  let advanced=false;
+  function advance(){if(advanced)return;advanced=true;next()}
+  audio.onended=advance;audio.onerror=advance;audio.play().catch(advance);
+ }
+ next()
+}
+function playSound(name,volume=.55){playSoundSequence([name],volume)}
+function startStudyMusic(){
+ if(!audioSettings.music)return;
+ const source=state.mode==="flashcard"?AUDIO.flashcardMusic:AUDIO.music;
+ if(!studyMusic||studyMusic.dataset.source!==source){stopStudyMusic();studyMusic=new Audio(source);studyMusic.dataset.source=source;studyMusic.loop=true;studyMusic.volume=.75}
+ studyMusic.play().catch(()=>{})
+}
 function stopStudyMusic(){if(studyMusic){studyMusic.pause();studyMusic.currentTime=0}}
-function toggleAudioSetting(name){audioSettings[name]=!audioSettings[name];saveAudioSettings();if(name==="music"){if(audioSettings.music&&state.view==="study")startStudyMusic();else stopStudyMusic()}render()}
+function toggleAudioSetting(name){audioSettings[name]=!audioSettings[name];saveAudioSettings();if(name==="sound"&&!audioSettings.sound)stopSound();if(name==="music"){if(audioSettings.music&&state.view==="study")startStudyMusic();else stopStudyMusic()}render()}
 function clearCelebration(){if(celebrationTimer){clearTimeout(celebrationTimer);celebrationTimer=null}}
 const SAMPLE_WORDS=[
 ["afleiden","分散注意力","zorgen dat iemands aandacht ergens anders heen gaat","Het lawaai kon hem niet afleiden tijdens de wedstrijd.","噪音没能让他在比赛中分心。"],
@@ -122,7 +181,7 @@ function wordPicture(w,className){
  let key=imageKey(w),url=imageUrl(w),fallback=fallbackImage(key),search=isSearchImage(url);
  return `<img class="${className}" src="${esc(search?fallback:url)}" data-fallback="${esc(fallback)}" ${search?`data-search-image="${esc(url)}" data-image-key="${esc(key)}" style="object-fit:contain;background:#fff"`:""} alt="Afbeelding bij ${esc(w.term)}" loading="lazy" onerror="useFallbackImage(this)">`
 }
-function wordImage(w){return wordPicture(w,"word-image")}
+function wordImage(w){let img=wordPicture(w,"word-image");return state.view==="study"&&state.mode==="flashcard"?`<div class="flashcard-image-wrap">${img}${historyControls()}</div>`:img}
 function wordThumbnail(w){return wordPicture(w,"word-thumbnail")}
 function uid(){return Math.random().toString(36).slice(2)+Date.now().toString(36)}
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
@@ -212,16 +271,15 @@ function detail(){
 }
 function modeCard(e,t,d,m){return `<button class="mode-card" data-mode="${m}"><span class="emoji">${e}</span><div class="title">${t}</div><div class="desc">${d}</div></button>`}
 function study(){
- let s=shownSession(),l=getList();if(s.finished)return historyControls()+summary(l);
+ let s=shownSession(),l=getList();if(s.finished)return `<div class="summary-navigation">${historyControls()}</div>`+summary(l);
  let cur=s.queue[0],done=s.total-s.queue.length;
  let top=`<div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div><div class="session-list-title">${esc(l.name)}</div><div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
- top+=historyControls();
  if(state.mode==="flashcard")return `<div class="session">${top}<div class="flashcard ${s.flip?"flipped":""}" id="fc">${s.flip?`<div><div>${esc(cur.definition)}</div>${wordImage(cur)}<hr><div>${esc(cur.explanationNl)||"Nog geen Nederlandse uitleg"}</div><p>${esc(cur.exampleNl)||""}</p><p>${esc(cur.exampleZh)||""}</p></div>`:`<div>${esc(cur.term)}${wordImage(cur)}</div>`}</div><div class="fc-buttons"><button class="btn" id="unknown">🔁 Nog oefenen</button><button class="btn" id="known">✅ Beheerst</button></div><p class="hint" style="text-align:center">Klik op de kaart om hem om te draaien</p></div>`;
- if(state.mode==="mc"){let answeredGif=s.answered?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${s.celebrate?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${s.celebrate?"Goed gedaan":"Probeer het opnieuw"}"></div>`:"";return `<div class="session"><div class="mc">${top}<div class="prompt">Wat is de Nederlandse uitleg van dit woord?</div><div class="big-word">${esc(cur.term)}</div><div class="question-image-wrap">${wordImage(cur)}${answeredGif}</div><div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":"wrong"):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?(s.celebrate?`<p class="correct" style="font-weight:800">Goed gedaan! Volgende vraag komt eraan…</p>`:`<p class="wrong" style="font-weight:800">Nog eens proberen!</p><button class="btn primary" id="next" style="margin-top:8px">Volgende vraag →</button>`):""}</div>${s.celebrate?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`}
+ if(state.mode==="mc"){let answeredGif=s.answered?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${s.celebrate?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${s.celebrate?"Goed gedaan":"Probeer het opnieuw"}"></div>`:"";return `<div class="session"><div class="mc">${top}<div class="big-word">${esc(cur.term)}</div><div class="question-image-wrap">${wordImage(cur)}${answeredGif}${historyControls()}</div><div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":"wrong"):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?(s.celebrate?`<p class="correct" style="font-weight:800">Goed gedaan! Volgende vraag komt eraan…</p>`:`<p class="wrong" style="font-weight:800">Nog eens proberen!</p><button class="btn primary" id="next" style="margin-top:8px">Volgende vraag →</button>`):""}</div>${s.celebrate?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`}
 }
 function summary(l){
  let s=state.session,review=s.review||[];let big=state.mode==="flashcard"?s.known:`${s.correct}/${s.total}`,label=state.mode==="flashcard"?`woorden beheerst · ${s.total} in totaal`:`goed · ${Math.round(s.correct/s.total*100)}% correct`;
- return `<div class="summary"><h2>🎉 Klaar!</h2><div class="big-num">${big}</div><div class="meta">${label}</div>${review.length?`<div class="review">${review.map(w=>`<div><b>${esc(w.term)}</b>　<span class="meta">${esc(w.definition)}</span></div>`).join("")}</div>`:""}<div class="summary-actions"><button class="btn" id="exit">Terug naar woordenlijst</button><button class="btn primary" id="restart">Nog een ronde</button></div></div>`
+ return `<div class="summary-radiance" aria-hidden="true"></div><div class="summary">${state.mode==="flashcard"?`<div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div>`:""}<div class="summary-finale"><div class="summary-fireworks" aria-hidden="true"><i class="firework finale-left"></i><i class="firework finale-top"></i><i class="firework finale-right"></i></div><h2>🎉 Klaar!</h2></div><div class="big-num">${big}</div><div class="meta">${label}</div>${review.length?`<div class="review">${review.map(w=>`<div><b>${esc(w.term)}</b>　<span class="meta">${esc(w.definition)}</span></div>`).join("")}</div>`:""}<div class="summary-actions"><button class="btn" id="exit">Terug naar woordenlijst</button><button class="btn primary" id="restart">Nog een ronde</button></div></div>`
 }
 function modal(){
  let isEdit=state.modal==="edit",l=getList();
@@ -248,6 +306,7 @@ function parse(text){
  }).filter(x=>x.term)
 }
 function start(m){
+ stopSound();
  clearCelebration();questionHistory=[];historyIndex=null;
  let l=getList();if(!l||!l.words.length){alert("Voeg eerst woorden toe.");return}
  state.mode=m;state.view="study";let q=shuffle(l.words);
@@ -265,18 +324,24 @@ function shownSession(){return historyIndex===null?state.session:questionHistory
 function rememberQuestion(){questionHistory.push(JSON.parse(JSON.stringify(state.session)))}
 function historyControls(){
  let position=historyIndex===null?questionHistory.length:historyIndex;
- return `<div class="question-navigation" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><button class="btn" id="previousQuestion" aria-label="Vorige vraag" ${position===0?"disabled":""}>←</button>${historyIndex!==null?`<span class="meta">Terugkijken</span><button class="btn" id="forwardQuestion" aria-label="Volgende bekeken vraag">→</button>`:""}</div>`
+ return `<div class="question-navigation"><button class="btn" id="previousQuestion" aria-label="Vorige vraag" ${position===0?"disabled":""}>⬅️</button>${historyIndex!==null?`<button class="btn" id="forwardQuestion" aria-label="Volgende bekeken vraag">➡️</button>`:""}</div>`
 }
 function navigateQuestion(direction){
  const position=historyIndex===null?questionHistory.length:historyIndex;
  const target=position+direction;
  if(target<0||target>questionHistory.length)return;
- clearCelebration();historyIndex=target===questionHistory.length?null:target;render();
+ clearCelebration();stopSound();historyIndex=target===questionHistory.length?null:target;render();
  if(historyIndex===null&&state.mode==="mc"&&state.session.celebrate&&!state.session.finished)celebrationTimer=setTimeout(nextMcQuestion,6000)
 }
-function finishIf(s){if(!s.queue.length){s.finished=true;stopStudyMusic()}}
+function finishIf(s){
+ if(!s.queue.length&&!s.finished){
+  s.finished=true;if(state.mode==="flashcard")startStudyMusic();else stopStudyMusic();
+  if(state.mode==="mc")playSoundSequence(s.correct/s.total<.5?["emotional"]:["correct","brainrot"],.7)
+ }
+}
 function nextMcQuestion(){
  if(historyIndex!==null||!state.session||state.session.finished||!state.session.answered)return;
+ stopSound();
  rememberQuestion();
  let s=state.session;clearCelebration();s.celebrate=false;s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()
 }
@@ -307,11 +372,11 @@ function handlers(){
  document.getElementById("deleteList")?.addEventListener("click",()=>{if(confirm("Weet je zeker dat je deze woordenlijst wilt verwijderen?")){DATA.lists=DATA.lists.filter(x=>x.id!==state.listId);save();state.view="home";render()}});
  document.querySelectorAll("[data-mode]").forEach(x=>x.onclick=()=>start(x.dataset.mode));
  document.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>{let l=getList();l.words=l.words.filter(w=>w.id!==x.dataset.del);save();render()});
- document.getElementById("exit")?.addEventListener("click",()=>{clearCelebration();stopStudyMusic();state.view="detail";state.session=null;render()});
+ document.getElementById("exit")?.addEventListener("click",()=>{clearCelebration();stopSound();stopStudyMusic();state.view="detail";state.session=null;render()});
  document.getElementById("restart")?.addEventListener("click",()=>start(state.mode));
  if(state.view!=="study")return;
- document.getElementById("previousQuestion")?.addEventListener("click",()=>navigateQuestion(-1));
- document.getElementById("forwardQuestion")?.addEventListener("click",()=>navigateQuestion(1));
+ document.getElementById("previousQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();navigateQuestion(-1);});
+ document.getElementById("forwardQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();navigateQuestion(1);});
  if(historyIndex!==null){
   document.querySelectorAll("#known,#unknown,#next,.feedback-overlay,.celebration").forEach(x=>x.remove());
   document.querySelectorAll("[data-opt]").forEach(x=>x.disabled=true);
@@ -321,7 +386,7 @@ function handlers(){
  }
  let s=state.session;
  if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{rememberQuestion();playSound("remembered");s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{rememberQuestion();playSound("review");s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
- if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok){s.correct++;s.celebrate=true;playSound("correct",.7);render();clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,6000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render()}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
+ if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok){s.correct++;s.celebrate=true;playSoundSequence(["correct","rick"],.7);render();clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,6000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render()}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
 }
 render();loadCloudLists();
 </script>
