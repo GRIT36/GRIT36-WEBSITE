@@ -81,12 +81,14 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
+<link rel="stylesheet" href="assets/learning-history.css?v=1.048">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/learning-history.js?v=1.048"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.046";
+const APP_VERSION="V1.048";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -250,7 +252,7 @@ async function uploadCustomImage(wordId,file){
 }
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
-function render(){document.getElementById("app").innerHTML=(state.view==="home"?home():state.view==="detail"?detail():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
+function render(){updateLearningClock();document.getElementById("app").innerHTML=(state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
 function home(){
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>cs[l.kid]=(cs[l.kid]||0)+1);
  let ls=DATA.lists.filter(l=>state.filter==="Alle"||l.kid===state.filter);
@@ -258,6 +260,7 @@ function home(){
  <section class="game-panel" aria-label="Kievit Go spel"><div class="game-panel-head"><span class="game-panel-title">Pauze 🦖 T-Rex Run</span><span class="game-panel-help">Klik of tik om te springen</span></div><iframe class="kievit-game" src="assets/trex-runner/index.html" title="Kievit Go spel" loading="lazy"></iframe></section>
  <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
  ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
+ <div class="history-entry"><button class="btn" id="openHistory">📊 Leerhistorie</button></div>
  <button class="fab" id="newList">＋ Nieuwe woordenlijst</button>`
 }
 function detail(){
@@ -274,14 +277,16 @@ function study(){
  let s=shownSession(),l=getList();if(s.finished)return `<div class="summary-navigation">${historyControls()}</div>`+summary(l);
  let cur=s.queue[0],done=s.total-s.queue.length;
  let top=`<div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div><div class="session-list-title">${esc(l.name)}</div><div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
+ top+=`<div class="session-learner">${learnerLabel(state.session.learner)}</div>`;
  if(state.mode==="flashcard")return `<div class="session">${top}<div class="flashcard ${s.flip?"flipped":""}" id="fc">${s.flip?`<div><div>${esc(cur.definition)}</div>${wordImage(cur)}<hr><div>${esc(cur.explanationNl)||"Nog geen Nederlandse uitleg"}</div><p>${esc(cur.exampleNl)||""}</p><p>${esc(cur.exampleZh)||""}</p></div>`:`<div>${esc(cur.term)}${wordImage(cur)}</div>`}</div><div class="fc-buttons"><button class="btn" id="unknown">🔁 Nog oefenen</button><button class="btn" id="known">✅ Beheerst</button></div><p class="hint" style="text-align:center">Klik op de kaart om hem om te draaien</p></div>`;
  if(state.mode==="mc"){let answeredGif=s.answered?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${s.celebrate?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${s.celebrate?"Goed gedaan":"Probeer het opnieuw"}"></div>`:"";return `<div class="session"><div class="mc">${top}<div class="big-word">${esc(cur.term)}</div><div class="question-image-wrap">${wordImage(cur)}${answeredGif}${historyControls()}</div><div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":"wrong"):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?(s.celebrate?`<p class="correct" style="font-weight:800">Goed gedaan! Volgende vraag komt eraan…</p>`:`<p class="wrong" style="font-weight:800">Nog eens proberen!</p><button class="btn primary" id="next" style="margin-top:8px">Volgende vraag →</button>`):""}</div>${s.celebrate?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`}
 }
 function summary(l){
  let s=state.session,review=s.review||[];let big=state.mode==="flashcard"?s.known:`${s.correct}/${s.total}`,label=state.mode==="flashcard"?`woorden beheerst · ${s.total} in totaal`:`goed · ${Math.round(s.correct/s.total*100)}% correct`;
- return `<div class="summary-radiance" aria-hidden="true"></div><div class="summary">${state.mode==="flashcard"?`<div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div>`:""}<div class="summary-finale"><div class="summary-fireworks" aria-hidden="true"><i class="firework finale-left"></i><i class="firework finale-top"></i><i class="firework finale-right"></i></div><h2>🎉 Klaar!</h2></div><div class="big-num">${big}</div><div class="meta">${label}</div>${review.length?`<div class="review">${review.map(w=>`<div><b>${esc(w.term)}</b>　<span class="meta">${esc(w.definition)}</span></div>`).join("")}</div>`:""}<div class="summary-actions"><button class="btn" id="exit">Terug naar woordenlijst</button><button class="btn primary" id="restart">Nog een ronde</button></div></div>`
+ return `<div class="summary-radiance" aria-hidden="true"></div><div class="summary">${state.mode==="flashcard"?`<div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div>`:""}<div class="summary-finale"><div class="summary-fireworks" aria-hidden="true"><i class="firework finale-left"></i><i class="firework finale-top"></i><i class="firework finale-right"></i></div><h2>🎉 Klaar!</h2></div><div class="big-num">${big}</div><div class="meta">${label}</div>${recordSaveStatus()}${review.length?`<div class="review">${review.map(w=>`<div><b>${esc(w.term)}</b>　<span class="meta">${esc(w.definition)}</span></div>`).join("")}</div>`:""}<div class="summary-actions"><button class="btn" id="exit">Terug naar woordenlijst</button><button class="btn primary" id="restart">Nog een ronde</button></div></div>`
 }
 function modal(){
+ if(state.modal==="learner"){learnerModal();return}
  let isEdit=state.modal==="edit",l=getList();
  let overlay=document.createElement("div");overlay.className="modal-overlay";overlay.id="overlay";
  // The Dutch modal markup is set immediately below.
@@ -305,14 +310,14 @@ function parse(text){
   return {term:(p[0]||"").trim(),definition:(p[1]||"").trim(),explanationNl:(p[2]||"").trim(),exampleNl:(p[3]||"").trim(),exampleZh:(p[4]||"").trim()}
  }).filter(x=>x.term)
 }
-function start(m){
+function start(m,learner="Andere"){
  stopSound();
  clearCelebration();questionHistory=[];historyIndex=null;
  let l=getList();if(!l||!l.words.length){alert("Voeg eerst woorden toe.");return}
  state.mode=m;state.view="study";let q=shuffle(l.words);
  if(m==="flashcard")state.session={queue:q,total:q.length,flip:false,known:0,review:[],finished:false};
  else if(m==="mc")state.session={queue:q,total:q.length,answered:false,selected:null,options:mc(q[0],l.words),correct:0,review:[],finished:false};
- startStudyMusic();render()
+ beginLearningRecord(learner,l,m);startStudyMusic();render()
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 function mc(w,all){
@@ -332,11 +337,12 @@ function navigateQuestion(direction){
  const target=position+direction;
  if(target<0||target>questionHistory.length)return;
  clearCelebration();stopSound();historyIndex=target===questionHistory.length?null:target;render();
- if(historyIndex===null&&state.mode==="mc"&&state.session.celebrate&&!state.session.finished)celebrationTimer=setTimeout(nextMcQuestion,6000)
+ if(historyIndex===null&&state.mode==="mc"&&state.session.celebrate&&!state.session.finished)celebrationTimer=setTimeout(nextMcQuestion,3000)
 }
 function finishIf(s){
  if(!s.queue.length&&!s.finished){
   s.finished=true;if(state.mode==="flashcard")startStudyMusic();else stopStudyMusic();
+  updateLearningClock();s.recordDuration=Math.floor((learningTracker?.active_ms||0)/1000);finalizeLearningRecord(true);
   if(state.mode==="mc")playSoundSequence(s.correct/s.total<.5?["emotional"]:["brainrot"],.7)
  }
 }
@@ -347,6 +353,7 @@ function nextMcQuestion(){
  let s=state.session;clearCelebration();s.celebrate=false;s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()
 }
 function handlers(){
+ historyHandlers();
  document.querySelectorAll("[data-search-image]").forEach(img=>{
   resolveSearchImage(img.dataset.searchImage,img.dataset.imageKey).then(url=>{
    if(!img.isConnected)return;img.src=url;
@@ -371,10 +378,10 @@ function handlers(){
  document.getElementById("back")?.addEventListener("click",()=>{state.view="home";render()});
  document.getElementById("editWords")?.addEventListener("click",()=>{state.modal="edit";render()});
  document.getElementById("deleteList")?.addEventListener("click",()=>{if(confirm("Weet je zeker dat je deze woordenlijst wilt verwijderen?")){DATA.lists=DATA.lists.filter(x=>x.id!==state.listId);save();state.view="home";render()}});
- document.querySelectorAll("[data-mode]").forEach(x=>x.onclick=()=>start(x.dataset.mode));
+ document.querySelectorAll("[data-mode]").forEach(x=>x.onclick=()=>requestStudy(x.dataset.mode));
  document.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>{let l=getList();l.words=l.words.filter(w=>w.id!==x.dataset.del);save();render()});
- document.getElementById("exit")?.addEventListener("click",()=>{clearCelebration();stopSound();stopStudyMusic();state.view="detail";state.session=null;render()});
- document.getElementById("restart")?.addEventListener("click",()=>start(state.mode));
+ document.getElementById("exit")?.addEventListener("click",()=>{finalizeLearningRecord();clearCelebration();stopSound();stopStudyMusic();state.view="detail";state.session=null;render()});
+ document.getElementById("restart")?.addEventListener("click",()=>requestStudy(state.mode));
  if(state.view!=="study")return;
  document.getElementById("previousQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();navigateQuestion(-1);});
  document.getElementById("forwardQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();if(historyIndex!==null)navigateQuestion(1);else if(state.mode==="mc"&&state.session?.answered&&state.session?.celebrate)nextMcQuestion();});
@@ -387,9 +394,9 @@ function handlers(){
  }
  let s=state.session;
  if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{rememberQuestion();playSound("remembered");s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{rememberQuestion();playSound("review");s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
- if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok){s.correct++;s.celebrate=true;playSoundSequence(["correct","rick"],.7);render();clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,6000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render()}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
+ if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok){s.correct++;s.celebrate=true;playSound("correct",.7);render();clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,3000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render()}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
 }
-render();loadCloudLists();
+render();loadCloudLists();initializeLearningHistory();
 </script>
 </body>
 </html>
