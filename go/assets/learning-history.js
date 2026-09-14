@@ -1,6 +1,6 @@
 // Shared session records. Browser storage only holds retryable uploads and crash recovery.
 const HISTORY_QUEUE_KEY="kievitGoHistoryQueue_v1",HISTORY_DRAFT_KEY="kievitGoHistoryDraft_v1";
-const LEARNERS={Felix:"🦉 Felix",Max:"🐓 Max",Andere:"👤 Andere"};
+const LEARNERS={Felix:"🦉 Felix",Max:"🐓 Max",Andere:"🦖T-Rex"};
 let learningTracker=null,learningClockAt=0,learningClockEligible=false;
 let historyRows=[],historyFilter="Alle",historyLoading=false,historyError="",historySyncing=null;
 let historyPending=readHistoryStorage(HISTORY_QUEUE_KEY,[]),historyStorageWarning=false,lastRecordId=null;
@@ -12,6 +12,7 @@ function learnerLabel(key){return LEARNERS[key]||LEARNERS.Andere}
 function historyUuid(){if(crypto.randomUUID)return crypto.randomUUID();return "10000000-1000-4000-8000-100000000000".replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16))}
 function requestStudy(mode){
  const list=getList();if(!list?.words.length){alert("Voeg eerst woorden toe.");return}
+ if(list.name.trim()==="🚀Test🚀"){start(mode,"Andere");return}
  state.pendingMode=mode;
  state.pendingLearner=state.session?.learner||(list.kid==="Oudste"?"Felix":list.kid==="Jongste"?"Max":"Andere");
  state.modal="learner";render()
@@ -22,7 +23,7 @@ function learnerModal(){
  document.getElementById("app").appendChild(overlay);
  overlay.querySelectorAll("[data-learner]").forEach(button=>button.onclick=()=>{state.pendingLearner=button.dataset.learner;overlay.querySelectorAll("[data-learner]").forEach(b=>b.setAttribute("aria-pressed",String(b===button)))});
  overlay.querySelector("#cancelLearner").onclick=()=>{state.modal=null;render()};
- overlay.querySelector("#confirmLearner").onclick=()=>{const mode=state.pendingMode,learner=state.pendingLearner;state.modal=null;start(mode,learner)};
+ overlay.querySelector("#confirmLearner").onclick=()=>{const mode=state.pendingMode,learner=state.pendingLearner;state.modal=null;if(mode==="math")mathStart(learner);else start(mode,learner)};
  overlay.onkeydown=event=>{
   if(event.key==="Escape"){state.modal=null;render();return}
   if(event.key==="Tab"){const buttons=[...overlay.querySelectorAll("button")],first=buttons[0],last=buttons[buttons.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}
@@ -35,7 +36,7 @@ function beginLearningRecord(learner,list,mode){
  learningClockAt=performance.now();learningClockEligible=false;lastRecordId=null;
  updateLearningClock();checkpointLearning()
 }
-function learningMayCount(){return !!(learningTracker&&state.view==="study"&&state.session&&!state.session.finished&&!state.modal&&!document.hidden&&!(historyIndex===null&&state.mode==="mc"&&state.session.answered&&state.session.celebrate))}
+function learningMayCount(){return !!(learningTracker&&(state.view==="study"||state.view==="math")&&state.session&&!state.session.finished&&!state.modal&&!document.hidden&&!(state.view==="math"&&state.session.answered)&&!(historyIndex===null&&state.mode==="mc"&&state.session.answered&&state.session.celebrate))}
 function updateLearningClock(){
  const now=performance.now();
  if(learningTracker&&learningClockEligible)learningTracker.active_ms+=Math.max(0,now-learningClockAt);
@@ -57,6 +58,7 @@ function finalizeLearningRecord(completed=false){
  syncLearningRecords()
 }
 function recordSaveStatus(){
+ if(state.session?.skipHistory)return "";
  const pending=historyPending.some(x=>x.id===lastRecordId);
  const time=state.session?.recordDuration;
  return `<div class="record-status" id="recordSaveStatus">${learnerLabel(state.session?.learner)}${time!==undefined?` · ${formatLearningDuration(time)}`:""}<br>${historyStorageWarning?"Opslaan op dit apparaat lukt niet. Houd deze pagina open en probeer opnieuw.":pending?"Nog niet gesynchroniseerd. We proberen het opnieuw zodra er verbinding is.":"Opgeslagen · ook zichtbaar op andere apparaten"}</div>`
@@ -69,6 +71,7 @@ async function syncLearningRecords(){
   for(const row of [...historyPending]){
    try{
     const {error}=await db.from("learning_sessions").insert(row);
+    if(error?.code==="23514"&&error.message?.includes("learning_record_deleted")){mergePendingHistory();historyPending=historyPending.filter(x=>x.id!==row.id);historyRows=historyRows.filter(x=>x.id!==row.id);writeHistoryStorage(HISTORY_QUEUE_KEY,historyPending);continue}
     if(error&&error.code!=="23505")throw error;
     mergePendingHistory();historyPending=historyPending.filter(x=>x.id!==row.id);
     writeHistoryStorage(HISTORY_QUEUE_KEY,historyPending);
@@ -102,7 +105,7 @@ function historyTrends(rows){
  for(const r of rows){if(r.mode!=="mc"||r.status!=="completed")continue;const key=JSON.stringify([r.learner,r.list_id]);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(r)}
  const eligible=[...groups.values()].filter(group=>group.length>1);
  if(!eligible.length)return "";
- return `<h2>Je vooruitgang</h2><p class="hint">De laatste drie volledige tests per persoon en woordenlijst, van oud naar nieuw.</p>${eligible.map(group=>{const recent=group.slice(0,3).reverse();return `<div class="history-trend"><strong>${esc(group[0].list_name)}</strong><div class="meta">${learnerLabel(group[0].learner)}</div><p>${recent.map(r=>`<span title="${esc(historyDate(r.started_at))}">${quizPercent(r)}% <small>(${r.correct_count}/${r.total_words})</small></span>`).join(" → ")}</p></div>`}).join("")}`
+ return `<h2>Je vooruitgang</h2><p class="hint">De laatste drie volledige tests per persoon en oefening, van oud naar nieuw.</p>${eligible.map(group=>{const recent=group.slice(0,3).reverse();return `<div class="history-trend"><strong>${esc(group[0].list_name)}</strong><div class="meta">${learnerLabel(group[0].learner)}</div><p>${recent.map(r=>`<span title="${esc(historyDate(r.started_at))}">${quizPercent(r)}% <small>(${r.correct_count}/${r.total_words})</small></span>`).join(" → ")}</p></div>`}).join("")}`
 }
 function historyPage(){
  const rows=allLearningRows().filter(r=>historyFilter==="Alle"||r.learner===historyFilter);
@@ -112,9 +115,10 @@ function historyPage(){
 function historyCard(r){
  const incomplete=r.status!=="completed",quiz=r.mode==="mc",pending=historyPending.some(x=>x.id===r.id);
  const result=quiz?(r.answered_count?`${r.correct_count}/${r.answered_count} goed · ${quizPercent(r)}%${incomplete?" van de beantwoorde vragen":""}`:"Nog geen antwoorden"):`${r.known_count} beheerst · ${r.review_words.length} nog oefenen`;
- return `<article class="history-card"><div class="history-card-top"><span class="meta">${esc(historyDate(r.started_at))} · ${learnerLabel(r.learner)}</span><span class="history-badge ${incomplete?"incomplete":""}">${incomplete?"Niet afgerond":"Afgerond"}${pending?" · Nog niet gesynchroniseerd":""}</span></div><h3>${esc(r.list_name)}</h3><p>${quiz?"✅ Leren":"🧠 Flashcards"} · ${formatLearningDuration(r.duration_seconds)}</p><p><strong>${result}</strong></p><div class="meta">${r.answered_count} van ${r.total_words} woorden gedaan</div>${r.review_words.length?`<details><summary>${quiz?"Foute antwoorden":"Nog oefenen"} (${r.review_words.length})</summary><ul>${r.review_words.map(w=>`<li><strong>${esc(w.term)}</strong> · ${esc(w.definition)}</li>`).join("")}</ul></details>`:""}</article>`
+ return `<article class="history-card"><div class="history-card-top"><span class="meta">${esc(historyDate(r.started_at))} · ${learnerLabel(r.learner)}</span><div class="history-card-actions"><span class="history-badge ${incomplete?"incomplete":""}">${incomplete?"Niet afgerond":"Afgerond"}${pending?" · Nog niet gesynchroniseerd":""}</span><button class="btn history-delete-button" data-delete-history="${esc(r.id)}" aria-label="Verwijder ${esc(r.list_name)}">🗑️ Verwijderen</button></div></div><h3>${esc(r.list_name)}</h3><p>${String(r.list_id).startsWith("math:")?"🏎️ Automatiseren":quiz?"✅ Leren":"🧠 Flashcards"} · ${formatLearningDuration(r.duration_seconds)}</p><p><strong>${result}</strong></p><div class="meta">${r.answered_count} van ${r.total_words} ${String(r.list_id).startsWith("math:")?"opgaven":"woorden"} gedaan</div>${r.review_words.length?`<details><summary>${quiz?"Foute antwoorden":"Nog oefenen"} (${r.review_words.length})</summary><ul>${r.review_words.map(w=>`<li><strong>${esc(w.term)}</strong> · ${esc(w.definition)}</li>`).join("")}</ul></details>`:""}</article>`
 }
 function historyHandlers(){
+ document.querySelectorAll('[data-delete-history]').forEach(button=>button.onclick=()=>openHistoryDeletion(button.dataset.deleteHistory));
  document.getElementById("openHistory")?.addEventListener("click",()=>{state.view="history";render();loadLearningHistory()});
  document.getElementById("historyBack")?.addEventListener("click",()=>{state.view="home";render()});
  document.getElementById("refreshHistory")?.addEventListener("click",loadLearningHistory);

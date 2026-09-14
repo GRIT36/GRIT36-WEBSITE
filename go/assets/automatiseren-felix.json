@@ -1,0 +1,1330 @@
+{
+  "owner": "Felix",
+  "title": "Automatiseren",
+  "source": "Automatiseren_Week2-4_题目原文.xlsx; gecontroleerd met de drie schoolbladen",
+  "weeks": [
+    {
+      "week": 2,
+      "days": [
+        {
+          "day": "Maandag",
+          "type": "Optellen",
+          "questions": [
+            {
+              "id": "w2-d1-r1c1",
+              "text": "7 + 8 =",
+              "answer": 15
+            },
+            {
+              "id": "w2-d1-r1c2",
+              "text": "3 + 9 =",
+              "answer": 12
+            },
+            {
+              "id": "w2-d1-r1c3",
+              "text": "9 + 4 =",
+              "answer": 13
+            },
+            {
+              "id": "w2-d1-r1c4",
+              "text": "8 + 6 =",
+              "answer": 14
+            },
+            {
+              "id": "w2-d1-r2c1",
+              "text": "1 + 6 =",
+              "answer": 7
+            },
+            {
+              "id": "w2-d1-r2c2",
+              "text": "3 + 4 =",
+              "answer": 7
+            },
+            {
+              "id": "w2-d1-r2c3",
+              "text": "5 + 8 =",
+              "answer": 13
+            },
+            {
+              "id": "w2-d1-r2c4",
+              "text": "2 + 8 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d1-r3c1",
+              "text": "8 + 5 =",
+              "answer": 13
+            },
+            {
+              "id": "w2-d1-r3c2",
+              "text": "2 + 2 =",
+              "answer": 4
+            },
+            {
+              "id": "w2-d1-r3c3",
+              "text": "4 + 1 =",
+              "answer": 5
+            },
+            {
+              "id": "w2-d1-r3c4",
+              "text": "7 + 9 =",
+              "answer": 16
+            },
+            {
+              "id": "w2-d1-r4c1",
+              "text": "2 + 6 =",
+              "answer": 8
+            },
+            {
+              "id": "w2-d1-r4c2",
+              "text": "3 + 8 =",
+              "answer": 11
+            },
+            {
+              "id": "w2-d1-r4c3",
+              "text": "7 + 5 =",
+              "answer": 12
+            },
+            {
+              "id": "w2-d1-r4c4",
+              "text": "1 + 5 =",
+              "answer": 6
+            },
+            {
+              "id": "w2-d1-r5c1",
+              "text": "8 + 9 =",
+              "answer": 17
+            },
+            {
+              "id": "w2-d1-r5c2",
+              "text": "5 + 4 =",
+              "answer": 9
+            },
+            {
+              "id": "w2-d1-r5c3",
+              "text": "1 + 9 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d1-r5c4",
+              "text": "6 + 1 =",
+              "answer": 7
+            }
+          ]
+        },
+        {
+          "day": "Dinsdag",
+          "type": "Vermenigvuldigen",
+          "questions": [
+            {
+              "id": "w2-d2-r1c1",
+              "text": "7 x 6 =",
+              "answer": 42
+            },
+            {
+              "id": "w2-d2-r1c2",
+              "text": "1 x 9 =",
+              "answer": 9
+            },
+            {
+              "id": "w2-d2-r1c3",
+              "text": "9 x 2 =",
+              "answer": 18
+            },
+            {
+              "id": "w2-d2-r1c4",
+              "text": "5 x 7 =",
+              "answer": 35
+            },
+            {
+              "id": "w2-d2-r2c1",
+              "text": "1 x 1 =",
+              "answer": 1
+            },
+            {
+              "id": "w2-d2-r2c2",
+              "text": "9 x 9 =",
+              "answer": 81
+            },
+            {
+              "id": "w2-d2-r2c3",
+              "text": "5 x 3 =",
+              "answer": 15
+            },
+            {
+              "id": "w2-d2-r2c4",
+              "text": "3 x 1 =",
+              "answer": 3
+            },
+            {
+              "id": "w2-d2-r3c1",
+              "text": "2 x 4 =",
+              "answer": 8
+            },
+            {
+              "id": "w2-d2-r3c2",
+              "text": "4 x 1 =",
+              "answer": 4
+            },
+            {
+              "id": "w2-d2-r3c3",
+              "text": "7 x 4 =",
+              "answer": 28
+            },
+            {
+              "id": "w2-d2-r3c4",
+              "text": "9 x 8 =",
+              "answer": 72
+            },
+            {
+              "id": "w2-d2-r4c1",
+              "text": "7 x 7 =",
+              "answer": 49
+            },
+            {
+              "id": "w2-d2-r4c2",
+              "text": "2 x 7 =",
+              "answer": 14
+            },
+            {
+              "id": "w2-d2-r4c3",
+              "text": "3 x 8 =",
+              "answer": 24
+            },
+            {
+              "id": "w2-d2-r4c4",
+              "text": "2 x 9 =",
+              "answer": 18
+            },
+            {
+              "id": "w2-d2-r5c1",
+              "text": "1 x 7 =",
+              "answer": 7
+            },
+            {
+              "id": "w2-d2-r5c2",
+              "text": "3 x 10 =",
+              "answer": 30
+            },
+            {
+              "id": "w2-d2-r5c3",
+              "text": "10 x 4 =",
+              "answer": 40
+            },
+            {
+              "id": "w2-d2-r5c4",
+              "text": "5 x 6 =",
+              "answer": 30
+            }
+          ]
+        },
+        {
+          "day": "Woensdag",
+          "type": "Aftrekken",
+          "questions": [
+            {
+              "id": "w2-d3-r1c1",
+              "text": "15 - 6 =",
+              "answer": 9
+            },
+            {
+              "id": "w2-d3-r1c2",
+              "text": "19 - 9 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d3-r1c3",
+              "text": "11 - 4 =",
+              "answer": 7
+            },
+            {
+              "id": "w2-d3-r1c4",
+              "text": "13 - 7 =",
+              "answer": 6
+            },
+            {
+              "id": "w2-d3-r2c1",
+              "text": "9 - 7 =",
+              "answer": 2
+            },
+            {
+              "id": "w2-d3-r2c2",
+              "text": "11 - 2 =",
+              "answer": 9
+            },
+            {
+              "id": "w2-d3-r2c3",
+              "text": "11 - 9 =",
+              "answer": 2
+            },
+            {
+              "id": "w2-d3-r2c4",
+              "text": "16 - 4 =",
+              "answer": 12
+            },
+            {
+              "id": "w2-d3-r3c1",
+              "text": "10 - 5 =",
+              "answer": 5
+            },
+            {
+              "id": "w2-d3-r3c2",
+              "text": "5 - 1 =",
+              "answer": 4
+            },
+            {
+              "id": "w2-d3-r3c3",
+              "text": "17 - 9 =",
+              "answer": 8
+            },
+            {
+              "id": "w2-d3-r3c4",
+              "text": "15 - 5 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d3-r4c1",
+              "text": "11 - 3 =",
+              "answer": 8
+            },
+            {
+              "id": "w2-d3-r4c2",
+              "text": "3 - 2 =",
+              "answer": 1
+            },
+            {
+              "id": "w2-d3-r4c3",
+              "text": "18 - 8 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d3-r4c4",
+              "text": "8 - 7 =",
+              "answer": 1
+            },
+            {
+              "id": "w2-d3-r5c1",
+              "text": "7 - 1 =",
+              "answer": 6
+            },
+            {
+              "id": "w2-d3-r5c2",
+              "text": "14 - 4 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d3-r5c3",
+              "text": "12 - 6 =",
+              "answer": 6
+            },
+            {
+              "id": "w2-d3-r5c4",
+              "text": "8 - 3 =",
+              "answer": 5
+            }
+          ]
+        },
+        {
+          "day": "Donderdag",
+          "type": "Delen",
+          "questions": [
+            {
+              "id": "w2-d4-r1c1",
+              "text": "28 : 4 =",
+              "answer": 7
+            },
+            {
+              "id": "w2-d4-r1c2",
+              "text": "20 : 5 =",
+              "answer": 4
+            },
+            {
+              "id": "w2-d4-r1c3",
+              "text": "50 : 5 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d4-r1c4",
+              "text": "25 : 5 =",
+              "answer": 5
+            },
+            {
+              "id": "w2-d4-r2c1",
+              "text": "24 : 4 =",
+              "answer": 6
+            },
+            {
+              "id": "w2-d4-r2c2",
+              "text": "27 : 3 =",
+              "answer": 9
+            },
+            {
+              "id": "w2-d4-r2c3",
+              "text": "24 : 3 =",
+              "answer": 8
+            },
+            {
+              "id": "w2-d4-r2c4",
+              "text": "30 : 3 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d4-r3c1",
+              "text": "32 : 4 =",
+              "answer": 8
+            },
+            {
+              "id": "w2-d4-r3c2",
+              "text": "40 : 4 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d4-r3c3",
+              "text": "28 : 4 =",
+              "answer": 7
+            },
+            {
+              "id": "w2-d4-r3c4",
+              "text": "40 : 5 =",
+              "answer": 8
+            },
+            {
+              "id": "w2-d4-r4c1",
+              "text": "36 : 4 =",
+              "answer": 9
+            },
+            {
+              "id": "w2-d4-r4c2",
+              "text": "30 : 5 =",
+              "answer": 6
+            },
+            {
+              "id": "w2-d4-r4c3",
+              "text": "20 : 2 =",
+              "answer": 10
+            },
+            {
+              "id": "w2-d4-r4c4",
+              "text": "20 : 5 =",
+              "answer": 4
+            },
+            {
+              "id": "w2-d4-r5c1",
+              "text": "45 : 5 =",
+              "answer": 9
+            },
+            {
+              "id": "w2-d4-r5c2",
+              "text": "35 : 5 =",
+              "answer": 7
+            },
+            {
+              "id": "w2-d4-r5c3",
+              "text": "20 : 4 =",
+              "answer": 5
+            },
+            {
+              "id": "w2-d4-r5c4",
+              "text": "21 : 3 =",
+              "answer": 7
+            }
+          ]
+        },
+        {
+          "day": "Vrijdag",
+          "type": "Verhaalsom",
+          "questions": [
+            {
+              "id": "w2-d5",
+              "text": "Job heeft 52 koeken. In elke zak gaan 4 koeken. Hoeveel zakken kan hij vullen?",
+              "answer": 13,
+              "unit": "zakken"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "days": [
+        {
+          "day": "Maandag",
+          "type": "Optellen",
+          "questions": [
+            {
+              "id": "w3-d1-r1c1",
+              "text": "8 + 1 =",
+              "answer": 9
+            },
+            {
+              "id": "w3-d1-r1c2",
+              "text": "4 + 8 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d1-r1c3",
+              "text": "9 + 8 =",
+              "answer": 17
+            },
+            {
+              "id": "w3-d1-r1c4",
+              "text": "5 + 3 =",
+              "answer": 8
+            },
+            {
+              "id": "w3-d1-r2c1",
+              "text": "4 + 6 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d1-r2c2",
+              "text": "9 + 3 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d1-r2c3",
+              "text": "7 + 5 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d1-r2c4",
+              "text": "8 + 5 =",
+              "answer": 13
+            },
+            {
+              "id": "w3-d1-r3c1",
+              "text": "7 + 3 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d1-r3c2",
+              "text": "1 + 9 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d1-r3c3",
+              "text": "3 + 2 =",
+              "answer": 5
+            },
+            {
+              "id": "w3-d1-r3c4",
+              "text": "6 + 3 =",
+              "answer": 9
+            },
+            {
+              "id": "w3-d1-r4c1",
+              "text": "5 + 8 =",
+              "answer": 13
+            },
+            {
+              "id": "w3-d1-r4c2",
+              "text": "4 + 3 =",
+              "answer": 7
+            },
+            {
+              "id": "w3-d1-r4c3",
+              "text": "2 + 5 =",
+              "answer": 7
+            },
+            {
+              "id": "w3-d1-r4c4",
+              "text": "5 + 6 =",
+              "answer": 11
+            },
+            {
+              "id": "w3-d1-r5c1",
+              "text": "8 + 7 =",
+              "answer": 15
+            },
+            {
+              "id": "w3-d1-r5c2",
+              "text": "7 + 2 =",
+              "answer": 9
+            },
+            {
+              "id": "w3-d1-r5c3",
+              "text": "8 + 4 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d1-r5c4",
+              "text": "7 + 6 =",
+              "answer": 13
+            }
+          ]
+        },
+        {
+          "day": "Dinsdag",
+          "type": "Vermenigvuldigen",
+          "questions": [
+            {
+              "id": "w3-d2-r1c1",
+              "text": "4 x 5 =",
+              "answer": 20
+            },
+            {
+              "id": "w3-d2-r1c2",
+              "text": "3 x 5 =",
+              "answer": 15
+            },
+            {
+              "id": "w3-d2-r1c3",
+              "text": "8 x 7 =",
+              "answer": 56
+            },
+            {
+              "id": "w3-d2-r1c4",
+              "text": "8 x 4 =",
+              "answer": 32
+            },
+            {
+              "id": "w3-d2-r2c1",
+              "text": "9 x 9 =",
+              "answer": 81
+            },
+            {
+              "id": "w3-d2-r2c2",
+              "text": "2 x 6 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d2-r2c3",
+              "text": "4 x 9 =",
+              "answer": 36
+            },
+            {
+              "id": "w3-d2-r2c4",
+              "text": "2 x 4 =",
+              "answer": 8
+            },
+            {
+              "id": "w3-d2-r3c1",
+              "text": "6 x 6 =",
+              "answer": 36
+            },
+            {
+              "id": "w3-d2-r3c2",
+              "text": "7 x 5 =",
+              "answer": 35
+            },
+            {
+              "id": "w3-d2-r3c3",
+              "text": "2 x 8 =",
+              "answer": 16
+            },
+            {
+              "id": "w3-d2-r3c4",
+              "text": "7 x 3 =",
+              "answer": 21
+            },
+            {
+              "id": "w3-d2-r4c1",
+              "text": "3 x 2 =",
+              "answer": 6
+            },
+            {
+              "id": "w3-d2-r4c2",
+              "text": "5 x 3 =",
+              "answer": 15
+            },
+            {
+              "id": "w3-d2-r4c3",
+              "text": "5 x 9 =",
+              "answer": 45
+            },
+            {
+              "id": "w3-d2-r4c4",
+              "text": "7 x 9 =",
+              "answer": 63
+            },
+            {
+              "id": "w3-d2-r5c1",
+              "text": "6 x 4 =",
+              "answer": 24
+            },
+            {
+              "id": "w3-d2-r5c2",
+              "text": "7 x 2 =",
+              "answer": 14
+            },
+            {
+              "id": "w3-d2-r5c3",
+              "text": "6 x 8 =",
+              "answer": 48
+            },
+            {
+              "id": "w3-d2-r5c4",
+              "text": "6 x 2 =",
+              "answer": 12
+            }
+          ]
+        },
+        {
+          "day": "Woensdag",
+          "type": "Aftrekken",
+          "questions": [
+            {
+              "id": "w3-d3-r1c1",
+              "text": "10 - 3 =",
+              "answer": 7
+            },
+            {
+              "id": "w3-d3-r1c2",
+              "text": "18 - 6 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d3-r1c3",
+              "text": "13 - 4 =",
+              "answer": 9
+            },
+            {
+              "id": "w3-d3-r1c4",
+              "text": "19 - 7 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d3-r2c1",
+              "text": "14 - 9 =",
+              "answer": 5
+            },
+            {
+              "id": "w3-d3-r2c2",
+              "text": "12 - 7 =",
+              "answer": 5
+            },
+            {
+              "id": "w3-d3-r2c3",
+              "text": "19 - 7 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d3-r2c4",
+              "text": "15 - 7 =",
+              "answer": 8
+            },
+            {
+              "id": "w3-d3-r3c1",
+              "text": "14 - 5 =",
+              "answer": 9
+            },
+            {
+              "id": "w3-d3-r3c2",
+              "text": "12 - 8 =",
+              "answer": 4
+            },
+            {
+              "id": "w3-d3-r3c3",
+              "text": "15 - 9 =",
+              "answer": 6
+            },
+            {
+              "id": "w3-d3-r3c4",
+              "text": "9 - 9 =",
+              "answer": 0
+            },
+            {
+              "id": "w3-d3-r4c1",
+              "text": "12 - 2 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d3-r4c2",
+              "text": "17 - 7 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d3-r4c3",
+              "text": "10 - 6 =",
+              "answer": 4
+            },
+            {
+              "id": "w3-d3-r4c4",
+              "text": "10 - 6 =",
+              "answer": 4
+            },
+            {
+              "id": "w3-d3-r5c1",
+              "text": "11 - 5 =",
+              "answer": 6
+            },
+            {
+              "id": "w3-d3-r5c2",
+              "text": "18 - 5 =",
+              "answer": 13
+            },
+            {
+              "id": "w3-d3-r5c3",
+              "text": "14 - 2 =",
+              "answer": 12
+            },
+            {
+              "id": "w3-d3-r5c4",
+              "text": "12 - 9 =",
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "day": "Donderdag",
+          "type": "Delen",
+          "questions": [
+            {
+              "id": "w3-d4-r1c1",
+              "text": "30 : 5 =",
+              "answer": 6
+            },
+            {
+              "id": "w3-d4-r1c2",
+              "text": "21 : 3 =",
+              "answer": 7
+            },
+            {
+              "id": "w3-d4-r1c3",
+              "text": "20 : 4 =",
+              "answer": 5
+            },
+            {
+              "id": "w3-d4-r1c4",
+              "text": "25 : 5 =",
+              "answer": 5
+            },
+            {
+              "id": "w3-d4-r2c1",
+              "text": "20 : 2 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d4-r2c2",
+              "text": "45 : 5 =",
+              "answer": 9
+            },
+            {
+              "id": "w3-d4-r2c3",
+              "text": "35 : 5 =",
+              "answer": 7
+            },
+            {
+              "id": "w3-d4-r2c4",
+              "text": "30 : 5 =",
+              "answer": 6
+            },
+            {
+              "id": "w3-d4-r3c1",
+              "text": "30 : 3 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d4-r3c2",
+              "text": "50 : 5 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d4-r3c3",
+              "text": "40 : 4 =",
+              "answer": 10
+            },
+            {
+              "id": "w3-d4-r3c4",
+              "text": "24 : 3 =",
+              "answer": 8
+            },
+            {
+              "id": "w3-d4-r4c1",
+              "text": "20 : 5 =",
+              "answer": 4
+            },
+            {
+              "id": "w3-d4-r4c2",
+              "text": "27 : 3 =",
+              "answer": 9
+            },
+            {
+              "id": "w3-d4-r4c3",
+              "text": "21 : 3 =",
+              "answer": 7
+            },
+            {
+              "id": "w3-d4-r4c4",
+              "text": "32 : 4 =",
+              "answer": 8
+            },
+            {
+              "id": "w3-d4-r5c1",
+              "text": "36 : 4 =",
+              "answer": 9
+            },
+            {
+              "id": "w3-d4-r5c2",
+              "text": "28 : 4 =",
+              "answer": 7
+            },
+            {
+              "id": "w3-d4-r5c3",
+              "text": "40 : 5 =",
+              "answer": 8
+            },
+            {
+              "id": "w3-d4-r5c4",
+              "text": "24 : 4 =",
+              "answer": 6
+            }
+          ]
+        },
+        {
+          "day": "Vrijdag",
+          "type": "Verhaalsom",
+          "questions": [
+            {
+              "id": "w3-d5",
+              "text": "Een trui kost €29,-. Marlon koopt 3 truien. Hoeveel moet zij betalen?",
+              "answer": 87,
+              "unit": "euro"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "days": [
+        {
+          "day": "Maandag",
+          "type": "Optellen",
+          "questions": [
+            {
+              "id": "w4-d1-r1c1",
+              "text": "6 + 9 =",
+              "answer": 15
+            },
+            {
+              "id": "w4-d1-r1c2",
+              "text": "3 + 3 =",
+              "answer": 6
+            },
+            {
+              "id": "w4-d1-r1c3",
+              "text": "3 + 7 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d1-r1c4",
+              "text": "7 + 4 =",
+              "answer": 11
+            },
+            {
+              "id": "w4-d1-r2c1",
+              "text": "7 + 8 =",
+              "answer": 15
+            },
+            {
+              "id": "w4-d1-r2c2",
+              "text": "2 + 5 =",
+              "answer": 7
+            },
+            {
+              "id": "w4-d1-r2c3",
+              "text": "9 + 8 =",
+              "answer": 17
+            },
+            {
+              "id": "w4-d1-r2c4",
+              "text": "5 + 9 =",
+              "answer": 14
+            },
+            {
+              "id": "w4-d1-r3c1",
+              "text": "2 + 2 =",
+              "answer": 4
+            },
+            {
+              "id": "w4-d1-r3c2",
+              "text": "1 + 5 =",
+              "answer": 6
+            },
+            {
+              "id": "w4-d1-r3c3",
+              "text": "2 + 8 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d1-r3c4",
+              "text": "4 + 3 =",
+              "answer": 7
+            },
+            {
+              "id": "w4-d1-r4c1",
+              "text": "8 + 5 =",
+              "answer": 13
+            },
+            {
+              "id": "w4-d1-r4c2",
+              "text": "7 + 9 =",
+              "answer": 16
+            },
+            {
+              "id": "w4-d1-r4c3",
+              "text": "7 + 5 =",
+              "answer": 12
+            },
+            {
+              "id": "w4-d1-r4c4",
+              "text": "9 + 9 =",
+              "answer": 18
+            },
+            {
+              "id": "w4-d1-r5c1",
+              "text": "2 + 3 =",
+              "answer": 5
+            },
+            {
+              "id": "w4-d1-r5c2",
+              "text": "9 + 2 =",
+              "answer": 11
+            },
+            {
+              "id": "w4-d1-r5c3",
+              "text": "2 + 6 =",
+              "answer": 8
+            },
+            {
+              "id": "w4-d1-r5c4",
+              "text": "9 + 7 =",
+              "answer": 16
+            }
+          ]
+        },
+        {
+          "day": "Dinsdag",
+          "type": "Vermenigvuldigen",
+          "questions": [
+            {
+              "id": "w4-d2-r1c1",
+              "text": "3 x 8 =",
+              "answer": 24
+            },
+            {
+              "id": "w4-d2-r1c2",
+              "text": "8 x 7 =",
+              "answer": 56
+            },
+            {
+              "id": "w4-d2-r1c3",
+              "text": "3 x 6 =",
+              "answer": 18
+            },
+            {
+              "id": "w4-d2-r1c4",
+              "text": "9 x 6 =",
+              "answer": 54
+            },
+            {
+              "id": "w4-d2-r2c1",
+              "text": "5 x 8 =",
+              "answer": 40
+            },
+            {
+              "id": "w4-d2-r2c2",
+              "text": "3 x 3 =",
+              "answer": 9
+            },
+            {
+              "id": "w4-d2-r2c3",
+              "text": "4 x 7 =",
+              "answer": 28
+            },
+            {
+              "id": "w4-d2-r2c4",
+              "text": "2 x 8 =",
+              "answer": 16
+            },
+            {
+              "id": "w4-d2-r3c1",
+              "text": "6 x 9 =",
+              "answer": 54
+            },
+            {
+              "id": "w4-d2-r3c2",
+              "text": "5 x 4 =",
+              "answer": 20
+            },
+            {
+              "id": "w4-d2-r3c3",
+              "text": "5 x 2 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d2-r3c4",
+              "text": "9 x 2 =",
+              "answer": 18
+            },
+            {
+              "id": "w4-d2-r4c1",
+              "text": "9 x 8 =",
+              "answer": 72
+            },
+            {
+              "id": "w4-d2-r4c2",
+              "text": "8 x 5 =",
+              "answer": 40
+            },
+            {
+              "id": "w4-d2-r4c3",
+              "text": "3 x 4 =",
+              "answer": 12
+            },
+            {
+              "id": "w4-d2-r4c4",
+              "text": "5 x 9 =",
+              "answer": 45
+            },
+            {
+              "id": "w4-d2-r5c1",
+              "text": "4 x 9 =",
+              "answer": 36
+            },
+            {
+              "id": "w4-d2-r5c2",
+              "text": "9 x 3 =",
+              "answer": 27
+            },
+            {
+              "id": "w4-d2-r5c3",
+              "text": "2 x 3 =",
+              "answer": 6
+            },
+            {
+              "id": "w4-d2-r5c4",
+              "text": "9 x 5 =",
+              "answer": 45
+            }
+          ]
+        },
+        {
+          "day": "Woensdag",
+          "type": "Aftrekken",
+          "questions": [
+            {
+              "id": "w4-d3-r1c1",
+              "text": "19 - 7 =",
+              "answer": 12
+            },
+            {
+              "id": "w4-d3-r1c2",
+              "text": "14 - 9 =",
+              "answer": 5
+            },
+            {
+              "id": "w4-d3-r1c3",
+              "text": "11 - 4 =",
+              "answer": 7
+            },
+            {
+              "id": "w4-d3-r1c4",
+              "text": "17 - 6 =",
+              "answer": 11
+            },
+            {
+              "id": "w4-d3-r2c1",
+              "text": "16 - 2 =",
+              "answer": 14
+            },
+            {
+              "id": "w4-d3-r2c2",
+              "text": "19 - 6 =",
+              "answer": 13
+            },
+            {
+              "id": "w4-d3-r2c3",
+              "text": "13 - 5 =",
+              "answer": 8
+            },
+            {
+              "id": "w4-d3-r2c4",
+              "text": "13 - 2 =",
+              "answer": 11
+            },
+            {
+              "id": "w4-d3-r3c1",
+              "text": "18 - 5 =",
+              "answer": 13
+            },
+            {
+              "id": "w4-d3-r3c2",
+              "text": "10 - 9 =",
+              "answer": 1
+            },
+            {
+              "id": "w4-d3-r3c3",
+              "text": "18 - 8 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d3-r3c4",
+              "text": "14 - 6 =",
+              "answer": 8
+            },
+            {
+              "id": "w4-d3-r4c1",
+              "text": "10 - 4 =",
+              "answer": 6
+            },
+            {
+              "id": "w4-d3-r4c2",
+              "text": "12 - 2 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d3-r4c3",
+              "text": "9 - 5 =",
+              "answer": 4
+            },
+            {
+              "id": "w4-d3-r4c4",
+              "text": "13 - 3 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d3-r5c1",
+              "text": "10 - 8 =",
+              "answer": 2
+            },
+            {
+              "id": "w4-d3-r5c2",
+              "text": "9 - 7 =",
+              "answer": 2
+            },
+            {
+              "id": "w4-d3-r5c3",
+              "text": "15 - 4 =",
+              "answer": 11
+            },
+            {
+              "id": "w4-d3-r5c4",
+              "text": "16 - 8 =",
+              "answer": 8
+            }
+          ]
+        },
+        {
+          "day": "Donderdag",
+          "type": "Delen",
+          "questions": [
+            {
+              "id": "w4-d4-r1c1",
+              "text": "21 : 3 =",
+              "answer": 7
+            },
+            {
+              "id": "w4-d4-r1c2",
+              "text": "30 : 3 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d4-r1c3",
+              "text": "27 : 3 =",
+              "answer": 9
+            },
+            {
+              "id": "w4-d4-r1c4",
+              "text": "35 : 5 =",
+              "answer": 7
+            },
+            {
+              "id": "w4-d4-r2c1",
+              "text": "50 : 5 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d4-r2c2",
+              "text": "25 : 5 =",
+              "answer": 5
+            },
+            {
+              "id": "w4-d4-r2c3",
+              "text": "20 : 4 =",
+              "answer": 5
+            },
+            {
+              "id": "w4-d4-r2c4",
+              "text": "40 : 5 =",
+              "answer": 8
+            },
+            {
+              "id": "w4-d4-r3c1",
+              "text": "40 : 4 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d4-r3c2",
+              "text": "20 : 5 =",
+              "answer": 4
+            },
+            {
+              "id": "w4-d4-r3c3",
+              "text": "24 : 3 =",
+              "answer": 8
+            },
+            {
+              "id": "w4-d4-r3c4",
+              "text": "45 : 5 =",
+              "answer": 9
+            },
+            {
+              "id": "w4-d4-r4c1",
+              "text": "30 : 5 =",
+              "answer": 6
+            },
+            {
+              "id": "w4-d4-r4c2",
+              "text": "24 : 4 =",
+              "answer": 6
+            },
+            {
+              "id": "w4-d4-r4c3",
+              "text": "21 : 3 =",
+              "answer": 7
+            },
+            {
+              "id": "w4-d4-r4c4",
+              "text": "20 : 2 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d4-r5c1",
+              "text": "36 : 4 =",
+              "answer": 9
+            },
+            {
+              "id": "w4-d4-r5c2",
+              "text": "32 : 4 =",
+              "answer": 8
+            },
+            {
+              "id": "w4-d4-r5c3",
+              "text": "30 : 3 =",
+              "answer": 10
+            },
+            {
+              "id": "w4-d4-r5c4",
+              "text": "28 : 4 =",
+              "answer": 7
+            }
+          ]
+        },
+        {
+          "day": "Vrijdag",
+          "type": "Verhaalsom",
+          "questions": [
+            {
+              "id": "w4-d5",
+              "text": "5 kinderen verdelen 80 stickers. Hoeveel stickers krijgt ieder?",
+              "answer": 16,
+              "unit": "stickers"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

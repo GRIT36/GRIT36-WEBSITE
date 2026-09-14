@@ -81,14 +81,19 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
-<link rel="stylesheet" href="assets/learning-history.css?v=1.048">
+<link rel="stylesheet" href="assets/learning-history.css?v=1.058">
+<link rel="stylesheet" href="assets/automatiseren.css?v=1.058">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/learning-history.js?v=1.048"></script>
+<script src="assets/learning-history.js?v=1.058"></script>
+<script src="assets/history-delete.js?v=1.058"></script>
+<script src="assets/answer-ribbon.js?v=1.058"></script>
+<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.058">
+<script src="assets/automatiseren.js?v=1.058"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.048";
+const APP_VERSION="V1.058";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -252,14 +257,17 @@ async function uploadCustomImage(wordId,file){
 }
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
-function render(){updateLearningClock();document.getElementById("app").innerHTML=(state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
+function render(){checkAnswerRibbon();updateLearningClock();document.getElementById("app").innerHTML=(state.view==="math"?mathPage():state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
 function home(){
- let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>cs[l.kid]=(cs[l.kid]||0)+1);
- let ls=DATA.lists.filter(l=>state.filter==="Alle"||l.kid===state.filter);
+ const isTest=l=>l.name.trim()==="🚀Test🚀";
+ let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>{if(!isTest(l))cs[l.kid]=(cs[l.kid]||0)+1});
+ let ls=DATA.lists.filter(l=>state.filter==="Alle"||(!isTest(l)&&l.kid===state.filter));
+ ls=[...ls.filter(l=>!isTest(l)),...ls.filter(isTest)];
  return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div></div>
  <section class="game-panel" aria-label="Kievit Go spel"><div class="game-panel-head"><span class="game-panel-title">Pauze 🦖 T-Rex Run</span><span class="game-panel-help">Klik of tik om te springen</span></div><iframe class="kievit-game" src="assets/trex-runner/index.html" title="Kievit Go spel" loading="lazy"></iframe></section>
  <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
- ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${esc(kidLabel(l.kid))} · ${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
+ ${state.filter==="Oudste"?`<button class="math-entry" id="openMath"><span><strong>🏎️ Automatiseren</strong><small>Felix Groep 6</small></span><span aria-hidden="true">›</span></button>`:""}
+ ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${isTest(l)?"":esc(kidLabel(l.kid))+" · "}${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
  <div class="history-entry"><button class="btn" id="openHistory">📊 Leerhistorie</button></div>
  <button class="fab" id="newList">＋ Nieuwe woordenlijst</button>`
 }
@@ -317,7 +325,9 @@ function start(m,learner="Andere"){
  state.mode=m;state.view="study";let q=shuffle(l.words);
  if(m==="flashcard")state.session={queue:q,total:q.length,flip:false,known:0,review:[],finished:false};
  else if(m==="mc")state.session={queue:q,total:q.length,answered:false,selected:null,options:mc(q[0],l.words),correct:0,review:[],finished:false};
- beginLearningRecord(learner,l,m);startStudyMusic();render()
+ state.session.learner=learner;state.session.skipHistory=l.name.trim()==="🚀Test🚀";
+ if(!state.session.skipHistory)beginLearningRecord(learner,l,m);
+ startStudyMusic();render()
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 function mc(w,all){
@@ -354,6 +364,7 @@ function nextMcQuestion(){
 }
 function handlers(){
  historyHandlers();
+ mathHandlers();
  document.querySelectorAll("[data-search-image]").forEach(img=>{
   resolveSearchImage(img.dataset.searchImage,img.dataset.imageKey).then(url=>{
    if(!img.isConnected)return;img.src=url;
@@ -394,7 +405,7 @@ function handlers(){
  }
  let s=state.session;
  if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>{rememberQuestion();playSound("remembered");s.known++;s.queue.shift();s.flip=false;finishIf(s);render()});document.getElementById("unknown")?.addEventListener("click",()=>{rememberQuestion();playSound("review");s.review.push(s.queue.shift());s.flip=false;finishIf(s);render()})}
- if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;s.answered=true;s.selected=i;if(s.options[i].ok){s.correct++;s.celebrate=true;playSound("correct",.7);render();clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,3000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render()}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
+ if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;if(s.answered)return;s.answered=true;s.selected=i;if(s.options[i].ok){s.correct++;s.celebrate=true;playSound("correct",.7);render();showAnswerRibbon(true);clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,3000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render();showAnswerRibbon(false)}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
 }
 render();loadCloudLists();initializeLearningHistory();
 </script>
