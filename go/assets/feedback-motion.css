@@ -1,0 +1,5 @@
+/* Shared by Leren and arithmetic: no full-area dimming or stationary GIF. */
+.feedback-overlay{background:transparent!important;animation:none!important;overflow:hidden;pointer-events:none;border-radius:14px}
+.feedback-overlay .feedback-gif{position:absolute;left:0;top:50%;width:min(42vw,150px);max-height:130px;animation:feedback-travel 2.6s linear both;will-change:left,transform;pointer-events:none}
+@keyframes feedback-travel{0%{left:0;transform:translate(-105%,-50%);opacity:1}99%{opacity:1}100%{left:100%;transform:translate(5%,-50%);opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){.feedback-overlay .feedback-gif{animation:feedback-gentle 2.6s linear both;left:0;top:0;width:70px;max-height:70px}@keyframes feedback-gentle{0%{opacity:0}10%,75%{opacity:1}100%{opacity:0;visibility:hidden}}}

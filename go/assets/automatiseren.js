@@ -1,5 +1,6 @@
 // Fixed school questions. Update the JSON file, not the word-list importer.
 let mathBank=null,mathLoading=false,mathError="",mathRound=null;
+let mathOwner="Felix";
 function mathShuffle(items){const result=[...items];for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]]}return result}
 let mathRecentStories=[];
 try{mathRecentStories=JSON.parse(localStorage.getItem("mathRecentStories_v1")||"[]");if(!Array.isArray(mathRecentStories))mathRecentStories=[]}catch(e){}
@@ -17,6 +18,10 @@ function mathStoryCandidates(){
 }
 function mathBuildTest(){
  const all=mathBank.weeks.flatMap(w=>w.days.flatMap(d=>d.questions)),questions=[];
+ if(mathBank.owner==="Max"){
+  for(const op of ["+","-"]){const pool=[...new Map(all.filter(q=>q.text.split(" ")[1]===op).map(q=>[q.text,q])).values()];if(pool.length<10)throw Error("Not enough school questions");questions.push(...mathShuffle(pool).slice(0,10))}
+  return mathShuffle(questions)
+ }
  // The source bank has an equal share of all four operations: five of each.
  for(const op of ["+","x","-",":"]){const pool=[...new Map(all.filter(q=>!q.unit&&q.text.split(" ")[1]===op).map(q=>[q.text,q])).values()];if(pool.length<5)throw Error("Not enough school questions");questions.push(...mathShuffle(pool).slice(0,5))}
  const candidates=mathStoryCandidates(),fresh=candidates.filter(q=>!mathRecentStories.includes(q.text));
@@ -30,10 +35,10 @@ function mathBuildTest(){
 async function loadMathBank(){
  if(mathLoading)return;mathLoading=true;mathError="";render();
  try{
-  const response=await fetch("assets/automatiseren-felix.json",{cache:"no-cache"});
+  const response=await fetch(`assets/automatiseren-${mathOwner.toLowerCase()}.json`,{cache:"no-cache"});
   if(!response.ok)throw Error("HTTP "+response.status);
   const bank=await response.json(),ids=new Set();
-  if(bank.owner!=="Felix"||!Array.isArray(bank.weeks)||!bank.weeks.length)throw Error("Invalid owner/weeks");
+  if(bank.owner!==mathOwner||!Array.isArray(bank.weeks)||!bank.weeks.length)throw Error("Invalid owner/weeks");
   for(const week of bank.weeks){if(!Array.isArray(week.days)||!week.days.length)throw Error("Invalid days");for(const day of week.days){if(!Array.isArray(day.questions)||!day.questions.length)throw Error("Empty day");for(const q of day.questions){if(typeof q.text!=="string"||!Number.isFinite(q.answer)||!q.id||ids.has(q.id))throw Error("Invalid question");ids.add(q.id)}}}
   mathBank=bank;
  }catch(error){console.warn(error);mathError="De opgaven konden niet worden geladen. Probeer het opnieuw."}
@@ -41,35 +46,44 @@ async function loadMathBank(){
 }
 function mathPage(){
  if(mathRound)return mathStudyPage();
- return `<button class="back" id="mathHome">‹ Terug naar Felix</button><h1>🏎️ Automatiseren</h1><p class="meta">🦉 Felix · Opgaven van school</p><section class="math-week"><h2>Een nieuwe mix, elke keer</h2><p>20 sommen door elkaar, gevolgd door 1 verhaalsom.</p><p>Kies je antwoord met de schuifregelaar. De verhaalsommen hebben soms andere getallen.</p>${mathError?`<p role="alert">${esc(mathError)}</p><button class="btn" id="mathRetry">↻ Opnieuw proberen</button>`:mathLoading?`<p role="status">Opgaven laden…</p>`:mathBank?`<button class="btn primary" id="mathStart">🏁 Start de toets · 21 opgaven</button>`:""}</section>`
+ return home()
 }
-function requestMathStudy(){if(!mathBank)return;state.pendingMode="math";state.pendingLearner=state.session?.learner||mathBank.owner||"Felix";state.modal="learner";render()}
+function requestMathStudy(){state.pendingMode="math";state.pendingLearner=state.session?.learner||mathOwner;state.modal="learner";render()}
+async function confirmMathStudy(learner){
+ if(!mathBank||mathBank.owner!==mathOwner){mathBank=null;await loadMathBank();if(!mathBank){state.modal=null;state.view="home";render();alert(mathError);return}}
+ state.modal=null;state.view="math";mathStart(learner)
+}
 function mathStart(learner="Felix"){
  if(!mathBank)return;
  let questions;try{questions=mathBuildTest()}catch(e){alert("De toets kon niet worden samengesteld. Controleer de opgaven.");return}
  stopSound();stopStudyMusic();clearCelebration();historyIndex=null;
- mathRound={index:0,results:[],questions,title:"Automatiseren · Mix"};
+ mathRound={index:0,results:[],questions,title:`Automatiseren · ${mathOwner} · Mix`};
  state.mode="math";state.session={total:questions.length,correct:0,review:[],finished:false,answered:false,learner:"Felix"};
- beginLearningRecord(learner,{id:"math:Felix:mix21",name:mathRound.title},"mc");
+ beginLearningRecord(learner,{id:`math:${mathOwner}:mix${questions.length}`,name:mathRound.title},"mc");
  startStudyMusic();render();mathFocus()
 }
 function mathAudioControls(){return `<div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" id="mathMusic" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" id="mathSound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div>`}
-function mathSliderMax(q){return q.unit?150:q.text.includes(" x ")?100:20}
-function mathSlider(q,result){const value=result?Number(result.input):Number(mathRound.draft||0),max=mathSliderMax(q),disabled=result?"disabled":"";return `<div class="math-slider"><output id="mathPreview" for="mathAnswer">${value}</output><div class="math-slider-row"><button type="button" class="btn" id="mathMinus" aria-label="Eén minder" ${disabled}>−</button><input id="mathAnswer" type="range" min="0" max="${max}" step="1" value="${value}" aria-label="Jouw antwoord" ${disabled}><button type="button" class="btn" id="mathPlus" aria-label="Eén meer" ${disabled}>＋</button></div><div class="math-range-labels"><span>0</span><span>${max}</span></div></div>`}
-function mathSetSlider(value){if(state.session?.answered)return;const slider=document.getElementById("mathAnswer");value=Math.max(0,Math.min(Number(slider.max),Number(value)));slider.value=value;mathRound.draft=String(value);document.getElementById("mathPreview").value=String(value)}
+function mathKeypad(q,result){const value=result?result.input:(mathRound.draft||"");return `<div class="math-keypad-wrap"><output id="mathAnswer" tabindex="0" aria-label="Jouw antwoord" aria-live="polite">${value?esc(value):"—"}</output>${result?"":`<div class="math-keypad" role="group" aria-label="Cijfer toetsenbord">${["7","8","9","4","5","6","1","2","3","0","Delete","Enter"].map(key=>`<button class="btn ${key==="Enter"?"primary":""}" type="${key==="Enter"?"submit":"button"}" ${key==="Enter"?'id="mathConfirm"':`data-math-key="${key}"`} ${key==="Delete"?'aria-label="Laatste cijfer verwijderen"':""}>${key}</button>`).join("")}</div>`}</div>`}
+function mathPressKey(key){
+ if(!mathRound||state.session?.answered||state.modal)return;
+ let value=mathRound.draft||"";
+ if(key==="Delete")value=value.slice(0,-1);
+ else if(/^\d$/.test(key)&&value.length<6)value=value==="0"?key:value+key;
+ mathRound.draft=value;document.getElementById("mathAnswer").textContent=value||"—";document.getElementById("mathValidation").textContent=""
+}
 function mathStudyPage(){
  const r=mathRound,s=state.session;
  if(s.finished)return `<div class="summary-radiance" aria-hidden="true"></div><div class="math-study summary math-summary">${mathAudioControls()}<div class="summary-finale"><div class="summary-fireworks" aria-hidden="true"><i class="firework finale-left"></i><i class="firework finale-top"></i><i class="firework finale-right"></i></div><h2>🎉 Klaar!</h2></div><h2>${esc(r.title)}</h2><p class="math-score">${s.correct} / ${s.total} goed · ${Math.round(s.correct/s.total*100)}%</p>${recordSaveStatus()}${r.results.some(x=>!x.ok)?`<h3>Nog oefenen</h3><ul class="math-review">${r.results.filter(x=>!x.ok).map(x=>`<li>${esc(x.text)}<br>Jouw antwoord: ${esc(x.input)} · Goed: <strong>${x.answer}</strong></li>`).join("")}</ul>`:`<p>Alles goed gedaan! 🎉</p>`}<button class="btn primary" id="mathAgain">Nog een keer</button> <button class="btn" id="mathMenu">Terug naar Automatiseren</button></div>`;
  const q=r.questions[r.index],result=r.results[r.index];
- return `<div class="math-study"><div class="math-top"><button class="back" id="mathExit">‹ Afsluiten</button>${mathAudioControls()}</div><h2>${esc(r.title)}</h2><p class="meta">${learnerLabel(s.learner)} · ${r.index+1} / ${s.total}</p><progress class="math-progress" max="${s.total}" value="${r.results.length}" aria-label="Voortgang"></progress><form id="mathForm" novalidate><div class="math-question-stage"><h3 class="math-question ${q.unit?"math-story":""}" id="mathQuestion">${esc(q.text)}</h3>${result?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${result.ok?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${result.ok?"Goed gedaan":"Probeer het opnieuw"}"></div>`:""}</div><label for="mathAnswer">Jouw antwoord${q.unit?` (${esc(q.unit)})`:""}</label>${mathSlider(q,result)}<p id="mathValidation" role="alert"></p>${result?`<div class="math-feedback ${result.ok?"good":"wrong"}" role="status">${result.ok?"✅ Goed zo! Volgende vraag komt eraan…":`Nog niet goed. Het juiste antwoord is ${q.answer}${q.unit?" "+esc(q.unit):""}.`}</div><button type="button" class="btn primary" id="mathNext">${r.index+1===s.total?"Bekijk resultaat":"Volgende →"}</button>`:`<button class="btn primary" type="submit">Bevestigen</button>`}</form>${result?.ok?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`
+ return `<div class="math-study"><div class="math-top"><button class="back" id="mathExit">‹ Afsluiten</button>${mathAudioControls()}</div><h2>${esc(r.title)}</h2><p class="meta">${learnerLabel(s.learner)} · ${r.index+1} / ${s.total}</p><progress class="math-progress" max="${s.total}" value="${r.results.length}" aria-label="Voortgang"></progress><form id="mathForm" novalidate><div class="math-question-stage"><h3 class="math-question ${q.unit?"math-story":""}" id="mathQuestion">${esc(q.text)}</h3>${result?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${result.ok?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${result.ok?"Goed gedaan":"Probeer het opnieuw"}"></div>`:""}</div><label for="mathAnswer">Jouw antwoord${q.unit?` (${esc(q.unit)})`:""}</label>${mathKeypad(q,result)}<p id="mathValidation" role="alert"></p>${result?`<div class="math-feedback ${result.ok?"good":"wrong"}" role="status">${result.ok?"✅ Goed zo! Volgende vraag komt eraan…":`Nog niet goed. Het juiste antwoord is ${q.answer}${q.unit?" "+esc(q.unit):""}.`}</div><button type="button" class="btn primary" id="mathNext">${r.index+1===s.total?"Bekijk resultaat":"Volgende →"}</button>`:""}</form>${result?.ok?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`
 }
 function mathFocus(){document.getElementById(state.session?.answered?"mathNext":"mathAnswer")?.focus({preventScroll:true})}
 function mathSubmit(event){
  event.preventDefault();if(!mathRound||state.session.answered)return;
- const value=document.getElementById("mathAnswer").value.trim();
+ const value=mathRound.draft||"";
  if(!/^\d+$/.test(value)||!Number.isSafeInteger(Number(value))){document.getElementById("mathValidation").textContent="Vul een heel getal in, bijvoorbeeld 12.";return}
  updateLearningClock();const q=mathRound.questions[mathRound.index],ok=Number(value)===q.answer;
- mathRound.results.push({...q,input:value,ok});state.session.answered=true;
+ mathRound.results.push({...q,input:value,ok});state.session.answered=true;state.session.feedbackAt=performance.now();
  if(ok)state.session.correct++;else state.session.review.push({term:q.text,definition:`Jouw antwoord: ${value}; goed: ${q.answer}`});
  playSound(ok?"correct":"wrong",ok ? .7 : .55);render();showAnswerRibbon(ok);checkpointLearning();mathFocus();
  clearCelebration();if(ok)celebrationTimer=setTimeout(mathNext,3000)
@@ -82,13 +96,11 @@ function mathNext(){
  render();mathFocus()
 }
 function mathLeave(){
- finalizeLearningRecord();clearCelebration();stopSound();stopStudyMusic();mathRound=null;state.session=null;state.mode=null;render()
+ finalizeLearningRecord();clearCelebration();stopSound();stopStudyMusic();mathRound=null;state.session=null;state.mode=null;state.view="home";state.filter=mathOwner==="Max"?"Jongste":"Oudste";render()
 }
 function mathHandlers(){
- document.getElementById("mathAnswer")?.addEventListener("input",e=>mathSetSlider(e.target.value));
- document.getElementById("mathMinus")?.addEventListener("click",()=>mathSetSlider(Number(document.getElementById("mathAnswer").value)-1));
- document.getElementById("mathPlus")?.addEventListener("click",()=>mathSetSlider(Number(document.getElementById("mathAnswer").value)+1));
- document.getElementById("openMath")?.addEventListener("click",()=>{state.view="math";render();loadMathBank()});
+ document.querySelectorAll('[data-math-key]').forEach(button=>button.onclick=()=>mathPressKey(button.dataset.mathKey));
+ document.getElementById("openMath")?.addEventListener("click",()=>{mathOwner=state.filter==="Jongste"?"Max":"Felix";requestMathStudy()});
  document.getElementById("mathRetry")?.addEventListener("click",loadMathBank);
  document.getElementById("mathHome")?.addEventListener("click",()=>{state.view="home";state.filter="Oudste";render()});
  document.getElementById("mathStart")?.addEventListener("click",requestMathStudy);
