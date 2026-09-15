@@ -81,26 +81,26 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
-<link rel="stylesheet" href="assets/learning-history.css?v=1.065">
-<link rel="stylesheet" href="assets/automatiseren.css?v=1.065">
-<link rel="stylesheet" href="assets/feedback-motion.css?v=1.065">
+<link rel="stylesheet" href="assets/learning-history.css?v=1.068">
+<link rel="stylesheet" href="assets/automatiseren.css?v=1.068">
+<link rel="stylesheet" href="assets/feedback-motion.css?v=1.068">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/learning-history.js?v=1.065"></script>
-<link rel="stylesheet" href="assets/learning-insights.css?v=1.065">
-<script src="assets/learning-insights.js?v=1.065"></script>
-<script src="assets/history-delete.js?v=1.065"></script>
-<script src="assets/answer-ribbon.js?v=1.065"></script>
-<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.065">
-<script src="assets/automatiseren.js?v=1.065"></script>
+<script src="assets/learning-history.js?v=1.068"></script>
+<link rel="stylesheet" href="assets/learning-insights.css?v=1.068">
+<script src="assets/learning-insights.js?v=1.068"></script>
+<script src="assets/history-delete.js?v=1.068"></script>
+<script src="assets/answer-ribbon.js?v=1.068"></script>
+<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.068">
+<script src="assets/automatiseren.js?v=1.068"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.065";
+const APP_VERSION="V1.068";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-const AUDIO={review:"assets/audio/flashcard-review-bruh.mp3",remembered:"assets/audio/flashcard-remembered-dog.mp3",correct:"assets/audio/answer-correct-apple-pay.mp3",wrong:"assets/audio/answer-wrong-bark-fart.mp3",rick:"assets/audio/rick-roll.mp3",emotional:"assets/audio/emotional.mp3",brainrot:"assets/audio/brainrot-rap.mp3",flashcardMusic:"assets/audio/flashcards-homer.mp3",music:"assets/audio/study-background-max1.m4a"};
+const AUDIO={review:"assets/audio/flashcard-review-bruh.mp3",remembered:"assets/audio/flashcard-remembered-dog.mp3",correct:"assets/audio/answer-correct-apple-pay.mp3",wrong:"assets/audio/answer-wrong-bark-fart.mp3",mathWrong:"assets/audio/answer-wrong-wet-fart.mp3",rick:"assets/audio/rick-roll.mp3",emotional:"assets/audio/emotional.mp3",brainrot:"assets/audio/brainrot-rap.mp3",rainingTacos:"assets/audio/raining-tacos.mp3",flashcardMusic:"assets/audio/flashcards-homer.mp3",music:"assets/audio/study-background-max1.m4a"};
 const IMAGE_BUCKET="word-images";
 const AUDIO_SETTINGS_KEY="kievitGoAudioSettings_v1";
 let audioSettings={music:true,sound:true};

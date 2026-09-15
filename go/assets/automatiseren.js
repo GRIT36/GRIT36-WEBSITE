@@ -63,7 +63,7 @@ function mathStart(learner="Felix"){
  startStudyMusic();render();mathFocus()
 }
 function mathAudioControls(){return `<div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" id="mathMusic" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" id="mathSound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div>`}
-function mathKeypad(q,result){const value=result?result.input:(mathRound.draft||"");return `<div class="math-keypad-wrap"><output id="mathAnswer" tabindex="0" aria-label="Jouw antwoord" aria-live="polite">${value?esc(value):"—"}</output>${result?"":`<div class="math-keypad" role="group" aria-label="Cijfer toetsenbord">${["7","8","9","4","5","6","1","2","3","0","Delete","Enter"].map(key=>`<button class="btn ${key==="Enter"?"primary":""}" type="${key==="Enter"?"submit":"button"}" ${key==="Enter"?'id="mathConfirm"':`data-math-key="${key}"`} ${key==="Delete"?'aria-label="Laatste cijfer verwijderen"':""}>${key}</button>`).join("")}</div>`}</div>`}
+function mathKeypad(q,result){const value=result?result.input:(mathRound.draft||"");return `<div class="math-keypad-wrap"><output id="mathAnswer" tabindex="0" aria-label="Jouw antwoord" aria-live="polite">${value?esc(value):"—"}</output>${result?"":`<div class="math-keypad" role="group" aria-label="Cijfer toetsenbord">${["7","8","9","4","5","6","1","2","3","0","Delete","Enter"].map(key=>`<button class="btn ${key==="Enter"?"primary":""}" type="${key==="Enter"?"submit":"button"}" ${key==="Enter"?'id="mathConfirm"':`data-math-key="${key}"`} ${key==="Delete"?'aria-label="Laatste cijfer verwijderen"':""}>${key==="Delete"?"⌫":key}</button>`).join("")}</div>`}</div>`}
 function mathPressKey(key){
  if(!mathRound||state.session?.answered||state.modal)return;
  let value=mathRound.draft||"";
@@ -85,13 +85,13 @@ function mathSubmit(event){
  updateLearningClock();const q=mathRound.questions[mathRound.index],ok=Number(value)===q.answer;
  mathRound.results.push({...q,input:value,ok});state.session.answered=true;state.session.feedbackAt=performance.now();
  if(ok)state.session.correct++;else state.session.review.push({term:q.text,definition:`Jouw antwoord: ${value}; goed: ${q.answer}`});
- playSound(ok?"correct":"wrong",ok ? .7 : .55);render();showAnswerRibbon(ok);checkpointLearning();mathFocus();
+ playSound(ok?"correct":"mathWrong",ok ? .7 : .55);render();showAnswerRibbon(ok);checkpointLearning();mathFocus();
  clearCelebration();if(ok)celebrationTimer=setTimeout(mathNext,3000)
 }
 function mathNext(){
  if(!mathRound||!state.session.answered||state.session.finished)return;
  clearCelebration();stopSound();updateLearningClock();
- if(mathRound.index+1===mathRound.questions.length){state.session.finished=true;stopStudyMusic();state.session.recordDuration=learningSnapshot().duration_seconds;finalizeLearningRecord(true);playSoundSequence(state.session.correct/state.session.total<.5?["emotional"]:["brainrot"],.7)}
+ if(mathRound.index+1===mathRound.questions.length){state.session.finished=true;stopStudyMusic();state.session.recordDuration=learningSnapshot().duration_seconds;finalizeLearningRecord(true);playSoundSequence(state.session.correct/state.session.total>.5?["rainingTacos"]:state.session.correct/state.session.total<.5?["emotional"]:["brainrot"],.7)}
  else{mathRound.index++;mathRound.draft="";state.session.answered=false}
  render();mathFocus()
 }
