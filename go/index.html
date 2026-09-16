@@ -86,24 +86,24 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
-<link rel="stylesheet" href="assets/learning-history.css?v=1.073">
-<link rel="stylesheet" href="assets/automatiseren.css?v=1.073">
-<link rel="stylesheet" href="assets/feedback-motion.css?v=1.073">
+<link rel="stylesheet" href="assets/learning-history.css?v=1.074">
+<link rel="stylesheet" href="assets/automatiseren.css?v=1.074">
+<link rel="stylesheet" href="assets/feedback-motion.css?v=1.074">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/learning-history.js?v=1.073"></script>
-<link rel="stylesheet" href="assets/learning-insights.css?v=1.073">
-<script src="assets/learning-insights.js?v=1.073"></script>
-<script src="assets/history-delete.js?v=1.073"></script>
-<script src="assets/answer-ribbon.js?v=1.073"></script>
-<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.073">
-<script src="assets/automatiseren.js?v=1.073"></script>
-<link rel="stylesheet" href="assets/meander.css?v=1.073">
-<script src="assets/meander.js?v=1.073"></script>
+<script src="assets/learning-history.js?v=1.074"></script>
+<link rel="stylesheet" href="assets/learning-insights.css?v=1.074">
+<script src="assets/learning-insights.js?v=1.074"></script>
+<script src="assets/history-delete.js?v=1.074"></script>
+<script src="assets/answer-ribbon.js?v=1.074"></script>
+<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.074">
+<script src="assets/automatiseren.js?v=1.074"></script>
+<link rel="stylesheet" href="assets/meander.css?v=1.074">
+<script src="assets/meander.js?v=1.074"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.073";
+const APP_VERSION="V1.074";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -396,7 +396,8 @@ function handlers(){
  document.querySelectorAll('.feedback-gif').forEach(img=>{if(feedbackSession?.feedbackAt!==undefined)img.style.animationDelay=`-${Math.max(0,performance.now()-feedbackSession.feedbackAt)}ms`});
  historyHandlers();
  mathHandlers();
- geoHandlers();
+ if(typeof geoHandlers==="function")geoHandlers();
+ else document.getElementById("openGeo")?.addEventListener("click",()=>alert("De aardrijkskundemodule ontbreekt. Upload ook de volledige assets-map van deze versie en vernieuw de pagina."));
  musicVolumeControls();
  document.querySelectorAll("[data-search-image]").forEach(img=>{
   resolveSearchImage(img.dataset.searchImage,img.dataset.imageKey).then(url=>{
