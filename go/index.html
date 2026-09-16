@@ -40,7 +40,12 @@ button,input,textarea{font:inherit}button{cursor:pointer}
 .summary{text-align:center;max-width:500px;margin:50px auto}.big-num{font-size:52px;font-weight:800;color:var(--accent)}.review{margin:20px 0;background:var(--white);border:1px solid var(--line);border-radius:14px;text-align:left;padding:6px 15px}.review div{padding:9px 0;border-bottom:1px solid var(--line)}.review div:last-child{border:0}
 @media(max-width:650px){.app{padding:20px 12px 85px}.topbar{align-items:flex-start}.audio-controls{gap:5px}.audio-toggle{min-width:108px;padding-left:8px;font-size:11px}.game-panel{margin:14px 0 16px}.kievit-game{height:160px}.game-panel-help{font-size:11px}.mode-grid{grid-template-columns:1fr}.word-table{border:0;background:transparent}.word-head{display:none}.word-row{display:block;background:var(--white);border:1px solid var(--line);border-radius:12px;margin:8px 0;padding:13px}.word-row>div{margin:6px 0}.cell-label{display:block;font-size:11px;color:var(--soft);font-weight:700;margin-bottom:2px}.detail-actions{flex-wrap:wrap}.tabs{gap:6px}.kid-tab{padding:10px}.brand .sub{display:none}}
 .mc-option{display:flex;align-items:center;gap:12px;font-size:16px;line-height:1.4;color:#172238;background:var(--option-bg);border-color:var(--option-border);opacity:1}.option-red{--option-bg:#FADADD;--option-border:#ECA9AF}.option-green{--option-bg:#D7F1DF;--option-border:#96CBA8}.option-orange{--option-bg:#FFE0BE;--option-border:#E5B27D}.option-yellow{--option-bg:#FFF1B8;--option-border:#DBC768}.option-blue{--option-bg:#D8EAFE;--option-border:#9CBFE4}.option-shape{flex:0 0 28px;text-align:center;font-size:23px}.mc-option.correct{background:#216943;border-color:#63DB9C;color:#fff}.mc-option.wrong{background:#96333E;border-color:#FF9096;color:#fff}.mc-option:disabled{opacity:1;-webkit-text-fill-color:currentColor}.mc-option:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.mc-option.pending-choice{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #ad83de66}.mc-confirm{display:block;margin:14px 0 0 auto}.mc-confirm:disabled{opacity:.45;cursor:not-allowed}
+.audio-controls{flex-wrap:wrap;justify-content:flex-end}.music-volume{display:flex;align-items:center;justify-content:flex-end;gap:4px;flex-basis:100%;font-size:12px;color:#eee}.music-volume button{border:1px solid #ad83de;border-radius:12px;background:#352047;color:#fff;padding:5px 9px;cursor:pointer}.music-volume button[aria-pressed="true"]{background:#8052ab;outline:1px solid #dfc6ff}.music-volume span{margin-right:4px}
 .study-audio-bar{display:flex;justify-content:flex-end;margin-bottom:14px}
+.audio-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:250px;max-width:100%;align-items:start}.audio-controls .music-volume{grid-column:1 / -1;white-space:nowrap;flex-wrap:nowrap}.audio-controls .audio-toggle{min-width:0;width:100%;gap:3px;white-space:nowrap}.audio-switch{flex-shrink:0}
+.learner-header{justify-content:space-between;align-items:flex-start;gap:8px}.learner-name{font-size:14px;font-weight:700;color:var(--ink);text-align:left;white-space:nowrap;padding-top:8px}.learner-header>.audio-controls{margin-left:auto;max-width:250px;min-width:0;flex:1}.learner-header-left .back{display:block;margin:10px 0 0;text-align:left}@media(max-width:420px){.learner-header .audio-toggle{font-size:12px;padding:7px}.learner-name{font-size:13px}.learner-header>.audio-controls{gap:5px}}
+@media(max-width:420px){.learner-header .audio-controls .audio-toggle{font-size:11px;padding:7px 5px}.music-volume{font-size:11px;gap:3px}.music-volume button{padding:5px 7px}}
 .celebration .firework{animation:burst 1.8s ease-out infinite both}.celebration .firework.two{animation-delay:.6s}.celebration .firework.three{animation-delay:1.2s}
 /* Purple surfaces; existing text colors and answer feedback colors are preserved. */
 body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%,#AD77E442,transparent 58%),linear-gradient(145deg,#40215DDC,#281B48EB 60%,#492663DE),url("assets/kievit-background-night-fireworks.png");background-position:center;background-size:cover;background-attachment:fixed}
@@ -81,31 +86,48 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
-<link rel="stylesheet" href="assets/learning-history.css?v=1.068">
-<link rel="stylesheet" href="assets/automatiseren.css?v=1.068">
-<link rel="stylesheet" href="assets/feedback-motion.css?v=1.068">
+<link rel="stylesheet" href="assets/learning-history.css?v=1.073">
+<link rel="stylesheet" href="assets/automatiseren.css?v=1.073">
+<link rel="stylesheet" href="assets/feedback-motion.css?v=1.073">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/learning-history.js?v=1.068"></script>
-<link rel="stylesheet" href="assets/learning-insights.css?v=1.068">
-<script src="assets/learning-insights.js?v=1.068"></script>
-<script src="assets/history-delete.js?v=1.068"></script>
-<script src="assets/answer-ribbon.js?v=1.068"></script>
-<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.068">
-<script src="assets/automatiseren.js?v=1.068"></script>
+<script src="assets/learning-history.js?v=1.073"></script>
+<link rel="stylesheet" href="assets/learning-insights.css?v=1.073">
+<script src="assets/learning-insights.js?v=1.073"></script>
+<script src="assets/history-delete.js?v=1.073"></script>
+<script src="assets/answer-ribbon.js?v=1.073"></script>
+<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.073">
+<script src="assets/automatiseren.js?v=1.073"></script>
+<link rel="stylesheet" href="assets/meander.css?v=1.073">
+<script src="assets/meander.js?v=1.073"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.068";
+const APP_VERSION="V1.073";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
 const AUDIO={review:"assets/audio/flashcard-review-bruh.mp3",remembered:"assets/audio/flashcard-remembered-dog.mp3",correct:"assets/audio/answer-correct-apple-pay.mp3",wrong:"assets/audio/answer-wrong-bark-fart.mp3",mathWrong:"assets/audio/answer-wrong-wet-fart.mp3",rick:"assets/audio/rick-roll.mp3",emotional:"assets/audio/emotional.mp3",brainrot:"assets/audio/brainrot-rap.mp3",rainingTacos:"assets/audio/raining-tacos.mp3",flashcardMusic:"assets/audio/flashcards-homer.mp3",music:"assets/audio/study-background-max1.m4a"};
+AUDIO.flashcardHuh="assets/audio/flashcard-huh.mp3";
 const IMAGE_BUCKET="word-images";
 const AUDIO_SETTINGS_KEY="kievitGoAudioSettings_v1";
-let audioSettings={music:true,sound:true};
+let audioSettings={music:true,sound:true,musicLevel:"high"};
 try{audioSettings={...audioSettings,...JSON.parse(localStorage.getItem(AUDIO_SETTINGS_KEY)||"{}")} }catch(e){}
+const MUSIC_LEVELS={low:{label:"Laag",volume:.25},medium:{label:"Midden",volume:.5},high:{label:"Hoog",volume:.75}};
+if(!MUSIC_LEVELS[audioSettings.musicLevel])audioSettings.musicLevel="high";
 let studyMusic=null,celebrationTimer=null;
+function musicVolumeControls(){
+ document.querySelectorAll('.audio-controls').forEach(controls=>{
+  const group=document.createElement('div');group.className='music-volume';group.setAttribute('role','group');group.setAttribute('aria-label','Muziekvolume');
+  group.innerHTML='<span>🎵 Volume</span>'+Object.entries(MUSIC_LEVELS).map(([key,level])=>`<button type="button" data-music-level="${key}" aria-pressed="${audioSettings.musicLevel===key}">${level.label}</button>`).join('');
+  controls.appendChild(group);
+  group.querySelectorAll('button').forEach(button=>button.onclick=()=>{
+   audioSettings.musicLevel=button.dataset.musicLevel;saveAudioSettings();
+   if(studyMusic)studyMusic.volume=MUSIC_LEVELS[audioSettings.musicLevel].volume;
+   document.querySelectorAll('[data-music-level]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.musicLevel===audioSettings.musicLevel)));
+  });
+ });
+}
 function saveAudioSettings(){localStorage.setItem(AUDIO_SETTINGS_KEY,JSON.stringify(audioSettings))}
 let effectAudio=null,effectGeneration=0;
 function stopSound(){effectGeneration++;if(effectAudio){effectAudio.onended=null;effectAudio.onerror=null;effectAudio.pause();effectAudio=null}}
@@ -125,12 +147,16 @@ function playSoundSequence(names,volume=.55){
 function playSound(name,volume=.55){playSoundSequence([name],volume)}
 function startStudyMusic(){
  if(!audioSettings.music)return;
- const source=state.mode==="flashcard"?AUDIO.flashcardMusic:AUDIO.music;
- if(!studyMusic||studyMusic.dataset.source!==source){stopStudyMusic();studyMusic=new Audio(source);studyMusic.dataset.source=source;studyMusic.loop=true;studyMusic.volume=.75}
+ const resultMusic=state.session?.finished&&state.mode!=="flashcard";
+ const ratio=state.session?.correct/state.session?.total;
+ const source=state.mode==="flashcard"?AUDIO.flashcardMusic:resultMusic?(ratio<.5?AUDIO.emotional:["math","geography"].includes(state.mode)&&ratio>.5?AUDIO.rainingTacos:AUDIO.brainrot):AUDIO.music;
+ if(!studyMusic||studyMusic.dataset.source!==source){stopStudyMusic();studyMusic=new Audio(source);studyMusic.dataset.source=source}
+ studyMusic.loop=!resultMusic;
+ studyMusic.volume=MUSIC_LEVELS[audioSettings.musicLevel].volume;
  studyMusic.play().catch(()=>{})
 }
 function stopStudyMusic(){if(studyMusic){studyMusic.pause();studyMusic.currentTime=0}}
-function toggleAudioSetting(name){audioSettings[name]=!audioSettings[name];saveAudioSettings();if(name==="sound"&&!audioSettings.sound)stopSound();if(name==="music"){if(audioSettings.music&&state.view==="study")startStudyMusic();else stopStudyMusic()}render()}
+function toggleAudioSetting(name){audioSettings[name]=!audioSettings[name];saveAudioSettings();if(name==="sound"&&!audioSettings.sound)stopSound();if(name==="music"){if(audioSettings.music&&["study","math","geography"].includes(state.view))startStudyMusic();else stopStudyMusic()}render()}
 function clearCelebration(){if(celebrationTimer){clearTimeout(celebrationTimer);celebrationTimer=null}}
 const SAMPLE_WORDS=[
 ["afleiden","分散注意力","zorgen dat iemands aandacht ergens anders heen gaat","Het lawaai kon hem niet afleiden tijdens de wedstrijd.","噪音没能让他在比赛中分心。"],
@@ -260,7 +286,7 @@ async function uploadCustomImage(wordId,file){
 }
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
-function render(){checkAnswerRibbon();updateLearningClock();document.getElementById("app").innerHTML=(state.view==="math"?mathPage():state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
+function render(){checkAnswerRibbon();updateLearningClock();document.getElementById("app").innerHTML=(state.view==="geography"?geoPage():state.view==="math"?mathPage():state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
 function home(){
  const isTest=l=>l.name.trim()==="🚀Test🚀";
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>{if(!isTest(l))cs[l.kid]=(cs[l.kid]||0)+1});
@@ -269,8 +295,9 @@ function home(){
  return `<div class="topbar"><div class="brand"><h1>🐦 Kievit Go</h1><span class="sub">Leuker leren, woorden en rekenen</span></div></div>
  <section class="game-panel" aria-label="Kievit Go spel"><div class="game-panel-head"><span class="game-panel-title">Pauze 🦖 T-Rex Run</span><span class="game-panel-help">Klik of tik om te springen</span></div><iframe class="kievit-game" src="assets/trex-runner/index.html" title="Kievit Go spel" loading="lazy"></iframe></section>
  <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
- ${["Oudste","Jongste"].includes(state.filter)?`<button class="math-entry" id="openMath"><span><strong>🏎️ Automatiseren</strong><small>${state.filter==="Oudste"?"Felix Groep 6":"Max Groep 4"}</small></span><span aria-hidden="true">›</span></button>`:""}
+ ${(state.filter==="Alle"?["Felix","Max"]:[state.filter==="Oudste"?"Felix":"Max"]).map((owner,i)=>`<button class="math-entry" id="${i===0?"openMath":"openMathMax"}" data-math-owner="${owner}"><span><strong>${owner==="Max"?"🏁":"🏎️"} Automatiseren</strong><small>${owner==="Max"?"Max Groep 4":"Felix Groep 6"}</small></span><span aria-hidden="true">›</span></button>`).join("")}
  ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${isTest(l)?"":esc(kidLabel(l.kid))+" · "}${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
+ ${["Alle","Oudste"].includes(state.filter)?`<button class="math-entry geo-entry" id="openGeo"><span><strong>🌍 Meander - Verschillen in landschap</strong><small>Felix Groep 6 · 10 vragen</small></span><span aria-hidden="true">›</span></button>`:""}
  <div class="history-entry"><button class="btn" id="openHistory">📊 Leerhistorie</button></div>
  <button class="fab" id="newList">＋ Nieuwe woordenlijst</button>`
 }
@@ -287,14 +314,13 @@ function modeCard(e,t,d,m){return `<button class="mode-card" data-mode="${m}"><s
 function study(){
  let s=shownSession(),l=getList();if(s.finished)return `<div class="summary-navigation">${historyControls()}</div>`+summary(l);
  let cur=s.queue[0],done=s.total-s.queue.length;
- let top=`<div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div><div class="session-list-title">${esc(l.name)}</div><div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
- top+=`<div class="session-learner">${learnerLabel(state.session.learner)}</div>`;
+ let top=`<div class="study-audio-bar learner-header"><div class="learner-name">${learnerLabel(state.session.learner)}</div><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div><div class="session-list-title">${esc(l.name)}</div><div class="session-top"><button class="back" id="exit" style="margin:0">‹ Afsluiten</button><div class="progress"><div style="width:${Math.round(done/s.total*100)}%"></div></div><span class="meta">${done}/${s.total}</span></div>`;
  if(state.mode==="flashcard")return `<div class="session">${top}<div class="flashcard ${s.flip?"flipped":""}" id="fc">${s.flip?`<div><div>${esc(cur.definition)}</div>${wordImage(cur)}<hr><div>${esc(cur.explanationNl)||"Nog geen Nederlandse uitleg"}</div><p>${esc(cur.exampleNl)||""}</p><p>${esc(cur.exampleZh)||""}</p></div>`:`<div>${esc(cur.term)}${wordImage(cur)}</div>`}</div><div class="fc-buttons"><button class="btn memory-red" id="unknown">🔴 Nog oefenen</button><button class="btn memory-yellow" id="almost">🟡 Bijna</button><button class="btn memory-green" id="known">🟢 Beheerst</button></div><p class="hint" style="text-align:center">Klik op de kaart om hem om te draaien</p></div>`;
- if(state.mode==="mc"){let answeredGif=s.answered?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${s.celebrate?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${s.celebrate?"Goed gedaan":"Probeer het opnieuw"}"></div>`:"";return `<div class="session"><div class="mc">${top}<div class="big-word">${esc(cur.term)}</div><div class="question-image-wrap">${wordImage(cur)}${answeredGif}${historyControls()}</div><div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":"wrong"):""}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?(s.celebrate?`<p class="correct" style="font-weight:800">Goed gedaan! Volgende vraag komt eraan…</p>`:`<p class="wrong" style="font-weight:800">Nog eens proberen!</p><button class="btn primary" id="next" style="margin-top:8px">Volgende vraag →</button>`):""}</div>${s.celebrate?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`}
+ if(state.mode==="mc"){let answeredGif=s.answered?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${s.celebrate?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${s.celebrate?"Goed gedaan":"Probeer het opnieuw"}"></div>`:"";return `<div class="session"><div class="mc">${top}<div class="big-word">${esc(cur.term)}</div><div class="question-image-wrap">${wordImage(cur)}${answeredGif}${historyControls()}</div><div class="mc-options">${s.options.map((o,i)=>`<button class="mc-option ${s.answered?(o.ok?"correct":"wrong"):s.selected===i?"pending-choice":""}" aria-pressed="${s.selected===i}" data-opt="${i}" ${s.answered?"disabled":""}>${esc(o.text)}</button>`).join("")}</div>${s.answered?(s.celebrate?`<p class="correct" style="font-weight:800">Goed gedaan! Volgende vraag komt eraan…</p>`:`<p class="wrong" style="font-weight:800">Nog eens proberen!</p><button class="btn primary" id="next" style="margin-top:8px">Volgende vraag →</button>`):`<button class="btn primary mc-confirm" id="confirmMc" ${s.selected===null?"disabled":""}>Bevestigen</button>`}</div>${s.celebrate?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`}
 }
 function summary(l){
  let s=state.session,review=s.review||[];let big=state.mode==="flashcard"?s.known:`${s.correct}/${s.total}`,label=state.mode==="flashcard"?`woorden beheerst · ${s.total} in totaal`:`goed · ${Math.round(s.correct/s.total*100)}% correct`;
- return `<div class="summary-radiance" aria-hidden="true"></div><div class="summary">${state.mode==="flashcard"?`<div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div>`:""}<div class="summary-finale"><div class="summary-fireworks" aria-hidden="true"><i class="firework finale-left"></i><i class="firework finale-top"></i><i class="firework finale-right"></i></div><h2>🎉 Klaar!</h2></div><div class="big-num">${big}</div><div class="meta">${label}</div>${recordSaveStatus()}${state.mode==="flashcard"?memoryGroups(s.wordResults||[]):""}${state.mode!=="flashcard"&&review.length?`<div class="review">${review.map(w=>`<div><b>${esc(w.term)}</b>　<span class="meta">${esc(w.definition)}</span></div>`).join("")}</div>`:""}<div class="summary-actions"><button class="btn" id="exit">Terug naar woordenlijst</button><button class="btn primary" id="restart">Nog een ronde</button></div></div>`
+ return `<div class="summary-radiance" aria-hidden="true"></div><div class="summary"><div class="study-audio-bar"><div class="audio-controls"><button class="audio-toggle ${audioSettings.music?"on":""}" data-audio-setting="music" aria-pressed="${audioSettings.music}"><span>🎵 Muziek</span><i class="audio-switch"></i></button><button class="audio-toggle ${audioSettings.sound?"on":""}" data-audio-setting="sound" aria-pressed="${audioSettings.sound}"><span>🔊 Geluid</span><i class="audio-switch"></i></button></div></div><div class="summary-finale"><div class="summary-fireworks" aria-hidden="true"><i class="firework finale-left"></i><i class="firework finale-top"></i><i class="firework finale-right"></i></div><h2>🎉 Klaar!</h2></div><div class="big-num">${big}</div><div class="meta">${label}</div>${recordSaveStatus()}${state.mode==="flashcard"?memoryGroups(s.wordResults||[]):""}${state.mode!=="flashcard"&&review.length?`<div class="review">${review.map(w=>`<div><b>${esc(w.term)}</b>　<span class="meta">${esc(w.definition)}</span></div>`).join("")}</div>`:""}<div class="summary-actions"><button class="btn" id="exit">Terug naar woordenlijst</button><button class="btn primary" id="restart">Nog een ronde</button></div></div>`
 }
 function modal(){
  if(state.modal==="learner"){learnerModal();return}
@@ -356,7 +382,7 @@ function finishIf(s){
  if(!s.queue.length&&!s.finished){
   s.finished=true;if(state.mode==="flashcard")startStudyMusic();else stopStudyMusic();
   updateLearningClock();s.recordDuration=Math.floor((learningTracker?.active_ms||0)/1000);finalizeLearningRecord(true);
-  if(state.mode==="mc")playSoundSequence(s.correct/s.total<.5?["emotional"]:["brainrot"],.7)
+  if(state.mode==="mc")startStudyMusic()
  }
 }
 function nextMcQuestion(){
@@ -370,6 +396,8 @@ function handlers(){
  document.querySelectorAll('.feedback-gif').forEach(img=>{if(feedbackSession?.feedbackAt!==undefined)img.style.animationDelay=`-${Math.max(0,performance.now()-feedbackSession.feedbackAt)}ms`});
  historyHandlers();
  mathHandlers();
+ geoHandlers();
+ musicVolumeControls();
  document.querySelectorAll("[data-search-image]").forEach(img=>{
   resolveSearchImage(img.dataset.searchImage,img.dataset.imageKey).then(url=>{
    if(!img.isConnected)return;img.src=url;
@@ -402,7 +430,7 @@ function handlers(){
  document.getElementById("previousQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();navigateQuestion(-1);});
  document.getElementById("forwardQuestion")?.addEventListener("click",(event)=>{event.stopPropagation();if(historyIndex!==null)navigateQuestion(1);else if(state.mode==="mc"&&state.session?.answered&&state.session?.celebrate)nextMcQuestion();});
  if(historyIndex!==null){
-  document.querySelectorAll("#known,#unknown,#almost,#next,.feedback-overlay,.celebration").forEach(x=>x.remove());
+  document.querySelectorAll("#known,#unknown,#almost,#next,#confirmMc,.feedback-overlay,.celebration").forEach(x=>x.remove());
   document.querySelectorAll("[data-opt]").forEach(x=>x.disabled=true);
   document.querySelectorAll(".mc > p").forEach(x=>x.remove());
   document.getElementById("fc")?.addEventListener("click",()=>{let s=shownSession();s.flip=!s.flip;render()});
@@ -411,7 +439,7 @@ function handlers(){
  let s=state.session;
  if(state.mode==="flashcard"){document.getElementById("fc")?.addEventListener("click",()=>{s.flip=!s.flip;render()});document.getElementById("known")?.addEventListener("click",()=>rateFlashcard("green"));document.getElementById("unknown")?.addEventListener("click",()=>rateFlashcard("red"))}
  document.getElementById("almost")?.addEventListener("click",()=>rateFlashcard("yellow"));
- if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{let i=+x.dataset.opt;if(s.answered)return;s.answered=true;s.feedbackAt=performance.now();s.selected=i;recordWordResult(s.queue[0],s.options[i].ok?"correct":"wrong");if(s.options[i].ok){s.correct++;s.celebrate=true;playSound("correct",.7);render();showAnswerRibbon(true);clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,3000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render();showAnswerRibbon(false)}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
+ if(state.mode==="mc"){document.querySelectorAll("[data-opt]").forEach(x=>x.onclick=()=>{if(s.answered)return;s.selected=+x.dataset.opt;render()});document.getElementById("confirmMc")?.addEventListener("click",()=>{if(s.answered||s.selected===null||historyIndex!==null)return;let i=s.selected;s.answered=true;s.feedbackAt=performance.now();s.selected=i;recordWordResult(s.queue[0],s.options[i].ok?"correct":"wrong");if(s.options[i].ok){s.correct++;s.celebrate=true;playSound("correct",.7);render();showAnswerRibbon(true);clearCelebration();celebrationTimer=setTimeout(nextMcQuestion,3000)}else{playSound("wrong",.55);s.review.push(s.queue[0]);render();showAnswerRibbon(false)}});document.getElementById("next")?.addEventListener("click",nextMcQuestion)}
 }
 render();loadCloudLists();initializeLearningHistory();
 </script>

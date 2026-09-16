@@ -9,13 +9,13 @@ function rateFlashcard(level){
  const s=state.session;if(historyIndex!==null||!s||s.finished||!s.queue.length)return;
  rememberQuestion();const word=s.queue.shift();recordWordResult(word,level);
  if(level==="green")s.known++;else s.review.push(word);
- playSound(level==="green"?"remembered":"review");s.flip=false;finishIf(s);render()
+ playSound(level==="green"?"correct":level==="red"?"flashcardHuh":"review");s.flip=false;finishIf(s);render()
 }
 function memoryGroups(results){
  return `<div class="memory-groups">${Object.entries(MEMORY_LEVELS).map(([level,info])=>{const words=results.filter(w=>w.result===level);return `<section class="memory-group memory-${level}"><h3>${info.icon} ${info.label} · ${words.length}</h3>${words.length?`<ul>${words.map(w=>`<li><strong>${esc(w.term)}</strong>${w.definition?` · ${esc(w.definition)}`:""}</li>`).join("")}</ul>`:`<p class="meta">Geen woorden</p>`}</section>`}).join("")}</div>`
 }
 function accuracyChart(rows,math){
- const data=rows.filter(r=>r.mode==="mc"&&r.status==="completed"&&r.total_words>0&&String(r.list_id).startsWith("math:")===math).sort((a,b)=>new Date(a.started_at)-new Date(b.started_at)||a.id.localeCompare(b.id)).slice(-60);
+ const data=rows.filter(r=>!String(r.list_id).startsWith("geo:")&&r.mode==="mc"&&r.status==="completed"&&r.total_words>0&&String(r.list_id).startsWith("math:")===math).sort((a,b)=>new Date(a.started_at)-new Date(b.started_at)||a.id.localeCompare(b.id)).slice(-60);
  const heading=math?"🏎️ Automatiseren — nauwkeurigheid":"✅ Leren — nauwkeurigheid";
  if(!data.length)return `<section class="accuracy-panel"><h2>${heading}</h2><p class="meta">Nog geen afgeronde toetsen.</p></section>`;
  const groups=new Map(),colors=["#e9b4ff","#79dfff","#ffc96b","#89ecb6","#ff9dc3","#c4caff"];
@@ -26,7 +26,7 @@ function accuracyChart(rows,math){
 }
 function wordInsights(rows){
  const words=new Map();
- const sorted=[...rows].filter(r=>!String(r.list_id).startsWith("math:")&&r.list_name?.trim()!=="🚀Test🚀").sort((a,b)=>new Date(a.started_at)-new Date(b.started_at)||String(a.id).localeCompare(String(b.id)));
+ const sorted=[...rows].filter(r=>!/^(math|geo):/.test(String(r.list_id))&&r.list_name?.trim()!=="🚀Test🚀").sort((a,b)=>new Date(a.started_at)-new Date(b.started_at)||String(a.id).localeCompare(String(b.id)));
  for(const row of sorted){
   const seen=new Set();
   for(const result of Array.isArray(row.word_results)?row.word_results:[]){

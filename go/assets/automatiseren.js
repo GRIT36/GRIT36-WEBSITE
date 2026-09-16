@@ -57,7 +57,7 @@ function mathStart(learner="Felix"){
  if(!mathBank)return;
  let questions;try{questions=mathBuildTest()}catch(e){alert("De toets kon niet worden samengesteld. Controleer de opgaven.");return}
  stopSound();stopStudyMusic();clearCelebration();historyIndex=null;
- mathRound={index:0,results:[],questions,title:`Automatiseren · ${mathOwner} · Mix`};
+ mathRound={index:0,results:[],questions,title:`Automatiseren · ${mathOwner}`};
  state.mode="math";state.session={total:questions.length,correct:0,review:[],finished:false,answered:false,learner:"Felix"};
  beginLearningRecord(learner,{id:`math:${mathOwner}:mix${questions.length}`,name:mathRound.title},"mc");
  startStudyMusic();render();mathFocus()
@@ -75,9 +75,23 @@ function mathStudyPage(){
  const r=mathRound,s=state.session;
  if(s.finished)return `<div class="summary-radiance" aria-hidden="true"></div><div class="math-study summary math-summary">${mathAudioControls()}<div class="summary-finale"><div class="summary-fireworks" aria-hidden="true"><i class="firework finale-left"></i><i class="firework finale-top"></i><i class="firework finale-right"></i></div><h2>🎉 Klaar!</h2></div><h2>${esc(r.title)}</h2><p class="math-score">${s.correct} / ${s.total} goed · ${Math.round(s.correct/s.total*100)}%</p>${recordSaveStatus()}${r.results.some(x=>!x.ok)?`<h3>Nog oefenen</h3><ul class="math-review">${r.results.filter(x=>!x.ok).map(x=>`<li>${esc(x.text)}<br>Jouw antwoord: ${esc(x.input)} · Goed: <strong>${x.answer}</strong></li>`).join("")}</ul>`:`<p>Alles goed gedaan! 🎉</p>`}<button class="btn primary" id="mathAgain">Nog een keer</button> <button class="btn" id="mathMenu">Terug naar Automatiseren</button></div>`;
  const q=r.questions[r.index],result=r.results[r.index];
- return `<div class="math-study"><div class="math-top"><button class="back" id="mathExit">‹ Afsluiten</button>${mathAudioControls()}</div><h2>${esc(r.title)}</h2><p class="meta">${learnerLabel(s.learner)} · ${r.index+1} / ${s.total}</p><progress class="math-progress" max="${s.total}" value="${r.results.length}" aria-label="Voortgang"></progress><form id="mathForm" novalidate><div class="math-question-stage"><h3 class="math-question ${q.unit?"math-story":""}" id="mathQuestion">${esc(q.text)}</h3>${result?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${result.ok?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${result.ok?"Goed gedaan":"Probeer het opnieuw"}"></div>`:""}</div><label for="mathAnswer">Jouw antwoord${q.unit?` (${esc(q.unit)})`:""}</label>${mathKeypad(q,result)}<p id="mathValidation" role="alert"></p>${result?`<div class="math-feedback ${result.ok?"good":"wrong"}" role="status">${result.ok?"✅ Goed zo! Volgende vraag komt eraan…":`Nog niet goed. Het juiste antwoord is ${q.answer}${q.unit?" "+esc(q.unit):""}.`}</div><button type="button" class="btn primary" id="mathNext">${r.index+1===s.total?"Bekijk resultaat":"Volgende →"}</button>`:""}</form>${result?.ok?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`
+ return `<div class="math-study"><div class="math-top learner-header"><div class="learner-header-left"><div class="learner-name">${learnerLabel(s.learner)}</div><button class="back" id="mathExit">‹ Afsluiten</button></div>${mathAudioControls()}</div><h2>${esc(r.title)}</h2><p class="meta">${r.index+1} / ${s.total}</p><progress class="math-progress" max="${s.total}" value="${r.results.length}" aria-label="Voortgang"></progress><form id="mathForm" novalidate><div class="math-question-stage"><h3 class="math-question ${q.unit?"math-story":""}" id="mathQuestion">${esc(q.text)}</h3>${result?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${result.ok?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${result.ok?"Goed gedaan":"Probeer het opnieuw"}"></div>`:""}</div><label for="mathAnswer">Jouw antwoord${q.unit?` (${esc(q.unit)})`:""}</label>${mathKeypad(q,result)}<p id="mathValidation" role="alert"></p>${result?`<div class="math-feedback ${result.ok?"good":"wrong"}" role="status">${result.ok?"✅ Goed zo! Volgende vraag komt eraan…":`Nog niet goed. Het juiste antwoord is ${q.answer}${q.unit?" "+esc(q.unit):""}.`}</div><button type="button" class="btn primary" id="mathNext">${r.index+1===s.total?"Bekijk resultaat":"Volgende →"}</button>`:""}</form>${result?.ok?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`
 }
 function mathFocus(){document.getElementById(state.session?.answered?"mathNext":"mathAnswer")?.focus({preventScroll:true})}
+// Physical keyboards work without introducing an input that opens a mobile keyboard.
+document.addEventListener("keydown",event=>{
+ if(state.view!=="math"||!mathRound||!state.session||state.session.finished||state.modal||event.defaultPrevented||event.isComposing||event.ctrlKey||event.altKey||event.metaKey)return;
+ if(event.target?.closest?.('input,textarea,select,[contenteditable="true"],[role="dialog"]'))return;
+ if(event.key==="Enter"&&event.repeat){event.preventDefault();return}
+ if(state.session.answered)return;
+ const digit=/^Numpad[0-9]$/.test(event.code)?event.code.slice(-1):event.key;
+ if(/^[0-9]$/.test(digit)){event.preventDefault();mathPressKey(digit)}
+ else if(event.key==="Backspace"||event.key==="Delete"){event.preventDefault();mathPressKey("Delete")}
+ else if(event.key==="Enter"){
+  if(event.target?.closest?.('button')&&!event.target.closest('.math-keypad'))return;
+  event.preventDefault();mathSubmit(event)
+ }
+},true);
 function mathSubmit(event){
  event.preventDefault();if(!mathRound||state.session.answered)return;
  const value=mathRound.draft||"";
@@ -91,7 +105,7 @@ function mathSubmit(event){
 function mathNext(){
  if(!mathRound||!state.session.answered||state.session.finished)return;
  clearCelebration();stopSound();updateLearningClock();
- if(mathRound.index+1===mathRound.questions.length){state.session.finished=true;stopStudyMusic();state.session.recordDuration=learningSnapshot().duration_seconds;finalizeLearningRecord(true);playSoundSequence(state.session.correct/state.session.total>.5?["rainingTacos"]:state.session.correct/state.session.total<.5?["emotional"]:["brainrot"],.7)}
+ if(mathRound.index+1===mathRound.questions.length){state.session.finished=true;stopStudyMusic();state.session.recordDuration=learningSnapshot().duration_seconds;finalizeLearningRecord(true);startStudyMusic()}
  else{mathRound.index++;mathRound.draft="";state.session.answered=false}
  render();mathFocus()
 }
@@ -100,7 +114,7 @@ function mathLeave(){
 }
 function mathHandlers(){
  document.querySelectorAll('[data-math-key]').forEach(button=>button.onclick=()=>mathPressKey(button.dataset.mathKey));
- document.getElementById("openMath")?.addEventListener("click",()=>{mathOwner=state.filter==="Jongste"?"Max":"Felix";requestMathStudy()});
+ document.querySelectorAll("[data-math-owner]").forEach(button=>button.onclick=()=>{mathOwner=button.dataset.mathOwner;requestMathStudy()});
  document.getElementById("mathRetry")?.addEventListener("click",loadMathBank);
  document.getElementById("mathHome")?.addEventListener("click",()=>{state.view="home";state.filter="Oudste";render()});
  document.getElementById("mathStart")?.addEventListener("click",requestMathStudy);
@@ -109,6 +123,6 @@ function mathHandlers(){
  document.getElementById("mathExit")?.addEventListener("click",()=>{if(confirm("Stoppen met deze ronde? Je resultaat tot nu toe wordt bewaard."))mathLeave()});
  document.getElementById("mathMenu")?.addEventListener("click",mathLeave);
  document.getElementById("mathAgain")?.addEventListener("click",requestMathStudy);
- document.getElementById("mathMusic")?.addEventListener("click",()=>{audioSettings.music=!audioSettings.music;saveAudioSettings();if(audioSettings.music&&!state.session.finished)startStudyMusic();else stopStudyMusic();render()});
+ document.getElementById("mathMusic")?.addEventListener("click",()=>{audioSettings.music=!audioSettings.music;saveAudioSettings();if(audioSettings.music)startStudyMusic();else stopStudyMusic();render()});
  document.getElementById("mathSound")?.addEventListener("click",()=>{audioSettings.sound=!audioSettings.sound;saveAudioSettings();if(!audioSettings.sound)stopSound();render()})
 }

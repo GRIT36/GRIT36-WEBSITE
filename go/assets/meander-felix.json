@@ -1,0 +1,685 @@
+{
+  "title": "🌍 Meander - Verschillen in landschap",
+  "owner": "Felix",
+  "source": "Aardrijkskunde_Oefentoets_Groep6.docx",
+  "note": "Oefenvragen, geen officiële schooltoets. Controleer de topografie met de kaart van school.",
+  "sourceItemCount": 36,
+  "questions": [
+    {
+      "id": "geo-1",
+      "sourceNumbers": [
+        1
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "Welke periode had veel invloed op de heuvels en zandgronden van hoog Nederland?",
+      "options": [
+        "De wind",
+        "De ijstijd",
+        "Rivieroverstromingen",
+        "Mensen"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "veluwe",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-2",
+      "sourceNumbers": [
+        2
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "Hoe zijn stuwwallen ontstaan?",
+      "options": [
+        "Gletsjers duwden de grond omhoog tijdens de ijstijd",
+        "De zee spoelde zand weg",
+        "Vulkanen barstten uit",
+        "Rivieren sleten het land uit"
+      ],
+      "answer": [
+        0
+      ],
+      "image": "veluwe",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-3",
+      "sourceNumbers": [
+        3
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "Hoe is veel dekzand in hoog Nederland tijdens de laatste ijstijd afgezet?",
+      "options": [
+        "Door de zee",
+        "Door de wind, die zand verplaatste en neerlegde",
+        "Door vulkanen",
+        "Door landbouw"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "veluwe",
+      "explanation": "Tijdens de laatste ijstijd was het koud en kaal. De wind kon zand verplaatsen en als een deken neerleggen."
+    },
+    {
+      "id": "geo-4",
+      "sourceNumbers": [
+        4
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "Wat is de belangrijkste oorzaak van het landschap in laag Nederland?",
+      "options": [
+        "De invloed van de zee",
+        "De ijstijd",
+        "Vulkanen",
+        "Aardbevingen"
+      ],
+      "answer": [
+        0
+      ],
+      "image": "zeeklei",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-5",
+      "sourceNumbers": [
+        5
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "Wat zijn zeekleigebieden?",
+      "options": [
+        "Gebieden die door de zee met klei zijn bedekt",
+        "Gebieden zonder water",
+        "Bergachtige streken",
+        "Woestijnen"
+      ],
+      "answer": [
+        0
+      ],
+      "image": "zeeklei",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-6",
+      "sourceNumbers": [
+        6
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "Wat zijn veengebieden?",
+      "options": [
+        "Rotsachtige heuvels",
+        "Moerasachtige gebieden van opgehoopte plantenresten",
+        "Zandvlaktes",
+        "Duinen"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "veen",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-7",
+      "sourceNumbers": [
+        7
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "Welk deel van Nederland ligt over het algemeen hoger?",
+      "options": [
+        "Hoog Nederland",
+        "Laag Nederland",
+        "Ze zijn even hoog",
+        "Dat verschilt elke dag"
+      ],
+      "answer": [
+        0
+      ],
+      "image": "veluwe",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-8",
+      "sourceNumbers": [
+        8
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "De Veluwe is een voorbeeld van welk landschapstype?",
+      "options": [
+        "Hoog Nederland",
+        "Laag Nederland",
+        "Geen van beide",
+        "Een eiland"
+      ],
+      "answer": [
+        0
+      ],
+      "image": "veluwe",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-9",
+      "sourceNumbers": [
+        9
+      ],
+      "type": "single",
+      "topic": "landscape",
+      "text": "Wat hebben stuwwallen en zeekleigebieden met elkaar gemeen?",
+      "options": [
+        "Beide zijn gevormd door de ijstijd",
+        "Beide horen bij Nederlandse landschappen, maar zijn door verschillende krachten gevormd",
+        "Beide liggen onder zeeniveau",
+        "Beide zijn door vulkanen gevormd"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "ijssel",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-10",
+      "sourceNumbers": [
+        10
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "In welke provincie ligt Arnhem?",
+      "options": [
+        "Overijssel",
+        "Gelderland",
+        "Utrecht",
+        "Limburg"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "arnhem",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-11",
+      "sourceNumbers": [
+        11
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "In welke provincie ligt Zwolle?",
+      "options": [
+        "Gelderland",
+        "Overijssel",
+        "Drenthe",
+        "Flevoland"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "zwolle",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-12",
+      "sourceNumbers": [
+        12
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "Welke stad is de hoofdstad van Overijssel?",
+      "options": [
+        "Deventer",
+        "Enschede",
+        "Zwolle",
+        "Kampen"
+      ],
+      "answer": [
+        2
+      ],
+      "image": "zwolle",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-13",
+      "sourceNumbers": [
+        13
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "Welke stad is de hoofdstad van Gelderland?",
+      "options": [
+        "Nijmegen",
+        "Arnhem",
+        "Apeldoorn",
+        "Ede"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "arnhem",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-14",
+      "sourceNumbers": [
+        14
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "Welke rivier stroomt door zowel Gelderland als Overijssel?",
+      "options": [
+        "De Maas",
+        "De IJssel",
+        "De Schelde",
+        "De Amstel"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "ijssel",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-15",
+      "sourceNumbers": [
+        15
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "Twente is een streek in welke provincie?",
+      "options": [
+        "Gelderland",
+        "Overijssel",
+        "Groningen",
+        "Friesland"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "zwolle",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-16",
+      "sourceNumbers": [
+        16
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "De Achterhoek ligt in welke provincie?",
+      "options": [
+        "Overijssel",
+        "Gelderland",
+        "Noord-Brabant",
+        "Zeeland"
+      ],
+      "answer": [
+        1
+      ],
+      "image": "arnhem",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-17",
+      "sourceNumbers": [
+        17
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "Welke rivier stroomt vanuit Duitsland door Overijssel naar het Zwarte Water bij Zwolle?",
+      "options": [
+        "De Overijsselse Vecht",
+        "De Rijn",
+        "De Waal",
+        "De Berkel"
+      ],
+      "answer": [
+        0
+      ],
+      "image": "zwolle",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-18",
+      "sourceNumbers": [
+        18
+      ],
+      "type": "single",
+      "topic": "topography",
+      "text": "Welke stad ligt NIET in Gelderland?",
+      "options": [
+        "Nijmegen",
+        "Apeldoorn",
+        "Enschede",
+        "Zutphen"
+      ],
+      "answer": [
+        2
+      ],
+      "image": "zwolle",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-19",
+      "sourceNumbers": [
+        19
+      ],
+      "type": "multi",
+      "topic": "landscape",
+      "text": "Welke kenmerken horen bij hoog Nederland?",
+      "options": [
+        "Sterk beïnvloed door de ijstijden",
+        "Stuwwallen",
+        "Zeeklei",
+        "Zandbodem"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "veluwe",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-20",
+      "sourceNumbers": [
+        20
+      ],
+      "type": "multi",
+      "topic": "landscape",
+      "text": "Welke kenmerken horen bij laag Nederland?",
+      "options": [
+        "Op veel plaatsen beïnvloed door de zee",
+        "Veengebieden",
+        "Stuwwallen",
+        "Zeekleigebieden"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "zeeklei",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-21",
+      "sourceNumbers": [
+        21
+      ],
+      "type": "multi",
+      "topic": "landscape",
+      "text": "Welke krachten hebben het landschap van hoog en laag Nederland gevormd?",
+      "options": [
+        "De ijstijd",
+        "De zee",
+        "Vulkanisme",
+        "Aardbevingen"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "image": "ijssel",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-22",
+      "sourceNumbers": [
+        22
+      ],
+      "type": "multi",
+      "topic": "landscape",
+      "text": "Welke woorden horen bij het ontstaan van laag Nederland?",
+      "options": [
+        "Zee",
+        "Klei",
+        "Gletsjer",
+        "Veen"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "zeeklei",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-23",
+      "sourceNumbers": [
+        23
+      ],
+      "type": "multi",
+      "topic": "landscape",
+      "text": "Welke woorden horen bij het ontstaan van hoog Nederland?",
+      "options": [
+        "IJstijd",
+        "Stuwwal",
+        "Klei",
+        "Zand"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "veluwe",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-24",
+      "sourceNumbers": [
+        24
+      ],
+      "type": "multi",
+      "topic": "landscape",
+      "text": "Wat is waar over de vorming van het Nederlandse landschap?",
+      "options": [
+        "Landijs heeft delen van hoog Nederland gevormd",
+        "De zee heeft delen van laag Nederland gevormd",
+        "Beide delen zijn overal op dezelfde manier ontstaan",
+        "De ijstijden en de zee hebben allebei invloed gehad op Nederland"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "ijssel",
+      "explanation": "Landijs stuwde grond omhoog. Wind verspreidde zand. De zee zette klei af; veen ontstond uit plantenresten in natte gebieden."
+    },
+    {
+      "id": "geo-25",
+      "sourceNumbers": [
+        25
+      ],
+      "type": "multi",
+      "topic": "topography",
+      "text": "Welke steden liggen in Gelderland?",
+      "options": [
+        "Arnhem",
+        "Nijmegen",
+        "Zwolle",
+        "Apeldoorn"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "arnhem",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-26",
+      "sourceNumbers": [
+        26
+      ],
+      "type": "multi",
+      "topic": "topography",
+      "text": "Welke steden liggen in Overijssel?",
+      "options": [
+        "Deventer",
+        "Enschede",
+        "Nijmegen",
+        "Zwolle"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "zwolle",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-27",
+      "sourceNumbers": [
+        27
+      ],
+      "type": "multi",
+      "topic": "topography",
+      "text": "Welke rivieren stromen door Gelderland?",
+      "options": [
+        "Rijn",
+        "Waal",
+        "IJssel",
+        "Schelde"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "image": "ijssel",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-28",
+      "sourceNumbers": [
+        28
+      ],
+      "type": "multi",
+      "topic": "topography",
+      "text": "Welke plaatsen liggen in Overijssel?",
+      "options": [
+        "Kampen",
+        "Almelo",
+        "Ede",
+        "Hengelo"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "zwolle",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-29",
+      "sourceNumbers": [
+        29
+      ],
+      "type": "multi",
+      "topic": "topography",
+      "text": "Welke streken horen bij Gelderland?",
+      "options": [
+        "Veluwe",
+        "Achterhoek",
+        "Twente",
+        "Salland"
+      ],
+      "answer": [
+        0,
+        1
+      ],
+      "image": "arnhem",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-30",
+      "sourceNumbers": [
+        30
+      ],
+      "type": "multi",
+      "topic": "topography",
+      "text": "Welke plaatsen liggen in Gelderland?",
+      "options": [
+        "Tiel",
+        "Doetinchem",
+        "Kampen",
+        "Zutphen"
+      ],
+      "answer": [
+        0,
+        1,
+        3
+      ],
+      "image": "arnhem",
+      "explanation": "Let op de provincies, steden, streken en rivieren op de kaart van school."
+    },
+    {
+      "id": "geo-match-landscape",
+      "sourceNumbers": [
+        31,
+        32,
+        33
+      ],
+      "type": "match",
+      "topic": "landscape",
+      "text": "Verbind elk begrip met de juiste uitleg.",
+      "pairs": [
+        [
+          "Stuwwal",
+          "Heuvel gevormd doordat landijs grond omhoogduwde"
+        ],
+        [
+          "Veen",
+          "Bodem van opgehoopte plantenresten in natte gebieden"
+        ],
+        [
+          "Zeeklei",
+          "Klei die door zeewater is afgezet"
+        ]
+      ],
+      "image": "veen",
+      "explanation": "IJs stuwt grond op, plantenresten vormen veen en de zee zet klei af."
+    },
+    {
+      "id": "geo-match-topography",
+      "sourceNumbers": [
+        34,
+        35,
+        36
+      ],
+      "type": "match",
+      "topic": "topography",
+      "text": "Verbind elke naam met de juiste beschrijving.",
+      "pairs": [
+        [
+          "Arnhem",
+          "Hoofdstad van Gelderland"
+        ],
+        [
+          "Zwolle",
+          "Hoofdstad van Overijssel"
+        ],
+        [
+          "IJssel",
+          "Rivier door Gelderland en Overijssel"
+        ]
+      ],
+      "image": "ijssel",
+      "explanation": "Arnhem hoort bij Gelderland, Zwolle bij Overijssel. De IJssel stroomt door beide provincies."
+    }
+  ]
+}

@@ -23,9 +23,9 @@ function learnerModal(){
  document.getElementById("app").appendChild(overlay);
  overlay.querySelectorAll("[data-learner]").forEach(button=>button.onclick=()=>{state.pendingLearner=button.dataset.learner;overlay.querySelectorAll("[data-learner]").forEach(b=>b.setAttribute("aria-pressed",String(b===button)))});
  overlay.querySelector("#cancelLearner").onclick=()=>{state.modal=null;render()};
- overlay.querySelector("#confirmLearner").onclick=async()=>{const mode=state.pendingMode,learner=state.pendingLearner;if(mode==="math"){overlay.querySelectorAll("button").forEach(b=>b.disabled=true);overlay.querySelector("#confirmLearner").textContent="Laden…";await confirmMathStudy(learner)}else{state.modal=null;start(mode,learner)}};
+ overlay.querySelector("#confirmLearner").onclick=async()=>{const mode=state.pendingMode,learner=state.pendingLearner;if(mode==="geography"){overlay.querySelectorAll("button").forEach(b=>b.disabled=true);overlay.querySelector("#confirmLearner").textContent="Laden…";await confirmGeoStudy(learner)}else if(mode==="math"){overlay.querySelectorAll("button").forEach(b=>b.disabled=true);overlay.querySelector("#confirmLearner").textContent="Laden…";await confirmMathStudy(learner)}else{state.modal=null;start(mode,learner)}};
  overlay.onkeydown=event=>{
-  if(state.pendingMode==="math"&&mathLoading){event.preventDefault();return}
+  if((state.pendingMode==="math"&&mathLoading)||(state.pendingMode==="geography"&&geoLoading)){event.preventDefault();return}
   if(event.key==="Escape"){state.modal=null;render();return}
   if(event.key==="Tab"){const buttons=[...overlay.querySelectorAll("button")],first=buttons[0],last=buttons[buttons.length-1];if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}
  };
@@ -37,7 +37,7 @@ function beginLearningRecord(learner,list,mode){
  learningClockAt=performance.now();learningClockEligible=false;lastRecordId=null;
  updateLearningClock();checkpointLearning()
 }
-function learningMayCount(){return !!(learningTracker&&(state.view==="study"||state.view==="math")&&state.session&&!state.session.finished&&!state.modal&&!document.hidden&&!(state.view==="math"&&state.session.answered)&&!(historyIndex===null&&state.mode==="mc"&&state.session.answered&&state.session.celebrate))}
+function learningMayCount(){return !!(learningTracker&&["study","math","geography"].includes(state.view)&&state.session&&!state.session.finished&&!state.modal&&!document.hidden&&!(["math","geography"].includes(state.view)&&state.session.answered)&&!(historyIndex===null&&state.mode==="mc"&&state.session.answered&&state.session.celebrate))}
 function updateLearningClock(){
  const now=performance.now();
  if(learningTracker&&learningClockEligible)learningTracker.active_ms+=Math.max(0,now-learningClockAt);
@@ -97,7 +97,7 @@ async function loadLearningHistory(){
  }catch(error){console.warn(error);historyError="De gedeelde geschiedenis kon niet worden geladen. Controleer je verbinding. Controleer ook of de database-update V1.065 is uitgevoerd."}
  finally{historyLoading=false;if(state.view==="history")render()}
 }
-function allLearningRows(){const rows=new Map(historyRows.map(x=>[x.id,x]));historyPending.forEach(x=>rows.set(x.id,x));return [...rows.values()].sort((a,b)=>new Date(b.started_at)-new Date(a.started_at))}
+function allLearningRows(){const rows=new Map(historyRows.map(x=>[x.id,x]));historyPending.forEach(x=>rows.set(x.id,x));return [...rows.values()].map(r=>String(r.list_id).startsWith("math:")?{...r,list_name:String(r.list_name||"").replace(/\s*·\s*Mix\s*$/i,"")}:r).sort((a,b)=>new Date(b.started_at)-new Date(a.started_at))}
 function formatLearningDuration(seconds){seconds=Math.max(0,Math.floor(seconds||0));const minutes=Math.floor(seconds/60);return minutes>=60?`${Math.floor(minutes/60)} u ${minutes%60} min`:`${minutes} min ${seconds%60} sec`}
 function historyDate(value){return new Date(value).toLocaleString("nl-NL",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"})}
 function quizPercent(row){return row.answered_count?Math.round(row.correct_count/row.answered_count*100):0}
@@ -111,7 +111,7 @@ function historyCard(r){
  const incomplete=r.status!=="completed",quiz=r.mode==="mc",pending=historyPending.some(x=>x.id===r.id);
  const ratings=!quiz&&Array.isArray(r.word_results)&&r.word_results.length?r.word_results:null;
  const result=ratings?Object.entries(MEMORY_LEVELS).map(([level,info])=>info.icon+" "+ratings.filter(w=>w.result===level).length+" "+info.label).join(" · "):quiz?(r.answered_count?`${r.correct_count}/${r.answered_count} goed · ${quizPercent(r)}%${incomplete?" van de beantwoorde vragen":""}`:"Nog geen antwoorden"):`${r.known_count} beheerst · ${r.review_words.length} nog oefenen`;
- return `<article class="history-card"><div class="history-card-top"><span class="meta">${esc(historyDate(r.started_at))} · ${learnerLabel(r.learner)}</span><div class="history-card-actions"><span class="history-badge ${incomplete?"incomplete":""}">${incomplete?"Niet afgerond":"Afgerond"}${pending?" · Nog niet gesynchroniseerd":""}</span><button class="btn history-delete-button" data-delete-history="${esc(r.id)}" aria-label="Verwijder ${esc(r.list_name)}">🗑️ Verwijderen</button></div></div><h3>${esc(r.list_name)}</h3><p>${String(r.list_id).startsWith("math:")?"🏎️ Automatiseren":quiz?"✅ Leren":"🧠 Flashcards"} · ${formatLearningDuration(r.duration_seconds)}</p><p><strong>${result}</strong></p><div class="meta">${r.answered_count} van ${r.total_words} ${String(r.list_id).startsWith("math:")?"opgaven":"woorden"} gedaan</div>${ratings?`<details><summary>Zelfbeoordeling per woord</summary>${memoryGroups(ratings)}</details>`:""}${!ratings&&r.review_words.length?`<details><summary>${quiz?"Foute antwoorden":"Nog oefenen"} (${r.review_words.length})</summary><ul>${r.review_words.map(w=>`<li><strong>${esc(w.term)}</strong> · ${esc(w.definition)}</li>`).join("")}</ul></details>`:""}</article>`
+ return `<article class="history-card"><div class="history-card-top"><span class="meta">${esc(historyDate(r.started_at))} · ${learnerLabel(r.learner)}</span><div class="history-card-actions"><span class="history-badge ${incomplete?"incomplete":""}">${incomplete?"Niet afgerond":"Afgerond"}${pending?" · Nog niet gesynchroniseerd":""}</span><button class="btn history-delete-button" data-delete-history="${esc(r.id)}" aria-label="Verwijder ${esc(r.list_name)}">🗑️ Verwijderen</button></div></div><h3>${esc(r.list_name)}</h3><p>${String(r.list_id).startsWith("geo:")?"🌍 Meander":String(r.list_id).startsWith("math:")?(String(r.list_id).startsWith("math:Max:")?"🏁 Automatiseren":"🏎️ Automatiseren"):quiz?"✅ Leren":"🧠 Flashcards"} · ${formatLearningDuration(r.duration_seconds)}</p><p><strong>${result}</strong></p><div class="meta">${r.answered_count} van ${r.total_words} ${/^(math|geo):/.test(String(r.list_id))?"opgaven":"woorden"} gedaan</div>${ratings?`<details><summary>Zelfbeoordeling per woord</summary>${memoryGroups(ratings)}</details>`:""}${!ratings&&r.review_words.length?`<details><summary>${quiz?"Foute antwoorden":"Nog oefenen"} (${r.review_words.length})</summary><ul>${r.review_words.map(w=>`<li><strong>${esc(w.term)}</strong> · ${esc(w.definition)}</li>`).join("")}</ul></details>`:""}</article>`
 }
 function historyHandlers(){
  document.querySelectorAll('[data-delete-history]').forEach(button=>button.onclick=()=>openHistoryDeletion(button.dataset.deleteHistory));

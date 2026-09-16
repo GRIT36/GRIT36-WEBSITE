@@ -1,0 +1,68 @@
+{
+  "veluwe": {
+    "title": "Nationaal Park Veluwezoom R07.jpg",
+    "label": "Posbank, Veluwezoom",
+    "author": "Marc Ryckaert (MJJR)",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "keywords": "Posbank Veluwe stuwwal Nederland landschap",
+    "src": "assets/geography/veluwe.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Nationaal_Park_Veluwezoom_R07.jpg",
+    "changes": "Verkleinde weergave; geen inhoudelijke wijzigingen."
+  },
+  "veen": {
+    "title": "Nationaal Park Weerribben-Wieden. Slootjes in rietvelden ontstaan tijdens het turfsteken in vroegere jaren. 03.jpg",
+    "label": "Weerribben-Wieden, Overijssel",
+    "author": "Dominicus Johannes Bergsma",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "keywords": "Weerribben Wieden veenmoeras Nederland",
+    "src": "assets/geography/veen.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Nationaal_Park_Weerribben-Wieden._Slootjes_in_rietvelden_ontstaan_tijdens_het_turfsteken_in_vroegere_jaren._03.jpg",
+    "changes": "Verkleinde weergave; geen inhoudelijke wijzigingen."
+  },
+  "zeeklei": {
+    "title": "Kwelder (Groningen).jpg",
+    "label": "Kwelder, Groningen",
+    "author": "Gouwenaar",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "keywords": "kwelder zeeklei Nederland Groningen",
+    "src": "assets/geography/zeeklei.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Kwelder_(Groningen).jpg",
+    "changes": "Verkleinde weergave; geen inhoudelijke wijzigingen."
+  },
+  "ijssel": {
+    "title": "Zicht op Deventer over de IJssel - Deventer - 20387606 - RCE.jpg",
+    "label": "De IJssel bij Deventer",
+    "author": "Paul van Galen / Rijksdienst voor het Cultureel Erfgoed",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "keywords": "IJssel Deventer uiterwaarden Nederland",
+    "src": "assets/geography/ijssel.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Zicht_op_Deventer_over_de_IJssel_-_Deventer_-_20387606_-_RCE.jpg",
+    "changes": "Verkleinde weergave; geen inhoudelijke wijzigingen."
+  },
+  "zwolle": {
+    "title": "Zwolle skyline.jpg",
+    "label": "Zwolle, Overijssel",
+    "author": "Wierse",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "keywords": "Zwolle Overijssel skyline",
+    "src": "assets/geography/zwolle.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Zwolle_skyline.jpg",
+    "changes": "Verkleinde weergave; geen inhoudelijke wijzigingen."
+  },
+  "arnhem": {
+    "title": "Strekdammen in de Rijn bij Arnhem.jpg",
+    "label": "De Rijn bij Arnhem",
+    "author": "Henk Jan Verhagen",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "keywords": "Arnhem Rijn Gelderland landschap",
+    "src": "assets/geography/arnhem.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Strekdammen_in_de_Rijn_bij_Arnhem.jpg",
+    "changes": "Verkleinde weergave; geen inhoudelijke wijzigingen."
+  }
+}
