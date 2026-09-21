@@ -47,7 +47,7 @@ function learningSnapshot(forceCompleted=false){
  if(!learningTracker||!state.session)return null;
  const s=state.session,review=s.review||[],isQuiz=learningTracker.mode==="mc";
  const answered=isQuiz?(s.correct||0)+review.length:(s.known||0)+review.length;
- return {id:learningTracker.id,learner:learningTracker.learner,list_id:learningTracker.list_id,list_name:learningTracker.list_name,mode:learningTracker.mode,started_at:learningTracker.started_at,ended_at:new Date().toISOString(),duration_seconds:Math.max(0,Math.floor(learningTracker.active_ms/1000)),total_words:learningTracker.total_words,answered_count:answered,correct_count:isQuiz?(s.correct||0):null,known_count:isQuiz?null:(s.known||0),word_results:s.wordResults||[],review_words:review.map(w=>({term:w.term,definition:w.definition})),status:forceCompleted||answered===learningTracker.total_words?"completed":"incomplete"}
+ return {id:learningTracker.id,learner:learningTracker.learner,list_id:learningTracker.list_id,list_name:learningTracker.list_name,mode:learningTracker.mode,started_at:learningTracker.started_at,ended_at:new Date().toISOString(),duration_seconds:Math.max(0,Math.floor(learningTracker.active_ms/1000)),total_words:learningTracker.total_words,answered_count:answered,correct_count:isQuiz?(s.correct||0):null,known_count:isQuiz?null:(s.known||0),word_results:s.wordResults||[],review_words:review.map(w=>({term:w.term,definition:w.definition})),status:forceCompleted||(!isTimedMathRecord(learningTracker)&&answered===learningTracker.total_words)?"completed":"incomplete"}
 }
 function checkpointLearning(){updateLearningClock();const record=learningSnapshot();if(record)writeHistoryStorage(HISTORY_DRAFT_KEY,record)}
 function finalizeLearningRecord(completed=false){
@@ -101,7 +101,7 @@ function allLearningRows(){const rows=new Map(historyRows.map(x=>[x.id,x]));hist
 function formatLearningDuration(seconds){seconds=Math.max(0,Math.floor(seconds||0));const minutes=Math.floor(seconds/60);return minutes>=60?`${Math.floor(minutes/60)} u ${minutes%60} min`:`${minutes} min ${seconds%60} sec`}
 function historyDate(value){return new Date(value).toLocaleString("nl-NL",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"})}
 function quizPercent(row){return row.answered_count?Math.round(row.correct_count/row.answered_count*100):0}
-function historyTrends(rows){return accuracyChart(rows,true)+accuracyChart(rows,false)}
+function historyTrends(rows){return mathTimedCharts(rows)+accuracyChart(rows,true)+accuracyChart(rows,false)}
 function historyPage(){
  const rows=allLearningRows().filter(r=>historyFilter==="Alle"||r.learner===historyFilter);
  const today=new Date().toDateString(),todayRows=rows.filter(r=>new Date(r.started_at).toDateString()===today);
@@ -110,7 +110,7 @@ function historyPage(){
 function historyCard(r){
  const incomplete=r.status!=="completed",quiz=r.mode==="mc",pending=historyPending.some(x=>x.id===r.id);
  const ratings=!quiz&&Array.isArray(r.word_results)&&r.word_results.length?r.word_results:null;
- const result=ratings?Object.entries(MEMORY_LEVELS).map(([level,info])=>info.icon+" "+ratings.filter(w=>w.result===level).length+" "+info.label).join(" · "):quiz?(r.answered_count?`${r.correct_count}/${r.answered_count} goed · ${quizPercent(r)}%${incomplete?" van de beantwoorde vragen":""}`:"Nog geen antwoorden"):`${r.known_count} beheerst · ${r.review_words.length} nog oefenen`;
+ const result=isTimedMathRecord(r)?`${r.answered_count} beantwoord · ${r.correct_count} goed${incomplete?" · voortijdig gestopt":" in 1 minuut"}`:ratings?Object.entries(MEMORY_LEVELS).map(([level,info])=>info.icon+" "+ratings.filter(w=>w.result===level).length+" "+info.label).join(" · "):quiz?(r.answered_count?`${r.correct_count}/${r.answered_count} goed · ${quizPercent(r)}%${incomplete?" van de beantwoorde vragen":""}`:"Nog geen antwoorden"):`${r.known_count} beheerst · ${r.review_words.length} nog oefenen`;
  return `<article class="history-card"><div class="history-card-top"><span class="meta">${esc(historyDate(r.started_at))} · ${learnerLabel(r.learner)}</span><div class="history-card-actions"><span class="history-badge ${incomplete?"incomplete":""}">${incomplete?"Niet afgerond":"Afgerond"}${pending?" · Nog niet gesynchroniseerd":""}</span><button class="btn history-delete-button" data-delete-history="${esc(r.id)}" aria-label="Verwijder ${esc(r.list_name)}">🗑️ Verwijderen</button></div></div><h3>${esc(r.list_name)}</h3><p>${String(r.list_id).startsWith("geo:")?"🌍 Meander":String(r.list_id).startsWith("math:")?(String(r.list_id).startsWith("math:Max:")?"🏁 Automatiseren":"🏎️ Automatiseren"):quiz?"✅ Leren":"🧠 Flashcards"} · ${formatLearningDuration(r.duration_seconds)}</p><p><strong>${result}</strong></p><div class="meta">${r.answered_count} van ${r.total_words} ${/^(math|geo):/.test(String(r.list_id))?"opgaven":"woorden"} gedaan</div>${ratings?`<details><summary>Zelfbeoordeling per woord</summary>${memoryGroups(ratings)}</details>`:""}${!ratings&&r.review_words.length?`<details><summary>${quiz?"Foute antwoorden":"Nog oefenen"} (${r.review_words.length})</summary><ul>${r.review_words.map(w=>`<li><strong>${esc(w.term)}</strong> · ${esc(w.definition)}</li>`).join("")}</ul></details>`:""}</article>`
 }
 function historyHandlers(){

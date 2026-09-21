@@ -1,6 +1,6 @@
 // Fixed school questions. Update the JSON file, not the word-list importer.
 let mathBank=null,mathLoading=false,mathError="",mathRound=null;
-let mathOwner="Felix";
+let mathOwner="Felix",mathTimedMode=false;
 function mathShuffle(items){const result=[...items];for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]]}return result}
 let mathRecentStories=[];
 try{mathRecentStories=JSON.parse(localStorage.getItem("mathRecentStories_v1")||"[]");if(!Array.isArray(mathRecentStories))mathRecentStories=[]}catch(e){}
@@ -22,8 +22,16 @@ function mathBuildTest(){
   for(const op of ["+","-"]){const pool=[...new Map(all.filter(q=>q.text.split(" ")[1]===op).map(q=>[q.text,q])).values()];if(pool.length<10)throw Error("Not enough school questions");questions.push(...mathShuffle(pool).slice(0,10))}
   return mathShuffle(questions)
  }
- // The source bank has an equal share of all four operations: five of each.
- for(const op of ["+","x","-",":"]){const pool=[...new Map(all.filter(q=>!q.unit&&q.text.split(" ")[1]===op).map(q=>[q.text,q])).values()];if(pool.length<5)throw Error("Not enough school questions");questions.push(...mathShuffle(pool).slice(0,5))}
+ // Five questions per operation. Week 5 supplies two of each: 8/20 = 40%.
+ for(const op of ["+","x","-",":"]){
+  const unique=items=>[...new Map(items.map(q=>[q.text,q])).values()];
+  const week5=unique(all.filter(q=>!q.unit&&q.id.startsWith("w5-")&&q.text.split(" ")[1]===op));
+  if(week5.length<2)throw Error("Not enough Week 5 school questions");
+  const selected=mathShuffle(week5).slice(0,2),used=new Set(selected.map(q=>q.text));
+  const earlier=unique(all.filter(q=>!q.unit&&!q.id.startsWith("w5-")&&q.text.split(" ")[1]===op&&!used.has(q.text)));
+  if(earlier.length<3)throw Error("Not enough earlier school questions");
+  questions.push(...selected,...mathShuffle(earlier).slice(0,3))
+ }
  const candidates=mathStoryCandidates(),fresh=candidates.filter(q=>!mathRecentStories.includes(q.text));
  // Equal chance for each of the three original contexts, independent of variant count.
  const available=fresh.length?fresh:candidates,units=[...new Set(available.map(q=>q.unit))],unit=mathShuffle(units)[0],story=mathShuffle(available.filter(q=>q.unit===unit))[0];
@@ -55,6 +63,7 @@ async function confirmMathStudy(learner){
 }
 function mathStart(learner="Felix"){
  if(!mathBank)return;
+ if(mathTimedMode){mathTimedStart(learner);return}
  let questions;try{questions=mathBuildTest()}catch(e){alert("De toets kon niet worden samengesteld. Controleer de opgaven.");return}
  stopSound();stopStudyMusic();clearCelebration();historyIndex=null;
  mathRound={index:0,results:[],questions,title:`Automatiseren · ${mathOwner}`};
@@ -73,6 +82,7 @@ function mathPressKey(key){
 }
 function mathStudyPage(){
  const r=mathRound,s=state.session;
+ if(r.timed)return mathTimedPage();
  if(s.finished)return `<div class="summary-radiance" aria-hidden="true"></div><div class="math-study summary math-summary">${mathAudioControls()}<div class="summary-finale"><div class="summary-fireworks" aria-hidden="true"><i class="firework finale-left"></i><i class="firework finale-top"></i><i class="firework finale-right"></i></div><h2>🎉 Klaar!</h2></div><h2>${esc(r.title)}</h2><p class="math-score">${s.correct} / ${s.total} goed · ${Math.round(s.correct/s.total*100)}%</p>${recordSaveStatus()}${r.results.some(x=>!x.ok)?`<h3>Nog oefenen</h3><ul class="math-review">${r.results.filter(x=>!x.ok).map(x=>`<li>${esc(x.text)}<br>Jouw antwoord: ${esc(x.input)} · Goed: <strong>${x.answer}</strong></li>`).join("")}</ul>`:`<p>Alles goed gedaan! 🎉</p>`}<button class="btn primary" id="mathAgain">Nog een keer</button> <button class="btn" id="mathMenu">Terug naar Automatiseren</button></div>`;
  const q=r.questions[r.index],result=r.results[r.index];
  return `<div class="math-study"><div class="math-top learner-header"><div class="learner-header-left"><div class="learner-name">${learnerLabel(s.learner)}</div><button class="back" id="mathExit">‹ Afsluiten</button></div>${mathAudioControls()}</div><h2>${esc(r.title)}</h2><p class="meta">${r.index+1} / ${s.total}</p><progress class="math-progress" max="${s.total}" value="${r.results.length}" aria-label="Voortgang"></progress><form id="mathForm" novalidate><div class="math-question-stage"><h3 class="math-question ${q.unit?"math-story":""}" id="mathQuestion">${esc(q.text)}</h3>${result?`<div class="feedback-overlay"><img class="feedback-gif" src="assets/${result.ok?"feedback-correct.gif":"feedback-wrong.gif"}" alt="${result.ok?"Goed gedaan":"Probeer het opnieuw"}"></div>`:""}</div><label for="mathAnswer">Jouw antwoord${q.unit?` (${esc(q.unit)})`:""}</label>${mathKeypad(q,result)}<p id="mathValidation" role="alert"></p>${result?`<div class="math-feedback ${result.ok?"good":"wrong"}" role="status">${result.ok?"✅ Goed zo! Volgende vraag komt eraan…":`Nog niet goed. Het juiste antwoord is ${q.answer}${q.unit?" "+esc(q.unit):""}.`}</div><button type="button" class="btn primary" id="mathNext">${r.index+1===s.total?"Bekijk resultaat":"Volgende →"}</button>`:""}</form>${result?.ok?`<div class="celebration" aria-hidden="true"><i class="firework one"></i><i class="firework two"></i><i class="firework three"></i></div>`:""}</div>`
@@ -93,7 +103,8 @@ document.addEventListener("keydown",event=>{
  }
 },true);
 function mathSubmit(event){
- event.preventDefault();if(!mathRound||state.session.answered)return;
+ event.preventDefault();if(!mathRound||state.session.answered||state.session.finished)return;
+ if(mathRound.timed){mathTimedSubmit();return}
  const value=mathRound.draft||"";
  if(!/^\d+$/.test(value)||!Number.isSafeInteger(Number(value))){document.getElementById("mathValidation").textContent="Vul een heel getal in, bijvoorbeeld 12.";return}
  updateLearningClock();const q=mathRound.questions[mathRound.index],ok=Number(value)===q.answer;
@@ -110,11 +121,12 @@ function mathNext(){
  render();mathFocus()
 }
 function mathLeave(){
+ clearInterval(mathTimedTimer);
  finalizeLearningRecord();clearCelebration();stopSound();stopStudyMusic();mathRound=null;state.session=null;state.mode=null;state.view="home";state.filter=mathOwner==="Max"?"Jongste":"Oudste";render()
 }
 function mathHandlers(){
  document.querySelectorAll('[data-math-key]').forEach(button=>button.onclick=()=>mathPressKey(button.dataset.mathKey));
- document.querySelectorAll("[data-math-owner]").forEach(button=>button.onclick=()=>{mathOwner=button.dataset.mathOwner;requestMathStudy()});
+ document.querySelectorAll("[data-math-owner]").forEach(button=>button.onclick=()=>{mathOwner=button.dataset.mathOwner;mathTimedMode=button.dataset.mathTimed==="true";requestMathStudy()});
  document.getElementById("mathRetry")?.addEventListener("click",loadMathBank);
  document.getElementById("mathHome")?.addEventListener("click",()=>{state.view="home";state.filter="Oudste";render()});
  document.getElementById("mathStart")?.addEventListener("click",requestMathStudy);
