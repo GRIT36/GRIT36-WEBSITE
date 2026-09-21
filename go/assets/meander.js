@@ -61,7 +61,7 @@ function geoSubmit(event){
  const q=geoRound.questions[geoRound.index],ok=geoIsCorrect(q,geoRound.selected,geoRound.links),input=geoSelectionText(q);
  updateLearningClock();geoRound.results.push({id:q.id,type:q.type,text:q.text,input,answer:geoAnswerText(q),ok});state.session.answered=true;state.session.feedbackAt=performance.now();
  if(ok)state.session.correct++;else state.session.review.push({term:q.text,definition:`Jouw antwoord: ${input}; goed: ${geoAnswerText(q)}`});
- playSound(ok?"correct":"mathWrong",ok?.7:.55);render();showAnswerRibbon(ok);checkpointLearning();document.getElementById("geoNext")?.focus({preventScroll:true});
+ playSound(ok?"correct":"wrong",ok?.7:.55);render();showAnswerRibbon(ok);checkpointLearning();document.getElementById("geoNext")?.focus({preventScroll:true});
  clearCelebration();if(ok)celebrationTimer=setTimeout(geoNext,3000)
 }
 function geoNext(){
@@ -93,3 +93,11 @@ function geoHandlers(){
  const board=document.querySelector('.geo-match-board');if(board){geoBoardObserver=new ResizeObserver(geoDrawLines);geoBoardObserver.observe(board);geoDrawLines()}
  document.querySelectorAll('.geo-photo img').forEach(img=>img.onerror=()=>{img.hidden=true;img.closest('figure').classList.add('photo-unavailable')})
 }
+document.addEventListener("keydown",event=>{
+ if(event.key!=="Enter"||event.repeat||event.defaultPrevented||event.isComposing||event.ctrlKey||event.altKey||event.metaKey)return;
+ if(state.view!=="geography"||!geoRound||state.session?.answered||state.session?.finished||state.modal)return;
+ const q=geoRound.questions[geoRound.index];
+ if(q.type==="match"||!geoReady())return;
+ if(event.target?.closest?.('input,textarea,select,[contenteditable="true"],[role="dialog"]'))return;
+ event.preventDefault();geoSubmit(event)
+},true);

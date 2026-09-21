@@ -99,7 +99,7 @@ function mathSubmit(event){
  updateLearningClock();const q=mathRound.questions[mathRound.index],ok=Number(value)===q.answer;
  mathRound.results.push({...q,input:value,ok});state.session.answered=true;state.session.feedbackAt=performance.now();
  if(ok)state.session.correct++;else state.session.review.push({term:q.text,definition:`Jouw antwoord: ${value}; goed: ${q.answer}`});
- playSound(ok?"correct":"mathWrong",ok ? .7 : .55);render();showAnswerRibbon(ok);checkpointLearning();mathFocus();
+ playSound(ok?"correct":"wrong",ok ? .7 : .55);render();showAnswerRibbon(ok);checkpointLearning();mathFocus();
  clearCelebration();if(ok)celebrationTimer=setTimeout(mathNext,3000)
 }
 function mathNext(){

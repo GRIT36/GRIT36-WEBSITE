@@ -86,24 +86,24 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
-<link rel="stylesheet" href="assets/learning-history.css?v=1.074">
-<link rel="stylesheet" href="assets/automatiseren.css?v=1.074">
-<link rel="stylesheet" href="assets/feedback-motion.css?v=1.074">
+<link rel="stylesheet" href="assets/learning-history.css?v=1.075">
+<link rel="stylesheet" href="assets/automatiseren.css?v=1.075">
+<link rel="stylesheet" href="assets/feedback-motion.css?v=1.075">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/learning-history.js?v=1.074"></script>
-<link rel="stylesheet" href="assets/learning-insights.css?v=1.074">
-<script src="assets/learning-insights.js?v=1.074"></script>
-<script src="assets/history-delete.js?v=1.074"></script>
-<script src="assets/answer-ribbon.js?v=1.074"></script>
-<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.074">
-<script src="assets/automatiseren.js?v=1.074"></script>
-<link rel="stylesheet" href="assets/meander.css?v=1.074">
-<script src="assets/meander.js?v=1.074"></script>
+<script src="assets/learning-history.js?v=1.075"></script>
+<link rel="stylesheet" href="assets/learning-insights.css?v=1.075">
+<script src="assets/learning-insights.js?v=1.075"></script>
+<script src="assets/history-delete.js?v=1.075"></script>
+<script src="assets/answer-ribbon.js?v=1.075"></script>
+<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.075">
+<script src="assets/automatiseren.js?v=1.075"></script>
+<link rel="stylesheet" href="assets/meander.css?v=1.075">
+<script src="assets/meander.js?v=1.075"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.074";
+const APP_VERSION="V1.075";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -391,6 +391,13 @@ function nextMcQuestion(){
  rememberQuestion();
  let s=state.session;clearCelebration();s.celebrate=false;s.queue.shift();s.answered=false;s.selected=null;if(s.queue.length)s.options=mc(s.queue[0],getList().words);finishIf(s);render()
 }
+document.addEventListener("keydown",event=>{
+ if(event.key!=="Enter"||event.repeat||event.defaultPrevented||event.isComposing||event.ctrlKey||event.altKey||event.metaKey)return;
+ if(state.view!=="study"||state.mode!=="mc"||historyIndex!==null||!state.session||state.session.answered||state.session.finished||state.session.selected===null||state.modal)return;
+ if(event.target?.closest?.('input,textarea,select,[contenteditable="true"],[role="dialog"]'))return;
+ const confirmButton=document.getElementById("confirmMc");if(!confirmButton||confirmButton.disabled)return;
+ event.preventDefault();confirmButton.click()
+},true);
 function handlers(){
  const feedbackSession=state.view==="study"?shownSession():state.session;
  document.querySelectorAll('.feedback-gif').forEach(img=>{if(feedbackSession?.feedbackAt!==undefined)img.style.animationDelay=`-${Math.max(0,performance.now()-feedbackSession.feedbackAt)}ms`});
