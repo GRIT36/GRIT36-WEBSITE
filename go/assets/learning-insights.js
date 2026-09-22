@@ -26,7 +26,7 @@ function accuracyChart(rows,math){
 }
 function wordInsights(rows){
  const words=new Map();
- const sorted=[...rows].filter(r=>!/^(math|geo):/.test(String(r.list_id))&&r.list_name?.trim()!=="🚀Test🚀").sort((a,b)=>new Date(a.started_at)-new Date(b.started_at)||String(a.id).localeCompare(String(b.id)));
+ const sorted=[...rows].filter(r=>!/^(math|geo|reading):/.test(String(r.list_id))&&r.list_name?.trim()!=="🚀Test🚀").sort((a,b)=>new Date(a.started_at)-new Date(b.started_at)||String(a.id).localeCompare(String(b.id)));
  for(const row of sorted){
   const seen=new Set();
   for(const result of Array.isArray(row.word_results)?row.word_results:[]){
