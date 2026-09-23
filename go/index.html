@@ -86,32 +86,33 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
-<link rel="stylesheet" href="assets/learning-history.css?v=1.082">
-<link rel="stylesheet" href="assets/automatiseren.css?v=1.082">
-<link rel="stylesheet" href="assets/feedback-motion.css?v=1.082">
+<link rel="stylesheet" href="assets/learning-history.css?v=1.083">
+<link rel="stylesheet" href="assets/automatiseren.css?v=1.083">
+<link rel="stylesheet" href="assets/feedback-motion.css?v=1.083">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/learning-history.js?v=1.082"></script>
-<link rel="stylesheet" href="assets/learning-insights.css?v=1.082">
-<script src="assets/learning-insights.js?v=1.082"></script>
-<script src="assets/history-delete.js?v=1.082"></script>
-<script src="assets/answer-ribbon.js?v=1.082"></script>
-<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.082">
-<script src="assets/automatiseren.js?v=1.082"></script>
-<script src="assets/math-timed.js?v=1.082"></script>
-<script src="assets/home-music.js?v=1.082"></script>
-<script src="assets/reading-data.js?v=1.082"></script>
-<script src="assets/reading-recording.js?v=1.082"></script>
-<script src="assets/reading.js?v=1.082"></script>
-<script src="assets/reading-full.js?v=1.082"></script>
-<link rel="stylesheet" href="assets/reading.css?v=1.082">
-<link rel="stylesheet" href="assets/home-music.css?v=1.082">
-<link rel="stylesheet" href="assets/meander.css?v=1.082">
-<script src="assets/meander.js?v=1.082"></script>
+<script src="assets/learning-history.js?v=1.083"></script>
+<link rel="stylesheet" href="assets/learning-insights.css?v=1.083">
+<script src="assets/learning-insights.js?v=1.083"></script>
+<script src="assets/history-delete.js?v=1.083"></script>
+<script src="assets/answer-ribbon.js?v=1.083"></script>
+<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.083">
+<script src="assets/automatiseren.js?v=1.083"></script>
+<script src="assets/math-timed.js?v=1.083"></script>
+<script src="assets/home-music.js?v=1.083"></script>
+<script src="assets/reading-data.js?v=1.083"></script>
+<script src="assets/reading-recording.js?v=1.083"></script>
+<script src="assets/reading-felix.js?v=1.083"></script>
+<script src="assets/reading.js?v=1.083"></script>
+<script src="assets/reading-full.js?v=1.083"></script>
+<link rel="stylesheet" href="assets/reading.css?v=1.083">
+<link rel="stylesheet" href="assets/home-music.css?v=1.083">
+<link rel="stylesheet" href="assets/meander.css?v=1.083">
+<script src="assets/meander.js?v=1.083"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.082";
+const APP_VERSION="V1.083";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -307,6 +308,7 @@ function home(){
  ${(state.filter==="Alle"?["Felix","Max"]:[state.filter==="Oudste"?"Felix":"Max"]).map((owner,i)=>`<button class="math-entry" id="${i===0?"openMath":"openMathMax"}" data-math-owner="${owner}"><span><strong>${owner==="Max"?"🏁":"🏎️"} Automatiseren</strong><small>${owner==="Max"?"Max Groep 4":"Felix Groep 6 · 21 vragen"}</small></span><span aria-hidden="true">›</span></button><button class="math-entry" data-math-owner="${owner}" data-math-timed="true"><span><strong>⏱️ Automatiseren · Tijdtoets</strong><small>${owner} · 1 minuut · alleen sommen</small></span><span aria-hidden="true">›</span></button>`).join("")}
  ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${isTest(l)?"":esc(kidLabel(l.kid))+" · "}${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
  ${["Alle","Oudste"].includes(state.filter)?`<button class="math-entry geo-entry" id="openGeo"><span><strong>🌍 Meander - Verschillen in landschap</strong><small>Felix Groep 6 · 10 vragen</small></span><span aria-hidden="true">›</span></button>`:""}
+ ${["Alle","Oudste"].includes(state.filter)?`<button class="math-entry" id="openReadingFelix"><span><strong>📖 Hardop lezen · Snelle Sam</strong><small>Felix Groep 6 · 2 hoofdstukken · A / B / C</small></span><span aria-hidden="true">›</span></button>`:""}
  ${["Alle","Jongste"].includes(state.filter)?`<button class="math-entry" id="openReading"><span><strong>📖 Hardop lezen</strong><small>Max Groep 4 · Les 8–11 · A / B</small></span><span aria-hidden="true">›</span></button>`:""}
  <div class="history-entry"><button class="btn" id="openHistory">📊 Leerhistorie</button></div>
  <button class="fab" id="newList">＋ Nieuwe woordenlijst</button>`
