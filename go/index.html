@@ -86,30 +86,32 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
-<link rel="stylesheet" href="assets/learning-history.css?v=1.079">
-<link rel="stylesheet" href="assets/automatiseren.css?v=1.079">
-<link rel="stylesheet" href="assets/feedback-motion.css?v=1.079">
+<link rel="stylesheet" href="assets/learning-history.css?v=1.081">
+<link rel="stylesheet" href="assets/automatiseren.css?v=1.081">
+<link rel="stylesheet" href="assets/feedback-motion.css?v=1.081">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/learning-history.js?v=1.079"></script>
-<link rel="stylesheet" href="assets/learning-insights.css?v=1.079">
-<script src="assets/learning-insights.js?v=1.079"></script>
-<script src="assets/history-delete.js?v=1.079"></script>
-<script src="assets/answer-ribbon.js?v=1.079"></script>
-<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.079">
-<script src="assets/automatiseren.js?v=1.079"></script>
-<script src="assets/math-timed.js?v=1.079"></script>
-<script src="assets/home-music.js?v=1.079"></script>
-<script src="assets/reading-data.js?v=1.079"></script>
-<script src="assets/reading.js?v=1.079"></script>
-<link rel="stylesheet" href="assets/reading.css?v=1.079">
-<link rel="stylesheet" href="assets/home-music.css?v=1.079">
-<link rel="stylesheet" href="assets/meander.css?v=1.079">
-<script src="assets/meander.js?v=1.079"></script>
+<script src="assets/learning-history.js?v=1.081"></script>
+<link rel="stylesheet" href="assets/learning-insights.css?v=1.081">
+<script src="assets/learning-insights.js?v=1.081"></script>
+<script src="assets/history-delete.js?v=1.081"></script>
+<script src="assets/answer-ribbon.js?v=1.081"></script>
+<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.081">
+<script src="assets/automatiseren.js?v=1.081"></script>
+<script src="assets/math-timed.js?v=1.081"></script>
+<script src="assets/home-music.js?v=1.081"></script>
+<script src="assets/reading-data.js?v=1.081"></script>
+<script src="assets/reading-recording.js?v=1.081"></script>
+<script src="assets/reading.js?v=1.081"></script>
+<script src="assets/reading-full.js?v=1.081"></script>
+<link rel="stylesheet" href="assets/reading.css?v=1.081">
+<link rel="stylesheet" href="assets/home-music.css?v=1.081">
+<link rel="stylesheet" href="assets/meander.css?v=1.081">
+<script src="assets/meander.js?v=1.081"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.079";
+const APP_VERSION="V1.081";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -156,7 +158,7 @@ function startStudyMusic(){
  if(!audioSettings.music)return;
  const resultMusic=state.session?.finished&&state.mode!=="flashcard";
  const ratio=state.session?.correct/state.session?.total;
- const source=state.mode==="flashcard"?AUDIO.flashcardMusic:resultMusic?(ratio<.5?AUDIO.emotional:["math","geography"].includes(state.mode)&&ratio>.5?AUDIO.rainingTacos:AUDIO.brainrot):AUDIO.music;
+ const source=(state.mode==="flashcard"||(state.mode==="reading"&&state.session?.finished))?AUDIO.flashcardMusic:resultMusic?(ratio<.5?AUDIO.emotional:["math","geography"].includes(state.mode)&&ratio>.5?AUDIO.rainingTacos:AUDIO.brainrot):AUDIO.music;
  if(!studyMusic||studyMusic.dataset.source!==source){stopStudyMusic();studyMusic=new Audio(source);studyMusic.dataset.source=source}
  studyMusic.loop=!resultMusic;
  studyMusic.volume=MUSIC_LEVELS[audioSettings.musicLevel].volume;
@@ -293,7 +295,7 @@ async function uploadCustomImage(wordId,file){
 }
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
-function render(){checkAnswerRibbon();updateLearningClock();document.getElementById("app").innerHTML=(state.view==="readingMenu"?readingMenu():state.view==="reading"?readingPage():state.view==="geography"?geoPage():state.view==="math"?mathPage():state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
+function render(){checkAnswerRibbon();updateLearningClock();document.getElementById("app").innerHTML=(state.view==="readingFull"?readingFullPage():state.view==="readingMenu"?readingMenu():state.view==="reading"?readingPage():state.view==="geography"?geoPage():state.view==="math"?mathPage():state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
 function home(){
  const isTest=l=>l.name.trim()==="🚀Test🚀";
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>{if(!isTest(l))cs[l.kid]=(cs[l.kid]||0)+1});
@@ -411,7 +413,7 @@ function handlers(){
  homeMusicHandlers();
  const feedbackSession=state.view==="study"?shownSession():state.session;
  document.querySelectorAll('.feedback-gif').forEach(img=>{if(feedbackSession?.feedbackAt!==undefined)img.style.animationDelay=`-${Math.max(0,performance.now()-feedbackSession.feedbackAt)}ms`});
- historyHandlers();
+ historySummaryShortcut();historyHandlers();
  mathHandlers();
  if(typeof geoHandlers==="function")geoHandlers();
  else document.getElementById("openGeo")?.addEventListener("click",()=>alert("De aardrijkskundemodule ontbreekt. Upload ook de volledige assets-map van deze versie en vernieuw de pagina."));
