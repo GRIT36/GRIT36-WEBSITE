@@ -1,0 +1,631 @@
+[
+  {
+    "slug": "strategic-process",
+    "title": "The strategic management process",
+    "tag": "Foundations",
+    "summary": "Strategy links long-term direction, choices and resource allocation. The course treats it as a connected process: strategic inputs inform formulation and implementation; outcomes and experience feed back into the next round of decisions.",
+    "table": {
+      "headers": [
+        "Stage",
+        "What it contains",
+        "What to establish"
+      ],
+      "rows": [
+        [
+          "Strategic inputs",
+          "External environment, internal organization, vision and mission.",
+          "What situation are we in, what matters and what capabilities can we draw on?"
+        ],
+        [
+          "Formulation",
+          "Business-level, corporate-level, international and cooperative strategy; competitive dynamics and acquisition choices.",
+          "Where and how will we compete, and which activities belong inside the firm?"
+        ],
+        [
+          "Implementation",
+          "Leadership, governance, organizational structure and control, entrepreneurship.",
+          "Who will act, with what authority, resources and incentives?"
+        ],
+        [
+          "Renewal and feedback",
+          "Reassessment of assumptions, capabilities and results.",
+          "What should continue, change or stop?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Three levels of strategy",
+        "body": "Corporate-level strategy concerns the scope and direction of the whole company and the coordination of its businesses. Business-level strategy concerns competition within a particular market. Functional strategies translate these choices into areas such as marketing, operations and human resources. A decision at one level can enable or constrain decisions at the others."
+      },
+      {
+        "title": "Whose value?",
+        "body": "The opening lecture asks whether value is assessed for shareholders or for a wider set of stakeholders. Making that criterion explicit matters: a plan cannot be assessed coherently if its objectives keep changing during the analysis."
+      }
+    ],
+    "steps": [
+      "Write the strategic question and the desired outcome before selecting a framework.",
+      "Connect each recommendation to a resource commitment and an implementation mechanism.",
+      "Review performance and assumptions together, feeding learning back into the diagnosis."
+    ],
+    "limits": "The diagram is an organizing model, not a guarantee that strategy unfolds in a clean sequence. Formulation and action often interact.",
+    "recall": [
+      "What separates formulation from implementation?",
+      "Formulation selects direction and strategic choices; implementation establishes the actions and organizational arrangements needed to realize them."
+    ],
+    "slides": [
+      [
+        1,
+        11,
+        "Defining strategy"
+      ],
+      [
+        1,
+        16,
+        "Stakeholder and shareholder value"
+      ],
+      [
+        1,
+        19,
+        "The strategic management process"
+      ],
+      [
+        3,
+        7,
+        "Levels of organizational strategy"
+      ]
+    ],
+    "notes": [
+      1,
+      5
+    ],
+    "session": 1
+  },
+  {
+    "slug": "advantage",
+    "title": "Industry position & resource-based advantage",
+    "tag": "Foundations",
+    "summary": "The I/O model and the resource-based model explain above-average returns from different starting points. One begins with industry structure; the other begins with the firm's resources and capabilities. They provide complementary questions for diagnosing an opportunity.",
+    "table": {
+      "headers": [
+        "Step",
+        "I/O: outside in",
+        "Resource-based: inside out"
+      ],
+      "rows": [
+        [
+          "1. Starting point",
+          "Study the external environment, especially the industry.",
+          "Identify resources and assess strengths and weaknesses relative to competitors."
+        ],
+        [
+          "2. Assessment",
+          "Locate an industry with attractive structural characteristics.",
+          "Determine capabilities: what integrated activities can the firm perform well?"
+        ],
+        [
+          "3. Advantage",
+          "Choose the strategy required by that industry.",
+          "Assess whether resources and capabilities can support competitive advantage."
+        ],
+        [
+          "4. Fit",
+          "Develop or acquire the assets and skills needed.",
+          "Find industry opportunities that those capabilities can exploit."
+        ],
+        [
+          "5. Action",
+          "Implement the selected strategy.",
+          "Formulate and implement a strategy that connects capabilities to opportunities."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Resource, capability and advantage are different",
+        "body": "A resource is an input available to the firm. A capability is the capacity to combine resources to perform an activity. Competitive advantage is a relative outcome: the firm is able to outperform rivals. Owning resources does not establish that the organization can deploy them effectively."
+      },
+      {
+        "title": "Connecting the two views",
+        "body": "Industry attractiveness and company strength should be assessed separately before combining them. A favorable industry is not automatically accessible; an impressive internal capability is not automatically valuable to a customer. The strategic task is to show the link."
+      }
+    ],
+    "steps": [
+      "Specify the relevant industry and compare its structure with alternatives.",
+      "Describe resources separately from the activities they make possible.",
+      "Test whether the resulting capabilities matter to customers and withstand competitive responses."
+    ],
+    "limits": "Neither lens alone explains every performance difference. Use the VRINO and activity-system pages to examine internal advantage more closely.",
+    "recall": [
+      "How can an attractive market still be a poor choice?",
+      "The firm may lack the capabilities, access or resources required to compete successfully there."
+    ],
+    "slides": [
+      [
+        1,
+        17,
+        "The I/O model of above-average returns"
+      ],
+      [
+        1,
+        18,
+        "The resource-based model"
+      ],
+      [
+        1,
+        36,
+        "Industry structure, conduct and performance"
+      ]
+    ],
+    "notes": [
+      1,
+      8
+    ],
+    "session": 1
+  },
+  {
+    "slug": "schools",
+    "title": "Six schools of strategy",
+    "tag": "Strategy formation",
+    "summary": "The course distinguishes prescriptive schools, which explain how strategy should be formulated, from descriptive schools, which examine how strategy actually forms. Each emphasizes different actors, assumptions and sources of insight.",
+    "table": {
+      "headers": [
+        "School",
+        "Central idea and actor",
+        "Important limitation"
+      ],
+      "rows": [
+        [
+          "Design",
+          "Achieve a fit between internal strengths and the environment; the CEO is the principal designer.",
+          "Separating thought from action can obstruct learning. An explicit design may reduce flexibility."
+        ],
+        [
+          "Planning",
+          "Formalize strategy through a structured process; planners support the CEO.",
+          "Detailed analysis can become paralysis, and planning can become detached from action."
+        ],
+        [
+          "Positioning",
+          "Select a defensible competitive position through analysis of industry and generic strategies.",
+          "Economic analysis may overlook politics, cognition and emerging opportunities."
+        ],
+        [
+          "Entrepreneurial",
+          "Strategy develops around an entrepreneur's vision, intuition and experience.",
+          "Direction can become heavily dependent on one leader's perspective."
+        ],
+        [
+          "Cognitive",
+          "Mental maps, bounded rationality and dominant logic shape strategic interpretation.",
+          "Experience can become a filter that prevents managers from seeing change."
+        ],
+        [
+          "Learning",
+          "Strategy emerges through experimentation, incremental action and collective learning.",
+          "Learning requires interpreting evidence; repetition alone does not establish that a belief is correct."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "A framework for comparing frameworks",
+        "body": "The six schools address different aspects of strategy. A positioning analysis may explain a market choice; a learning perspective may explain how the organization discovered it. The opening lecture explicitly rejects the idea that any one school captures all strategy formation."
+      },
+      {
+        "title": "Dominant logic",
+        "body": "Managers develop shared mental maps through experience in a core business and may carry them into new businesses. These maps simplify complexity, but can also create inertia. Renewal may therefore require unlearning a previously successful formula."
+      }
+    ],
+    "steps": [
+      "Identify whether the question concerns strategic content, a decision process or organizational learning.",
+      "Use one lens to develop an explanation and another to challenge it.",
+      "State the assumptions that would make the chosen lens inappropriate."
+    ],
+    "limits": "Prescriptive does not mean correct and descriptive does not mean unstructured. The distinction concerns the purpose of the theory.",
+    "recall": [
+      "Why compare several schools?",
+      "They highlight different mechanisms and expose one another's blind spots."
+    ],
+    "slides": [
+      [
+        1,
+        24,
+        "Design school premises"
+      ],
+      [
+        1,
+        26,
+        "Design school critique"
+      ],
+      [
+        1,
+        29,
+        "Planning school premises"
+      ],
+      [
+        1,
+        32,
+        "Planning school critique"
+      ],
+      [
+        1,
+        35,
+        "Positioning school premises"
+      ],
+      [
+        1,
+        47,
+        "Positioning school critique"
+      ],
+      [
+        1,
+        48,
+        "Prescriptive schools compared"
+      ],
+      [
+        1,
+        54,
+        "Entrepreneurial school"
+      ],
+      [
+        1,
+        60,
+        "Cognition and bounded rationality"
+      ],
+      [
+        1,
+        61,
+        "Dominant logic"
+      ],
+      [
+        1,
+        62,
+        "Unlearning success formulas"
+      ],
+      [
+        1,
+        67,
+        "Learning school"
+      ],
+      [
+        1,
+        68,
+        "Managerial learning"
+      ],
+      [
+        1,
+        75,
+        "Descriptive schools compared"
+      ]
+    ],
+    "notes": [
+      2
+    ],
+    "session": 1
+  },
+  {
+    "slug": "emergent",
+    "title": "Deliberate & emergent strategy",
+    "tag": "Strategy formation",
+    "summary": "Realized strategy can contain both deliberate choices and patterns that emerge through action. The lecture separates what was intended from what was implemented, abandoned or learned along the way.",
+    "table": {
+      "headers": [
+        "Term",
+        "Meaning",
+        "Review question"
+      ],
+      "rows": [
+        [
+          "Intended strategy",
+          "The direction originally envisaged.",
+          "What did we plan to do?"
+        ],
+        [
+          "Deliberate strategy",
+          "The intended elements that were actually realized.",
+          "Which commitments became action?"
+        ],
+        [
+          "Unrealized strategy",
+          "Intended elements that did not materialize.",
+          "What was dropped or prevented, and why?"
+        ],
+        [
+          "Emergent strategy",
+          "A pattern that developed without being fully specified in the original intention.",
+          "What repeated behavior or discovery created a new direction?"
+        ],
+        [
+          "Realized strategy",
+          "The resulting pattern of action, including deliberate and emergent elements.",
+          "What strategy did the organization actually enact?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Autonomous and induced behavior",
+        "body": "Burgelman's model distinguishes autonomous initiatives, often developed from below and supported through an internal political process, from induced initiatives developed within the existing strategy, structure and vision. Both can contribute to corporate entrepreneurship."
+      },
+      {
+        "title": "Learning is not retrospective decoration",
+        "body": "A useful review preserves what was known at the time. If every successful outcome is described as a plan after the event, it becomes impossible to learn whether the result came from a sound hypothesis, adaptation or fortunate circumstances."
+      }
+    ],
+    "steps": [
+      "Record original objectives and key assumptions.",
+      "Compare them with the actual sequence of decisions.",
+      "Identify emerging patterns and decide which deserve explicit support."
+    ],
+    "limits": "Emergence does not imply that objectives, discipline or accountability are unnecessary. It describes how patterns can form outside a fully specified plan.",
+    "recall": [
+      "Is realized strategy the same as intended strategy?",
+      "No. Some intentions remain unrealized, while new strategic patterns may emerge."
+    ],
+    "slides": [
+      [
+        1,
+        52,
+        "Intended, deliberate, emergent and realized strategy"
+      ],
+      [
+        1,
+        53,
+        "Descriptive schools"
+      ],
+      [
+        1,
+        55,
+        "Autonomous and induced strategic behavior"
+      ]
+    ],
+    "notes": [
+      2
+    ],
+    "session": 1
+  },
+  {
+    "slug": "five-forces",
+    "title": "Porter's Five Forces",
+    "tag": "Industry analysis",
+    "summary": "Five Forces examines how competition over economic value extends beyond direct rivals. The focal unit is an industry: suppliers, buyers, substitutes and potential entrants can all constrain its profit potential.",
+    "diagram": "forces",
+    "table": {
+      "headers": [
+        "Force",
+        "Pressure on the industry",
+        "Signals to examine"
+      ],
+      "rows": [
+        [
+          "Rivalry among existing competitors",
+          "Competition can reduce prices or raise the cost of winning business.",
+          "Slow growth; similarly sized rivals; high fixed costs; difficult exit."
+        ],
+        [
+          "Threat of new entrants",
+          "The prospect of new capacity limits the returns incumbents can sustain.",
+          "Scale requirements; brand-building costs; access to distribution; government restrictions."
+        ],
+        [
+          "Bargaining power of suppliers",
+          "Input providers may capture value through higher prices or less favorable terms.",
+          "Concentrated supply; essential inputs; costly switching."
+        ],
+        [
+          "Bargaining power of buyers",
+          "Customers may demand lower prices or additional service.",
+          "Large buyers; little differentiation; low switching costs; price sensitivity."
+        ],
+        [
+          "Threat of substitutes",
+          "Another way of satisfying the same need can limit price and demand.",
+          "Attractive price–performance alternatives; low costs of changing the solution."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Define the boundary before rating the forces",
+        "body": "Write down the focal product or service, the customer group and the geographical area. Then place each actor relative to that boundary. This simple discipline makes the analysis reviewable: a supplier to one business may be a competitor to another. Distinguish current evidence from a forecast and identify which observation supports each assessment."
+      },
+      {
+        "title": "Turn the map into a decision",
+        "body": "An effective worksheet has one row per force and columns for the observation, mechanism, confidence, expected direction of change and strategic response. Finish with a short explanation of which pressures matter most to the decision at hand. A list of five labels is a starting structure; the reasoning connecting them to the choice is the analysis."
+      }
+    ],
+    "steps": [
+      "Define one industry boundary and one decision to investigate.",
+      "For each force, record evidence and explain the mechanism rather than just assigning a score.",
+      "Select the two or three findings that materially change the proposed choice.",
+      "Revisit the same worksheet when assumptions or observed conditions change."
+    ],
+    "limits": "Do not confuse a direct rival with a substitute. Avoid importing an industry-level conclusion unchanged into a firm-level assessment; connect the result to resources and positioning.",
+    "recall": [
+      "Why is a competitor list insufficient?",
+      "It leaves out the other groups and alternatives that can constrain the industry's ability to retain value."
+    ],
+    "slides": [
+      [
+        1,
+        37,
+        "The five competitive forces"
+      ],
+      [
+        5,
+        15,
+        "Industry analysis: Five Forces"
+      ]
+    ],
+    "notes": [
+      8
+    ],
+    "external": [
+      {
+        "title": "Harvard Business School · Institute for Strategy and Competitiveness: The Five Forces",
+        "url": "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-five-forces.aspx",
+        "note": "Supplementary explanation of the five pressures and their structural drivers."
+      }
+    ],
+    "session": 1
+  },
+  {
+    "slug": "generic-strategies",
+    "title": "Generic competitive strategies",
+    "tag": "Positioning",
+    "summary": "Generic strategies combine the source of advantage with the breadth of the competitive target. The central choices are cost leadership, differentiation and focus; the slides also discuss integrated or hybrid positioning.",
+    "table": {
+      "headers": [
+        "Position",
+        "Competitive scope",
+        "Supporting logic"
+      ],
+      "rows": [
+        [
+          "Cost leadership",
+          "Broad target",
+          "An activity system that achieves a lower cost position across the target market."
+        ],
+        [
+          "Differentiation",
+          "Broad target",
+          "Features, quality, service or other valued attributes that customers perceive as distinctive."
+        ],
+        [
+          "Focused cost leadership",
+          "Narrow target",
+          "A cost advantage in a particular segment rather than across the whole market."
+        ],
+        [
+          "Focused differentiation",
+          "Narrow target",
+          "A distinctive offer designed around a specific segment's priorities."
+        ],
+        [
+          "Integrated / hybrid position",
+          "Combines elements",
+          "A coherent system that can support both attractive customer value and cost efficiency."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Cost is not the same as price",
+        "body": "A low selling price is a market-facing choice. A low cost position concerns how economically the organization can perform the activities required to deliver its offer. The course's diagnostic questions compare scale and production efficiency with new features, product performance and complementary services."
+      },
+      {
+        "title": "Two versions in the course",
+        "body": "Session 1 includes integrated cost leadership/differentiation as a possible strategy. Session 3's comparison diagram places hybrid positioning beside the warning 'stuck in the middle'. Read the tension rather than treating either label as a universal verdict: the question is whether the activities genuinely support the claimed combination."
+      }
+    ],
+    "steps": [
+      "Specify the breadth of the intended customer group.",
+      "Identify the main basis on which the offer wins against alternatives.",
+      "Trace the resources and activities required to sustain that position."
+    ],
+    "limits": "Claiming both low cost and differentiation is not evidence of a successful hybrid. Verify the operating logic and trade-offs.",
+    "recall": [
+      "What are the two axes?",
+      "Competitive scope and the source of competitive advantage."
+    ],
+    "slides": [
+      [
+        1,
+        41,
+        "Five business-level strategies"
+      ],
+      [
+        3,
+        3,
+        "Porter's generic strategies and diagnostic questions"
+      ]
+    ],
+    "notes": [
+      2,
+      5
+    ],
+    "session": 1
+  },
+  {
+    "slug": "bowman",
+    "title": "Bowman's Strategy Clock",
+    "tag": "Positioning",
+    "summary": "The Strategy Clock maps competitive positions using price and perceived value to the customer. It makes room for combinations such as low price with low added value, low price, hybrid value, differentiation and focused differentiation.",
+    "table": {
+      "headers": [
+        "Position",
+        "Price / value relationship",
+        "Meaning in the lecture"
+      ],
+      "rows": [
+        [
+          "1. Low price and low value added",
+          "Low price, low perceived value",
+          "A basic proposition; assess whether its limited value still fits a customer need."
+        ],
+        [
+          "2. Low price",
+          "Lower price at a more standard value level",
+          "A price-led position that requires an economically viable delivery model."
+        ],
+        [
+          "3. Hybrid",
+          "Relatively low price with higher value",
+          "A combination of differentiation and a competitive price."
+        ],
+        [
+          "4. Differentiation",
+          "Higher perceived value",
+          "An offer whose distinctive value supports its competitive position."
+        ],
+        [
+          "5. Focused differentiation",
+          "High value and high price",
+          "A premium position aimed at customers willing to pay for it."
+        ],
+        [
+          "6–8. Vulnerable positions",
+          "Price rises without matching perceived value",
+          "The slide labels these risky high margins, monopoly pricing and loss of market share."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Perception matters",
+        "body": "The vertical axis concerns customer-perceived value, not the producer's effort or technical complexity. A feature that customers do not recognize or care about does not automatically improve the position."
+      },
+      {
+        "title": "Use it alongside generic strategies",
+        "body": "Porter's framework asks about advantage and scope. Bowman's clock emphasizes the relationship between price and perceived value. They are complementary ways to interrogate an offer, not interchangeable diagrams."
+      }
+    ],
+    "steps": [
+      "Choose a customer segment and a relevant comparison set.",
+      "Assess the offer's relative price and perceived value.",
+      "Explain the operational changes needed to move to the desired position."
+    ],
+    "limits": "Positions are not permanent. The diagram simplifies perceptions and does not establish that a premium or hybrid proposition is profitable.",
+    "recall": [
+      "How is this different from simply ranking prices?",
+      "It evaluates price in relation to perceived value."
+    ],
+    "slides": [
+      [
+        3,
+        4,
+        "Bowman's Strategy Clock"
+      ],
+      [
+        3,
+        5,
+        "Price and perceived value quadrants"
+      ]
+    ],
+    "notes": [
+      5
+    ],
+    "session": 1
+  }
+]

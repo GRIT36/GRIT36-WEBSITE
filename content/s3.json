@@ -1,0 +1,656 @@
+[
+  {
+    "slug": "scope",
+    "title": "The three dimensions of corporate scope",
+    "tag": "Corporate scope",
+    "summary": "Corporate scope describes the perimeter of the company as a whole: the businesses it participates in, the stages of the value chain it undertakes and the geographical markets it serves. Corporate strategy determines this scope and how the activities are coordinated to create value.",
+    "table": {
+      "headers": [
+        "Dimension",
+        "What it covers",
+        "Typical strategic change"
+      ],
+      "rows": [
+        [
+          "Horizontal",
+          "The range of industries or product markets in which the company participates.",
+          "Entering or leaving a different business area."
+        ],
+        [
+          "Vertical",
+          "The stages of the value chain performed inside the company.",
+          "Moving upstream into inputs or downstream toward distribution and customers."
+        ],
+        [
+          "Geographical",
+          "The geographical markets the company serves.",
+          "International expansion, concentration or withdrawal."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Industry and product market",
+        "body": "An industry groups firms engaged in similar production and competition. A product market groups offers with similar characteristics, performance, intended use and price. Depending on the context, a product market may coincide with an industry, sit within one or span several industries. Set the definition before counting businesses."
+      },
+      {
+        "title": "State versus action",
+        "body": "Diversification can describe the current state of a firm's business portfolio or the act of entering an area outside its existing scope. Internationalization has the same distinction: current foreign participation versus the process of geographical expansion."
+      },
+      {
+        "title": "Strategy levels",
+        "body": "Corporate strategy asks where the firm participates and how ownership and coordination add value. Competitive strategy asks how a particular business competes within its market. A portfolio choice and a pricing choice therefore belong to different analytical levels, even when they interact."
+      }
+    ],
+    "steps": [
+      "Map the current company along all three dimensions.",
+      "Specify exactly which dimension a proposal changes.",
+      "Explain how the new perimeter would improve overall value creation."
+    ],
+    "limits": "A definition that is too broad can overwhelm the analysis; one that is too narrow can exclude important competitors or activities.",
+    "recall": [
+      "What is the difference between vertical and horizontal scope?",
+      "Vertical scope concerns stages of a chain; horizontal scope concerns the range of different businesses or product markets."
+    ],
+    "slides": [
+      [
+        3,
+        6,
+        "Where to compete"
+      ],
+      [
+        3,
+        11,
+        "Three dimensions of scope"
+      ],
+      [
+        3,
+        12,
+        "Industries and markets"
+      ],
+      [
+        3,
+        13,
+        "Defining an industry"
+      ],
+      [
+        3,
+        15,
+        "Industry versus product market"
+      ],
+      [
+        3,
+        16,
+        "Horizontal scope"
+      ],
+      [
+        3,
+        17,
+        "Vertical scope"
+      ],
+      [
+        3,
+        18,
+        "The extended value chain"
+      ],
+      [
+        3,
+        21,
+        "Geographical scope"
+      ],
+      [
+        3,
+        22,
+        "The corporate perimeter"
+      ],
+      [
+        4,
+        3,
+        "Corporate and business-level decisions"
+      ],
+      [
+        4,
+        4,
+        "A corporate strategy framework"
+      ],
+      [
+        4,
+        6,
+        "Defining corporate strategy"
+      ]
+    ],
+    "notes": [
+      5
+    ],
+    "session": 3
+  },
+  {
+    "slug": "diversification-types",
+    "title": "Types of diversification & relatedness",
+    "tag": "Corporate scope",
+    "summary": "The course classifies diversification by how the new business relates to existing activities, resources, skills, products and customers. The central question is which links can actually be shared or transferred, rather than whether two businesses sound similar.",
+    "table": {
+      "headers": [
+        "Type",
+        "Relationship",
+        "Key distinction"
+      ],
+      "rows": [
+        [
+          "Upstream / backward",
+          "A new business provides inputs to existing businesses.",
+          "The firm moves toward suppliers."
+        ],
+        [
+          "Downstream / forward",
+          "A new business uses the output of existing businesses.",
+          "The firm moves toward distribution or customers."
+        ],
+        [
+          "Related horizontal",
+          "A new product serves the existing customer base and draws on shared or transferable elements.",
+          "Customer overlap is accompanied by substantive relatedness."
+        ],
+        [
+          "Concentric",
+          "A new product uses common capabilities or resources to serve a different segment.",
+          "The customer group differs, but a meaningful commonality remains."
+        ],
+        [
+          "Unrelated horizontal",
+          "A new type of product serves the existing customer base without substantive resource or activity relatedness.",
+          "The customer overlap alone does not make it related."
+        ],
+        [
+          "Conglomerate",
+          "A new, unrelated product or business serves a new customer group.",
+          "Neither the business logic nor the customer group supplies the relevant connection."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "What counts as related?",
+        "body": "The lecture emphasizes activities, resources, skills or products shared or transferred among units. These links can include shared activities and resources, transfers of intangible knowledge or a vertical input–output relationship. Similar product labels or the same customer list do not establish them."
+      },
+      {
+        "title": "Why diversify?",
+        "body": "The lecture lists growth constraints in current markets, attractive returns elsewhere, available resources, potential synergies, market power, integrated customer demand and risk spreading. These are motives to investigate, not proof that entry creates value."
+      }
+    ],
+    "steps": [
+      "Identify the direction of the proposed scope change.",
+      "Describe the concrete relationship with existing businesses.",
+      "Separate the motive for entry from evidence that the relationship can create value."
+    ],
+    "limits": "Do not reverse upstream/backward and downstream/forward. Also distinguish diversification into a new business from expansion within an existing one.",
+    "recall": [
+      "Does serving the same customer imply related diversification?",
+      "No. The course requires substantive links in activities, resources, skills or products."
+    ],
+    "slides": [
+      [
+        3,
+        26,
+        "Diversification as state and action"
+      ],
+      [
+        3,
+        41,
+        "Types of diversification"
+      ],
+      [
+        3,
+        42,
+        "Alternative classification"
+      ],
+      [
+        3,
+        45,
+        "Upstream diversification"
+      ],
+      [
+        3,
+        46,
+        "Downstream diversification"
+      ],
+      [
+        3,
+        48,
+        "Horizontal diversification"
+      ],
+      [
+        3,
+        50,
+        "Concentric diversification"
+      ],
+      [
+        3,
+        53,
+        "Conglomerate diversification"
+      ],
+      [
+        3,
+        56,
+        "Pure types of diversification"
+      ],
+      [
+        3,
+        59,
+        "Stages of growth"
+      ],
+      [
+        3,
+        60,
+        "Reasons for diversification"
+      ],
+      [
+        4,
+        19,
+        "Relatedness between businesses"
+      ]
+    ],
+    "notes": [
+      5
+    ],
+    "session": 3
+  },
+  {
+    "slug": "ansoff",
+    "title": "The Ansoff growth matrix",
+    "tag": "Growth",
+    "summary": "The Ansoff matrix organizes growth alternatives by products and markets. It distinguishes deeper participation in the current product–market combination from developing a new market, developing a new product or changing both.",
+    "diagram": "ansoff",
+    "table": {
+      "headers": [
+        "Route",
+        "Product / market",
+        "What changes"
+      ],
+      "rows": [
+        [
+          "Market penetration",
+          "Existing product / existing market",
+          "Expand participation within the present product–market strategy."
+        ],
+        [
+          "Market development",
+          "Existing product / new market",
+          "Take the existing product line to a different market need or context."
+        ],
+        [
+          "Product development",
+          "New product / existing market",
+          "Develop an offer for a market already being served."
+        ],
+        [
+          "Diversification",
+          "New product / new market",
+          "Move beyond the existing product–market combination."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "The original meaning of a market",
+        "body": "The lecture's presentation of Ansoff's original formulation uses 'missions': needs in terms of functionality, price, design, performance, accessibility or transparency. Defining a market only as a country can therefore miss a change in what the product is expected to do."
+      },
+      {
+        "title": "Two logical difficulties discussed in class",
+        "body": "If a product is truly new to the firm, it may also place the firm in an unfamiliar market, blurring product development and diversification. If 'new' includes only mild modifications, diversification need not represent a radical break or exceptional risk. The matrix is only as clear as its definitions."
+      }
+    ],
+    "steps": [
+      "Define 'existing' and 'new' for both axes.",
+      "Locate the proposed growth move and explain the classification.",
+      "Assess capabilities, entry costs and uncertainty separately from the quadrant label."
+    ],
+    "limits": "The matrix categorizes a direction; it does not calculate attractiveness, required resources or the probability of success. Use the diversification tests for the entry decision.",
+    "recall": [
+      "Which route changes the market but keeps the product?",
+      "Market development."
+    ],
+    "slides": [
+      [
+        3,
+        38,
+        "Ansoff's original product–market matrix"
+      ],
+      [
+        3,
+        39,
+        "Four growth alternatives"
+      ],
+      [
+        3,
+        40,
+        "Two logical problems"
+      ],
+      [
+        3,
+        73,
+        "Diversification and alternative growth options"
+      ]
+    ],
+    "notes": [
+      5
+    ],
+    "session": 3
+  },
+  {
+    "slug": "diversification-tests",
+    "title": "Three tests for diversification",
+    "tag": "Growth",
+    "summary": "Before increasing horizontal, vertical or geographical scope, ask whether the chosen area is attractive, whether entry costs leave room for returns, and whether combining the businesses creates an advantage beyond stand-alone operation.",
+    "table": {
+      "headers": [
+        "Test",
+        "Core question",
+        "What an answer must establish"
+      ],
+      "rows": [
+        [
+          "Attractiveness",
+          "Is the target area structurally attractive, or can it be made attractive?",
+          "A reasoned view of competitive structure rather than growth alone."
+        ],
+        [
+          "Cost of entry",
+          "Will the full cost of entering absorb the future benefits?",
+          "Acquisition or start-up costs plus the resources needed to develop, adapt and integrate."
+        ],
+        [
+          "Better-off / added value",
+          "Does the new business gain competitive advantage from the corporation, or vice versa?",
+          "An identifiable mechanism producing value beyond the businesses' independent performance."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Possible mechanisms behind the better-off test",
+        "body": "The course discusses operating and investment cost synergies, revenue synergies and financial synergies. In vertical settings, relationship-specific investments, double marginalization and free-riding problems can also matter. The relevant mechanism depends on the relationship between the businesses."
+      },
+      {
+        "title": "Six questions before diversifying",
+        "body": "The lecture also asks what the firm does better than competitors, what strategic assets the new market requires, whether it can catch up or leapfrog, whether entry would break apart assets that need to stay together, whether it can become a winner rather than merely a participant, and what it can learn from the move. Organizational ability to learn is part of the assessment."
+      }
+    ],
+    "steps": [
+      "Separate evidence for each test instead of treating one strong argument as sufficient.",
+      "Explain how the proposed link creates value and who must act to realize it.",
+      "Compare the proposed scope with feasible alternatives, including remaining independent."
+    ],
+    "limits": "Attractive demand does not establish a better-off effect. A vague claim of synergy also does not account for coordination and ownership costs.",
+    "recall": [
+      "Why can an attractive acquisition still fail the tests?",
+      "Its entry cost can consume the gains, or ownership can fail to create additional competitive advantage."
+    ],
+    "slides": [
+      [
+        3,
+        64,
+        "Six questions before diversification"
+      ],
+      [
+        3,
+        66,
+        "The three tests"
+      ],
+      [
+        3,
+        67,
+        "Attractiveness test"
+      ],
+      [
+        3,
+        68,
+        "Cost-of-entry test"
+      ],
+      [
+        3,
+        69,
+        "Better-off test"
+      ],
+      [
+        3,
+        70,
+        "Better-off mechanisms I"
+      ],
+      [
+        3,
+        71,
+        "Better-off mechanisms II"
+      ]
+    ],
+    "notes": [
+      5
+    ],
+    "session": 3
+  },
+  {
+    "slug": "internationalization",
+    "title": "CAGE & international market entry",
+    "tag": "Internationalization",
+    "summary": "Internationalization can describe both the extent of foreign-market participation and a strategy of expansion across borders. Country choice and entry mode should be assessed together because differences affect opportunities, capabilities, costs and control.",
+    "table": {
+      "headers": [
+        "Dimension / issue",
+        "What to compare",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Cultural distance",
+          "Differences in language, norms and customer understanding.",
+          "The existing offer and operating assumptions may require adaptation."
+        ],
+        [
+          "Administrative distance",
+          "Differences in institutions and administrative arrangements.",
+          "The firm must understand the local operating context."
+        ],
+        [
+          "Geographical distance",
+          "Physical separation and location conditions.",
+          "Distance affects coordination and the delivery system."
+        ],
+        [
+          "Economic distance",
+          "Differences in income levels and economic conditions.",
+          "Demand and the economics of the offer may differ."
+        ],
+        [
+          "Liability of foreignness",
+          "Additional costs relative to indigenous competitors.",
+          "Adaptation, governance and unfamiliarity can disadvantage an entrant."
+        ],
+        [
+          "Liability of outsidership",
+          "Lack of a relevant network position.",
+          "Trust, commitment and access to relationships must be built."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Five entry modes",
+        "body": "Exporting sells home-produced products abroad. Licensing gives a foreign partner authorized use of relevant assets. A joint venture establishes shared ownership with partners. Greenfield investment builds a wholly owned operation from scratch. Brownfield investment uses an existing firm or facility, including an acquisition of control. The lecture compares these through risk, resource commitment, organizational control and entry speed."
+      },
+      {
+        "title": "Measuring internationalization",
+        "body": "Distinguish intensity, such as the share of revenues abroad, from geographical spread, such as the number of countries, and concentration within regions. A single foreign revenue percentage does not describe all three."
+      },
+      {
+        "title": "Benefits and coordination costs",
+        "body": "The course discusses economies of scale, access to knowledge, location advantages and following customers. It also emphasizes added coordination complexity. The performance relationship shown in the lecture should be understood as a research pattern rather than a target percentage of foreign business."
+      }
+    ],
+    "steps": [
+      "Compare candidate markets using CAGE and relevant demand and competitive evidence.",
+      "Identify foreignness and network-access costs.",
+      "Select an entry mode consistent with the required control and available resources."
+    ],
+    "limits": "Similar geography is not the same as cultural or administrative fit. This page describes the 2023 course framework, not current country-specific guidance.",
+    "recall": [
+      "What is outsidership?",
+      "The disadvantage arising from not yet occupying a relevant position in local business networks."
+    ],
+    "slides": [
+      [
+        3,
+        74,
+        "Internationalization as state and action"
+      ],
+      [
+        3,
+        75,
+        "CAGE and market selection"
+      ],
+      [
+        3,
+        76,
+        "Risks, foreignness and outsidership"
+      ],
+      [
+        3,
+        77,
+        "Five entry modes"
+      ],
+      [
+        3,
+        78,
+        "Reasons for internationalization"
+      ],
+      [
+        3,
+        80,
+        "Intensity, spread and concentration"
+      ],
+      [
+        3,
+        81,
+        "Internationalization and performance"
+      ]
+    ],
+    "notes": [
+      6
+    ],
+    "session": 3
+  },
+  {
+    "slug": "growth-exit",
+    "title": "Growth modes, reorganization & divestiture",
+    "tag": "Growth and exit",
+    "summary": "A direction of growth is different from the means used to achieve it. The course compares organic development, network-based growth and acquired growth, and treats reorganization and divestiture as part of managing corporate scope.",
+    "table": {
+      "headers": [
+        "Choice",
+        "Mechanism",
+        "Strategic implication"
+      ],
+      "rows": [
+        [
+          "Organic growth",
+          "Enter a new business using and developing internal resources and capabilities.",
+          "Development depends on the firm's own capacity to build the required activities."
+        ],
+        [
+          "Network-based growth",
+          "Enter through an alliance or cooperative arrangement.",
+          "Access and learning depend on the relationship and its governance."
+        ],
+        [
+          "Acquired growth",
+          "Enter through a merger or acquisition.",
+          "Ownership changes, but integration and capability transfer still require work."
+        ],
+        [
+          "Reconfiguration",
+          "Add, combine, transfer, split or dissolve business entities.",
+          "Change the configuration of the portfolio."
+        ],
+        [
+          "Restructuring",
+          "Change the underlying organizational or financial structure.",
+          "Alter how the organization is arranged or financed."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Divestiture formats",
+        "body": "In a spin-off, shares in a separated business are distributed proportionately to existing shareholders. In a split-off, shareholders choose between shares in the parent and shares in the separated entity. A sell-off transfers the business to another firm; an equity carve-out sells a portion of a subsidiary's shares to public investors, typically while the parent retains considerable ownership. The course also lists liquidation."
+      },
+      {
+        "title": "Downscoping versus downscaling",
+        "body": "Downscoping narrows the range of businesses or markets. Downscaling reduces the resource base or output while keeping the scope intact. A reorganization can therefore reduce size without fundamentally changing the kinds of business the firm operates."
+      },
+      {
+        "title": "Ownership has costs",
+        "body": "The lecture highlights the administrative burden, incentives, capital allocation and political costs of bringing a stand-alone business inside a corporation. A complete growth decision compares the benefits with those costs."
+      }
+    ],
+    "steps": [
+      "Define the strategic objective before selecting a transaction or arrangement.",
+      "Compare internal development, cooperation and acquisition against that objective.",
+      "Distinguish changes in ownership, corporate scope and operating scale."
+    ],
+    "limits": "These are course-level conceptual descriptions of organizational choices, not transaction or legal advice. Growth and exit labels alone do not determine value creation.",
+    "recall": [
+      "How can a company become smaller without downscoping?",
+      "It can cut capacity or resources while continuing to operate in the same business areas."
+    ],
+    "slides": [
+      [
+        3,
+        88,
+        "Reconfiguration and restructuring"
+      ],
+      [
+        3,
+        89,
+        "Acquisition-based reconfiguration"
+      ],
+      [
+        3,
+        90,
+        "Acquired growth"
+      ],
+      [
+        3,
+        92,
+        "Costs of corporate ownership"
+      ],
+      [
+        3,
+        93,
+        "Organic growth"
+      ],
+      [
+        3,
+        94,
+        "Network-based growth"
+      ],
+      [
+        3,
+        95,
+        "Modes of diversification"
+      ],
+      [
+        3,
+        96,
+        "Divestiture and scope"
+      ],
+      [
+        3,
+        97,
+        "Divestiture transaction formats"
+      ]
+    ],
+    "notes": [
+      6
+    ],
+    "session": 3
+  }
+]

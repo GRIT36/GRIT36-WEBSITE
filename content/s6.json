@@ -1,0 +1,539 @@
+[
+  {
+    "slug": "renewal-foundations",
+    "title": "Strategic renewal: exploration & exploitation",
+    "tag": "Renewal foundations",
+    "summary": "Strategic renewal changes the organization’s existing path: its competences, assumptions, activities and relationship with the environment. The lecture contrasts selection pressures with managerial adaptation, and exploitation of existing strengths with exploration of new possibilities.",
+    "table": {
+      "headers": [
+        "Concept",
+        "Core meaning",
+        "What to watch"
+      ],
+      "rows": [
+        [
+          "Selection",
+          "Population ecology emphasizes structural inertia; institutional theory emphasizes industry norms; evolutionary views emphasize established routines.",
+          "Organizations can become locked into patterns that once worked."
+        ],
+        [
+          "Adaptation",
+          "Resource-based, dynamic-capability, behavioral, learning and strategic-choice views allow an active role for management.",
+          "Resources, slack, learning and managerial action affect the capacity to renew."
+        ],
+        [
+          "Exploitation",
+          "Refine existing competences, routines and fit. Associated with incremental change and single-loop learning.",
+          "A competence trap: continued success with existing skills makes alternatives harder to notice."
+        ],
+        [
+          "Exploration",
+          "Develop new competences, experiment and challenge assumptions. Associated with unlearning, double-loop learning and more radical change.",
+          "A renewal trap: repeated change without consolidation can prevent capabilities from becoming productive."
+        ],
+        [
+          "Internal renewal",
+          "New businesses, new products, downsizing and reorganization within the organization.",
+          "Can preserve control, but depends on internal resources and willingness to change."
+        ],
+        [
+          "External renewal",
+          "Mergers, takeovers, joint ventures and alliances.",
+          "Provides access to external capabilities, with integration and coordination demands."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Single-loop and double-loop learning",
+        "body": "Single-loop learning improves action while retaining the governing assumptions. Double-loop learning questions those assumptions: not only whether execution is efficient, but whether the chosen goal or operating logic still makes sense."
+      },
+      {
+        "title": "Renewal is not change for its own sake",
+        "body": "The lecture treats renewal as a transformation of competences and cognition, an adjustment of alignment, and an alteration of path dependence. An organization can change its chart repeatedly while leaving the underlying strategic assumptions untouched."
+      }
+    ],
+    "steps": [
+      "Identify what the current strategy exploits successfully.",
+      "Look for signals that existing competences are becoming less useful.",
+      "Define exploration that tests a new assumption, rather than merely adding activity.",
+      "Choose internal or external renewal mechanisms and plan how new learning will be retained."
+    ],
+    "limits": "Selection and adaptation are theoretical lenses. Neither establishes that managers have complete control or that change is impossible. Exploration and exploitation describe different learning needs; neither is universally superior.",
+    "recall": [
+      "How do the competence trap and renewal trap differ?",
+      "The competence trap overuses existing strengths and neglects alternatives. The renewal trap keeps changing without consolidating useful capabilities."
+    ],
+    "slides": [
+      [
+        6,
+        11,
+        "The concept of strategic renewal"
+      ],
+      [
+        6,
+        12,
+        "Selection and adaptation perspectives"
+      ],
+      [
+        6,
+        14,
+        "Exploitation"
+      ],
+      [
+        6,
+        15,
+        "The competence trap"
+      ],
+      [
+        6,
+        16,
+        "Exploration"
+      ],
+      [
+        6,
+        17,
+        "The renewal trap"
+      ],
+      [
+        6,
+        18,
+        "Exploration and exploitation"
+      ],
+      [
+        6,
+        19,
+        "Internal and external renewal"
+      ]
+    ],
+    "notes": [
+      9
+    ],
+    "session": 6
+  },
+  {
+    "slug": "flexibility",
+    "title": "Organizational flexibility",
+    "tag": "Environmental fit",
+    "summary": "Flexibility is a response to environmental demands, supported by management capabilities and organizational design. The lecture distinguishes rigid, planned, flexible and chaotic forms. More change is not automatically better: the required flexibility must be compared with the organization’s actual and potential flexibility.",
+    "table": {
+      "headers": [
+        "Organizational form",
+        "Environment and response",
+        "Capabilities and design"
+      ],
+      "rows": [
+        [
+          "Rigid",
+          "Stable, relatively simple and predictable conditions. Strategic programming and routines dominate.",
+          "Limited management repertoire; low maneuverability; mechanistic structure and conservative culture."
+        ],
+        [
+          "Planned",
+          "More dynamic and complex conditions that remain sufficiently predictable. Planning coordinates a response.",
+          "Operational flexibility; a moderate management repertoire and maneuverability."
+        ],
+        [
+          "Flexible",
+          "Hypercompetition: dynamic, complex and unpredictable conditions. Adaptation and learning become central.",
+          "Operational, structural and strategic flexibility; broad repertoire and high maneuverability; organic, innovative design."
+        ],
+        [
+          "Chaotic",
+          "Extremely turbulent conditions. Ad hoc problem solving and spontaneous responses dominate.",
+          "Broad repertoire but low maneuverability in the lecture’s summary matrix. A surplus of strategic flexibility need not produce coordinated action."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Actual versus potential flexibility",
+        "body": "Actual flexibility concerns management capabilities: operational flexibility changes the volume or mix of activities; structural flexibility changes how activities are organized; strategic flexibility changes the organization’s direction. Potential flexibility concerns maneuverability created by technology, structure and culture."
+      },
+      {
+        "title": "Run a flexibility audit",
+        "body": "The lecture compares required flexibility, derived from environmental scanning, with actual management capabilities and potential maneuverability. Gaps inform change trajectories, followed by attention to people, resources, time and evaluation."
+      }
+    ],
+    "steps": [
+      "Describe the environment’s dynamism, complexity and predictability.",
+      "Identify the required operational, structural and strategic responses.",
+      "Assess the organization’s current repertoire and maneuverability.",
+      "Specify a change trajectory with resources, timing and evaluation criteria."
+    ],
+    "limits": "The four forms are ideal types. An organization may contain different forms across units, and the same form can be appropriate in one environment and unsuitable in another.",
+    "recall": [
+      "Why is a broad management repertoire not enough?",
+      "Managers also need organizational maneuverability. Technology, structure and culture can prevent intended responses from being implemented."
+    ],
+    "slides": [
+      [
+        6,
+        26,
+        "The framework of organizational flexibility"
+      ],
+      [
+        6,
+        27,
+        "The rigid form"
+      ],
+      [
+        6,
+        28,
+        "The planned form"
+      ],
+      [
+        6,
+        29,
+        "The flexible form"
+      ],
+      [
+        6,
+        30,
+        "The chaotic form"
+      ],
+      [
+        6,
+        31,
+        "Four forms of organizational flexibility"
+      ],
+      [
+        6,
+        41,
+        "The flexibility audit"
+      ],
+      [
+        6,
+        42,
+        "Capabilities, design and environmental fit"
+      ]
+    ],
+    "notes": [
+      9
+    ],
+    "session": 6
+  },
+  {
+    "slug": "renewal-paths",
+    "title": "Renewal paths & the transition dip",
+    "tag": "Changing the organization",
+    "summary": "Renewal is a transition between organizational forms, not simply a decision to become more flexible. The lecture contrasts routinization with revitalization and illustrates the possibility of a temporary performance decline during transformation.",
+    "table": {
+      "headers": [
+        "Idea",
+        "What changes",
+        "Practical question"
+      ],
+      "rows": [
+        [
+          "Routinization",
+          "Activities become more established and coordinated; flexibility can narrow as patterns become fixed.",
+          "Which routines create reliability, and which now obstruct adaptation?"
+        ],
+        [
+          "Revitalization",
+          "The organization rebuilds its capacity to respond and renew.",
+          "Which management capabilities and design features need to change together?"
+        ],
+        [
+          "Transition dip",
+          "Performance may initially fall while old arrangements are disrupted and new ones are still developing.",
+          "What evidence would distinguish a learning period from a failing transition?"
+        ],
+        [
+          "Flexibility audit",
+          "Required, actual and potential flexibility are compared before selecting a change trajectory.",
+          "Is the problem a lack of managerial repertoire, a lack of maneuverability, or both?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Read the J-curve carefully",
+        "body": "The lecture’s J-curve is a conceptual illustration of an initial decline followed by improvement. It is not a promise of eventual recovery. A transition needs milestones, feedback and a way to revise the approach if the expected capabilities do not develop."
+      },
+      {
+        "title": "Design the journey, not only the destination",
+        "body": "A target organization may look coherent on paper while the transition creates contradictory demands. Use the flexibility audit to connect environmental needs with changes in capabilities, technology, structure and culture."
+      }
+    ],
+    "steps": [
+      "Establish the current organizational form and its strengths.",
+      "Identify the specific gap that renewal should close.",
+      "Sequence changes so that essential activities remain coordinated.",
+      "Track learning, capability development and performance through the transition."
+    ],
+    "limits": "The renewal paths and performance curve are conceptual tools. They do not predict the duration or size of a performance dip, and they do not justify continuing a failing change program indefinitely.",
+    "recall": [
+      "What does the transition dip tell a manager to do?",
+      "Plan for disruption and monitor whether new capabilities are actually emerging. A dip alone is not evidence that the transformation is working."
+    ],
+    "slides": [
+      [
+        6,
+        33,
+        "Routinization"
+      ],
+      [
+        6,
+        34,
+        "Revitalization"
+      ],
+      [
+        6,
+        39,
+        "Performance during strategic renewal"
+      ],
+      [
+        6,
+        41,
+        "The flexibility audit"
+      ]
+    ],
+    "notes": [
+      9
+    ],
+    "session": 6
+  },
+  {
+    "slug": "ambidexterity",
+    "title": "Organizational ambidexterity",
+    "tag": "Balancing competing demands",
+    "summary": "Ambidexterity is the capacity to pursue exploration and exploitation together. The lecture compares structural separation with a context that lets individuals balance both, and introduces four ways of combining different organizational forms.",
+    "table": {
+      "headers": [
+        "Approach",
+        "How the balance is created",
+        "Implication"
+      ],
+      "rows": [
+        [
+          "Structural ambidexterity",
+          "Exploration and exploitation are assigned to separate units or groups.",
+          "Senior management must coordinate the units and resolve competing demands."
+        ],
+        [
+          "Contextual ambidexterity",
+          "People balance exploration and exploitation within their work, supported by the organizational context.",
+          "The context must support judgment, initiative and cooperation."
+        ],
+        [
+          "Opposition",
+          "Different forms coexist across organizations, such as a flexible orchestrator with planned partners.",
+          "Coordination crosses organizational boundaries."
+        ],
+        [
+          "Location",
+          "Different forms occupy different organizational locations.",
+          "A flexible unit may operate within a more rigid organization."
+        ],
+        [
+          "Synthesis",
+          "Features of flexible and planned forms are combined.",
+          "Design must make the combination workable rather than merely contradictory."
+        ],
+        [
+          "Temporal separation",
+          "An organization shifts emphasis across time.",
+          "The ability to switch and retain learning becomes important."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Separation does not remove the integration problem",
+        "body": "Structurally separate units can protect exploration from short-term demands. They also create a need to decide where resources, knowledge and decisions should be shared. Contextual ambidexterity moves more of the balancing task into everyday work."
+      },
+      {
+        "title": "Choose the level at which the tension is handled",
+        "body": "The lecture’s alternatives locate the tension across organizations, across units, within an organizational design or across time. Make that choice explicit before assigning people conflicting goals."
+      }
+    ],
+    "steps": [
+      "Specify the exploitation activities that must remain reliable.",
+      "Specify what exploration needs protection or discretion.",
+      "Choose the level of separation or integration.",
+      "Create coordination mechanisms and criteria for resource allocation."
+    ],
+    "limits": "Ambidexterity is not an instruction to divide time equally between two activities. The appropriate balance and design depend on the tasks, time horizons and organizational context.",
+    "recall": [
+      "How do structural and contextual ambidexterity differ?",
+      "Structural ambidexterity separates activities into units; contextual ambidexterity enables individuals to balance the demands within their work."
+    ],
+    "slides": [
+      [
+        6,
+        44,
+        "Four forms of organizational ambidexterity"
+      ],
+      [
+        6,
+        46,
+        "Structural and contextual ambidexterity"
+      ]
+    ],
+    "notes": [
+      9
+    ],
+    "session": 6
+  },
+  {
+    "slug": "renewal-roles",
+    "title": "Four journeys of strategic renewal",
+    "tag": "Roles & integration",
+    "summary": "The lecture distinguishes renewal journeys by the exploration or exploitation orientation of top management and of middle/front-line management. Each journey assigns a different role to initiative, integration and industry rules.",
+    "table": {
+      "headers": [
+        "Renewal journey",
+        "Management orientation",
+        "Knowledge and integration logic"
+      ],
+      "rows": [
+        [
+          "Emergent",
+          "Top management: exploitation. Middle/front-line management: exploitation.",
+          "The market knows best. Limited integration, a holding-company logic, and following industry rules."
+        ],
+        [
+          "Directed",
+          "Top management: exploration. Middle/front-line management: exploitation.",
+          "Top management knows best. Hierarchical integration guides renewal and adapts industry rules."
+        ],
+        [
+          "Facilitated",
+          "Top management: exploitation. Middle/front-line management: exploration.",
+          "Middle/front-line management knows best. Loosely connected initiatives are supported and can influence industry rules."
+        ],
+        [
+          "Transformational",
+          "Top management: exploration. Middle/front-line management: exploration.",
+          "The organization knows best. High integration and tight connections support company-wide renewal and changing industry rules."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "A vocabulary for who initiates change",
+        "body": "The matrix helps distinguish renewal led from the top from renewal that emerges through lower-level initiatives. The associated integration patterns explain why the same initiative can develop differently in different organizational settings."
+      },
+      {
+        "title": "Passive and active renewal",
+        "body": "The lecture also contrasts a more passive response to environmental change with active managerial attempts to shape renewal. This is a question about agency and coordination, not simply whether a company announces a transformation program."
+      }
+    ],
+    "steps": [
+      "Identify where exploratory initiatives originate.",
+      "Assess what top and middle/front-line management are actually doing.",
+      "Map the integration mechanisms connecting initiatives.",
+      "Check whether that pattern fits the scale and coordination needs of the renewal."
+    ],
+    "limits": "These are ideal-type journeys, not a ranking from bad to good. A company can move between them, and units can exhibit different patterns at the same time.",
+    "recall": [
+      "What separates directed from facilitated renewal?",
+      "Directed renewal places exploration primarily at the top; facilitated renewal places it primarily in middle/front-line management."
+    ],
+    "slides": [
+      [
+        6,
+        49,
+        "Passive and active renewal"
+      ],
+      [
+        6,
+        50,
+        "Four journeys of strategic renewal"
+      ],
+      [
+        6,
+        51,
+        "Characteristics of renewal journeys"
+      ],
+      [
+        6,
+        52,
+        "Organizational patterns of renewal"
+      ],
+      [
+        6,
+        53,
+        "Summary of renewal"
+      ]
+    ],
+    "notes": [
+      9
+    ],
+    "session": 6
+  },
+  {
+    "slug": "leadership",
+    "title": "Transactional & transformational leadership",
+    "tag": "Leading renewal",
+    "summary": "The lecture contrasts leadership based on exchanges, coordination and established expectations with leadership that mobilizes people around changed values, aspirations and direction. The comparison provides a starting point for considering how leadership supports strategic renewal.",
+    "table": {
+      "headers": [
+        "Dimension",
+        "Transactional emphasis",
+        "Transformational emphasis"
+      ],
+      "rows": [
+        [
+          "Mechanism",
+          "Rewards, consequences and agreed exchanges.",
+          "Inspiration, enthusiasm and a shared direction."
+        ],
+        [
+          "Orientation",
+          "Responding within established arrangements.",
+          "Proactively challenging and changing arrangements."
+        ],
+        [
+          "Culture",
+          "Working with and developing the existing culture.",
+          "Changing the existing culture."
+        ],
+        [
+          "Activity",
+          "Planning and execution.",
+          "Innovation and renewal."
+        ],
+        [
+          "Motivation",
+          "Individual interests in the exchange.",
+          "Collective interests and shared purpose."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Connect leadership to the renewal task",
+        "body": "Reliable execution requires clear expectations and coordination. Renewal can also require people to reconsider established assumptions and commit to a different direction. The relevant question is which behaviors the task requires, rather than which label sounds more attractive."
+      },
+      {
+        "title": "Treat the slide as a simplified comparison",
+        "body": "The original classroom table draws strong contrasts. Actual leaders may combine behaviors, and a settled or turbulent environment does not mechanically determine one correct leadership style."
+      }
+    ],
+    "steps": [
+      "Identify what needs reliable execution and what needs reconsideration.",
+      "Make responsibilities and expectations clear.",
+      "Explain the purpose and implications of the proposed change.",
+      "Check whether leadership behavior supports both learning and delivery."
+    ],
+    "limits": "The comparison is a teaching device. Charisma alone is not evidence of effective leadership, and transformational language does not establish that a strategy is sound.",
+    "recall": [
+      "How can these leadership approaches support different tasks?",
+      "Transactional behaviors clarify exchanges and execution; transformational behaviors can mobilize changes in direction and assumptions. A renewal effort may require both."
+    ],
+    "slides": [
+      [
+        6,
+        10,
+        "Transactional versus transformational leadership"
+      ]
+    ],
+    "notes": [
+      9
+    ],
+    "session": 6
+  }
+]

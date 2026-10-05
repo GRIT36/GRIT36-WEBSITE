@@ -1,0 +1,612 @@
+[
+  {
+    "slug": "disruption",
+    "title": "Hypercompetition & invisible S-curves",
+    "tag": "Competitive change",
+    "summary": "A business model can lose strategic strength before its financial results deteriorate. The course contrasts relatively stable competition with hypercompetition, where advantages are shorter-lived and renewal must occur more frequently.",
+    "table": {
+      "headers": [
+        "Signal",
+        "What to inspect",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Competitive position curve",
+          "Developments at the edges of the market and organization.",
+          "The basis of advantage may be weakening before reported revenue changes."
+        ],
+        [
+          "Distinctive skills and capabilities curve",
+          "Whether the firm's capabilities and management perspectives are evolving.",
+          "An unchanged capability base may no longer match the emerging environment."
+        ],
+        [
+          "Talent curve",
+          "Whether the organization continues to attract, develop and retain relevant talent.",
+          "Losing future capabilities may be concealed by current financial performance."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Compare the two clock speeds",
+        "body": "The disruption test compares the rate of change in the industry with the rate of change in the firm. Long periods of incremental erosion call for a different rhythm than short periods of advantage punctuated by repeated disruption. Look beyond current competitors to new entrants, autonomous ventures and complementary outsiders."
+      },
+      {
+        "title": "Managerial responses in the lecture",
+        "body": "The lecture proposes attention to peripheral signals, timely changes in the composition of top management and proactive talent management. These are ways of responding to the invisible curves; they are not substitutes for defining the specific business model changes required."
+      }
+    ],
+    "steps": [
+      "Identify the dominant model and how its advantage is eroding.",
+      "Compare industry change with the firm's actual rate of adaptation.",
+      "Record signals for competitive position, capabilities and talent.",
+      "Decide which signals warrant investigation before financial decline becomes obvious."
+    ],
+    "limits": "The curves are a conceptual warning system, not a precise forecasting equation. Do not infer a fixed life span for every advantage from an illustrative chart.",
+    "recall": [
+      "Why can strong current results conceal a problem?",
+      "Financial results may lag deterioration in position, capabilities or talent."
+    ],
+    "slides": [
+      [
+        2,
+        14,
+        "Existing and emerging business logic"
+      ],
+      [
+        2,
+        15,
+        "Visible and invisible S-curves"
+      ],
+      [
+        2,
+        16,
+        "Stable competition and hypercompetition"
+      ],
+      [
+        2,
+        20,
+        "Sources of disruption"
+      ],
+      [
+        2,
+        21,
+        "The disruption test"
+      ]
+    ],
+    "notes": [
+      2,
+      3
+    ],
+    "session": 2
+  },
+  {
+    "slug": "business-model",
+    "title": "The Business Model Canvas",
+    "tag": "Business model",
+    "summary": "A business model describes the connected activities through which an organization meets a market need and captures value. The nine-block canvas makes that logic visible: customer choices, delivery arrangements and financial consequences should support one another.",
+    "diagram": "canvas",
+    "table": {
+      "headers": [
+        "Block",
+        "What it describes",
+        "Question to answer"
+      ],
+      "rows": [
+        [
+          "Customer segments",
+          "The groups the business chooses to serve.",
+          "Who is the offer designed for?"
+        ],
+        [
+          "Value propositions",
+          "The bundle of benefits offered to those groups.",
+          "What need is met and why does the offer matter?"
+        ],
+        [
+          "Channels",
+          "How the offer reaches customers.",
+          "How are awareness, access and delivery organized?"
+        ],
+        [
+          "Customer relationships",
+          "How interactions with each segment are maintained.",
+          "What relationship is needed to acquire and retain customers?"
+        ],
+        [
+          "Revenue streams",
+          "How the business receives economic returns.",
+          "What is paid for, by whom and through which mechanism?"
+        ],
+        [
+          "Key resources",
+          "The assets needed to make the model work.",
+          "What must be available or accessible?"
+        ],
+        [
+          "Key activities",
+          "The critical work required to deliver the proposition.",
+          "What must the organization do well?"
+        ],
+        [
+          "Key partnerships",
+          "The external relationships supporting the model.",
+          "Who contributes necessary resources or activities?"
+        ],
+        [
+          "Cost structure",
+          "The costs created by the model.",
+          "Which commitments drive the economics?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Read the connections",
+        "body": "Do not review the blocks as nine unrelated answers. Changing the customer relationship may alter channels, key activities and costs. A new revenue mechanism may require different capabilities. The model should explain how those choices fit together."
+      },
+      {
+        "title": "A canvas is a representation, not validation",
+        "body": "The course defines the business model through activities and their relationships, not simply a filled template. For study purposes, distinguish a description of the current model from a proposal for a future model and from evidence that the proposal works."
+      }
+    ],
+    "steps": [
+      "Start with a specific customer need and a clearly defined offer.",
+      "Connect delivery activities to the resources and partners they require.",
+      "Explain the revenue mechanism and cost consequences.",
+      "Mark untested assumptions before comparing the current and proposed models."
+    ],
+    "limits": "A complete canvas can still describe an unviable business. It organizes a hypothesis; it does not establish demand or profitability.",
+    "recall": [
+      "What makes the canvas a business model rather than a checklist?",
+      "The coherence of the relationships between value, delivery arrangements and economics."
+    ],
+    "slides": [
+      [
+        2,
+        24,
+        "Elements of a business model"
+      ],
+      [
+        2,
+        25,
+        "The original Business Model Canvas"
+      ]
+    ],
+    "notes": [
+      3
+    ],
+    "session": 2
+  },
+  {
+    "slug": "digital-models",
+    "title": "Four digital business model types",
+    "tag": "Business model",
+    "summary": "The course's digital business model matrix combines two dimensions: knowledge of the end customer, from partial to complete, and business design, from a value chain to an ecosystem. The resulting four positions imply different relationships and capabilities.",
+    "diagram": "digital",
+    "table": {
+      "headers": [
+        "Model",
+        "Position in the matrix",
+        "Characteristics"
+      ],
+      "rows": [
+        [
+          "Supplier",
+          "Value chain / partial customer knowledge",
+          "Sells through another company; can rely on low-cost production and incremental innovation, but may have limited direct customer access."
+        ],
+        [
+          "Omnichannel business",
+          "Value chain / complete customer knowledge",
+          "Coordinates an integrated value chain and a multiproduct, multichannel customer relationship."
+        ],
+        [
+          "Modular producer",
+          "Ecosystem / partial customer knowledge",
+          "Offers a plug-and-play product or service that can adapt to different ecosystems; relies on continued product or service innovation."
+        ],
+        [
+          "Ecosystem driver",
+          "Ecosystem / complete customer knowledge",
+          "Provides a platform and customer experience, connects third-party offers to customer needs and uses information across interactions."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "What changes between positions?",
+        "body": "The distinction is not simply whether a company has a website. It concerns access to the end customer, the scope of the experience it coordinates and how its offer connects with other participants. A shift toward an ecosystem can change both dependencies and the ability to capture value."
+      },
+      {
+        "title": "Use the axes explicitly",
+        "body": "Identify where customer knowledge comes from and which activities the firm coordinates. A company may combine activities associated with several positions, so specify the business being analyzed rather than forcing the whole company into one label."
+      }
+    ],
+    "steps": [
+      "Assess the depth of the direct end-customer relationship.",
+      "Map whether delivery follows a controlled chain or a broader ecosystem.",
+      "Identify the capabilities and dependencies implied by the chosen position."
+    ],
+    "limits": "The matrix is a simplification. A more expansive role does not automatically create more value or justify the resources needed.",
+    "recall": [
+      "How does a modular producer differ from an ecosystem driver?",
+      "The modular producer supplies an adaptable component; the driver coordinates a broader platform and customer relationship."
+    ],
+    "slides": [
+      [
+        2,
+        30,
+        "Four types of business models in a digital era"
+      ]
+    ],
+    "notes": [
+      3
+    ],
+    "session": 2
+  },
+  {
+    "slug": "renewal",
+    "title": "Replication, renewal & dual focus",
+    "tag": "Business model innovation",
+    "summary": "Business model replication develops and extends an existing logic; business model renewal changes the model more substantially. The lecture distinguishes fixation, a focus on one route and dual focus on both routes.",
+    "table": {
+      "headers": [
+        "Pattern",
+        "Replication",
+        "Renewal"
+      ],
+      "rows": [
+        [
+          "Fixation",
+          "Below-average emphasis",
+          "Below-average emphasis"
+        ],
+        [
+          "Focus on replication",
+          "Above-average emphasis",
+          "Below-average emphasis"
+        ],
+        [
+          "Focus on renewal",
+          "Below-average emphasis",
+          "Above-average emphasis"
+        ],
+        [
+          "Dual focus",
+          "Above-average emphasis",
+          "Above-average emphasis"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Performance evidence: keep the comparison intact",
+        "body": "The lecture's performance chart uses fixation as the reference point. It reports differences of 8% for focus on renewal, 13% for focus on replication and 18% for dual focus. These are relative performance differences in that slide, not profit margins, success probabilities or guaranteed effects for a particular firm. The slide does not provide enough methodology to turn those figures into a universal rule."
+      },
+      {
+        "title": "Context changes the result",
+        "body": "The following diagrams distinguish the performance patterns of replication and renewal and show that competitiveness in the environment changes the relationship. The right choice therefore depends on the context and on the extent of innovation, not just the attractiveness of the word 'renewal'."
+      },
+      {
+        "title": "Managing dual focus",
+        "body": "A company pursuing both routes must make resource and organizational choices visible. The course's practical guidance explicitly calls for managing conflicts between business models rather than hiding them."
+      }
+    ],
+    "steps": [
+      "Describe which parts of the existing model remain stable.",
+      "Identify whether proposed changes improve that logic or replace important relationships.",
+      "Assess environmental dynamism and competitive pressure.",
+      "Specify how competing resource claims will be resolved."
+    ],
+    "limits": "Replication and renewal are analytical distinctions, not moral rankings. More innovation does not imply better performance at every level.",
+    "recall": [
+      "What does '18%' mean on the course chart?",
+      "The reported performance difference for dual focus relative to the chart's reference group, not a forecast return."
+    ],
+    "slides": [
+      [
+        2,
+        34,
+        "Four patterns of business model innovation"
+      ],
+      [
+        2,
+        36,
+        "Patterns among Dutch firms"
+      ],
+      [
+        2,
+        37,
+        "Business model and performance"
+      ],
+      [
+        2,
+        38,
+        "Performance effects"
+      ],
+      [
+        2,
+        39,
+        "Effects under high competitiveness"
+      ]
+    ],
+    "notes": [
+      3,
+      4
+    ],
+    "session": 2
+  },
+  {
+    "slug": "transformation",
+    "title": "Business model transformation routes",
+    "tag": "Business model innovation",
+    "summary": "The innovation matrix combines replication versus renewal with strategy-driven versus customer-driven change. Its four routes link the direction of change to leadership, managerial involvement, knowledge absorption and organizational identity.",
+    "diagram": "transformation",
+    "table": {
+      "headers": [
+        "Route",
+        "Core change",
+        "Supporting conditions in the lecture"
+      ],
+      "rows": [
+        [
+          "Explore and dominate",
+          "Strategy-driven renewal: organization-wide transformation.",
+          "Transformational leadership; top and middle management; innovative culture; internal knowledge absorption; a new internal identity."
+        ],
+        [
+          "Explore and connect",
+          "Customer-driven renewal: upgrading to new customers.",
+          "Transformational leadership; top and frontline management; innovative customer-driven culture; external knowledge absorption; a new external identity."
+        ],
+        [
+          "Exploit and improve",
+          "Strategy-driven replication: directive improvement.",
+          "Transactional leadership; top management; internal knowledge absorption; competitive pressure; a strong internal identity."
+        ],
+        [
+          "Exploit and connect",
+          "Customer-driven replication: linking with existing customers.",
+          "Transactional leadership; top management; customer-driven culture; external knowledge absorption; high competitive pressure; a strong external identity."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Direction and mode are separate choices",
+        "body": "Customer-driven does not necessarily mean incremental, and strategy-driven does not necessarily mean radical. Either orientation can accompany replication or renewal. Use both axes when describing the transformation."
+      },
+      {
+        "title": "From a desired model to an organizational route",
+        "body": "The matrix helps connect a proposed model with the way change is mobilized. It asks which managerial levels should be involved, where knowledge will come from and which identity or cultural characteristics might support the route."
+      }
+    ],
+    "steps": [
+      "Define whether the intended change is mainly replication or renewal.",
+      "Clarify whether the direction is primarily strategy-driven or customer-driven.",
+      "Check leadership, managerial commitment, knowledge absorption and identity against the chosen route."
+    ],
+    "limits": "A firm can move between routes or combine them. The matrix does not prescribe a single universal sequence.",
+    "recall": [
+      "Which route links renewal with new customers?",
+      "Explore and connect."
+    ],
+    "slides": [
+      [
+        2,
+        41,
+        "Business Model Innovation Matrix"
+      ],
+      [
+        2,
+        43,
+        "Choosing a transformation journey"
+      ]
+    ],
+    "notes": [
+      4
+    ],
+    "session": 2
+  },
+  {
+    "slug": "levers",
+    "title": "Four levers of business model innovation",
+    "tag": "Business model innovation",
+    "summary": "Technology can enable new activities, but it is only one of the course's four levers. Management practices, organizational forms and co-creation affect whether an innovation can actually change how value is created and captured.",
+    "table": {
+      "headers": [
+        "Lever",
+        "What can change",
+        "What to examine"
+      ],
+      "rows": [
+        [
+          "Technology",
+          "Tools, infrastructure and technical possibilities.",
+          "Which activities become possible, cheaper, faster or more accessible?"
+        ],
+        [
+          "Management",
+          "Practices, processes and techniques for directing work.",
+          "Do decisions, feedback, accountability and resource allocation support the new model?"
+        ],
+        [
+          "Organizational forms",
+          "How work and relationships are arranged.",
+          "Do structures and coordination arrangements fit the required activities?"
+        ],
+        [
+          "Co-creation",
+          "Interaction with customers, suppliers, competitors and complementary participants.",
+          "Who contributes knowledge or activities that the firm cannot develop alone?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "An integrated approach",
+        "body": "The lecture warns that focusing on technology alone does not necessarily make a firm able to cope with disruption. Agile management, organizational redesign and continuous interaction with external participants illustrate the other mechanisms. Co-creation is treated as more than a one-off consultation."
+      },
+      {
+        "title": "Read the relative-effects chart carefully",
+        "body": "The supplied slide reports management, organizational-form and technology figures of 55%, 39% and 6% for replication, and 59%, 14% and 27% for renewal. Co-creation is excluded from that particular figure. Preserve this context: the chart is not an instruction to allocate a firm's budget in those proportions."
+      }
+    ],
+    "steps": [
+      "Start with the desired value-creation change.",
+      "Identify the required adjustments in all four levers.",
+      "Check whether changes reinforce or obstruct one another.",
+      "Assign ownership for coordination and communication."
+    ],
+    "limits": "Introducing a tool is not, by itself, proof of business model innovation. The claim requires a change in the activities or relationships that constitute the model.",
+    "recall": [
+      "Why are four separate improvement lists insufficient?",
+      "The levers need to support one coherent business model and its implementation."
+    ],
+    "slides": [
+      [
+        2,
+        45,
+        "Four levers"
+      ],
+      [
+        2,
+        47,
+        "Why one lever is insufficient"
+      ],
+      [
+        2,
+        48,
+        "Management practices"
+      ],
+      [
+        2,
+        49,
+        "Agile management"
+      ],
+      [
+        2,
+        51,
+        "Organizational forms"
+      ],
+      [
+        2,
+        52,
+        "Flexible forms"
+      ],
+      [
+        2,
+        53,
+        "Co-creation"
+      ],
+      [
+        2,
+        55,
+        "Relative effects of levers"
+      ],
+      [
+        2,
+        66,
+        "Seven do's and don'ts"
+      ]
+    ],
+    "notes": [
+      4
+    ],
+    "session": 2
+  },
+  {
+    "slug": "enablers",
+    "title": "Enablers & inhibitors of innovation",
+    "tag": "Business model innovation",
+    "summary": "The same transformation proposal can progress differently in different organizations. The course groups enabling and inhibiting conditions around culture, management, institutions, external orientation and organizational characteristics.",
+    "table": {
+      "headers": [
+        "Category",
+        "Factors in the course",
+        "Question for review"
+      ],
+      "rows": [
+        [
+          "Cultural",
+          "Leadership, identity, innovative culture and internal cooperation.",
+          "Does the organization make room for the behavior the proposed model needs?"
+        ],
+        [
+          "Managerial",
+          "CEO tenure and diversity of the management team.",
+          "Can leadership combine firm-specific knowledge with fresh perspectives?"
+        ],
+        [
+          "Institutional",
+          "Corporate governance and the surrounding institutional conditions.",
+          "Which arrangements enable or constrain the intended transformation?"
+        ],
+        [
+          "External orientation",
+          "Existing customer orientation and absorptive capacity.",
+          "Can the organization recognize and use relevant knowledge from outside?"
+        ],
+        [
+          "Organizational",
+          "Age and size.",
+          "Do established routines, communication and commitments support adaptation or create inertia?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "The existing-customer tension",
+        "body": "Customers can provide ideas, but an exclusive focus on current customers may inhibit renewal toward new customers. The lecture presents this as a tension between improving the existing offer and discovering needs beyond it, not as a reason to ignore customer evidence."
+      },
+      {
+        "title": "Translate diagnosis into action",
+        "body": "The teaching sequence asks both how to strengthen enablers and how to neutralize inhibitors. A factor only becomes useful in a strategy review when it is connected to a specific mechanism and an action that someone can take."
+      }
+    ],
+    "steps": [
+      "Name the preferred transformation route.",
+      "Identify the two or three conditions most likely to accelerate or obstruct it.",
+      "Specify an action, responsible person and observable signal for each condition."
+    ],
+    "limits": "Associations shown in teaching material should not be treated as deterministic laws. For example, a reported tenure pattern does not establish a universal ideal tenure for every CEO.",
+    "recall": [
+      "When can customer orientation inhibit renewal?",
+      "When attention to present customers prevents the firm from examining different needs or future customer groups."
+    ],
+    "slides": [
+      [
+        2,
+        58,
+        "Enablers of business model innovation"
+      ],
+      [
+        2,
+        61,
+        "CEO tenure"
+      ],
+      [
+        2,
+        63,
+        "Existing customers and renewal"
+      ],
+      [
+        2,
+        64,
+        "Age, size and inertia"
+      ],
+      [
+        2,
+        65,
+        "Accelerators and inhibitors"
+      ]
+    ],
+    "notes": [
+      4
+    ],
+    "session": 2
+  }
+]

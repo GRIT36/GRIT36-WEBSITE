@@ -1,0 +1,706 @@
+[
+  {
+    "slug": "synergy",
+    "title": "Synergy & its hidden costs",
+    "tag": "Corporate value",
+    "summary": "Synergy exists when businesses achieve greater value together than they could independently. The course distinguishes the mechanisms creating that gain and the coordination costs, reduced responsiveness and managerial biases that can offset it.",
+    "table": {
+      "headers": [
+        "Type",
+        "Mechanism",
+        "What to verify"
+      ],
+      "rows": [
+        [
+          "Operating cost synergy",
+          "Coordinate activities, pool purchasing or spread overheads.",
+          "Whether combined operating costs fall after coordination costs are included."
+        ],
+        [
+          "Investment synergy",
+          "Share facilities, capabilities or other capital-intensive resources.",
+          "Whether less total investment is needed for the required output."
+        ],
+        [
+          "Revenue synergy",
+          "Combine offers or capabilities to increase revenue or willingness to pay.",
+          "Whether the joint proposition creates additional customer value."
+        ],
+        [
+          "Financial synergy",
+          "Use a more effective internal capital market and company-wide financial advantages.",
+          "Whether funding access or financial conditions improve relative to independence."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Sources of interdependence",
+        "body": "The lecture identifies shared know-how, shared tangible resources, pooled negotiating power, coordinated strategies, vertical integration and combined business creation. These are mechanisms through which value might arise, not evidence that the value has already been realized."
+      },
+      {
+        "title": "The synergy–responsiveness tension",
+        "body": "A shared asset can make one unit dependent on another's timing. Shared designs may force compromises. Coordination consumes managerial attention, and cultural differences or incompatible incentives may obstruct cooperation. The gains from integration must exceed these costs and any loss of market responsiveness."
+      },
+      {
+        "title": "Four managerial biases",
+        "body": "Synergy bias overestimates benefits and underestimates costs. Upside bias overlooks negative consequences. Parenting bias assumes that forcing units to collaborate is the way to capture value. Skills bias assumes the necessary knowledge and capabilities are already available."
+      }
+    ],
+    "steps": [
+      "Name the specific activity, resource or relationship being combined.",
+      "Estimate gains and costs against a stand-alone comparison.",
+      "Identify dependencies, decision rights and implementation responsibilities.",
+      "Check whether the claimed value survives realistic coordination and response costs."
+    ],
+    "limits": "Do not present '1 + 1 > 2' as an assumption. It is the proposition that the analysis must establish.",
+    "recall": [
+      "How can sharing reduce performance?",
+      "It can introduce coordination costs, design compromises and delays that exceed the benefits."
+    ],
+    "slides": [
+      [
+        4,
+        20,
+        "Types of business interlinkages"
+      ],
+      [
+        4,
+        24,
+        "Activity and resource sharing"
+      ],
+      [
+        4,
+        26,
+        "Transferring skills and intangible resources"
+      ],
+      [
+        4,
+        28,
+        "Vertical integration"
+      ],
+      [
+        4,
+        37,
+        "Definitions and sources of synergy"
+      ],
+      [
+        4,
+        38,
+        "A conceptual comparison of combined returns"
+      ],
+      [
+        4,
+        39,
+        "Cost and revenue synergies"
+      ],
+      [
+        4,
+        41,
+        "Managerial biases"
+      ],
+      [
+        4,
+        42,
+        "Synergy and responsiveness"
+      ],
+      [
+        4,
+        45,
+        "Problems in realizing synergy"
+      ],
+      [
+        4,
+        50,
+        "Financial and inter-unit synergies"
+      ]
+    ],
+    "notes": [
+      6
+    ],
+    "session": 4
+  },
+  {
+    "slug": "parenting",
+    "title": "Corporate parenting roles",
+    "tag": "Corporate value",
+    "summary": "A corporate parent is the organizational layer above the business units, not necessarily only the central headquarters. It must explain how its involvement improves the businesses rather than simply increasing administration.",
+    "table": {
+      "headers": [
+        "Role",
+        "Value-creation emphasis",
+        "Typical arrangement"
+      ],
+      "rows": [
+        [
+          "Synergy manager",
+          "Sharing activities and tangible resources; transferring skills and intangible resources.",
+          "Interdependent divisions coordinate to create joint benefits."
+        ],
+        [
+          "Capital orchestrator",
+          "Funding and resource allocation across the portfolio.",
+          "More autonomous units are evaluated and financed with a company-wide view."
+        ],
+        [
+          "Parental developer",
+          "Apply the parent's distinctive resources or capabilities to improve businesses.",
+          "Intervene where the parent can help a unit achieve more of its potential."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Functions of the corporate center",
+        "body": "The course distinguishes value creation, administration or loss prevention, and external relationship management. Activities can include setting overall intent, challenging business strategies, monitoring performance, providing expertise, developing managers and enabling collaboration."
+      },
+      {
+        "title": "The parenting radar",
+        "body": "The radar organizes involvement around business direction and development, corporate resources and functions, operational engagement, inter-unit business synergies and company-wide financial synergies. It helps make the parent's proposed contribution explicit instead of treating involvement as an all-or-nothing choice."
+      },
+      {
+        "title": "A range of involvement",
+        "body": "The lecture compares hands-off owner, financial sponsor, synergy creator, strategic guide, functional leader and hands-on manager. These roles range from light to heavy involvement. The appropriate choice depends on the needs of the units and what the parent can genuinely supply."
+      }
+    ],
+    "steps": [
+      "Specify what each business needs from its parent.",
+      "Identify which parental capabilities are both relevant and available.",
+      "Set the degree of involvement and the corresponding decision rights.",
+      "Compare the contribution with the costs of intervention."
+    ],
+    "limits": "Ownership alone does not establish parenting advantage. If the parent cannot add value, keeping the business may require reconsideration.",
+    "recall": [
+      "What makes a parental developer different from a synergy manager?",
+      "It primarily applies the parent's own distinctive capabilities to units, rather than focusing on links between units."
+    ],
+    "slides": [
+      [
+        4,
+        12,
+        "The corporate parent"
+      ],
+      [
+        4,
+        13,
+        "Three corporate-center functions"
+      ],
+      [
+        4,
+        14,
+        "Potentially value-adding activities I"
+      ],
+      [
+        4,
+        15,
+        "Potentially value-adding activities II"
+      ],
+      [
+        4,
+        18,
+        "Synergy manager"
+      ],
+      [
+        4,
+        49,
+        "Capital orchestrator"
+      ],
+      [
+        4,
+        51,
+        "Internal capital allocation"
+      ],
+      [
+        4,
+        52,
+        "Benefits of an efficient internal capital market"
+      ],
+      [
+        4,
+        61,
+        "Portfolio versus integrated organization"
+      ],
+      [
+        4,
+        62,
+        "Three parenting roles"
+      ],
+      [
+        4,
+        63,
+        "Parental developer"
+      ],
+      [
+        4,
+        64,
+        "Parental strategy radar"
+      ],
+      [
+        4,
+        65,
+        "Six degrees of parental involvement"
+      ]
+    ],
+    "notes": [
+      6
+    ],
+    "session": 4
+  },
+  {
+    "slug": "diversification-ratios",
+    "title": "Measuring diversification",
+    "tag": "Portfolio analysis",
+    "summary": "The Wrigley/Rumelt classification uses revenue ratios to distinguish single, dominant, related and unrelated businesses. The lecture then separates related-constrained and related-linked portfolios by the strength of a common core.",
+    "table": {
+      "headers": [
+        "Measure / category",
+        "Course definition or threshold",
+        "Interpretation"
+      ],
+      "rows": [
+        [
+          "RS: specialization ratio",
+          "Revenue share attributable to the largest single business.",
+          "How dominant is the biggest business?"
+        ],
+        [
+          "RR: related ratio",
+          "Revenue share from the largest group of somehow related businesses.",
+          "How much of the portfolio is linked?"
+        ],
+        [
+          "RC: related-core ratio",
+          "Revenue share from the largest group sharing the same core skills, strengths or resources.",
+          "How extensive is the common core?"
+        ],
+        [
+          "Single business",
+          "RS ≥ 95%",
+          "Almost all revenue comes from one business."
+        ],
+        [
+          "Dominant business",
+          "70% ≤ RS < 95%",
+          "One business dominates, but other activities matter."
+        ],
+        [
+          "Related business",
+          "RS < 70% and RR ≥ 70%",
+          "A large related group extends beyond the largest unit."
+        ],
+        [
+          "Unrelated business",
+          "RS < 70% and RR < 70%",
+          "No sufficiently large related group meets the course threshold."
+        ],
+        [
+          "Related-constrained",
+          "Within related business: RC > (RS + RR) / 2",
+          "A stronger shared core across the portfolio."
+        ],
+        [
+          "Related-linked",
+          "Within related business: RC < (RS + RR) / 2",
+          "Links exist, but are less concentrated around one common core."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Classification requires judgment before arithmetic",
+        "body": "The ratios depend on how businesses are defined and which relationships count. Establish the units and describe their resource, activity or capability links before applying thresholds. Otherwise precise percentages can conceal arbitrary classifications."
+      },
+      {
+        "title": "What the measure does not say",
+        "body": "The classification describes the portfolio; it does not establish that a higher or lower diversification level is optimal. Performance also depends on the benefits of relatedness, costs of coordination and the parent's ability to manage the portfolio."
+      }
+    ],
+    "steps": [
+      "Define business units consistently and collect their revenue shares.",
+      "Identify the largest unit, related group and common-core group.",
+      "Calculate RS, RR and RC, then apply the course thresholds.",
+      "Explain the substantive links behind the classification."
+    ],
+    "limits": "The source slide uses strict inequalities for the two RC subcategories and does not specify the equality case. Do not silently invent a rule for that boundary.",
+    "recall": [
+      "Can a portfolio be related but only weakly common-core?",
+      "Yes. Related-linked businesses can share selected links without all drawing on one common core."
+    ],
+    "slides": [
+      [
+        3,
+        31,
+        "Diversification and performance"
+      ],
+      [
+        3,
+        32,
+        "Generic diversification–performance models"
+      ],
+      [
+        4,
+        29,
+        "Wrigley/Rumelt classification"
+      ],
+      [
+        4,
+        30,
+        "Definitions and thresholds"
+      ],
+      [
+        4,
+        36,
+        "Classification overview"
+      ]
+    ],
+    "notes": [
+      6
+    ],
+    "session": 4
+  },
+  {
+    "slug": "bcg",
+    "title": "The BCG growth–share matrix",
+    "tag": "Portfolio analysis",
+    "summary": "The BCG matrix compares relative market share with market growth. It provides a compact way to discuss the competitive position, cash generation and resource needs of businesses within a portfolio.",
+    "diagram": "bcg",
+    "table": {
+      "headers": [
+        "Quadrant",
+        "Growth / relative share",
+        "Question for allocation"
+      ],
+      "rows": [
+        [
+          "Stars",
+          "High growth / high relative share",
+          "What investment is needed to sustain the position as the market develops?"
+        ],
+        [
+          "Question marks",
+          "High growth / low relative share",
+          "Can a stronger position be achieved at an acceptable resource cost?"
+        ],
+        [
+          "Cash cows",
+          "Low growth / high relative share",
+          "How can cash generation be maintained and used appropriately?"
+        ],
+        [
+          "Dogs / pets",
+          "Low growth / low relative share",
+          "Is there a defensible role, a route to improvement or a reason to reduce commitment?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "The axes and bubbles",
+        "body": "Relative market share compares a business with a relevant competing position rather than treating its absolute share in isolation. The lecture's bubble representation uses the proportion of company revenue generated by a business. Keep that encoding distinct from market size, which appears in other portfolio representations."
+      },
+      {
+        "title": "The success sequence",
+        "body": "The teaching material uses movements between quadrants to discuss development and cash allocation. A high-growth business may need resources before it generates them; a strong position in a mature market may help finance other opportunities. This is a portfolio logic, not an automatic sequence every business follows."
+      }
+    ],
+    "steps": [
+      "Define each business and its relevant market consistently.",
+      "Plot growth and relative share using a common time period.",
+      "Record resource needs, cash contribution and inter-business links.",
+      "Treat the quadrant as an input to a reasoned allocation decision."
+    ],
+    "limits": "High share does not guarantee cash generation, and low share does not by itself justify exit. The matrix omits many capability, synergy and uncertainty considerations.",
+    "recall": [
+      "What distinguishes a star from a question mark?",
+      "Both occupy high-growth markets, but a star has high relative market share while a question mark has low relative share."
+    ],
+    "slides": [
+      [
+        1,
+        39,
+        "BCG matrix with quadrant labels"
+      ],
+      [
+        4,
+        55,
+        "Growth–share axes"
+      ],
+      [
+        4,
+        56,
+        "Business-unit bubbles"
+      ],
+      [
+        4,
+        57,
+        "The success sequence"
+      ]
+    ],
+    "notes": [
+      7
+    ],
+    "session": 4
+  },
+  {
+    "slug": "portfolio",
+    "title": "Portfolio matrices beyond BCG",
+    "tag": "Portfolio analysis",
+    "summary": "Different matrices address different allocation questions. The course compares market growth and share with competitive position, life-cycle stage, market attractiveness and the corporate parent's ability to add value.",
+    "table": {
+      "headers": [
+        "Framework",
+        "Dimensions",
+        "Main use"
+      ],
+      "rows": [
+        [
+          "Life-cycle / ADL matrix",
+          "Industry life-cycle stage × competitive position.",
+          "Connect development stage and strength to options such as expansion, holding, harvesting, turnaround or abandonment."
+        ],
+        [
+          "Directional policy / GE–McKinsey",
+          "Industry or market attractiveness × business competitive strength.",
+          "Discuss invest/grow, selective investment or earnings, and harvest/divest."
+        ],
+        [
+          "Advantage matrix",
+          "Size of potential competitive advantage × number of ways to achieve advantage.",
+          "Characterize the strategic environment."
+        ],
+        [
+          "MACS",
+          "Stand-alone value-creation potential × the parent's relative ability to extract value.",
+          "Ask whether this owner is well placed to realize the business's potential."
+        ],
+        [
+          "Parental fit / Ashridge",
+          "Fit of parenting opportunities and characteristics × misfit with critical success factors.",
+          "Examine whether the parent is helpful or potentially harmful."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Life-cycle decisions",
+        "body": "The lecture's matrix separates emergence, growth, maturity and decline or stagnation, alongside strong, average and weak competitive positions. It shows that a business's stage and strength matter jointly; the same action is not appropriate everywhere in a column or row."
+      },
+      {
+        "title": "Directional policy decisions",
+        "body": "Attractiveness and competitive strength can summarize several underlying criteria. The lecture's graphics also distinguish the size of a market and a business's share in it. Make the criteria and bubble encoding visible so that the graphic does not imply more precision than the inputs support."
+      },
+      {
+        "title": "From matrix to judgment",
+        "body": "A useful allocation discussion includes the reasons for the scores, sensitivity to different assumptions, cash needs, capability gaps and portfolio interdependencies. A colored cell should make the discussion easier to inspect, not substitute for it."
+      }
+    ],
+    "steps": [
+      "Choose the matrix that answers the actual decision question.",
+      "Define criteria, evidence and any weights before scoring.",
+      "Explain the proposed action and its consequences for the rest of the portfolio."
+    ],
+    "limits": "Matrix recommendations simplify a complex decision. Do not treat a position near a boundary as a sharp economic distinction.",
+    "recall": [
+      "How does MACS add a different question?",
+      "It includes whether this corporate parent is a better owner, rather than considering only the business's own attractiveness."
+    ],
+    "slides": [
+      [
+        4,
+        54,
+        "Comparison of corporate management matrices"
+      ],
+      [
+        4,
+        58,
+        "Life-cycle matrix"
+      ],
+      [
+        4,
+        59,
+        "Directional policy matrix"
+      ],
+      [
+        4,
+        60,
+        "Market size and share in the portfolio"
+      ]
+    ],
+    "notes": [
+      7
+    ],
+    "session": 4
+  },
+  {
+    "slug": "structure",
+    "title": "Strategy–structure alignment",
+    "tag": "Organization",
+    "summary": "The multidivisional form consists of operating divisions with their own functional hierarchies. The course compares cooperative, strategic-business-unit and competitive variants, showing how coordination should reflect the relatedness of businesses.",
+    "table": {
+      "headers": [
+        "M-form variant",
+        "Strategy association in the course",
+        "Coordination logic"
+      ],
+      "rows": [
+        [
+          "Cooperative form",
+          "Related-constrained diversification.",
+          "Divisions share important resources or activities and require significant interdivisional coordination."
+        ],
+        [
+          "Strategic business unit form",
+          "Related-linked diversification.",
+          "Related divisions are grouped within SBUs, with a further corporate level coordinating the groups."
+        ],
+        [
+          "Competitive form",
+          "Unrelated diversification.",
+          "Businesses are more autonomous; corporate functions emphasize financial and administrative oversight."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "What alignment means",
+        "body": "A structure distributes authority and determines which decisions are coordinated. Related businesses may benefit from shared planning or resources, but those arrangements create dependencies. Unrelated businesses may need autonomy while still being subject to performance monitoring and capital allocation."
+      },
+      {
+        "title": "Fit is a relationship",
+        "body": "The lecture emphasizes that different structures support different competitive and corporate strategies. The test is not whether an organization chart appears modern; it is whether the chart, control systems and managerial responsibilities support the chosen activities and interdependencies."
+      }
+    ],
+    "steps": [
+      "Specify where cross-business interdependence creates value.",
+      "Identify the decisions that must be coordinated and those best left local.",
+      "Check whether structure, responsibilities and control systems support that division."
+    ],
+    "limits": "The forms are simplified models. Real organizations may combine them, and a formal reporting line alone does not ensure cooperation.",
+    "recall": [
+      "Why might an unrelated portfolio use a competitive M-form?",
+      "Its businesses need less operational coordination and can be managed with greater autonomy and financial oversight."
+    ],
+    "slides": [
+      [
+        4,
+        66,
+        "Alignment of strategy and structure"
+      ],
+      [
+        4,
+        67,
+        "Three variants of the M-form"
+      ],
+      [
+        4,
+        68,
+        "Cooperative form"
+      ],
+      [
+        4,
+        69,
+        "SBU form"
+      ],
+      [
+        4,
+        70,
+        "Competitive form"
+      ]
+    ],
+    "notes": [
+      6
+    ],
+    "session": 4
+  },
+  {
+    "slug": "international-strategy",
+    "title": "International strategy & organization",
+    "tag": "Internationalization",
+    "summary": "International strategy involves a tension between global integration and local responsiveness. The course connects multidomestic, global and combined strategies to different arrangements of geographical and product responsibilities.",
+    "table": {
+      "headers": [
+        "Strategy",
+        "Operating emphasis",
+        "Organizational connection"
+      ],
+      "rows": [
+        [
+          "Multidomestic",
+          "Adapt products and decisions to local markets.",
+          "Geographical area structures give regions substantial responsibility."
+        ],
+        [
+          "Global",
+          "Standardize and integrate for efficiency.",
+          "Product divisions coordinate businesses across geographical markets."
+        ],
+        [
+          "Transnational",
+          "Combine local adaptation with global integration at a global level.",
+          "Shared product and geographical responsibilities require intensive coordination."
+        ],
+        [
+          "Regional combined strategy",
+          "Pursue integration and responsiveness within a regional scope.",
+          "The combined logic is applied at a regional rather than worldwide level."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Three design questions",
+        "body": "The lecture asks whether products should be standardized or adapted, whether assets and strategic or operational decisions should be centralized or decentralized, and whether geographical units should be independent or interdependent. These questions should be answered together."
+      },
+      {
+        "title": "Why the matrix appears",
+        "body": "When both product integration and regional response are important, a matrix can represent the two sets of responsibilities. Its benefit is attention to both dimensions; its challenge is the coordination required where authority and priorities overlap."
+      }
+    ],
+    "steps": [
+      "Identify which elements of the offer benefit from consistency and scale.",
+      "Identify which elements require local adaptation.",
+      "Allocate decisions and responsibilities to match those requirements."
+    ],
+    "limits": "The labels are not a progression toward one universally superior strategy. A combined strategy carries coordination costs that need to be justified.",
+    "recall": [
+      "What differentiates global and multidomestic strategies?",
+      "Global strategy emphasizes integration and standardization; multidomestic strategy emphasizes local adaptation and decentralized response."
+    ],
+    "slides": [
+      [
+        3,
+        82,
+        "Choosing an international strategy"
+      ],
+      [
+        4,
+        71,
+        "International strategy comparison"
+      ],
+      [
+        4,
+        72,
+        "Global, multidomestic and combined strategies"
+      ],
+      [
+        4,
+        73,
+        "Geographical area structure"
+      ],
+      [
+        4,
+        74,
+        "Product divisional structure"
+      ],
+      [
+        4,
+        75,
+        "Matrix structure"
+      ]
+    ],
+    "notes": [
+      6
+    ],
+    "session": 4
+  }
+]

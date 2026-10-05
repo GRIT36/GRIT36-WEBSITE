@@ -1,0 +1,829 @@
+[
+  {
+    "slug": "value-chain",
+    "title": "Value chain & activity systems",
+    "tag": "Internal analysis",
+    "summary": "Value-chain analysis identifies the activities through which an organization transforms inputs into outputs. The activity-system view then asks how resources and capabilities connect across those activities to support a strategic position.",
+    "table": {
+      "headers": [
+        "Activity group",
+        "Components in the lecture",
+        "Analysis focus"
+      ],
+      "rows": [
+        [
+          "Primary activities",
+          "Inbound logistics; operations; outbound logistics; marketing and sales; service.",
+          "How the offer is produced, delivered, sold and supported."
+        ],
+        [
+          "Support activities",
+          "Firm infrastructure; human resource management; technology; procurement.",
+          "How the organization enables and coordinates the primary activities."
+        ],
+        [
+          "Resources",
+          "Tangible and intangible assets available to the firm.",
+          "What the organization owns or can access."
+        ],
+        [
+          "Capabilities",
+          "What the firm can do with resources.",
+          "How resources are combined to perform activities."
+        ],
+        [
+          "Activity system",
+          "Interconnections among activities, resources and capabilities.",
+          "Whether the parts reinforce one strategic logic."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Do more than list departments",
+        "body": "For each activity, identify the resources and capabilities needed to perform it and assess whether they contribute to advantage. The value chain is about work and value creation; organizational departments may cut across several activities."
+      },
+      {
+        "title": "From isolated strengths to a system",
+        "body": "A strong resource may matter because it complements other activities. The activity-system diagram helps identify those relationships. This connects internal diagnosis with competitive positioning and with the corporate-level question of what can be shared or transferred between businesses."
+      }
+    ],
+    "steps": [
+      "Map the main activities required to deliver the offer.",
+      "Identify the resources and capabilities behind each one.",
+      "Locate important links and test whether they support the competitive position."
+    ],
+    "limits": "A diagram alone cannot establish advantage. Assess relative performance and customer relevance rather than marking every activity as a strength.",
+    "recall": [
+      "What does an activity-system view add to a value-chain list?",
+      "It makes the interconnections and mutual support between activities visible."
+    ],
+    "slides": [
+      [
+        5,
+        7,
+        "The value chain"
+      ],
+      [
+        5,
+        9,
+        "An activity-system model"
+      ],
+      [
+        4,
+        24,
+        "Sharing activities and resources"
+      ]
+    ],
+    "notes": [
+      8
+    ],
+    "session": 5
+  },
+  {
+    "slug": "vrino",
+    "title": "The VRINO framework",
+    "tag": "Internal analysis",
+    "summary": "VRINO examines whether a resource, routine, capability or competence can support sustained competitive advantage. The course uses five tests: Valuable, Rare, Inimitable, Non-substitutable and Organized.",
+    "table": {
+      "headers": [
+        "Test",
+        "Question",
+        "If the test is not met"
+      ],
+      "rows": [
+        [
+          "V — Valuable",
+          "Does it contribute to a relevant value-creation opportunity or response?",
+          "Possession alone does not support a competitive advantage."
+        ],
+        [
+          "R — Rare",
+          "Is it uncommon among the relevant competitors?",
+          "It may support parity rather than a distinctive position."
+        ],
+        [
+          "I — Inimitable",
+          "Is it difficult for competitors to copy?",
+          "Any distinctive benefit may be vulnerable to imitation."
+        ],
+        [
+          "N — Non-substitutable",
+          "Can a different resource or approach provide an equivalent benefit?",
+          "The advantage may be vulnerable to alternative solutions."
+        ],
+        [
+          "O — Organized",
+          "Is the firm organized to exploit it?",
+          "Potential value can remain unused."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Resources and deployment",
+        "body": "The first four tests concern the characteristics of what the firm possesses or can do. The final test asks whether organizational arrangements enable it to use that potential. A valuable asset with no supporting processes, authority or complementary activities may fail to deliver results."
+      },
+      {
+        "title": "A source detail worth preserving",
+        "body": "The original slide's I = No box reads 'Temporary Competitive disadvantage'. The image is retained unchanged. The study table describes the vulnerability to imitation without treating that wording as a universal classification. This is a source-label issue to verify, not a reason to alter the original slide."
+      },
+      {
+        "title": "Use the course's version",
+        "body": "The separate N test is part of the VRINO version used here. Keep it visible rather than silently replacing the framework with a shorter acronym encountered elsewhere."
+      }
+    ],
+    "steps": [
+      "Choose a specific resource or capability rather than an entire company.",
+      "Provide evidence for each of the five tests.",
+      "Identify whether the limiting issue is the asset itself or the organization that deploys it."
+    ],
+    "limits": "The assessment is relative to a competitive context and time period. Do not interpret 'inimitable' as a promise that a position can never be challenged.",
+    "recall": [
+      "Why is the O test necessary?",
+      "Because potential advantage does not automatically translate into results without appropriate organization."
+    ],
+    "slides": [
+      [
+        5,
+        8,
+        "The original VRINO decision framework"
+      ]
+    ],
+    "notes": [
+      1,
+      8
+    ],
+    "session": 5
+  },
+  {
+    "slug": "pestel",
+    "title": "PESTEL macro-environmental analysis",
+    "tag": "External analysis",
+    "summary": "PESTEL organizes changes in the wider environment into six categories. Its purpose in the course's analysis sequence is to identify relevant external developments before examining industry structure, competitors and customers.",
+    "table": {
+      "headers": [
+        "Dimension",
+        "Factors shown in the lecture",
+        "Question to consider"
+      ],
+      "rows": [
+        [
+          "Political",
+          "Government policy, political stability, trade and tax policy.",
+          "Which policy or institutional changes affect the business context?"
+        ],
+        [
+          "Economic",
+          "Growth, exchange rates, interest rates, inflation, disposable income and unemployment.",
+          "How could the conditions affecting demand and costs change?"
+        ],
+        [
+          "Social",
+          "Demographics, cultural norms, career attitudes, safety emphasis and lifestyles.",
+          "How are customer and workforce expectations evolving?"
+        ],
+        [
+          "Technological",
+          "Innovation, automation, R&D, technology change and awareness.",
+          "Which developments change the activities or capabilities required?"
+        ],
+        [
+          "Ecological",
+          "Weather, climate, environmental rules, recycling standards and stakeholder pressure.",
+          "Which environmental conditions affect operations or customer priorities?"
+        ],
+        [
+          "Legal",
+          "Employment, competition, consumer protection, intellectual property and health and safety rules.",
+          "Which formal requirements affect the operating context?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Relevance rather than exhaustiveness",
+        "body": "A useful analysis explains the route from a macro change to a business consequence. The categories help prevent omissions, but listing every possible issue produces little strategic guidance. Distinguish an observation, a possible development and an implication."
+      },
+      {
+        "title": "Link to the next level",
+        "body": "A macro change may influence entry barriers, supplier relationships, customer choices or the resources a firm needs. Carry that mechanism into industry and internal analysis before classifying it as an opportunity or threat in SWOT."
+      }
+    ],
+    "steps": [
+      "Define the business and planning horizon.",
+      "Select a small number of consequential developments across the six categories.",
+      "Explain the mechanism, evidence and uncertainty for each implication."
+    ],
+    "limits": "The categories overlap. This is an analytical framework, not an up-to-date description of any country's laws or economic conditions.",
+    "recall": [
+      "What makes a PESTEL item strategically useful?",
+      "A clear causal connection to the focal business and a decision-relevant implication."
+    ],
+    "slides": [
+      [
+        5,
+        11,
+        "PESTEL factors and examples"
+      ]
+    ],
+    "notes": [
+      8
+    ],
+    "session": 5
+  },
+  {
+    "slug": "strategic-groups",
+    "title": "Industry structure, life cycle & strategic groups",
+    "tag": "Industry analysis",
+    "summary": "The course separates three levels of industry analysis: industry characteristics, strategic groups and rivalry between specific competitors. These levels answer different questions and should not be collapsed into one competitor list.",
+    "table": {
+      "headers": [
+        "Level",
+        "What to study",
+        "Typical output"
+      ],
+      "rows": [
+        [
+          "Industry characteristics",
+          "Structure, life-cycle stage and competitive forces.",
+          "An assessment of the industry's basic competitive conditions."
+        ],
+        [
+          "Strategic groups",
+          "Similarities and differences among firms on relevant strategic dimensions.",
+          "A map of clusters occupying comparable positions."
+        ],
+        [
+          "Rivalry",
+          "Individual competitors' goals, assumptions, current actions and capabilities.",
+          "A reasoned view of likely behavior and responses."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Structure and life cycle",
+        "body": "The lecture compares monopoly, oligopoly, monopolistic competition and perfect competition through the number of firms, differentiation and competitive intensity. It also distinguishes introduction, growth, maturity and decline. These are analytical models; actual industries can show mixed characteristics."
+      },
+      {
+        "title": "Constructing a strategic-group map",
+        "body": "Strategic groups consist of firms with similar positions on relevant strategic dimensions. The lecture uses a two-dimensional representation for simplicity. Choose axes that explain meaningful differences in the focal industry, rather than selecting variables only because they are easy to measure."
+      },
+      {
+        "title": "Reading the map",
+        "body": "A cluster suggests a comparable configuration of choices, not identical firms. Examine how groups differ, whether positions are changing and which capabilities or commitments make movement difficult. Use competitor analysis for the behavior of a particular firm."
+      }
+    ],
+    "steps": [
+      "Describe industry structure and the relevant stage of development.",
+      "Select and justify two dimensions for a strategic-group map.",
+      "Map firms consistently, then investigate the most consequential groups and rivals."
+    ],
+    "limits": "A map reduces a multidimensional strategy to two axes. Empty space is not automatically an attractive opportunity.",
+    "recall": [
+      "Why separate strategic-group analysis from rivalry analysis?",
+      "One examines clusters of positions; the other examines specific competitors' behavior and likely responses."
+    ],
+    "slides": [
+      [
+        5,
+        13,
+        "Three levels of industry analysis"
+      ],
+      [
+        5,
+        14,
+        "Industry structure and life cycle"
+      ],
+      [
+        5,
+        17,
+        "Strategic groups"
+      ]
+    ],
+    "notes": [
+      8
+    ],
+    "session": 5
+  },
+  {
+    "slug": "competitor-analysis",
+    "title": "The four corners of competitor analysis",
+    "tag": "Industry analysis",
+    "summary": "To reason about a competitor's future strategy, examine its drivers, management assumptions, current strategy and capabilities. The course places these four perspectives around the question of what the competitor is likely to do next.",
+    "table": {
+      "headers": [
+        "Corner",
+        "Questions from the framework",
+        "What it reveals"
+      ],
+      "rows": [
+        [
+          "Drivers",
+          "What are its goals, purpose and priorities?",
+          "The outcomes it is motivated to pursue."
+        ],
+        [
+          "Management assumptions",
+          "How does it perceive itself and its environment? What does it take for granted?",
+          "The beliefs through which managers interpret events."
+        ],
+        [
+          "Current strategy",
+          "What is it doing? How is that affecting performance?",
+          "The pattern of actions already underway."
+        ],
+        [
+          "Capabilities",
+          "What can it do? What are its strengths and weaknesses?",
+          "The feasible responses available to it."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Distinguish intention from ability",
+        "body": "A competitor may want to respond but lack the required capabilities; it may possess resources without seeing a reason to use them. Keeping the four corners separate prevents a single observation, such as a strong product, from becoming a complete prediction."
+      },
+      {
+        "title": "Connect to customer analysis",
+        "body": "The adjacent course material asks who customers are, what they want, when they buy and how they choose among products. A competitor response only matters strategically in relation to the customers and market decisions being examined."
+      }
+    ],
+    "steps": [
+      "Record current evidence under each corner.",
+      "Explain how the four perspectives jointly support a proposed response.",
+      "Identify what new evidence would change that interpretation."
+    ],
+    "limits": "The framework structures an inference about future behavior. It does not provide direct access to management beliefs or establish certainty.",
+    "recall": [
+      "Why are management assumptions distinct from drivers?",
+      "Drivers concern desired outcomes; assumptions concern how the competitor interprets itself and the world."
+    ],
+    "slides": [
+      [
+        5,
+        19,
+        "Competitors' future strategy: four corners"
+      ],
+      [
+        5,
+        21,
+        "Customer and market analysis"
+      ]
+    ],
+    "notes": [
+      8
+    ],
+    "session": 5
+  },
+  {
+    "slug": "diagnosis",
+    "title": "SWOT as a synthesis of analysis",
+    "tag": "Strategic diagnosis",
+    "summary": "In the course sequence, SWOT is the result of internal and external analysis. Strengths and weaknesses concern the organization; opportunities and threats concern the environment. The useful work lies in explaining how these factors interact.",
+    "table": {
+      "headers": [
+        "Quadrant",
+        "Orientation",
+        "Evidence to bring"
+      ],
+      "rows": [
+        [
+          "Strengths",
+          "Internal / positive",
+          "Relevant resources, capabilities or activities that support the focal objective."
+        ],
+        [
+          "Weaknesses",
+          "Internal / negative",
+          "Internal limitations that obstruct the objective or response."
+        ],
+        [
+          "Opportunities",
+          "External / positive",
+          "Changes or conditions that could support value creation."
+        ],
+        [
+          "Threats",
+          "External / negative",
+          "Changes or conditions that could undermine it."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "The analysis feeding SWOT",
+        "body": "Internal inputs include value-chain, resource/capability and activity-system analysis. External inputs include macro-environmental analysis, industry and product-market analysis, customers and, in the expanded version, ecosystems. This sequence discourages unsupported brainstorming of adjectives."
+      },
+      {
+        "title": "From overview to interaction",
+        "body": "The lecture distinguishes a four-quadrant overview from analysis of relationships. Ask how a strength changes the ability to respond to an opportunity or threat, and how a weakness makes an external development more consequential."
+      },
+      {
+        "title": "The impact sheet",
+        "body": "One source slide places internal strengths and weaknesses in rows and external changes in columns, with positive and negative impact scores. Its role is to make interactions explicit. A numerical score needs a stated rationale; adding scores does not remove uncertainty or judgment."
+      }
+    ],
+    "steps": [
+      "Gather and classify evidence at the appropriate analytical level.",
+      "Select the factors material to the strategic question.",
+      "Describe the most important interactions and their implications.",
+      "Turn those implications into choices or further questions to investigate."
+    ],
+    "limits": "Do not classify the same vague statement in several boxes or treat a scored worksheet as an objective forecast. Explain the perspective and the mechanism.",
+    "recall": [
+      "Why does the course place SWOT after other analyses?",
+      "Because it should synthesize grounded findings rather than replace the work needed to establish them."
+    ],
+    "slides": [
+      [
+        5,
+        4,
+        "Internal and external analysis"
+      ],
+      [
+        5,
+        5,
+        "The analytical components"
+      ],
+      [
+        5,
+        23,
+        "From analysis to SWOT"
+      ],
+      [
+        5,
+        24,
+        "The SWOT overview"
+      ],
+      [
+        5,
+        25,
+        "Interactions between SWOT factors"
+      ],
+      [
+        5,
+        26,
+        "A scored interaction sheet"
+      ],
+      [
+        5,
+        27,
+        "Adding ecosystem analysis"
+      ]
+    ],
+    "notes": [
+      8
+    ],
+    "session": 5
+  },
+  {
+    "slug": "ecosystem",
+    "title": "Ecosystems, complements & structure",
+    "tag": "Ecosystems",
+    "summary": "An ecosystem links multiple actors through complementary contributions to a value proposition without placing them all under one hierarchy. The analysis asks how joint value comes about and which interdependencies must be aligned.",
+    "table": {
+      "headers": [
+        "Concept",
+        "Meaning in the course",
+        "Analytical consequence"
+      ],
+      "rows": [
+        [
+          "Complementarity",
+          "One product, activity or asset improves or enables the value of another.",
+          "Assess the contribution to the combined proposition."
+        ],
+        [
+          "Generic complementarity",
+          "Contributions can be combined without specific coordination or a shared modular standard.",
+          "A complementary product alone does not establish a tightly coordinated ecosystem."
+        ],
+        [
+          "Non-generic complementarity",
+          "The actors' contributions require more specific alignment.",
+          "Examine the relationships and mutual dependencies."
+        ],
+        [
+          "Platform-centered ecosystem",
+          "A platform plays a central role in creating and capturing value.",
+          "Identify platform owner, interface provider, producer and customer roles; actors can occupy multiple roles."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Four steps of ecosystem-as-structure",
+        "body": "First, specify the discrete activities required for the focal proposition. Second, identify the actors undertaking them. Third, locate the actors in the activity flow: who hands off to whom? Fourth, map the links, including transfers of data, funds and materials. The unit of analysis is the proposition and its alignment requirements."
+      },
+      {
+        "title": "Different value systems",
+        "body": "The lecture compares arm's-length market transactions, activities integrated under a common corporate parent, supplier-mediated chains governed through bilateral contracts and ecosystems with multilateral complementary contributions. A supplier list alone cannot show which logic is operating."
+      },
+      {
+        "title": "The ecosystem pie model",
+        "body": "The source diagram extends the map to resources, activities, value addition, value capture and dependence for each participant. These dimensions help separate what an actor contributes from what it receives and how much it relies on the wider system."
+      }
+    ],
+    "steps": [
+      "Define the focal customer value rather than beginning with company names.",
+      "Map activities, actors, positions and links.",
+      "Examine each important participant's contribution, benefit and dependence."
+    ],
+    "limits": "Not every network of relationships is an ecosystem in the course's specific sense. Make the type of complementarity and coordination explicit.",
+    "recall": [
+      "Why start with a value proposition?",
+      "It establishes which activities and actors must align for the intended value to become real."
+    ],
+    "slides": [
+      [
+        5,
+        32,
+        "Mapping blurring industry boundaries"
+      ],
+      [
+        5,
+        35,
+        "Ecosystem conceptualization"
+      ],
+      [
+        5,
+        36,
+        "Four value-system logics"
+      ],
+      [
+        5,
+        37,
+        "Ecosystems versus other value systems"
+      ],
+      [
+        5,
+        39,
+        "Complementarity"
+      ],
+      [
+        5,
+        40,
+        "Platform-centered roles"
+      ],
+      [
+        5,
+        42,
+        "Ecosystem-as-structure: four steps"
+      ],
+      [
+        5,
+        43,
+        "The ecosystem pie model"
+      ]
+    ],
+    "notes": [
+      8
+    ],
+    "session": 5
+  },
+  {
+    "slug": "alliances",
+    "title": "Alliance forms & governance",
+    "tag": "Alliances",
+    "summary": "Alliances coordinate activities across firm boundaries. The lecture distinguishes equity-based arrangements from contractual arrangements, alongside other associational forms, and explains how the form affects commitment and coordination.",
+    "table": {
+      "headers": [
+        "Form",
+        "Core arrangement",
+        "What to distinguish"
+      ],
+      "rows": [
+        [
+          "Equity joint venture",
+          "Partners establish a separate jointly owned entity.",
+          "The entity coexists with its owners; ownership, governance, risks and returns are shared."
+        ],
+        [
+          "Cooperative",
+          "Members jointly own and run an organization providing services to them.",
+          "The course emphasizes democratic control and benefits linked to patronage rather than a conventional JV's shareholding logic."
+        ],
+        [
+          "Minority participation / cross-shareholding",
+          "Firms take non-controlling equity positions.",
+          "A relationship can be established without creating a new entity."
+        ],
+        [
+          "Vertical contractual alliance",
+          "A long-term arrangement across different supply-chain stages.",
+          "Supplier–buyer or distribution relationships with intended joint benefits."
+        ],
+        [
+          "Horizontal contractual alliance",
+          "Cooperation at the same or similar value-chain stage.",
+          "Joint R&D, production, distribution, marketing or branding."
+        ],
+        [
+          "Licensing",
+          "Authorized use of specified assets or intellectual property for negotiated compensation.",
+          "Define the field of use, exclusivity, duration and payment structure."
+        ],
+        [
+          "Franchising",
+          "A broader license to use a business formula.",
+          "Includes an operating approach and often continuing support, training and controls."
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "Licensing versus franchising",
+        "body": "In the lecture, all franchising arrangements are a form of licensing, but not all licensing includes a franchise. A franchise normally coordinates a broader set of practices and identity elements, so the relationship involves more than permission to use one asset."
+      },
+      {
+        "title": "Alliance or acquisition?",
+        "body": "The decision framework compares the nature of synergies, the resources involved, redundant resources, market uncertainty and competition for resources. It associates different combinations with nonequity alliances, equity alliances or acquisitions. Use the original decision table below to examine the dimensions together rather than choosing from one isolated factor."
+      }
+    ],
+    "steps": [
+      "Define the joint objective and the resources each party contributes.",
+      "Compare the required commitment, control and coordination.",
+      "Choose a form consistent with those requirements and plan how the relationship will evolve."
+    ],
+    "limits": "The classifications are the course's conceptual descriptions. A particular agreement's consequences depend on its actual design and context.",
+    "recall": [
+      "Must an alliance create a new company?",
+      "No. Contractual alliances and direct equity participation can coordinate firms without forming a new entity."
+    ],
+    "slides": [
+      [
+        5,
+        45,
+        "Forms of interorganizational interaction"
+      ],
+      [
+        5,
+        46,
+        "Equity alliances"
+      ],
+      [
+        5,
+        47,
+        "Equity joint ventures"
+      ],
+      [
+        5,
+        48,
+        "Cooperatives"
+      ],
+      [
+        5,
+        49,
+        "Minority stakes and cross-shareholdings"
+      ],
+      [
+        5,
+        50,
+        "Contractual alliance types"
+      ],
+      [
+        5,
+        51,
+        "Vertical contractual agreements"
+      ],
+      [
+        5,
+        52,
+        "Horizontal contractual agreements"
+      ],
+      [
+        5,
+        53,
+        "Licensing"
+      ],
+      [
+        5,
+        54,
+        "Franchising"
+      ],
+      [
+        5,
+        55,
+        "Overview of alliance forms"
+      ],
+      [
+        5,
+        57,
+        "When to ally and when to acquire"
+      ]
+    ],
+    "notes": [
+      9
+    ],
+    "session": 5
+  },
+  {
+    "slug": "alliance-management",
+    "title": "Partner selection, coopetition & alliance dynamics",
+    "tag": "Alliances",
+    "summary": "The choice of a partner is only the beginning. Alliance performance depends on the fit of contributions and the continuing management of interdependence, uncertainty and changing objectives after formation.",
+    "table": {
+      "headers": [
+        "Selection criterion",
+        "Meaning",
+        "Question to examine"
+      ],
+      "rows": [
+        [
+          "Complementarity",
+          "Valuable, non-overlapping resources and capabilities.",
+          "What does the partner contribute that we do not already have?"
+        ],
+        [
+          "Compatibility",
+          "Fit in culture, working practices and decision-making style.",
+          "Can the organizations work together effectively?"
+        ],
+        [
+          "Commitment",
+          "Willingness to provide the resources needed, including when minor sacrifices arise.",
+          "Will the partner continue to support the agreed objective?"
+        ],
+        [
+          "Trust and resource quality",
+          "Relevant competence, goodwill, reputation and prior ties.",
+          "Are the contributions reliable, and what opportunism or coordination risks remain?"
+        ]
+      ]
+    },
+    "sections": [
+      {
+        "title": "The alliance sequence",
+        "body": "The course describes a progression from deciding to ally, selecting a partner and choosing a form to alliance management and eventual termination. The first steps belong to formation; the later steps concern post-formation management. Launching the alliance does not complete the strategic work."
+      },
+      {
+        "title": "Coopetition",
+        "body": "Firms may cooperate and compete simultaneously across distinct product markets, geographical markets or stages of the value chain. Specify which activities are cooperative and which remain competitive rather than applying one label to the whole relationship."
+      },
+      {
+        "title": "Six dimensions that can change",
+        "body": "The lecture lists the collaboration's goals, organizational structure, contractual frame, interaction style, decision-making control and actor composition. A periodic review should examine those dimensions because an arrangement that once fit the relationship may no longer do so."
+      }
+    ],
+    "steps": [
+      "Establish the objective and assess complementarity, compatibility and commitment.",
+      "Agree how contributions, decisions and interdependencies will be managed.",
+      "Review the six changing dimensions during the relationship.",
+      "Plan how adjustment or termination would be handled."
+    ],
+    "limits": "Past relationships and trust can help, but do not remove the need to examine current capabilities, incentives and coordination complexity.",
+    "recall": [
+      "What is the difference between complementarity and compatibility?",
+      "Complementarity concerns what the partner adds; compatibility concerns whether the organizations can work together."
+    ],
+    "slides": [
+      [
+        5,
+        56,
+        "The alliance life cycle"
+      ],
+      [
+        5,
+        59,
+        "Reasons for strategic alliances"
+      ],
+      [
+        5,
+        60,
+        "Motives across market types"
+      ],
+      [
+        5,
+        61,
+        "Three partner traits"
+      ],
+      [
+        5,
+        62,
+        "Resource quality, trust and coordination risk"
+      ],
+      [
+        5,
+        63,
+        "Coopetition"
+      ],
+      [
+        5,
+        64,
+        "Post-formation management"
+      ],
+      [
+        5,
+        65,
+        "Six changing dimensions of collaboration"
+      ]
+    ],
+    "notes": [
+      9
+    ],
+    "session": 5
+  }
+]

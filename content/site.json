@@ -1,0 +1,163 @@
+{
+  "version": "1.1",
+  "updated": "2026-10-06",
+  "sessions": [
+    {
+      "n": 1,
+      "title": "Foundations of strategy",
+      "en": "Introduction to Strategic Management",
+      "date": "6 September 2023",
+      "intro": "Why do some firms outperform others? Start with industry position and internal capabilities, then examine how strategies are designed, planned, learned and revised.",
+      "takeaways": [
+        "Separate industry attractiveness from a firm's ability to compete.",
+        "Understand the assumptions behind the six strategy schools.",
+        "Connect competitive positioning to the activities and resources that support it."
+      ],
+      "notes": [
+        1,
+        2
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Business model innovation",
+      "en": "Disruption, replication and renewal",
+      "date": "13 September 2023",
+      "intro": "Understand how a business creates and captures value, why its model becomes vulnerable, and how technology, management, organization and co-creation support change.",
+      "takeaways": [
+        "Read the warning signs before financial performance deteriorates.",
+        "Distinguish replication, renewal and dual focus.",
+        "Match the transformation route to the organization's capabilities and context."
+      ],
+      "notes": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Corporate scope & growth",
+      "en": "Diversification, Internationalization & Divestiture",
+      "date": "20 September 2023",
+      "intro": "Decide which businesses, value-chain stages and geographies belong within the firm. Evaluate entry, growth and exit through a clear value-creation logic.",
+      "takeaways": [
+        "Define the horizontal, vertical and geographical scope of the firm.",
+        "Test industry attractiveness, entry costs and the better-off proposition.",
+        "Compare internal development, alliances, acquisitions and divestiture."
+      ],
+      "notes": [
+        5,
+        6
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Managing the portfolio",
+      "en": "Multidivisional Strategy",
+      "date": "27 September 2023",
+      "intro": "Examine how a corporate parent creates value across businesses, allocates resources and organizes the trade-off between synergy and responsiveness.",
+      "takeaways": [
+        "Specify the source of synergy and the cost of achieving it.",
+        "Choose parenting roles and portfolio tools that fit the decision.",
+        "Align structure with relatedness and international strategy."
+      ],
+      "notes": [
+        6,
+        7
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Analysis, ecosystems & alliances",
+      "en": "Ecosystems & Alliances",
+      "date": "4 October 2023",
+      "intro": "Build a grounded strategic diagnosis, then extend the lens beyond firm and industry boundaries to complementary actors and cooperative arrangements.",
+      "takeaways": [
+        "Use internal and external analysis as inputs to SWOT.",
+        "Map the activities, actors, positions and links behind a value proposition.",
+        "Understand alliance forms, partner selection and post-formation dynamics."
+      ],
+      "notes": [
+        8,
+        9
+      ]
+    },
+    {
+      "n": 6,
+      "title": "Strategic renewal",
+      "en": "Corporate Entrepreneurship & Flexible Forms",
+      "date": "11 October 2023",
+      "intro": "Study how organizations renew their direction and capabilities while balancing today's business with exploration of tomorrow's opportunities.",
+      "takeaways": [
+        "Distinguish exploitation from exploration and recognize both traps.",
+        "Match flexibility to environmental requirements.",
+        "Understand ambidexterity and the roles of management in renewal."
+      ],
+      "notes": [
+        9
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "slug": "ccs",
+      "code": "CCS",
+      "title": "Competitive & Corporate Strategy",
+      "desc": "Industry, advantage, business models, corporate scope and renewal.",
+      "priority": 1,
+      "ready": true
+    },
+    {
+      "slug": "bn",
+      "code": "BN",
+      "title": "Business Negotiations",
+      "desc": "Interests, alternatives, preparation and the design of agreements.",
+      "priority": 1,
+      "ready": false
+    },
+    {
+      "slug": "pm",
+      "code": "PM",
+      "title": "Product Management",
+      "desc": "Customer problems, product choices and the validation of value.",
+      "priority": 1,
+      "ready": false
+    },
+    {
+      "slug": "msda",
+      "code": "MSDA",
+      "title": "Marketing and Sales in the Digital Age",
+      "desc": "Reaching customers and translating value into commercial results.",
+      "priority": 2,
+      "ready": false
+    },
+    {
+      "slug": "sa",
+      "code": "SA",
+      "title": "Strategic Analytics",
+      "desc": "Using evidence to test assumptions and inform strategic choices.",
+      "priority": 2,
+      "ready": false
+    },
+    {
+      "slug": "sub",
+      "code": "SUB",
+      "title": "Scaling-up Businesses",
+      "desc": "Developing an effective business into a sustainable organization.",
+      "priority": 2,
+      "ready": false
+    }
+  ],
+  "notes": [
+    "Strategy, industry structure and resource-based advantage",
+    "The strategy schools and business model innovation",
+    "Competitive change, the canvas and digital business models",
+    "Transformation routes and the levers of innovation",
+    "Strategy levels, corporate scope and diversification",
+    "Internationalization and the multidivisional organization",
+    "Portfolio matrices and resource allocation",
+    "Strategic analysis, SWOT and ecosystems",
+    "Alliances and strategic renewal"
+  ]
+}
