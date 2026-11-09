@@ -86,33 +86,34 @@ body{background-color:#2C1946;background-image:radial-gradient(ellipse at 12% 5%
 .summary .summary-actions{justify-content:center;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.summary-radiance::before{animation:none}.summary-fireworks .firework{animation:none;transform:scale(.55);opacity:.6}}
 </style>
-<link rel="stylesheet" href="assets/learning-history.css?v=1.083">
-<link rel="stylesheet" href="assets/automatiseren.css?v=1.083">
-<link rel="stylesheet" href="assets/feedback-motion.css?v=1.083">
+<link rel="stylesheet" href="assets/learning-history.css?v=1.084">
+<link rel="stylesheet" href="assets/automatiseren.css?v=1.084">
+<link rel="stylesheet" href="assets/feedback-motion.css?v=1.084">
 </head>
 <body><div class="app" id="app"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/learning-history.js?v=1.083"></script>
-<link rel="stylesheet" href="assets/learning-insights.css?v=1.083">
-<script src="assets/learning-insights.js?v=1.083"></script>
-<script src="assets/history-delete.js?v=1.083"></script>
-<script src="assets/answer-ribbon.js?v=1.083"></script>
-<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.083">
-<script src="assets/automatiseren.js?v=1.083"></script>
-<script src="assets/math-timed.js?v=1.083"></script>
-<script src="assets/home-music.js?v=1.083"></script>
-<script src="assets/reading-data.js?v=1.083"></script>
-<script src="assets/reading-recording.js?v=1.083"></script>
-<script src="assets/reading-felix.js?v=1.083"></script>
-<script src="assets/reading.js?v=1.083"></script>
-<script src="assets/reading-full.js?v=1.083"></script>
-<link rel="stylesheet" href="assets/reading.css?v=1.083">
-<link rel="stylesheet" href="assets/home-music.css?v=1.083">
-<link rel="stylesheet" href="assets/meander.css?v=1.083">
-<script src="assets/meander.js?v=1.083"></script>
+<script src="assets/learning-history.js?v=1.084"></script>
+<link rel="stylesheet" href="assets/learning-insights.css?v=1.084">
+<script src="assets/learning-insights.js?v=1.084"></script>
+<script src="assets/history-delete.js?v=1.084"></script>
+<script src="assets/answer-ribbon.js?v=1.084"></script>
+<link rel="stylesheet" href="assets/answer-ribbon.css?v=1.084">
+<script src="assets/automatiseren.js?v=1.084"></script>
+<script src="assets/math-timed.js?v=1.084"></script>
+<script src="assets/home-music.js?v=1.084"></script>
+<script src="assets/reading-data.js?v=1.084"></script>
+<script src="assets/reading-recording.js?v=1.084"></script>
+<script src="assets/reading-felix.js?v=1.084"></script>
+<script src="assets/reading.js?v=1.084"></script>
+<script src="assets/reading-full.js?v=1.084"></script>
+<link rel="stylesheet" href="assets/reading.css?v=1.084">
+<link rel="stylesheet" href="assets/home-music.css?v=1.084">
+<link rel="stylesheet" href="assets/meander.css?v=1.084">
+<script src="assets/meander.js?v=1.084"></script>
+<script src="assets/naut.js?v=1.084"></script>
 <script>
 const STORAGE_KEY="wordCornerData_v2";
-const APP_VERSION="V1.083";
+const APP_VERSION="V1.084";
 const SUPABASE_URL="https://cnhgylfzfrhvxmgrvddm.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_pL3j2Udqqmw-AqhWVTvWtA_7_D-zJOi";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
@@ -159,14 +160,14 @@ function startStudyMusic(){
  if(!audioSettings.music)return;
  const resultMusic=state.session?.finished&&state.mode!=="flashcard";
  const ratio=state.session?.correct/state.session?.total;
- const source=(state.mode==="flashcard"||(state.mode==="reading"&&state.session?.finished))?AUDIO.flashcardMusic:resultMusic?(ratio<.5?AUDIO.emotional:["math","geography"].includes(state.mode)&&ratio>.5?AUDIO.rainingTacos:AUDIO.brainrot):AUDIO.music;
+ const source=(state.mode==="flashcard"||(state.mode==="reading"&&state.session?.finished))?AUDIO.flashcardMusic:resultMusic?(ratio<.5?AUDIO.emotional:["math","geography","science"].includes(state.mode)&&ratio>.5?AUDIO.rainingTacos:AUDIO.brainrot):AUDIO.music;
  if(!studyMusic||studyMusic.dataset.source!==source){stopStudyMusic();studyMusic=new Audio(source);studyMusic.dataset.source=source}
  studyMusic.loop=!resultMusic;
  studyMusic.volume=MUSIC_LEVELS[audioSettings.musicLevel].volume;
  studyMusic.play().catch(()=>{})
 }
 function stopStudyMusic(){if(studyMusic){studyMusic.pause();studyMusic.currentTime=0}}
-function toggleAudioSetting(name){audioSettings[name]=!audioSettings[name];saveAudioSettings();if(name==="sound"&&!audioSettings.sound)stopSound();if(name==="music"){if(audioSettings.music&&["study","math","geography"].includes(state.view))startStudyMusic();else stopStudyMusic()}render()}
+function toggleAudioSetting(name){audioSettings[name]=!audioSettings[name];saveAudioSettings();if(name==="sound"&&!audioSettings.sound)stopSound();if(name==="music"){if(audioSettings.music&&["study","math","geography","science"].includes(state.view))startStudyMusic();else stopStudyMusic()}render()}
 function clearCelebration(){if(celebrationTimer){clearTimeout(celebrationTimer);celebrationTimer=null}}
 const SAMPLE_WORDS=[
 ["afleiden","分散注意力","zorgen dat iemands aandacht ergens anders heen gaat","Het lawaai kon hem niet afleiden tijdens de wedstrijd.","噪音没能让他在比赛中分心。"],
@@ -296,7 +297,7 @@ async function uploadCustomImage(wordId,file){
 }
 function getList(){return DATA.lists.find(x=>x.id===state.listId)}
 let state={view:"home",filter:"Alle",listId:null,mode:null,session:null,modal:null};
-function render(){checkAnswerRibbon();updateLearningClock();document.getElementById("app").innerHTML=(state.view==="readingFull"?readingFullPage():state.view==="readingMenu"?readingMenu():state.view==="reading"?readingPage():state.view==="geography"?geoPage():state.view==="math"?mathPage():state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
+function render(){checkAnswerRibbon();updateLearningClock();document.getElementById("app").innerHTML=(state.view==="readingFull"?readingFullPage():state.view==="readingMenu"?readingMenu():state.view==="reading"?readingPage():state.view==="geography"?geoPage():state.view==="science"?nautPage():state.view==="math"?mathPage():state.view==="home"?home():state.view==="detail"?detail():state.view==="history"?historyPage():study())+`<div class="version-tag">${APP_VERSION}</div>`; if(state.modal)modal(); handlers()}
 function home(){
  const isTest=l=>l.name.trim()==="🚀Test🚀";
  let cs={Alle:DATA.lists.length,Oudste:0,Jongste:0};DATA.lists.forEach(l=>{if(!isTest(l))cs[l.kid]=(cs[l.kid]||0)+1});
@@ -307,6 +308,7 @@ function home(){
  <div class="tabs">${["Alle","Oudste","Jongste"].map(k=>`<button class="kid-tab ${state.filter===k?"active":""}" data-filter="${k}" data-kid="${k}"><b>${k==="Alle"?"📋":k==="Oudste"?"🦉":"🐓"} ${kidLabel(k)}</b><div class="meta">${cs[k]} woordenlijsten</div></button>`).join("")}</div>
  ${(state.filter==="Alle"?["Felix","Max"]:[state.filter==="Oudste"?"Felix":"Max"]).map((owner,i)=>`<button class="math-entry" id="${i===0?"openMath":"openMathMax"}" data-math-owner="${owner}"><span><strong>${owner==="Max"?"🏁":"🏎️"} Automatiseren</strong><small>${owner==="Max"?"Max Groep 4":"Felix Groep 6 · 21 vragen"}</small></span><span aria-hidden="true">›</span></button><button class="math-entry" data-math-owner="${owner}" data-math-timed="true"><span><strong>⏱️ Automatiseren · Tijdtoets</strong><small>${owner} · 1 minuut · alleen sommen</small></span><span aria-hidden="true">›</span></button>`).join("")}
  ${ls.length?ls.map(l=>`<div class="list-row" data-open="${l.id}"><span class="dot ${l.kid==="Oudste"?"ge":"di"}"></span><div class="info"><div class="name">${esc(l.name)}</div><div class="meta">${isTest(l)?"":esc(kidLabel(l.kid))+" · "}${l.words.length} woorden</div></div><b>›</b></div>`).join(""):`<div class="empty"><h3>Nog geen woordenlijsten</h3>Klik rechtsonder op “Nieuwe woordenlijst” om te beginnen</div>`}
+ ${["Alle","Oudste"].includes(state.filter)?`<button class="math-entry geo-entry" id="openNaut"><span><strong>🌿 Naut - Leven en overleven</strong><small>Felix Groep 6 · 20 vragen</small></span><span aria-hidden="true">›</span></button>`:""}
  ${["Alle","Oudste"].includes(state.filter)?`<button class="math-entry geo-entry" id="openGeo"><span><strong>🌍 Meander - Verschillen in landschap</strong><small>Felix Groep 6 · 10 vragen</small></span><span aria-hidden="true">›</span></button>`:""}
  ${["Alle","Oudste"].includes(state.filter)?`<button class="math-entry" id="openReadingFelix"><span><strong>📖 Hardop lezen · Snelle Sam</strong><small>Felix Groep 6 · 2 hoofdstukken · A / B / C</small></span><span aria-hidden="true">›</span></button>`:""}
  ${["Alle","Jongste"].includes(state.filter)?`<button class="math-entry" id="openReading"><span><strong>📖 Hardop lezen</strong><small>Max Groep 4 · Les 8–11 · A / B</small></span><span aria-hidden="true">›</span></button>`:""}
@@ -418,6 +420,7 @@ function handlers(){
  historySummaryShortcut();historyHandlers();
  mathHandlers();
  if(typeof geoHandlers==="function")geoHandlers();
+ if(typeof nautHandlers==="function")nautHandlers();
  else document.getElementById("openGeo")?.addEventListener("click",()=>alert("De aardrijkskundemodule ontbreekt. Upload ook de volledige assets-map van deze versie en vernieuw de pagina."));
  musicVolumeControls();
  document.querySelectorAll("[data-search-image]").forEach(img=>{

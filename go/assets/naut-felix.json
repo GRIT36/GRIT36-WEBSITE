@@ -1,0 +1,361 @@
+{
+  "title": "🌿 Naut - Leven en overleven",
+  "owner": "Felix",
+  "source": "Naut Groep 5–6 Thema 9 · Leven en overleven",
+  "note": "Oefenvragen op basis van Les 1 Geuren en kleuren, Les 2 Manieren van leven en Les 3 Voortplanting.",
+  "questions": [
+    {
+      "id": "naut-1",
+      "type": "single",
+      "topic": "bescherming",
+      "text": "Wat is een pantser?",
+      "options": [
+        "Een harde bescherming om kwetsbare delen van een dier",
+        "Een geur waarmee een dier zijn territorium markeert",
+        "Een opvallende kleur om vijanden te waarschuwen",
+        "Een groep samenlevende dieren"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Een pantser beschermt kwetsbare delen van het lichaam, bijvoorbeeld bij een schildpad."
+    },
+    {
+      "id": "naut-2",
+      "type": "single",
+      "topic": "bescherming",
+      "text": "Welke kleur helpt een dier om niet op te vallen in zijn omgeving?",
+      "options": [
+        "De alarmkleur",
+        "De schutkleur",
+        "De kleur van zijn territorium",
+        "De rangorde"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Een schutkleur laat een dier opgaan in zijn omgeving."
+    },
+    {
+      "id": "naut-3",
+      "type": "single",
+      "topic": "bescherming",
+      "text": "Wat betekent een geel-zwarte alarmkleur van een wesp meestal?",
+      "options": [
+        "Ik ben ongevaarlijk",
+        "Pas op: ik kan gevaarlijk of giftig zijn",
+        "Ik zoek een kudde",
+        "Ik ben een planteneter"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Een alarmkleur is opvallend en geeft een waarschuwing af."
+    },
+    {
+      "id": "naut-4",
+      "type": "single",
+      "topic": "bescherming",
+      "text": "Waarom lijkt een zweefvlieg op een wesp?",
+      "options": [
+        "Hij wil een pantser krijgen",
+        "Hij wil zijn prooi beter zien",
+        "Hij fopt vijanden doordat hij gevaarlijk lijkt",
+        "Hij wil in een kudde leven"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Een niet-giftig dier kan een gevaarlijk dier nadoen om vijanden te foppen."
+    },
+    {
+      "id": "naut-5",
+      "type": "single",
+      "topic": "samenleven",
+      "text": "Wat betekent sociaal leven?",
+      "options": [
+        "Alleen leven",
+        "In een groep leven",
+        "Alleen in een territorium leven",
+        "Leven zonder voedsel"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Dieren die sociaal leven, leven in een groep."
+    },
+    {
+      "id": "naut-6",
+      "type": "single",
+      "topic": "samenleven",
+      "text": "Wat is een voordeel van solitair leven voor een roofdier?",
+      "options": [
+        "Het hoeft prooi niet met andere volwassen soortgenoten te delen",
+        "Het hoeft nooit op gevaar te letten",
+        "Het krijgt altijd een alarmkleur",
+        "Het leeft automatisch in een kudde"
+      ],
+      "answer": [
+        0
+      ],
+      "explanation": "Een solitair dier hoeft zijn prooi niet te delen met andere volwassen soortgenoten."
+    },
+    {
+      "id": "naut-7",
+      "type": "single",
+      "topic": "samenleven",
+      "text": "Wat is een territorium?",
+      "options": [
+        "De plek van een dier in de rangorde",
+        "Een eigen leefgebied waar een dier voedsel zoekt en jongen verzorgt",
+        "Een harde bescherming om een dier",
+        "Een groep samenlevende zoogdieren"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "In een territorium zoekt een dier voedsel en verzorgt het jongen; indringers worden vaak verjaagd."
+    },
+    {
+      "id": "naut-8",
+      "type": "single",
+      "topic": "dieren",
+      "text": "Welke eigenschap past het best bij een planteneter?",
+      "options": [
+        "Ogen aan de voorkant voor diepte zien",
+        "Hoektanden om prooi te verscheuren",
+        "Ogen aan de zijkant van de kop",
+        "Klauwen om stil te sluipen"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Planteneters hebben vaak ogen aan de zijkant, zodat zij veel van hun omgeving kunnen zien."
+    },
+    {
+      "id": "naut-9",
+      "type": "single",
+      "topic": "dieren",
+      "text": "Waarvoor gebruikt een roofdier hoektanden?",
+      "options": [
+        "Om gras af te knippen",
+        "Om prooi te doden en te verscheuren",
+        "Om stuifmeel te maken",
+        "Om een territorium te ruiken"
+      ],
+      "answer": [
+        1
+      ],
+      "explanation": "Roofdieren gebruiken hoektanden om prooi te doden en vlees te verscheuren."
+    },
+    {
+      "id": "naut-10",
+      "type": "single",
+      "topic": "voortplanting",
+      "text": "Wat is bevruchting?",
+      "options": [
+        "Als een jong eigenschappen van één ouder krijgt",
+        "Als stuifmeel op een stamper komt",
+        "Als het zaadje van een mannetje versmelt met het eitje van een vrouwtje",
+        "Als een plant uit een stekje groeit"
+      ],
+      "answer": [
+        2
+      ],
+      "explanation": "Bij bevruchting versmelt een zaadje met een eitje."
+    },
+    {
+      "id": "naut-11",
+      "type": "multi",
+      "topic": "bescherming",
+      "text": "Welke dingen kunnen dieren met geurstoffen doen?",
+      "options": [
+        "Vijanden afstoten",
+        "Een territorium afbakenen",
+        "Soortgenoten aantrekken om voort te planten",
+        "Hoektanden maken"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Geurstoffen kunnen afschrikken, een territorium markeren en soortgenoten aantrekken."
+    },
+    {
+      "id": "naut-12",
+      "type": "multi",
+      "topic": "samenleven",
+      "text": "Welke uitspraken over een kudde en rangorde zijn juist?",
+      "options": [
+        "Een kudde is een groep samenlevende zoogdieren",
+        "De rangorde is de plek van een dier in een groep",
+        "Het sterkste dier staat vaak bovenaan",
+        "Alle dieren in een kudde leven solitair"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "In een kudde leven zoogdieren samen. De rangorde geeft de plaats van een dier in de groep aan."
+    },
+    {
+      "id": "naut-13",
+      "type": "multi",
+      "topic": "dieren",
+      "text": "Welke kenmerken passen bij roofdieren?",
+      "options": [
+        "Ogen naar voren gericht",
+        "Lenig lijf",
+        "Poten met klauwen",
+        "Bijna nooit hoektanden"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Roofdieren hebben vaak ogen naar voren, een lenig lijf en klauwen. Hoektanden zijn juist belangrijk."
+    },
+    {
+      "id": "naut-14",
+      "type": "multi",
+      "topic": "dieren",
+      "text": "Welke kenmerken passen bij planteneters die grazen?",
+      "options": [
+        "Oren die alle kanten op kunnen draaien",
+        "Lange nek of lange benen",
+        "Stevige hoeven",
+        "Kussentjes onder de poten om stil te sluipen"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Grazers hebben vaak ogen aan de zijkant, beweeglijke oren, lange poten en stevige hoeven."
+    },
+    {
+      "id": "naut-15",
+      "type": "multi",
+      "topic": "voortplanting",
+      "text": "Welke uitspraken over bestuiving en bloemen zijn juist?",
+      "options": [
+        "Stuifmeelkorrels komen van meeldraden",
+        "Bij bestuiving komen stuifmeelkorrels op de stamper",
+        "Bijen en andere insecten kunnen helpen bij bestuiving",
+        "Na bevruchting groeit de onderkant van de stamper uit tot een vrucht met zaden"
+      ],
+      "answer": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Meeldraden maken stuifmeel. Bij bestuiving komt het op de stamper. Daarna kan bevruchting plaatsvinden en kan een vrucht met zaden groeien."
+    },
+    {
+      "id": "naut-16",
+      "type": "multi",
+      "topic": "voortplanting",
+      "text": "Welke uitspraken over stekken zijn juist?",
+      "options": [
+        "Een nieuw plantje groeit uit een stukje van de moederplant",
+        "Je kunt stekken van een stengel, blad of wortel maken",
+        "Een stekje heeft precies dezelfde eigenschappen als de moederplant",
+        "Voor stekken zijn altijd meeldraden nodig"
+      ],
+      "answer": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Stekken is voortplanting zonder stamper en meeldraden. Het nieuwe plantje is gelijk aan de moederplant."
+    },
+    {
+      "id": "naut-17",
+      "type": "match",
+      "topic": "begrippen",
+      "text": "Verbind elk begrip met de juiste betekenis.",
+      "pairs": [
+        [
+          "het pantser",
+          "harde bescherming om kwetsbare delen"
+        ],
+        [
+          "de schutkleur",
+          "kleur waardoor een dier niet opvalt"
+        ],
+        [
+          "de alarmkleur",
+          "opvallende waarschuwing voor gevaar"
+        ]
+      ],
+      "explanation": "Een pantser beschermt. Een schutkleur verstopt. Een alarmkleur waarschuwt."
+    },
+    {
+      "id": "naut-18",
+      "type": "match",
+      "topic": "samenleven",
+      "text": "Verbind elk begrip met de juiste uitleg.",
+      "pairs": [
+        [
+          "sociaal leven",
+          "leven in een groep"
+        ],
+        [
+          "solitair leven",
+          "alleen leven"
+        ],
+        [
+          "het territorium",
+          "eigen leefgebied van een dier"
+        ]
+      ],
+      "explanation": "Sociaal betekent in een groep, solitair betekent alleen. Een territorium is het eigen leefgebied."
+    },
+    {
+      "id": "naut-19",
+      "type": "match",
+      "topic": "bloem",
+      "text": "Verbind het deel van de bloem met de juiste omschrijving.",
+      "pairs": [
+        [
+          "de stamper",
+          "vrouwelijke deel met eitjes"
+        ],
+        [
+          "de meeldraad",
+          "mannelijke deel met stuifmeelkorrels"
+        ],
+        [
+          "de bestuiving",
+          "stuifmeel komt op de stamper"
+        ]
+      ],
+      "explanation": "De stamper is vrouwelijk en bevat eitjes. De meeldraad is mannelijk en draagt stuifmeel."
+    },
+    {
+      "id": "naut-20",
+      "type": "match",
+      "topic": "dieren",
+      "text": "Verbind de eigenschap met het dier dat erbij past.",
+      "pairs": [
+        [
+          "ogen aan de zijkant",
+          "planteneter"
+        ],
+        [
+          "hoektanden",
+          "roofdier"
+        ],
+        [
+          "kussentjes onder de poten",
+          "roofdier dat stil sluipt"
+        ]
+      ],
+      "explanation": "Planteneters moeten veel van hun omgeving kunnen zien. Roofdieren gebruiken hoektanden en kunnen met zachte poten stil sluipen."
+    }
+  ]
+}
